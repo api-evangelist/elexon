@@ -1,0 +1,131 @@
+aid: elexon
+url: https://raw.githubusercontent.com/api-evangelist/elexon/refs/heads/main/apis.yml
+name: Elexon
+kind: company
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Electricity
+  - Energy
+  - UK Energy Market
+  - Balancing Mechanism
+  - Settlement
+  - Meter Readings
+  - Market Transparency
+  - BMRS
+  - Electricity Grid
+  - Power Generation
+  - United Kingdom
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+description: >-
+  Elexon is the UK's Balancing and Settlement Code (BSC) Company, responsible for
+  administering the electricity balancing and settlement arrangements in Great Britain.
+  As the operator of the Balancing Mechanism Reporting Service (BMRS), Elexon publishes
+  a publicly accessible REST API — the Insights Solution API — that provides free, no-key
+  access to real-time and historical data from the UK electricity market. The API covers
+  balancing mechanism dynamic and physical data per Balancing Mechanism Unit (BMU),
+  bid-offer acceptances, balancing services adjustments, physical notifications, generation
+  availability forecasts, settlement reports, meter readings, and UK market transparency
+  data mandated under European legislation. All data is returned in JSON, XML, or CSV
+  format. A companion near-real-time push service (IRIS — Insights Real-time Information
+  Service) streams the same datasets over WebSocket/STOMP for latency-sensitive consumers.
+  The API is freely accessible to industry participants and the public with no registration
+  or API key required, and data may be reused with attribution ("Contains BMRS data
+  © Elexon Limited copyright and database right").
+apis:
+  - aid: elexon:insights-solution-api
+    name: Elexon Insights Solution API
+    tags:
+      - Balancing Mechanism
+      - Physical Notifications
+      - Bid-Offer
+      - Acceptances
+      - Balancing Services Adjustment
+      - Generation Forecasts
+      - Demand Data
+      - Settlement
+      - Market Transparency
+      - Meter Data
+      - Electricity
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://data.elexon.co.uk/bmrs/api/v1
+    humanURL: https://developer.data.elexon.co.uk/
+    description: >-
+      The Elexon Insights Solution API is a publicly accessible REST API providing
+      free access to UK electricity balancing and settlement data. The API requires
+      no authentication or API key and serves production-grade data continuously.
+      Endpoints are grouped into Dataset Endpoints (raw published data, including
+      superseded historical records), Opinionated Endpoints (specific use-case queries
+      such as demand evolution or generation availability), Streaming Endpoints (JSON
+      only, no paging restrictions), and Summary/Reference Data endpoints. Response
+      formats include JSON, XML, and CSV. Core data domains include balancing mechanism
+      dynamic and physical data per BMU, bid-offer data and acceptances, disaggregated
+      and net balancing services adjustments (DISBSAD/NETBSAD), physical notifications
+      (PN/QPN), non-BM STOR (NONBM), and 50+ BMRS datasets covering generation,
+      demand, frequency, temperature, and market transparency. An interactive OpenAPI
+      specification is published at https://data.elexon.co.uk/swagger/v1/swagger.json.
+    properties:
+      - type: Documentation
+        url: https://developer.data.elexon.co.uk/
+      - type: Documentation
+        url: https://bmrs.elexon.co.uk/api-documentation/guidance
+      - type: OpenAPI
+        url: https://data.elexon.co.uk/swagger/v1/swagger.json
+      - type: GitHub
+        url: https://github.com/elexon-data/insights-docs
+    x-features:
+      - No API key or registration required — fully public access
+      - 50+ BMRS dataset endpoints covering the full UK electricity market
+      - Dataset endpoints return superseded historical records for audit/research
+      - Streaming endpoints with no pagination restrictions
+      - Responses available in JSON, XML, and CSV formats
+      - Opinionated endpoints for common use-case queries (demand evolution, generation forecasts)
+      - Companion IRIS service for near-real-time push delivery of the same datasets
+    x-use-cases:
+      - Real-time balancing mechanism monitoring for energy traders
+      - Historical settlement data retrieval for reconciliation and audit
+      - Generation and demand forecasting using published forecast datasets
+      - UK electricity market transparency reporting (regulatory compliance)
+      - Academic and public research into UK grid operations
+      - Energy management systems and smart meter data aggregation
+      - Building dashboards for grid frequency, demand, and supply visibility
+    x-integrations:
+      - IRIS (Insights Real-time Information Service — WebSocket/STOMP push)
+      - BMRS Data Portal (bmrs.elexon.co.uk)
+      - Data Integration Platform (DIP — industry data exchange)
+common:
+  - type: Portal
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: OpenAPI
+    url: https://data.elexon.co.uk/swagger/v1/swagger.json
+  - type: TermsOfService
+    url: https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/
+  - type: StatusPage
+    url: https://status.elexon.co.uk/
+  - type: GitHub
+    url: https://github.com/elexon-data
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-issues
+  - type: GitHub
+    url: https://github.com/elexon-data/iris-clients
+  - type: Blog
+    url: https://www.elexon.co.uk/news-insights/
+  - type: Support
+    url: mailto:insightssupport@elexon.co.uk
+  - type: Plans
+    url: plans/elexon-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/elexon-rate-limits.yml
+  - type: FinOps
+    url: finops/elexon-finops.yml
+x-headquarters: London, England, United Kingdom
+x-type: public-body
+x-sector: Energy / Electricity Settlement
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

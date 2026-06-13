@@ -1,0 +1,60 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Elexon
+providerId: elexon
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: false
+tags:
+  - Electricity
+  - UK Energy Market
+  - BMRS
+  - Rate Limiting
+  - Fair Use
+description: >
+  Elexon does not publish explicit per-endpoint rate limits or quota policies for the
+  Insights Solution API. The API is described as fully public with no authentication
+  required and no documented throttling thresholds. Streaming endpoints are explicitly
+  documented as having "no restrictions" on data return. Elexon advises consumers not
+  to use web scrapers against the BMRS portal and to use the API instead, implying
+  the API is designed for high-volume programmatic access. Rate limits are expected
+  to operate under an undocumented fair-use policy enforced at the infrastructure
+  level (Azure API Management). The IRIS real-time push service operates via persistent
+  WebSocket/STOMP connections and is not subject to per-request rate limits.
+sources:
+  - https://developer.data.elexon.co.uk/
+  - https://github.com/elexon-data/insights-docs/blob/main/docs/insights_data_platform.md
+  - https://bmrs.elexon.co.uk/api-documentation/guidance
+algorithm: unspecified-fair-use
+responseCodes:
+  throttled: 429
+notes: >
+  No rate-limit response headers (X-RateLimit-*) are documented. Streaming endpoints
+  explicitly state no data return restrictions. Consumers experiencing throttling
+  should implement exponential backoff. For high-volume production use, contacting
+  insightssupport@elexon.co.uk is recommended. The underlying infrastructure is
+  Azure API Management, which enforces platform-level fair-use policies.
+limits:
+  - id: streaming-endpoints
+    scope: endpoint
+    label: Streaming endpoint data return limit
+    value: unlimited
+    notes: >
+      Elexon explicitly states that streaming endpoints have "no restrictions" on data
+      returned, making them suited for bulk historical data retrieval in JSON format.
+  - id: dataset-endpoint-formats
+    scope: endpoint
+    label: Response formats per dataset endpoint
+    value: 3
+    notes: >
+      Dataset endpoints support CSV, XML, and JSON response formats selectable via
+      Accept header or format query parameter.
+  - id: iris-connections
+    scope: service
+    label: IRIS (real-time push) concurrent connections
+    value: unknown
+    notes: >
+      IRIS provides near-real-time push delivery via WebSocket/STOMP. No documented
+      limit on concurrent connections; contact insightssupport@elexon.co.uk for
+      production-scale usage guidance.

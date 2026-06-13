@@ -1,0 +1,71 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Elexon
+providerId: elexon
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Electricity
+  - UK Energy Market
+  - BMRS
+  - Zero Cost
+description: >
+  FOCUS-aligned FinOps definition for the Elexon Insights Solution API. Elexon
+  provides the BMRS API as a free public service under its statutory mandate as the
+  BSC Company for Great Britain's electricity market. There are no usage fees, no
+  subscription charges, and no metered billing. The only financial consideration for
+  consumers is the cost of infrastructure used to consume the API (compute, egress,
+  storage for cached data). From a FinOps perspective this is a zero-cost external
+  dependency, and chargeback models should allocate only internal compute and
+  infrastructure costs to teams consuming the API.
+sources:
+  - https://developer.data.elexon.co.uk/
+  - https://github.com/elexon-data/insights-docs/blob/main/docs/insights_data_platform.md
+  - https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Elexon Limited
+serviceCategory: Analytics and Data
+billingModel:
+  pricingCategory: Free (Statutory Public Service)
+  pricingUnit: N/A
+  pricingCurrency: N/A
+  invoicingCadence: none
+  commitments:
+    - type: No Cost
+      description: >
+        All Elexon Insights Solution API endpoints are provided at no cost to the
+        consumer. Elexon funds the service as part of its BSC Company obligations.
+        There are no paid tiers, metered fees, or commitments required.
+meters:
+  - name: api.requests
+    description: >
+      API requests to Insights Solution endpoints. No charge; recorded here only for
+      internal capacity planning and vendor dependency tracking purposes.
+    unit: request
+    focusServiceCategory: Analytics and Data
+    chargeAmount: 0
+  - name: iris.connections
+    description: >
+      Concurrent IRIS real-time push connections. No charge; logged for internal
+      infrastructure planning.
+    unit: connection
+    focusServiceCategory: Analytics and Data
+    chargeAmount: 0
+chargebackRecommendation: >
+  Since Elexon's API carries no direct cost, chargeback should focus on internal
+  infrastructure: compute cost of services polling or processing the API, egress
+  costs for data transferred from cloud regions to Elexon's servers, and storage
+  costs for locally cached or replicated BMRS data. Tag consuming services with
+  the business domain (trading, settlements, forecasting, compliance) to allocate
+  these indirect costs accurately. Attribution to Elexon as an external dependency
+  should be captured in your vendor inventory even though the monetary cost is zero.

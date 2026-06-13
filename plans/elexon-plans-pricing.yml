@@ -1,0 +1,68 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Elexon
+providerId: elexon
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Electricity
+  - UK Energy Market
+  - BMRS
+  - Public API
+  - Free Access
+description: >
+  Elexon's Insights Solution API is provided free of charge to the public and industry
+  participants as part of Elexon's statutory obligation to publish balancing and settlement
+  data under the Balancing and Settlement Code (BSC). All data interfaces are freely
+  accessible with no subscription, no API key, and no registration required. There are
+  no paid tiers. Data may be reused with attribution under the BMRS Data Licence.
+  The companion IRIS (Insights Real-time Information Service) push service is also
+  free and public.
+sources:
+  - https://developer.data.elexon.co.uk/
+  - https://github.com/elexon-data/insights-docs/blob/main/docs/insights_data_platform.md
+  - https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/
+plans:
+  - id: elexon-public-free
+    name: Public Free Access
+    type: free
+    description: >
+      All Elexon Insights Solution API endpoints are freely available to the public
+      and industry participants with no registration, no API key, and no usage fees.
+      Elexon provides this service in fulfilment of its statutory role as the BSC
+      Company. Dataset endpoints, opinionated endpoints, streaming endpoints, and
+      reference data are all included at no cost. The IRIS real-time push service
+      is similarly free and public.
+    entries:
+      - label: API requests (all endpoints)
+        name: api_requests
+        type: included
+        metric: requests
+        limit: -1
+        timeFrame: unlimited
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: IRIS real-time push (WebSocket/STOMP)
+        name: iris_push
+        type: included
+        metric: connections
+        limit: -1
+        timeFrame: unlimited
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Historical dataset access
+        name: historical_data
+        type: included
+        metric: requests
+        limit: -1
+        timeFrame: unlimited
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
