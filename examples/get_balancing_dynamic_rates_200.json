@@ -1,0 +1,9 @@
+{
+  "endpoint": "/balancing/dynamic/rates",
+  "method": "GET",
+  "summary": "Rate data per BMU (RDRE, RURE, RDRI, RURI)",
+  "response_schema": {
+    "$ref": "#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData"
+  },
+  "example_note": "Stub example \u2014 fetch live data from https://data.elexon.co.uk/bmrs/api/v1/balancing/dynamic/rates"
+}

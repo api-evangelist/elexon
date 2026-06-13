@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse",
+  "type": "object",
+  "properties": {
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-02-28T15:31:12Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-03-01"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-03-01T00:30:00Z"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_ABRBO-1"
+    },
+    "bmUnitType": {
+      "type": "string",
+      "example": "T"
+    },
+    "leadPartyName": {
+      "type": "string",
+      "nullable": true,
+      "example": "Aberdeen Offshore Wind Farm"
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "ABRBO-1"
+    },
+    "acceptanceId": {
+      "type": "integer",
+      "format": "int64",
+      "example": 76110
+    },
+    "acceptanceDuration": {
+      "type": "string",
+      "nullable": true,
+      "example": "L"
+    },
+    "totalVolumeAccepted": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -75.725
+    },
+    "pairVolumes": {
+      "$ref": "#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs"
+    }
+  },
+  "additionalProperties": false
+}

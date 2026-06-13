@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Misc.TemperatureData.json",
+  "title": "Insights.Api.Models.Responses.Misc.TemperatureData",
+  "type": "object",
+  "properties": {
+    "measurementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "temperature": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "temperatureReferenceAverage": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "temperatureReferenceHigh": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "temperatureReferenceLow": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

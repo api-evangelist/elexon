@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.LegacyInteroperability.LegacyRemitListResponseBody.json",
+  "title": "Insights.Api.LegacyInteroperability.LegacyRemitListResponseBody",
+  "type": "object",
+  "properties": {
+    "dataItem": {
+      "type": "string",
+      "nullable": true
+    },
+    "legacyRemitResponseList": {
+      "$ref": "#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitResponseList"
+    }
+  },
+  "additionalProperties": false
+}

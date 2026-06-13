@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.NetBalancingServicesAdjustmentResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.NetBalancingServicesAdjustmentResponse",
+  "type": "object",
+  "properties": {
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-06-25T13:00:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-06-25"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 29
+    },
+    "netBuyPriceCostAdjustmentEnergy": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    },
+    "netBuyPriceVolumeAdjustmentEnergy": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    },
+    "netBuyPriceVolumeAdjustmentSystem": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    },
+    "buyPricePriceAdjustment": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    },
+    "netSellPriceCostAdjustmentEnergy": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    },
+    "netSellPriceVolumeAdjustmentEnergy": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    },
+    "netSellPriceVolumeAdjustmentSystem": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    },
+    "sellPricePriceAdjustment": {
+      "type": "number",
+      "format": "double",
+      "example": 0
+    }
+  },
+  "additionalProperties": false
+}

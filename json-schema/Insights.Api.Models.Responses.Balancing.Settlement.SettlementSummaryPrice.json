@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryPrice.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryPrice",
+  "type": "object",
+  "properties": {
+    "cost": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -53.66
+    },
+    "volume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -0.994
+    },
+    "value": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 54
+    }
+  },
+  "additionalProperties": false
+}

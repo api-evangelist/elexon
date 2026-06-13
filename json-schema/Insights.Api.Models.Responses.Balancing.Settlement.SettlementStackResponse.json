@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.SettlementStackResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.SettlementStackResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2021-12-05"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 14
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-12-05T08:00:00Z"
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2023-09-17T09:03:18.74Z"
+    },
+    "sequenceNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "id": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_STAY-2"
+    },
+    "acceptanceId": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "example": 102999
+    },
+    "bidOfferPairId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "cadlFlag": {
+      "type": "boolean",
+      "nullable": true,
+      "example": false
+    },
+    "soFlag": {
+      "type": "boolean",
+      "nullable": true,
+      "example": false
+    },
+    "storProviderFlag": {
+      "type": "boolean",
+      "nullable": true,
+      "example": false
+    },
+    "repricedIndicator": {
+      "type": "boolean",
+      "example": false
+    },
+    "reserveScarcityPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "originalPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 202
+    },
+    "volume": {
+      "type": "number",
+      "format": "double",
+      "example": 52.5
+    },
+    "dmatAdjustedVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 52.5
+    },
+    "arbitrageAdjustedVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 52.5
+    },
+    "nivAdjustedVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 52.5
+    },
+    "parAdjustedVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "finalPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "transmissionLossMultiplier": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0.9933898
+    },
+    "tlmAdjustedVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "tlmAdjustedCost": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    }
+  },
+  "additionalProperties": false
+}

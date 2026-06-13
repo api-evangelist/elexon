@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Misc.DatasetRows.TudmDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Misc.DatasetRows.TudmDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "TUDM"
+    },
+    "serialNumber": {
+      "type": "string",
+      "nullable": true,
+      "example": "000000980321"
+    },
+    "fileCreationTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-10-19T07:01:07.000"
+    },
+    "tradingUnitType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Base"
+    },
+    "tradingUnitName": {
+      "type": "string",
+      "nullable": true,
+      "example": "DEFAULT__A"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-07-30"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 5
+    },
+    "settlementRunType": {
+      "type": "string",
+      "nullable": true,
+      "example": "RF"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-07-30T10:30:00Z"
+    },
+    "deliveryMode": {
+      "type": "string",
+      "nullable": true,
+      "example": "Offtaking"
+    },
+    "importVolume": {
+      "type": "number",
+      "format": "double",
+      "example": 209.95
+    },
+    "exportVolume": {
+      "type": "number",
+      "format": "double",
+      "example": -1372.384
+    },
+    "netVolume": {
+      "type": "number",
+      "format": "double",
+      "example": -1162.434
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,81 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "elexon": "https://data.elexon.co.uk/bmrs/api/v1/",
+    "bmrs": "https://bmrs.elexon.co.uk/",
+    "api": "https://data.elexon.co.uk/swagger/v1/swagger.json#",
+    "openapi": "https://spec.openapis.org/oas/v3.0/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "title": "schema:name",
+    "description": "schema:description",
+    "version": "schema:version",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "provider": {
+      "@id": "schema:provider",
+      "@type": "@id"
+    },
+    "tags": "schema:keywords",
+    "paths": "elexon:path",
+    "schemas": "elexon:schema"
+  },
+  "@type": "WebAPI",
+  "@id": "https://data.elexon.co.uk/bmrs/api/v1",
+  "name": "Insights.Api",
+  "description": "",
+  "version": "1.0",
+  "url": "https://developer.data.elexon.co.uk/",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://www.elexon.co.uk/",
+    "name": "Elexon",
+    "description": "UK Balancing and Settlement Code Company"
+  },
+  "documentation": "https://developer.data.elexon.co.uk/",
+  "termsOfService": "https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/",
+  "keywords": [
+    "Balancing Mechanism Dynamic",
+    "Balancing Mechanism Physical",
+    "Balancing Services Adjustment - Disaggregated",
+    "Balancing Services Adjustment - Net",
+    "Bid-Offer",
+    "Bid-Offer Acceptances",
+    "BMRS Datasets",
+    "Credit Default Notice",
+    "Data Status",
+    "Demand",
+    "Demand Forecast",
+    "Generation",
+    "Generation Forecast",
+    "Health Check",
+    "Indicated Forecast",
+    "Indicative Imbalance Settlement",
+    "Legacy",
+    "Load Shape",
+    "Loss of Load Probability and De-rated Margin",
+    "Margin Forecast",
+    "Market Index",
+    "Non-BM STOR",
+    "Non-BM Volumes",
+    "Reference",
+    "REMIT",
+    "SAA Datasets",
+    "SO-SO Prices",
+    "Surplus Forecast",
+    "System",
+    "System forecast",
+    "Temperature"
+  ],
+  "endpointURL": [
+    "https://data.elexon.co.uk/bmrs/api/v1"
+  ],
+  "license": "Contains BMRS data \u00a9 Elexon Limited copyright and database right",
+  "isAccessibleForFree": true,
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://data.elexon.co.uk/bmrs/api/v1",
+    "availableLanguage": "English"
+  }
+}

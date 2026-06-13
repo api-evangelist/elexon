@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Generation.GenerationByFuelType.json",
+  "title": "Insights.Api.Models.Responses.Generation.GenerationByFuelType",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "readOnly": true
+    },
+    "fuelType": {
+      "type": "string",
+      "nullable": true
+    },
+    "currentUsage": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "currentPercentage": {
+      "type": "number",
+      "format": "double"
+    },
+    "halfHourUsage": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "halfHourPercentage": {
+      "type": "number",
+      "format": "double"
+    },
+    "twentyFourHourUsage": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "twentyFourHourPercentage": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "RZDF"
+    },
+    "submissionDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-01-01T07:01:07"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-01-01T00:00:10"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2025-01-02"
+    },
+    "region": {
+      "type": "string",
+      "nullable": true,
+      "example": "North Scotland"
+    },
+    "gspGroupId": {
+      "type": "string",
+      "nullable": true,
+      "example": "_A"
+    },
+    "forecastDemand60": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1234
+    },
+    "forecastDemand100": {
+      "type": "integer",
+      "format": "int32",
+      "example": 12345
+    }
+  },
+  "additionalProperties": false
+}

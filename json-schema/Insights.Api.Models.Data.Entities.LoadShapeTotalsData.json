@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Data.Entities.LoadShapeTotalsData.json",
+  "title": "Insights.Api.Models.Data.Entities.LoadShapeTotalsData",
+  "type": "object",
+  "properties": {
+    "sourceFileName": {
+      "type": "string",
+      "nullable": true
+    },
+    "sourceFileDatetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "gspGroupId": {
+      "type": "string",
+      "nullable": true
+    },
+    "connectionTypeIndicator": {
+      "type": "string",
+      "nullable": true
+    },
+    "marketSegmentIndicator": {
+      "type": "string",
+      "nullable": true
+    },
+    "domesticPremiseIndicator": {
+      "type": "string",
+      "nullable": true
+    },
+    "measurementQuantityId": {
+      "type": "string",
+      "nullable": true
+    },
+    "runNumber": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "eventCode": {
+      "type": "string",
+      "nullable": true
+    },
+    "settlementPeriodDuration": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "loadShapeDayTotal": {
+      "type": "number",
+      "format": "double"
+    },
+    "loadShapeDayPeakTotal": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "loadShapeDayOffPeakTotal": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "loadShape7DayRollingTotal": {
+      "type": "number",
+      "format": "double"
+    },
+    "loadShape7DayRollingPeakTotal": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "loadShape7DayRollingOffPeakTotal": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "loadShapeRollingAnnualTotal": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "additionalProperties": false
+}

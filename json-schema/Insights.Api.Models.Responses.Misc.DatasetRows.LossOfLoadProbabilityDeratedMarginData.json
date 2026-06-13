@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Misc.DatasetRows.LossOfLoadProbabilityDeratedMarginData.json",
+  "title": "Insights.Api.Models.Responses.Misc.DatasetRows.LossOfLoadProbabilityDeratedMarginData",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "LOLPDRM"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-01-31 17:39:15Z"
+    },
+    "publishingPeriodCommencingTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-01-31 17:30Z"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-01-31 18:30Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-01-31"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 38
+    },
+    "lossOfLoadProbability": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "deratedMargin": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 12570.207
+    }
+  },
+  "additionalProperties": false
+}

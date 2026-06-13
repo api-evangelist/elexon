@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-09-26"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 27
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-09-26T13:00:00Z"
+    },
+    "buyActionCount": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2
+    },
+    "sellActionCount": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2
+    },
+    "buyPriceMinimum": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 10.23
+    },
+    "buyPriceMaximum": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 30.45
+    },
+    "buyPriceAverage": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 20.34
+    },
+    "sellPriceMinimum": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 1.23
+    },
+    "sellPriceMaximum": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 3.45
+    },
+    "sellPriceAverage": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 2.34
+    },
+    "buyVolumeTotal": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 40.68
+    },
+    "sellVolumeTotal": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 4.68
+    },
+    "netVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 36
+    }
+  },
+  "additionalProperties": false
+}

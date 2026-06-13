@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "PPBR"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-PPBR-00688983"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-08-22T07:43:04Z"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Generation"
+    },
+    "marketAgreementType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Daily"
+    },
+    "flowDirection": {
+      "type": "string",
+      "nullable": true,
+      "example": "Up"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-08-23"
+    },
+    "amount": {
+      "type": "number",
+      "format": "double",
+      "example": 1.2
+    }
+  },
+  "additionalProperties": false
+}

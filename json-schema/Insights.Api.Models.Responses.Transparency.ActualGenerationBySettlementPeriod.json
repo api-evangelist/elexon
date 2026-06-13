@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod.json",
+  "title": "Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod",
+  "type": "object",
+  "properties": {
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 06:30:00Z"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 16
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationValue"
+      },
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

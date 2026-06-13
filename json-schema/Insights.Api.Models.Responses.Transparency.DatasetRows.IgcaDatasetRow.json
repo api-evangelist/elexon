@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "IGCA"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-IGCA-00687002"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-04-21T13:25:52Z"
+    },
+    "businessType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Installed generation"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Hydro Pumped Storage"
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2022
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 1928
+    }
+  },
+  "additionalProperties": false
+}

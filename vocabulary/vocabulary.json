@@ -1,0 +1,1532 @@
+{
+  "vocabulary": "Elexon Insights API",
+  "description": "Domain vocabulary extracted from the Elexon Insights Solution API OpenAPI specification",
+  "tags": [
+    {
+      "term": "Balancing Mechanism Dynamic",
+      "definition": "Dynamic data."
+    },
+    {
+      "term": "Balancing Mechanism Physical",
+      "definition": "Physical data consists of PN, QPN, MILS, &amp; MELS."
+    },
+    {
+      "term": "Balancing Services Adjustment - Disaggregated",
+      "definition": "Adjustment actions (DISBSAD) for a given settlement period, or summarised by settlement period over a time range."
+    },
+    {
+      "term": "Balancing Services Adjustment - Net",
+      "definition": "Net balancing services adjustment data (NETBSAD), provided as a time series or filtered to events."
+    },
+    {
+      "term": "Bid-Offer",
+      "definition": "Bid-offer data."
+    },
+    {
+      "term": "Bid-Offer Acceptances",
+      "definition": "Bid-offer acceptance data (BOALF)."
+    },
+    {
+      "term": "BMRS Datasets",
+      "definition": "Raw datasets as received from the National Grid, with associated metadata. The output in JSON format matches IRIS, and can be used interchangeably with IRIS output."
+    },
+    {
+      "term": "Credit Default Notice",
+      "definition": "Credit Default Notice data."
+    },
+    {
+      "term": "Data Status",
+      "definition": "The number of datapoints ingested for a dataset in a given period of time, grouped by settlement period."
+    },
+    {
+      "term": "Demand",
+      "definition": "GB electricity demand, including historic."
+    },
+    {
+      "term": "Demand Forecast",
+      "definition": "Current or historic demand forecasts."
+    },
+    {
+      "term": "Generation",
+      "definition": "GB electricity generation output, including historic."
+    },
+    {
+      "term": "Generation Forecast",
+      "definition": "Current or historic generation forecasts."
+    },
+    {
+      "term": "Health Check",
+      "definition": "Provides an endpoint to check the health of the Insights API service."
+    },
+    {
+      "term": "Indicated Forecast",
+      "definition": "Day-and-day-ahead indicated forecast, categorized as Indicated Generation (INDGEN), Indicated Demand (INDDEM), Imbalance (IMBALNGC) and Margin (MELNGC)."
+    },
+    {
+      "term": "Indicative Imbalance Settlement",
+      "definition": "Data related to the settlement process."
+    },
+    {
+      "term": "Legacy",
+      "definition": ""
+    },
+    {
+      "term": "Load Shape",
+      "definition": "Load shape period data and load shape totals data as calculated by the Load Shaping Service"
+    },
+    {
+      "term": "Loss of Load Probability and De-rated Margin",
+      "definition": "Loss of load probability and de-rated margin forecast data."
+    },
+    {
+      "term": "Margin Forecast",
+      "definition": "Generating Plant Operating Margin forecast data, including historical views of data by publish time or forecast date."
+    },
+    {
+      "term": "Market Index",
+      "definition": "Market Index prices filtered by time."
+    },
+    {
+      "term": "Non-BM STOR",
+      "definition": "Short Term Operating Reserves (STOR) data, provided as a time series or filtered to events."
+    },
+    {
+      "term": "Non-BM Volumes",
+      "definition": "Balancing services volume data, filtered by BM Unit and time range."
+    },
+    {
+      "term": "Reference",
+      "definition": "Reference data which can be used to filter other API requests."
+    },
+    {
+      "term": "REMIT",
+      "definition": "REMIT messages, including previous revisions."
+    },
+    {
+      "term": "SAA Datasets",
+      "definition": "Datasets received from the Settlement Administration Agent (SAA)"
+    },
+    {
+      "term": "SO-SO Prices",
+      "definition": "SO-SO Prices (SOSO) data, filtered by start time."
+    },
+    {
+      "term": "Surplus Forecast",
+      "definition": "Generating Plant Operating Surplus forecast data, including historical views of data by publish time or forecast date."
+    },
+    {
+      "term": "System",
+      "definition": "Transmission System data."
+    },
+    {
+      "term": "System forecast",
+      "definition": "Transmission System forecasts"
+    },
+    {
+      "term": "Temperature",
+      "definition": "Daily average & reference temperatures."
+    }
+  ],
+  "properties": [
+    {
+      "term": "dataItem",
+      "definition": ""
+    },
+    {
+      "term": "list",
+      "definition": ""
+    },
+    {
+      "term": "messageId",
+      "definition": ""
+    },
+    {
+      "term": "sequenceId",
+      "definition": ""
+    },
+    {
+      "term": "messageHeading",
+      "definition": ""
+    },
+    {
+      "term": "eventType",
+      "definition": ""
+    },
+    {
+      "term": "publishDateTimeString",
+      "definition": ""
+    },
+    {
+      "term": "participantMarketParticipantId",
+      "definition": ""
+    },
+    {
+      "term": "assetId",
+      "definition": ""
+    },
+    {
+      "term": "assetEicCode",
+      "definition": ""
+    },
+    {
+      "term": "assetType",
+      "definition": ""
+    },
+    {
+      "term": "affectedUnit",
+      "definition": ""
+    },
+    {
+      "term": "affectedArea",
+      "definition": ""
+    },
+    {
+      "term": "assetFuelType",
+      "definition": ""
+    },
+    {
+      "term": "assetNormalCapacity",
+      "definition": ""
+    },
+    {
+      "term": "availableCapacity",
+      "definition": ""
+    },
+    {
+      "term": "unavailableCapacity",
+      "definition": ""
+    },
+    {
+      "term": "eventStartString",
+      "definition": ""
+    },
+    {
+      "term": "eventEndString",
+      "definition": ""
+    },
+    {
+      "term": "cause",
+      "definition": ""
+    },
+    {
+      "term": "eventStatus",
+      "definition": ""
+    },
+    {
+      "term": "relatedInformation",
+      "definition": ""
+    },
+    {
+      "term": "activeFlag",
+      "definition": ""
+    },
+    {
+      "term": "messageType",
+      "definition": ""
+    },
+    {
+      "term": "unavailabilityType",
+      "definition": ""
+    },
+    {
+      "term": "acerCode",
+      "definition": ""
+    },
+    {
+      "term": "biddingZone",
+      "definition": ""
+    },
+    {
+      "term": "outageProfile",
+      "definition": ""
+    },
+    {
+      "term": "revisionNumber",
+      "definition": ""
+    },
+    {
+      "term": "item",
+      "definition": ""
+    },
+    {
+      "term": "httpCode",
+      "definition": ""
+    },
+    {
+      "term": "errorType",
+      "definition": ""
+    },
+    {
+      "term": "description",
+      "definition": ""
+    },
+    {
+      "term": "queryString",
+      "definition": ""
+    },
+    {
+      "term": "metadata",
+      "definition": ""
+    },
+    {
+      "term": "body",
+      "definition": ""
+    },
+    {
+      "term": "assetNormalCapacitySpecified",
+      "definition": ""
+    },
+    {
+      "term": "availableCapacitySpecified",
+      "definition": ""
+    },
+    {
+      "term": "durationUncertainty",
+      "definition": ""
+    },
+    {
+      "term": "unavailableCapacitySpecified",
+      "definition": ""
+    },
+    {
+      "term": "cappingApplied",
+      "definition": ""
+    },
+    {
+      "term": "cappingLimit",
+      "definition": ""
+    },
+    {
+      "term": "legacyRemitListMetadata",
+      "definition": ""
+    },
+    {
+      "term": "legacyRemitListResponseBody",
+      "definition": ""
+    },
+    {
+      "term": "legacyRemitResponseList",
+      "definition": ""
+    },
+    {
+      "term": "segments",
+      "definition": ""
+    },
+    {
+      "term": "segmentStartString",
+      "definition": ""
+    },
+    {
+      "term": "segmentEndString",
+      "definition": ""
+    },
+    {
+      "term": "segmentCapacity",
+      "definition": ""
+    },
+    {
+      "term": "sourceFileName",
+      "definition": ""
+    },
+    {
+      "term": "sourceFileDatetime",
+      "definition": ""
+    },
+    {
+      "term": "settlementDate",
+      "definition": ""
+    },
+    {
+      "term": "settlementPeriodStartDateTime",
+      "definition": ""
+    },
+    {
+      "term": "settlementPeriodEndDateTime",
+      "definition": ""
+    },
+    {
+      "term": "settlementPeriod",
+      "definition": ""
+    },
+    {
+      "term": "gspGroupId",
+      "definition": ""
+    },
+    {
+      "term": "connectionTypeIndicator",
+      "definition": ""
+    },
+    {
+      "term": "marketSegmentIndicator",
+      "definition": ""
+    },
+    {
+      "term": "domesticPremiseIndicator",
+      "definition": ""
+    },
+    {
+      "term": "measurementQuantityId",
+      "definition": ""
+    },
+    {
+      "term": "runNumber",
+      "definition": ""
+    },
+    {
+      "term": "eventCode",
+      "definition": ""
+    },
+    {
+      "term": "settlementPeriodDuration",
+      "definition": ""
+    },
+    {
+      "term": "loadShapePeriodValue",
+      "definition": ""
+    },
+    {
+      "term": "defaultLoadShapeFlag",
+      "definition": ""
+    },
+    {
+      "term": "loadShapeDayTotal",
+      "definition": ""
+    },
+    {
+      "term": "loadShapeDayPeakTotal",
+      "definition": ""
+    },
+    {
+      "term": "loadShapeDayOffPeakTotal",
+      "definition": ""
+    },
+    {
+      "term": "loadShape7DayRollingTotal",
+      "definition": ""
+    },
+    {
+      "term": "loadShape7DayRollingPeakTotal",
+      "definition": ""
+    },
+    {
+      "term": "loadShape7DayRollingOffPeakTotal",
+      "definition": ""
+    },
+    {
+      "term": "loadShapeRollingAnnualTotal",
+      "definition": ""
+    },
+    {
+      "term": "datasets",
+      "definition": ""
+    },
+    {
+      "term": "source",
+      "definition": ""
+    },
+    {
+      "term": "bmUnitApplicableBalancingServicesVolume",
+      "definition": ""
+    },
+    {
+      "term": "nationalGridBmUnit",
+      "definition": ""
+    },
+    {
+      "term": "bmUnit",
+      "definition": ""
+    },
+    {
+      "term": "time",
+      "definition": ""
+    },
+    {
+      "term": "settlementPeriodFrom",
+      "definition": ""
+    },
+    {
+      "term": "settlementPeriodTo",
+      "definition": ""
+    },
+    {
+      "term": "timeFrom",
+      "definition": ""
+    },
+    {
+      "term": "timeTo",
+      "definition": ""
+    },
+    {
+      "term": "levelFrom",
+      "definition": ""
+    },
+    {
+      "term": "levelTo",
+      "definition": ""
+    },
+    {
+      "term": "acceptanceNumber",
+      "definition": ""
+    },
+    {
+      "term": "acceptanceTime",
+      "definition": ""
+    },
+    {
+      "term": "deemedBoFlag",
+      "definition": ""
+    },
+    {
+      "term": "soFlag",
+      "definition": ""
+    },
+    {
+      "term": "storFlag",
+      "definition": ""
+    },
+    {
+      "term": "rrFlag",
+      "definition": ""
+    },
+    {
+      "term": "bid",
+      "definition": ""
+    },
+    {
+      "term": "offer",
+      "definition": ""
+    },
+    {
+      "term": "pairId",
+      "definition": ""
+    },
+    {
+      "term": "participantId",
+      "definition": ""
+    },
+    {
+      "term": "participantName",
+      "definition": ""
+    },
+    {
+      "term": "creditDefaultLevel",
+      "definition": ""
+    },
+    {
+      "term": "enteredDefaultSettlementDate",
+      "definition": ""
+    },
+    {
+      "term": "enteredDefaultSettlementPeriod",
+      "definition": ""
+    },
+    {
+      "term": "clearedDefaultSettlementDate",
+      "definition": ""
+    },
+    {
+      "term": "clearedDefaultSettlementPeriod",
+      "definition": ""
+    },
+    {
+      "term": "clearedDefaultText",
+      "definition": ""
+    },
+    {
+      "term": "dataset",
+      "definition": ""
+    },
+    {
+      "term": "amendmentFlag",
+      "definition": ""
+    },
+    {
+      "term": "publishTime",
+      "definition": ""
+    },
+    {
+      "term": "bscPartyId",
+      "definition": ""
+    },
+    {
+      "term": "id",
+      "definition": ""
+    },
+    {
+      "term": "cost",
+      "definition": ""
+    },
+    {
+      "term": "volume",
+      "definition": ""
+    },
+    {
+      "term": "partyId",
+      "definition": ""
+    },
+    {
+      "term": "isTendered",
+      "definition": ""
+    },
+    {
+      "term": "service",
+      "definition": ""
+    },
+    {
+      "term": "startTime",
+      "definition": ""
+    },
+    {
+      "term": "dataProvider",
+      "definition": ""
+    },
+    {
+      "term": "price",
+      "definition": ""
+    },
+    {
+      "term": "netBuyPriceCostAdjustmentEnergy",
+      "definition": ""
+    },
+    {
+      "term": "netBuyPriceVolumeAdjustmentEnergy",
+      "definition": ""
+    },
+    {
+      "term": "netBuyPriceVolumeAdjustmentSystem",
+      "definition": ""
+    },
+    {
+      "term": "buyPricePriceAdjustment",
+      "definition": ""
+    },
+    {
+      "term": "netSellPriceCostAdjustmentEnergy",
+      "definition": ""
+    },
+    {
+      "term": "netSellPriceVolumeAdjustmentEnergy",
+      "definition": ""
+    },
+    {
+      "term": "netSellPriceVolumeAdjustmentSystem",
+      "definition": ""
+    },
+    {
+      "term": "sellPricePriceAdjustment",
+      "definition": ""
+    },
+    {
+      "term": "buyActionCount",
+      "definition": ""
+    },
+    {
+      "term": "sellActionCount",
+      "definition": ""
+    },
+    {
+      "term": "buyPriceMinimum",
+      "definition": ""
+    },
+    {
+      "term": "buyPriceMaximum",
+      "definition": ""
+    },
+    {
+      "term": "buyPriceAverage",
+      "definition": ""
+    },
+    {
+      "term": "sellPriceMinimum",
+      "definition": ""
+    },
+    {
+      "term": "sellPriceMaximum",
+      "definition": ""
+    },
+    {
+      "term": "sellPriceAverage",
+      "definition": ""
+    },
+    {
+      "term": "buyVolumeTotal",
+      "definition": ""
+    },
+    {
+      "term": "sellVolumeTotal",
+      "definition": ""
+    },
+    {
+      "term": "netVolume",
+      "definition": ""
+    },
+    {
+      "term": "periodMax",
+      "definition": ""
+    },
+    {
+      "term": "periodMin",
+      "definition": ""
+    },
+    {
+      "term": "volumeMax",
+      "definition": ""
+    },
+    {
+      "term": "serialNumber",
+      "definition": ""
+    },
+    {
+      "term": "notice",
+      "definition": ""
+    },
+    {
+      "term": "level",
+      "definition": ""
+    },
+    {
+      "term": "value",
+      "definition": ""
+    },
+    {
+      "term": "rate1",
+      "definition": ""
+    },
+    {
+      "term": "elbow2",
+      "definition": ""
+    },
+    {
+      "term": "rate2",
+      "definition": ""
+    },
+    {
+      "term": "elbow3",
+      "definition": ""
+    },
+    {
+      "term": "rate3",
+      "definition": ""
+    },
+    {
+      "term": "generation",
+      "definition": ""
+    },
+    {
+      "term": "notificationTime",
+      "definition": ""
+    },
+    {
+      "term": "notificationSequence",
+      "definition": ""
+    },
+    {
+      "term": "createdDateTime",
+      "definition": ""
+    },
+    {
+      "term": "bmUnitType",
+      "definition": ""
+    },
+    {
+      "term": "leadPartyName",
+      "definition": ""
+    },
+    {
+      "term": "acceptanceId",
+      "definition": ""
+    },
+    {
+      "term": "acceptanceDuration",
+      "definition": ""
+    },
+    {
+      "term": "totalVolumeAccepted",
+      "definition": ""
+    },
+    {
+      "term": "pairVolumes",
+      "definition": ""
+    },
+    {
+      "term": "negative1",
+      "definition": ""
+    },
+    {
+      "term": "positive1",
+      "definition": ""
+    },
+    {
+      "term": "negative2",
+      "definition": ""
+    },
+    {
+      "term": "positive2",
+      "definition": ""
+    },
+    {
+      "term": "negative3",
+      "definition": ""
+    },
+    {
+      "term": "positive3",
+      "definition": ""
+    },
+    {
+      "term": "negative4",
+      "definition": ""
+    },
+    {
+      "term": "positive4",
+      "definition": ""
+    },
+    {
+      "term": "negative5",
+      "definition": ""
+    },
+    {
+      "term": "positive5",
+      "definition": ""
+    },
+    {
+      "term": "negative6",
+      "definition": ""
+    },
+    {
+      "term": "positive6",
+      "definition": ""
+    },
+    {
+      "term": "bidPrice",
+      "definition": ""
+    },
+    {
+      "term": "offerPrice",
+      "definition": ""
+    },
+    {
+      "term": "bidOfferPairId",
+      "definition": ""
+    },
+    {
+      "term": "bidOfferPairCashflows",
+      "definition": ""
+    },
+    {
+      "term": "totalCashflow",
+      "definition": ""
+    },
+    {
+      "term": "dataType",
+      "definition": ""
+    },
+    {
+      "term": "indicatedImbalance",
+      "definition": ""
+    },
+    {
+      "term": "offerVolume",
+      "definition": ""
+    },
+    {
+      "term": "bidVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalAcceptedOfferVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalAcceptedBidVolume",
+      "definition": ""
+    },
+    {
+      "term": "pricedAcceptedOffersVolume",
+      "definition": ""
+    },
+    {
+      "term": "pricedAcceptedBidsVolume",
+      "definition": ""
+    },
+    {
+      "term": "messageReceivedDateTime",
+      "definition": ""
+    },
+    {
+      "term": "messageSeverity",
+      "definition": ""
+    },
+    {
+      "term": "messageTypeCode",
+      "definition": ""
+    },
+    {
+      "term": "messageText",
+      "definition": ""
+    },
+    {
+      "term": "sequenceNumber",
+      "definition": ""
+    },
+    {
+      "term": "cadlFlag",
+      "definition": ""
+    },
+    {
+      "term": "storProviderFlag",
+      "definition": ""
+    },
+    {
+      "term": "repricedIndicator",
+      "definition": ""
+    },
+    {
+      "term": "reserveScarcityPrice",
+      "definition": ""
+    },
+    {
+      "term": "originalPrice",
+      "definition": ""
+    },
+    {
+      "term": "dmatAdjustedVolume",
+      "definition": ""
+    },
+    {
+      "term": "arbitrageAdjustedVolume",
+      "definition": ""
+    },
+    {
+      "term": "nivAdjustedVolume",
+      "definition": ""
+    },
+    {
+      "term": "parAdjustedVolume",
+      "definition": ""
+    },
+    {
+      "term": "finalPrice",
+      "definition": ""
+    },
+    {
+      "term": "transmissionLossMultiplier",
+      "definition": ""
+    },
+    {
+      "term": "tlmAdjustedVolume",
+      "definition": ""
+    },
+    {
+      "term": "tlmAdjustedCost",
+      "definition": ""
+    },
+    {
+      "term": "adjuster",
+      "definition": ""
+    },
+    {
+      "term": "priceDerivationCode",
+      "definition": ""
+    },
+    {
+      "term": "systemSellPrice",
+      "definition": ""
+    },
+    {
+      "term": "systemBuyPrice",
+      "definition": ""
+    },
+    {
+      "term": "mainPrice",
+      "definition": ""
+    },
+    {
+      "term": "marketPrice",
+      "definition": ""
+    },
+    {
+      "term": "bsadDefaulted",
+      "definition": ""
+    },
+    {
+      "term": "netImbalanceVolume",
+      "definition": ""
+    },
+    {
+      "term": "sellPriceAdjustment",
+      "definition": ""
+    },
+    {
+      "term": "buyPriceAdjustment",
+      "definition": ""
+    },
+    {
+      "term": "replacementPrice",
+      "definition": ""
+    },
+    {
+      "term": "replacementPriceReferenceVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalAdjustmentSellVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalAdjustmentBuyVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalSystemTaggedAcceptedOfferVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalSystemTaggedAcceptedBidVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalSystemTaggedAdjustmentSellVolume",
+      "definition": ""
+    },
+    {
+      "term": "totalSystemTaggedAdjustmentBuyVolume",
+      "definition": ""
+    },
+    {
+      "term": "dataPointCount",
+      "definition": ""
+    },
+    {
+      "term": "data",
+      "definition": ""
+    },
+    {
+      "term": "forecastDate",
+      "definition": ""
+    },
+    {
+      "term": "demand",
+      "definition": ""
+    },
+    {
+      "term": "boundary",
+      "definition": ""
+    },
+    {
+      "term": "year",
+      "definition": ""
+    },
+    {
+      "term": "week",
+      "definition": ""
+    },
+    {
+      "term": "transmissionSystemDemand",
+      "definition": ""
+    },
+    {
+      "term": "nationalDemand",
+      "definition": ""
+    },
+    {
+      "term": "forecastWeek",
+      "definition": ""
+    },
+    {
+      "term": "forecastYear",
+      "definition": ""
+    },
+    {
+      "term": "weekStartDate",
+      "definition": ""
+    },
+    {
+      "term": "initialDemandOutturn",
+      "definition": ""
+    },
+    {
+      "term": "initialTransmissionSystemDemandOutturn",
+      "definition": ""
+    },
+    {
+      "term": "halfHourEndTime",
+      "definition": ""
+    },
+    {
+      "term": "settlementRunType",
+      "definition": ""
+    },
+    {
+      "term": "recordType",
+      "definition": ""
+    },
+    {
+      "term": "margin",
+      "definition": ""
+    },
+    {
+      "term": "surplus",
+      "definition": ""
+    },
+    {
+      "term": "fuelType",
+      "definition": ""
+    },
+    {
+      "term": "ngcBmUnit",
+      "definition": ""
+    },
+    {
+      "term": "outputUsable",
+      "definition": ""
+    },
+    {
+      "term": "calendarWeekNumber",
+      "definition": ""
+    },
+    {
+      "term": "systemZone",
+      "definition": ""
+    },
+    {
+      "term": "forecastDateTimezone",
+      "definition": ""
+    },
+    {
+      "term": "interconnectorName",
+      "definition": ""
+    },
+    {
+      "term": "interconnector",
+      "definition": ""
+    },
+    {
+      "term": "currentUsage",
+      "definition": ""
+    },
+    {
+      "term": "currentPercentage",
+      "definition": ""
+    },
+    {
+      "term": "halfHourUsage",
+      "definition": ""
+    },
+    {
+      "term": "halfHourPercentage",
+      "definition": ""
+    },
+    {
+      "term": "twentyFourHourUsage",
+      "definition": ""
+    },
+    {
+      "term": "twentyFourHourPercentage",
+      "definition": ""
+    },
+    {
+      "term": "settlementDateTimezone",
+      "definition": ""
+    },
+    {
+      "term": "imbalance",
+      "definition": ""
+    },
+    {
+      "term": "indicatedGeneration",
+      "definition": ""
+    },
+    {
+      "term": "indicatedDemand",
+      "definition": ""
+    },
+    {
+      "term": "indicatedMargin",
+      "definition": ""
+    },
+    {
+      "term": "mRID",
+      "definition": ""
+    },
+    {
+      "term": "publishingPeriodCommencingTime",
+      "definition": ""
+    },
+    {
+      "term": "affectedDso",
+      "definition": ""
+    },
+    {
+      "term": "demandControlId",
+      "definition": ""
+    },
+    {
+      "term": "instructionSequence",
+      "definition": ""
+    },
+    {
+      "term": "demandControlEventFlag",
+      "definition": ""
+    },
+    {
+      "term": "systemManagementActionFlag",
+      "definition": ""
+    },
+    {
+      "term": "lossOfLoadProbability",
+      "definition": ""
+    },
+    {
+      "term": "deratedMargin",
+      "definition": ""
+    },
+    {
+      "term": "senderIdentification",
+      "definition": ""
+    },
+    {
+      "term": "receiverIdentification",
+      "definition": ""
+    },
+    {
+      "term": "contractIdentification",
+      "definition": ""
+    },
+    {
+      "term": "resourceProvider",
+      "definition": ""
+    },
+    {
+      "term": "tradeDirection",
+      "definition": ""
+    },
+    {
+      "term": "tradeQuantity",
+      "definition": ""
+    },
+    {
+      "term": "tradePrice",
+      "definition": ""
+    },
+    {
+      "term": "traderUnit",
+      "definition": ""
+    },
+    {
+      "term": "endTime",
+      "definition": ""
+    },
+    {
+      "term": "measurementTime",
+      "definition": ""
+    },
+    {
+      "term": "frequency",
+      "definition": ""
+    },
+    {
+      "term": "warningType",
+      "definition": ""
+    },
+    {
+      "term": "warningText",
+      "definition": ""
+    },
+    {
+      "term": "measurementDate",
+      "definition": ""
+    },
+    {
+      "term": "temperature",
+      "definition": ""
+    },
+    {
+      "term": "fileCreationTime",
+      "definition": ""
+    },
+    {
+      "term": "tradingUnitType",
+      "definition": ""
+    },
+    {
+      "term": "tradingUnitName",
+      "definition": ""
+    },
+    {
+      "term": "deliveryMode",
+      "definition": ""
+    },
+    {
+      "term": "importVolume",
+      "definition": ""
+    },
+    {
+      "term": "exportVolume",
+      "definition": ""
+    },
+    {
+      "term": "forecastHorizon",
+      "definition": ""
+    },
+    {
+      "term": "temperatureReferenceAverage",
+      "definition": ""
+    },
+    {
+      "term": "temperatureReferenceHigh",
+      "definition": ""
+    },
+    {
+      "term": "temperatureReferenceLow",
+      "definition": ""
+    },
+    {
+      "term": "elexonBmUnit",
+      "definition": ""
+    },
+    {
+      "term": "eic",
+      "definition": ""
+    },
+    {
+      "term": "fpnFlag",
+      "definition": ""
+    },
+    {
+      "term": "bmUnitName",
+      "definition": ""
+    },
+    {
+      "term": "leadPartyId",
+      "definition": ""
+    },
+    {
+      "term": "demandCapacity",
+      "definition": ""
+    },
+    {
+      "term": "generationCapacity",
+      "definition": ""
+    },
+    {
+      "term": "productionOrConsumptionFlag",
+      "definition": ""
+    },
+    {
+      "term": "transmissionLossFactor",
+      "definition": ""
+    },
+    {
+      "term": "workingDayCreditAssessmentImportCapability",
+      "definition": ""
+    },
+    {
+      "term": "nonWorkingDayCreditAssessmentImportCapability",
+      "definition": ""
+    },
+    {
+      "term": "workingDayCreditAssessmentExportCapability",
+      "definition": ""
+    },
+    {
+      "term": "nonWorkingDayCreditAssessmentExportCapability",
+      "definition": ""
+    },
+    {
+      "term": "creditQualifyingStatus",
+      "definition": ""
+    },
+    {
+      "term": "demandInProductionFlag",
+      "definition": ""
+    },
+    {
+      "term": "gspGroupName",
+      "definition": ""
+    },
+    {
+      "term": "interconnectorId",
+      "definition": ""
+    },
+    {
+      "term": "lastUpdated",
+      "definition": ""
+    },
+    {
+      "term": "interconnectorBiddingZone",
+      "definition": ""
+    },
+    {
+      "term": "submissionDateTime",
+      "definition": ""
+    },
+    {
+      "term": "region",
+      "definition": ""
+    },
+    {
+      "term": "forecastDemand60",
+      "definition": ""
+    },
+    {
+      "term": "forecastDemand100",
+      "definition": ""
+    },
+    {
+      "term": "restoredDemand",
+      "definition": ""
+    },
+    {
+      "term": "creationTime",
+      "definition": ""
+    },
+    {
+      "term": "totalExemptSupplyVolume",
+      "definition": ""
+    },
+    {
+      "term": "businessType",
+      "definition": ""
+    },
+    {
+      "term": "psrType",
+      "definition": ""
+    },
+    {
+      "term": "quantity",
+      "definition": ""
+    },
+    {
+      "term": "documentId",
+      "definition": ""
+    },
+    {
+      "term": "documentRevisionNumber",
+      "definition": ""
+    },
+    {
+      "term": "marketAgreementType",
+      "definition": ""
+    },
+    {
+      "term": "flowDirection",
+      "definition": ""
+    },
+    {
+      "term": "nationalGridBmUnitId",
+      "definition": ""
+    },
+    {
+      "term": "timeSeriesId",
+      "definition": ""
+    },
+    {
+      "term": "secondaryQuantity",
+      "definition": ""
+    },
+    {
+      "term": "bidId",
+      "definition": ""
+    },
+    {
+      "term": "energyPrice",
+      "definition": ""
+    },
+    {
+      "term": "month",
+      "definition": ""
+    },
+    {
+      "term": "amount",
+      "definition": ""
+    },
+    {
+      "term": "processType",
+      "definition": ""
+    },
+    {
+      "term": "status",
+      "definition": ""
+    },
+    {
+      "term": "priceDirection",
+      "definition": ""
+    },
+    {
+      "term": "effectiveFrom",
+      "definition": ""
+    },
+    {
+      "term": "registeredResourceEicCode",
+      "definition": ""
+    },
+    {
+      "term": "registeredResourceName",
+      "definition": ""
+    },
+    {
+      "term": "voltageLimit",
+      "definition": ""
+    },
+    {
+      "term": "installedCapacity",
+      "definition": ""
+    },
+    {
+      "term": "forecastWeekCommencingDate",
+      "definition": ""
+    },
+    {
+      "term": "forecastMonth",
+      "definition": ""
+    },
+    {
+      "term": "minimumPossible",
+      "definition": ""
+    },
+    {
+      "term": "maximumAvailable",
+      "definition": ""
+    },
+    {
+      "term": "procurementPrice",
+      "definition": ""
+    },
+    {
+      "term": "capacity",
+      "definition": ""
+    },
+    {
+      "term": "mrid",
+      "definition": ""
+    },
+    {
+      "term": "createdTime",
+      "definition": ""
+    },
+    {
+      "term": "registrationCode",
+      "definition": ""
+    },
+    {
+      "term": "affectedUnitEIC",
+      "definition": ""
+    },
+    {
+      "term": "normalCapacity",
+      "definition": ""
+    },
+    {
+      "term": "eventStartTime",
+      "definition": ""
+    },
+    {
+      "term": "eventEndTime",
+      "definition": ""
+    },
+    {
+      "term": "url",
+      "definition": ""
+    }
+  ]
+}

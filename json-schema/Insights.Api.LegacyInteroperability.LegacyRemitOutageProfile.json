@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.LegacyInteroperability.LegacyRemitOutageProfile.json",
+  "title": "Insights.Api.LegacyInteroperability.LegacyRemitOutageProfile",
+  "type": "object",
+  "properties": {
+    "segments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitOutageProfileSegment"
+      },
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.PbcDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.PbcDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "PBC"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-PBC-00688983"
+    },
+    "timeSeriesId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-PBC-TS-36758603"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-08-22T07:43:04Z"
+    },
+    "flowDirection": {
+      "type": "string",
+      "nullable": true,
+      "example": "Up"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Generation"
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 1140
+    },
+    "procurementPrice": {
+      "type": "number",
+      "format": "double",
+      "example": 150
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-08-22T07:43:04Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-08-23"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    }
+  },
+  "additionalProperties": false
+}

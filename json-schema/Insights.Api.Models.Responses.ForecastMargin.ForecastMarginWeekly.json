@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly.json",
+  "title": "Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "margin": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "week": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "weekStartDate": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": false
+}

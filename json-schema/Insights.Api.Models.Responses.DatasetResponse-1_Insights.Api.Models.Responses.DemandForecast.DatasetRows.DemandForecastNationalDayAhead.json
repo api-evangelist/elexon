@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead.json",
+  "title": "Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead"
+      },
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

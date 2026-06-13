@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Reference.BmUnitData.json",
+  "title": "Insights.Api.Models.Responses.Reference.BmUnitData",
+  "type": "object",
+  "properties": {
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true
+    },
+    "elexonBmUnit": {
+      "type": "string",
+      "nullable": true
+    },
+    "eic": {
+      "type": "string",
+      "nullable": true
+    },
+    "fuelType": {
+      "type": "string",
+      "nullable": true
+    },
+    "leadPartyName": {
+      "type": "string",
+      "nullable": true
+    },
+    "bmUnitType": {
+      "type": "string",
+      "nullable": true
+    },
+    "fpnFlag": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "bmUnitName": {
+      "type": "string",
+      "nullable": true
+    },
+    "leadPartyId": {
+      "type": "string",
+      "nullable": true
+    },
+    "demandCapacity": {
+      "type": "string",
+      "nullable": true
+    },
+    "generationCapacity": {
+      "type": "string",
+      "nullable": true
+    },
+    "productionOrConsumptionFlag": {
+      "type": "string",
+      "nullable": true
+    },
+    "transmissionLossFactor": {
+      "type": "string",
+      "nullable": true
+    },
+    "workingDayCreditAssessmentImportCapability": {
+      "type": "string",
+      "nullable": true
+    },
+    "nonWorkingDayCreditAssessmentImportCapability": {
+      "type": "string",
+      "nullable": true
+    },
+    "workingDayCreditAssessmentExportCapability": {
+      "type": "string",
+      "nullable": true
+    },
+    "nonWorkingDayCreditAssessmentExportCapability": {
+      "type": "string",
+      "nullable": true
+    },
+    "creditQualifyingStatus": {
+      "type": "boolean"
+    },
+    "demandInProductionFlag": {
+      "type": "boolean"
+    },
+    "gspGroupId": {
+      "type": "string",
+      "nullable": true
+    },
+    "gspGroupName": {
+      "type": "string",
+      "nullable": true
+    },
+    "interconnectorId": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

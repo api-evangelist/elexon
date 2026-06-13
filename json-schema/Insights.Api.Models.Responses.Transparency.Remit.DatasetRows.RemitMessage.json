@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.RemitMessage.json",
+  "title": "Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.RemitMessage",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "REMIT"
+    },
+    "mrid": {
+      "type": "string",
+      "nullable": true,
+      "example": "11XINNOGY------2-NGET-RMT-00084421"
+    },
+    "revisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 25
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-01-31T17:39:15Z"
+    },
+    "createdTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-01-31T17:39:15Z"
+    },
+    "messageType": {
+      "type": "string",
+      "nullable": true,
+      "example": "UnavailabilitiesOfElectricityFacilities"
+    },
+    "messageHeading": {
+      "type": "string",
+      "nullable": true,
+      "example": "Planned Unavailability of Generation Unit"
+    },
+    "eventType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Production unavailability"
+    },
+    "unavailabilityType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Planned"
+    },
+    "participantId": {
+      "type": "string",
+      "nullable": true,
+      "example": "11XINNOGY------2"
+    },
+    "registrationCode": {
+      "type": "string",
+      "nullable": true,
+      "example": "11XINNOGY------2"
+    },
+    "assetId": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_DIDCB5"
+    },
+    "assetType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Production"
+    },
+    "affectedUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "DIDCB5"
+    },
+    "affectedUnitEIC": {
+      "type": "string",
+      "nullable": true,
+      "example": "48W000000DIDCB5C"
+    },
+    "affectedArea": {
+      "type": "string",
+      "nullable": true,
+      "example": "N"
+    },
+    "biddingZone": {
+      "type": "string",
+      "nullable": true,
+      "example": "10YGB----------A"
+    },
+    "fuelType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Fossil Gas"
+    },
+    "normalCapacity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 780
+    },
+    "availableCapacity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 320
+    },
+    "unavailableCapacity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 361
+    },
+    "eventStatus": {
+      "type": "string",
+      "nullable": true,
+      "example": "Inactive"
+    },
+    "eventStartTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-08-23T06:59:00Z"
+    },
+    "eventEndTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2022-08-25T05:20:30Z"
+    },
+    "durationUncertainty": {
+      "type": "string",
+      "nullable": true,
+      "example": "+- 1 day"
+    },
+    "cause": {
+      "type": "string",
+      "nullable": true,
+      "example": "Other"
+    },
+    "relatedInformation": {
+      "type": "string",
+      "nullable": true,
+      "example": "Status changed to Completed"
+    },
+    "outageProfile": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData"
+      },
+      "nullable": true,
+      "example": [
+        {
+          "startTime": "2023-02-03T21:06:31.000Z",
+          "endTime": "2023-02-03T21:10:00.000Z",
+          "capacity": 436
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationOutputPerGenerationUnitDatasetResponse.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationOutputPerGenerationUnitDatasetResponse",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "B1610"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Generation"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_CNQPS-1"
+    },
+    "nationalGridBmUnitId": {
+      "type": "string",
+      "nullable": true,
+      "example": "CNQPS-1"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-08-12"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 10
+    },
+    "halfHourEndTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-08-12T04:00:00Z"
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 116.109
+    }
+  },
+  "additionalProperties": false
+}

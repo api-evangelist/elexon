@@ -1,0 +1,9 @@
+{
+  "endpoint": "/balancing/nonbm/disbsad/summary",
+  "method": "GET",
+  "summary": "Disaggregated balancing services adjustment time series (DISBSAD)",
+  "response_schema": {
+    "$ref": "#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse"
+  },
+  "example_note": "Stub example \u2014 fetch live data from https://data.elexon.co.uk/bmrs/api/v1/balancing/nonbm/disbsad/summary"
+}

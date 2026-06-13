@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-03-01"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-03-01T00:00:00Z"
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2023-09-17T09:03:18.74Z"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "2__AFLEX003"
+    },
+    "bmUnitType": {
+      "type": "string",
+      "example": "S"
+    },
+    "leadPartyName": {
+      "type": "string",
+      "nullable": true,
+      "example": "Flexitricity Limited"
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "AG-AFLX03"
+    },
+    "bidOfferPairCashflows": {
+      "$ref": "#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs"
+    },
+    "totalCashflow": {
+      "type": "number",
+      "format": "double",
+      "example": 28080.002
+    }
+  },
+  "additionalProperties": false
+}

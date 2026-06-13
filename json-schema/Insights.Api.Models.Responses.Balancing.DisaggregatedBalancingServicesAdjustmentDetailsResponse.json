@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-06-25"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 29
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-06-25T13:00:00Z"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "cost": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 1850.9
+    },
+    "volume": {
+      "type": "number",
+      "format": "double",
+      "example": 5
+    },
+    "price": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 370.18
+    },
+    "soFlag": {
+      "type": "boolean"
+    },
+    "storFlag": {
+      "type": "boolean"
+    },
+    "partyId": {
+      "type": "string",
+      "nullable": true,
+      "example": "ElectroRoute Energy Trading Limited"
+    },
+    "assetId": {
+      "type": "string",
+      "nullable": true,
+      "example": "ING-ELTR1"
+    },
+    "isTendered": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "service": {
+      "type": "string",
+      "nullable": true,
+      "example": "Energy"
+    }
+  },
+  "additionalProperties": false
+}

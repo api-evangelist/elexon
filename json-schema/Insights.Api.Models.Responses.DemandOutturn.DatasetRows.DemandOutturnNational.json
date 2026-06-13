@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational.json",
+  "title": "Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "demand": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

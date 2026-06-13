@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily.json",
+  "title": "Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true
+    },
+    "fuelType": {
+      "type": "string",
+      "nullable": true,
+      "example": "WIND"
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "WTMSO-1"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_WTMSO-1"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2022-08-15T11:00:00Z"
+    },
+    "forecastDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-08-17"
+    },
+    "outputUsable": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "example": 84
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-08-05 12:00:08Z"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-08-06 23:30:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-08-07"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 18648
+    }
+  },
+  "additionalProperties": false
+}

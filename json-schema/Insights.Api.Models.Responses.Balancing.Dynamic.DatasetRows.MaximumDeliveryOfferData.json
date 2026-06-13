@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.MaximumDeliveryOfferData.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.MaximumDeliveryOfferData",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "MDO"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2026-06-10"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 3
+    },
+    "timeFrom": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-06-10T01:00:00Z"
+    },
+    "timeTo": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-06-10T01:10:00Z"
+    },
+    "levelFrom": {
+      "type": "number",
+      "format": "double",
+      "example": 5
+    },
+    "levelTo": {
+      "type": "number",
+      "format": "double",
+      "example": 46
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "HLIM03"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "AG-HLIM03"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-06-10T02:00:00Z"
+    },
+    "serialNumber": {
+      "type": "string",
+      "nullable": true,
+      "example": "00002"
+    }
+  },
+  "additionalProperties": false
+}

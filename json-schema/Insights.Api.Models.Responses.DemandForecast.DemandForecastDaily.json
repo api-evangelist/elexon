@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily.json",
+  "title": "Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "transmissionSystemDemand": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nationalDemand": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "forecastDate": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": false
+}

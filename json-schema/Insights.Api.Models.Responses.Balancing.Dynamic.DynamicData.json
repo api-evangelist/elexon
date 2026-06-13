@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "SEL"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_ABRBO-1"
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "ABRBO-1"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-07-01T13:34:00Z"
+    },
+    "value": {
+      "type": "integer",
+      "format": "int64",
+      "example": 5
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-07-01"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 3
+    }
+  },
+  "additionalProperties": false
+}

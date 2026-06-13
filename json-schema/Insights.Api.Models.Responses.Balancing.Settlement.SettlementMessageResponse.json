@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-09-18"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-18T00:30:00Z"
+    },
+    "messageReceivedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-17T15:31:12Z"
+    },
+    "messageSeverity": {
+      "type": "string",
+      "nullable": true,
+      "example": "Error"
+    },
+    "messageTypeCode": {
+      "type": "string",
+      "nullable": true,
+      "example": "ERR-BM-001"
+    },
+    "messageType": {
+      "type": "string",
+      "nullable": true,
+      "example": "FPN"
+    },
+    "messageText": {
+      "type": "string",
+      "nullable": true,
+      "example": "No FPN files have been received."
+    }
+  },
+  "additionalProperties": false
+}

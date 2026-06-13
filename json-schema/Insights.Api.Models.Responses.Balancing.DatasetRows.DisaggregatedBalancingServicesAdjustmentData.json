@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData.json",
+  "title": "Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "DISBSAD"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-06-25"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 29
+    },
+    "id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "cost": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 1850.9
+    },
+    "volume": {
+      "type": "number",
+      "format": "double",
+      "example": 5
+    },
+    "soFlag": {
+      "type": "boolean"
+    },
+    "storFlag": {
+      "type": "boolean"
+    },
+    "partyId": {
+      "type": "string",
+      "nullable": true,
+      "example": "ElectroRoute Energy Trading Limited"
+    },
+    "assetId": {
+      "type": "string",
+      "nullable": true,
+      "example": "ING-ELTR1"
+    },
+    "isTendered": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "service": {
+      "type": "string",
+      "nullable": true,
+      "example": "Energy"
+    }
+  },
+  "additionalProperties": false
+}

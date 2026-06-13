@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Generation.AvailabilityWeekly.json",
+  "title": "Insights.Api.Models.Responses.Generation.AvailabilityWeekly",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2024-06-07T15:00:00Z"
+    },
+    "fuelType": {
+      "type": "string",
+      "nullable": true,
+      "example": "CCGT"
+    },
+    "ngcBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "CARR-1"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_CARR-1"
+    },
+    "outputUsable": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "example": 418
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2024
+    },
+    "calendarWeekNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 23
+    }
+  },
+  "additionalProperties": false
+}

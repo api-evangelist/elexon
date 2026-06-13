@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "CDN"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2022-09-20T00:00Z"
+    },
+    "bscPartyId": {
+      "type": "string",
+      "nullable": true,
+      "example": "INVE"
+    },
+    "creditDefaultLevel": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "enteredDefaultSettlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-06-25"
+    },
+    "enteredDefaultSettlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 3
+    },
+    "clearedDefaultSettlementDate": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "example": "2022-07-02"
+    },
+    "clearedDefaultSettlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true,
+      "example": 29
+    },
+    "clearedDefaultText": {
+      "type": "string",
+      "nullable": true,
+      "example": "Credit Cover Percentage greater than or equal to 90% of Credit Limit (Level 2 Default)"
+    }
+  },
+  "additionalProperties": false
+}

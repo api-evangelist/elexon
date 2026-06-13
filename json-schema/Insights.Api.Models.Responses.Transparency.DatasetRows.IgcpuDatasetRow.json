@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "IGCPU"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-CONF-00688811"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-04-21T13:25:52Z"
+    },
+    "effectiveFrom": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-08-07"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Other"
+    },
+    "registeredResourceEicCode": {
+      "type": "string",
+      "nullable": true,
+      "example": "48WVPI-TRAD-BMUI"
+    },
+    "registeredResourceName": {
+      "type": "string",
+      "nullable": true,
+      "example": "DBAWO-1"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_DBAWO-1"
+    },
+    "voltageLimit": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 2234.1
+    },
+    "installedCapacity": {
+      "type": "number",
+      "format": "double",
+      "example": 1928.2
+    }
+  },
+  "additionalProperties": false
+}

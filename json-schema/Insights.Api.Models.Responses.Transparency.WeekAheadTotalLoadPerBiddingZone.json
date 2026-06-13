@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone.json",
+  "title": "Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 05:00:00Z"
+    },
+    "forecastDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-07-24"
+    },
+    "forecastWeek": {
+      "type": "integer",
+      "format": "int32",
+      "example": 30
+    },
+    "minimumPossible": {
+      "type": "number",
+      "format": "double",
+      "example": 18034
+    },
+    "maximumAvailable": {
+      "type": "number",
+      "format": "double",
+      "example": 35011
+    }
+  },
+  "additionalProperties": false
+}

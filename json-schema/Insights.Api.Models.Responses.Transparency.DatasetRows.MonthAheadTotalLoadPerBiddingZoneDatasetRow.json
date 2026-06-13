@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "MATL"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-WATL-16209423"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-05-25 23:00:10Z"
+    },
+    "forecastWeekCommencingDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-05-29"
+    },
+    "forecastYear": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2023
+    },
+    "forecastMonth": {
+      "type": "string",
+      "nullable": true,
+      "example": "JUN"
+    },
+    "minimumPossible": {
+      "type": "number",
+      "format": "double",
+      "example": 18034
+    },
+    "maximumAvailable": {
+      "type": "number",
+      "format": "double",
+      "example": 35011
+    }
+  },
+  "additionalProperties": false
+}

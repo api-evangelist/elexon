@@ -1,0 +1,9 @@
+{
+  "endpoint": "/datasets/PN",
+  "method": "GET",
+  "summary": "Physical Notifications (PN)",
+  "response_schema": {
+    "$ref": "#/components/schemas/Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData"
+  },
+  "example_note": "Stub example \u2014 fetch live data from https://data.elexon.co.uk/bmrs/api/v1/datasets/PN"
+}

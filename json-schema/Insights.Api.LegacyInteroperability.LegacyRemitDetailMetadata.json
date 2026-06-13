@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.LegacyInteroperability.LegacyRemitDetailMetadata.json",
+  "title": "Insights.Api.LegacyInteroperability.LegacyRemitDetailMetadata",
+  "type": "object",
+  "properties": {
+    "httpCode": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "errorType": {
+      "type": "string",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "queryString": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

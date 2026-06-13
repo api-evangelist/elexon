@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData.json",
+  "title": "Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "FUELINST"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2022-06-25T13:00:00Z"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2022-06-25T13:00:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "example": "2022-06-25"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true,
+      "example": 3
+    },
+    "fuelType": {
+      "type": "string",
+      "nullable": true,
+      "example": "BIOMASS"
+    },
+    "generation": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "example": 0
+    }
+  },
+  "additionalProperties": false
+}

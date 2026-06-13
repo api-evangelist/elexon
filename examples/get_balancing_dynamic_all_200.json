@@ -1,0 +1,9 @@
+{
+  "endpoint": "/balancing/dynamic/all",
+  "method": "GET",
+  "summary": "Market-wide dynamic data (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)",
+  "response_schema": {
+    "$ref": "#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData"
+  },
+  "example_note": "Stub example \u2014 fetch live data from https://data.elexon.co.uk/bmrs/api/v1/balancing/dynamic/all"
+}

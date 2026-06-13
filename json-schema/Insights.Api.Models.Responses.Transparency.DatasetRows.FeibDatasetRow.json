@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "FEIB"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-FEIB-00687316"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-09-21T10:04:24Z"
+    },
+    "status": {
+      "type": "string",
+      "nullable": true,
+      "example": "Intermediate"
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2021
+    },
+    "month": {
+      "type": "string",
+      "nullable": true,
+      "example": "JUL"
+    },
+    "amount": {
+      "type": "number",
+      "format": "double",
+      "example": 77112420
+    },
+    "priceDirection": {
+      "type": "string",
+      "nullable": true,
+      "example": "Expenditure"
+    }
+  },
+  "additionalProperties": false
+}

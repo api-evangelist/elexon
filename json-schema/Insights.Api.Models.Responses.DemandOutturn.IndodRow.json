@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DemandOutturn.IndodRow.json",
+  "title": "Insights.Api.Models.Responses.DemandOutturn.IndodRow",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-08-26T23:15:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-08-26"
+    },
+    "demand": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "example": 494802
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar.json",
+  "title": "Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 05:00:00Z"
+    },
+    "businessType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Solar generation"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Solar"
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 1829
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 06:30:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-07-12"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 16
+    }
+  },
+  "additionalProperties": false
+}

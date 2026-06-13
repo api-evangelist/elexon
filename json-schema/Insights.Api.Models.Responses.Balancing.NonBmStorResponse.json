@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.NonBmStorResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.NonBmStorResponse",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-06-25T13:34:00Z"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-06-25T13:00:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-06-25"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 29
+    },
+    "generation": {
+      "type": "integer",
+      "format": "int64",
+      "example": 0
+    }
+  },
+  "additionalProperties": false
+}

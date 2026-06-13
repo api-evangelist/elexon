@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse.json",
+  "title": "Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse",
+  "type": "object",
+  "properties": {
+    "creationTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-01-16T15:31:12Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2025-01-16"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 5
+    },
+    "settlementRunType": {
+      "type": "string",
+      "nullable": true,
+      "example": "R1"
+    },
+    "totalExemptSupplyVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 505.3
+    }
+  },
+  "additionalProperties": false
+}

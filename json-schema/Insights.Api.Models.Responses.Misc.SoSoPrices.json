@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Misc.SoSoPrices.json",
+  "title": "Insights.Api.Models.Responses.Misc.SoSoPrices",
+  "type": "object",
+  "properties": {
+    "contractIdentification": {
+      "type": "string",
+      "nullable": true,
+      "example": "EG_20210928_1100_1"
+    },
+    "tradeDirection": {
+      "type": "string",
+      "nullable": true,
+      "example": "A02"
+    },
+    "tradeQuantity": {
+      "type": "number",
+      "format": "double",
+      "example": 25
+    },
+    "tradePrice": {
+      "type": "number",
+      "format": "double",
+      "example": 30.4
+    },
+    "traderUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "EWIC_EG"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-25 18:30"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-01-31"
+    }
+  },
+  "additionalProperties": false
+}

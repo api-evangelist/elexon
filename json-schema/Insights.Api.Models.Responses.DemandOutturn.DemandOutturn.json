@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DemandOutturn.DemandOutturn.json",
+  "title": "Insights.Api.Models.Responses.DemandOutturn.DemandOutturn",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "initialDemandOutturn": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "initialTransmissionSystemDemandOutturn": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

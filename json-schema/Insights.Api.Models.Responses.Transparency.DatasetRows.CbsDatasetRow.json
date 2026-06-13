@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "CBS"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-CBS-00879999"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-10-24T13:09:07Z"
+    },
+    "flowDirection": {
+      "type": "string",
+      "nullable": true,
+      "example": "Up"
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 12412
+    },
+    "timeFrom": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-11T14:30:00Z"
+    },
+    "timeTo": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-11T14:30:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-09-11"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 32
+    }
+  },
+  "additionalProperties": false
+}

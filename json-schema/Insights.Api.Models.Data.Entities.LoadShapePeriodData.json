@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Data.Entities.LoadShapePeriodData.json",
+  "title": "Insights.Api.Models.Data.Entities.LoadShapePeriodData",
+  "type": "object",
+  "properties": {
+    "sourceFileName": {
+      "type": "string",
+      "nullable": true
+    },
+    "sourceFileDatetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "settlementPeriodStartDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementPeriodEndDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "gspGroupId": {
+      "type": "string",
+      "nullable": true
+    },
+    "connectionTypeIndicator": {
+      "type": "string",
+      "nullable": true
+    },
+    "marketSegmentIndicator": {
+      "type": "string",
+      "nullable": true
+    },
+    "domesticPremiseIndicator": {
+      "type": "string",
+      "nullable": true
+    },
+    "measurementQuantityId": {
+      "type": "string",
+      "nullable": true
+    },
+    "runNumber": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "eventCode": {
+      "type": "string",
+      "nullable": true
+    },
+    "settlementPeriodDuration": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "loadShapePeriodValue": {
+      "type": "number",
+      "format": "double"
+    },
+    "defaultLoadShapeFlag": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

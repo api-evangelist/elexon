@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadAggregatedGenerationDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadAggregatedGenerationDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "DAG"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-DAG-06244336"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 05:00:00Z"
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 1804.5
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 06:30:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-07-12"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 16
+    }
+  },
+  "additionalProperties": false
+}

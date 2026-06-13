@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn.json",
+  "title": "Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "readOnly": true
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "settlementDateTimezone": {
+      "type": "string",
+      "nullable": true,
+      "readOnly": true
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "interconnectorName": {
+      "type": "string",
+      "nullable": true
+    },
+    "generation": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

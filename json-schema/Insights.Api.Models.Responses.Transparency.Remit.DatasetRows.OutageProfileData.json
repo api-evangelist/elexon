@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData.json",
+  "title": "Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData",
+  "type": "object",
+  "properties": {
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capacity": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "additionalProperties": false
+}

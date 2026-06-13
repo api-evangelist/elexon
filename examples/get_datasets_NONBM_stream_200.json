@@ -1,0 +1,12 @@
+{
+  "endpoint": "/datasets/NONBM/stream",
+  "method": "GET",
+  "summary": "Non-BM STOR (NONBM) stream",
+  "response_schema": {
+    "type": "array",
+    "items": {
+      "$ref": "#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.NonBmStorData"
+    }
+  },
+  "example_note": "Stub example \u2014 fetch live data from https://data.elexon.co.uk/bmrs/api/v1/datasets/NONBM/stream"
+}

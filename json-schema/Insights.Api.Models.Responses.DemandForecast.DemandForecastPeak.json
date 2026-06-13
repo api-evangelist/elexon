@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak.json",
+  "title": "Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "boundary": {
+      "type": "string",
+      "nullable": true
+    },
+    "transmissionSystemDemand": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "additionalProperties": false
+}

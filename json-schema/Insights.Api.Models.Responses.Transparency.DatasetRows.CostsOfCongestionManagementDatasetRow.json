@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "CCM"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-CCM-00688999"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 05:00:00Z"
+    },
+    "businessType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Congestion costs"
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2023
+    },
+    "month": {
+      "type": "string",
+      "nullable": true,
+      "example": "OCT"
+    },
+    "amount": {
+      "type": "number",
+      "format": "double",
+      "example": 1.08
+    }
+  },
+  "additionalProperties": false
+}

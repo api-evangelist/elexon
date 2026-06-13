@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "DGWS"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-DGWSINTRADAY-06043339"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 05:00:00Z"
+    },
+    "processType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Intraday process"
+    },
+    "businessType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Wind generation"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Wind Offshore"
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 1829
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 06:30:00Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-07-12"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 16
+    }
+  },
+  "additionalProperties": false
+}

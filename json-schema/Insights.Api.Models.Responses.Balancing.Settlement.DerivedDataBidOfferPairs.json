@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs",
+  "type": "object",
+  "properties": {
+    "negative1": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "positive1": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 23062.377
+    },
+    "negative2": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "positive2": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 5017.6255
+    },
+    "negative3": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "positive3": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "negative4": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "positive4": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "negative5": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "positive5": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "negative6": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "positive6": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    }
+  },
+  "additionalProperties": false
+}

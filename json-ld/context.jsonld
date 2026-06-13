@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "elexon": "https://data.elexon.co.uk/bmrs/api/v1/",
+    "bmrs": "https://bmrs.elexon.co.uk/",
+    "api": "https://data.elexon.co.uk/swagger/v1/swagger.json#",
+    "openapi": "https://spec.openapis.org/oas/v3.0/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "title": "schema:name",
+    "description": "schema:description",
+    "version": "schema:version",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "provider": {
+      "@id": "schema:provider",
+      "@type": "@id"
+    },
+    "tags": "schema:keywords",
+    "paths": "elexon:path",
+    "schemas": "elexon:schema"
+  }
+}

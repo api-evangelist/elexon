@@ -1,0 +1,12 @@
+{
+  "endpoint": "/datasets/PN/stream",
+  "method": "GET",
+  "summary": "Physical Notifications (PN) stream",
+  "response_schema": {
+    "type": "array",
+    "items": {
+      "$ref": "#/components/schemas/Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData"
+    }
+  },
+  "example_note": "Stub example \u2014 fetch live data from https://data.elexon.co.uk/bmrs/api/v1/datasets/PN/stream"
+}

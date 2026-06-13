@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-09-18"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-18T00:30:00Z"
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-17T15:31:12Z"
+    },
+    "systemSellPrice": {
+      "type": "number",
+      "format": "double",
+      "example": 215
+    },
+    "systemBuyPrice": {
+      "type": "number",
+      "format": "double",
+      "example": 215
+    },
+    "bsadDefaulted": {
+      "type": "boolean",
+      "example": false
+    },
+    "priceDerivationCode": {
+      "type": "string",
+      "nullable": true,
+      "example": "P"
+    },
+    "reserveScarcityPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "netImbalanceVolume": {
+      "type": "number",
+      "format": "double",
+      "example": 291.9136
+    },
+    "sellPriceAdjustment": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "buyPriceAdjustment": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "replacementPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "replacementPriceReferenceVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "totalAcceptedOfferVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 790.6547
+    },
+    "totalAcceptedBidVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -738.74115
+    },
+    "totalAdjustmentSellVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "totalAdjustmentBuyVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 240
+    },
+    "totalSystemTaggedAcceptedOfferVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 789.6547
+    },
+    "totalSystemTaggedAcceptedBidVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -738.74115
+    },
+    "totalSystemTaggedAdjustmentSellVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": null
+    },
+    "totalSystemTaggedAdjustmentBuyVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 240
+    }
+  },
+  "additionalProperties": false
+}

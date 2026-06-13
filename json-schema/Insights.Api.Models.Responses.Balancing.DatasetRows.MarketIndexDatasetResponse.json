@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "MID"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-09-26T13:00:00Z"
+    },
+    "dataProvider": {
+      "type": "string",
+      "nullable": true,
+      "example": "N2EXMIDP"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-09-26"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 3
+    },
+    "price": {
+      "type": "number",
+      "format": "double",
+      "example": 678.12
+    },
+    "volume": {
+      "type": "number",
+      "format": "double",
+      "example": 678.123
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId.json",
+  "title": "Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId"
+      },
+      "nullable": true
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata"
+    }
+  },
+  "additionalProperties": false
+}

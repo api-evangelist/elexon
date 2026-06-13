@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly.json",
+  "title": "Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true
+    },
+    "fuelType": {
+      "type": "string",
+      "nullable": true
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "systemZone": {
+      "type": "string",
+      "nullable": true
+    },
+    "calendarWeekNumber": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "outputUsable": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "biddingZone": {
+      "type": "string",
+      "nullable": true
+    },
+    "interconnectorName": {
+      "type": "string",
+      "nullable": true
+    },
+    "interconnector": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

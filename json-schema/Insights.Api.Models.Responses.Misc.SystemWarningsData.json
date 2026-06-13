@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Misc.SystemWarningsData.json",
+  "title": "Insights.Api.Models.Responses.Misc.SystemWarningsData",
+  "type": "object",
+  "properties": {
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2022-09-20T00:00Z"
+    },
+    "warningType": {
+      "type": "string",
+      "nullable": true,
+      "example": "IT SYSTEMS OUTAGE"
+    },
+    "warningText": {
+      "type": "string",
+      "nullable": true,
+      "example": "NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions"
+    }
+  },
+  "additionalProperties": false
+}

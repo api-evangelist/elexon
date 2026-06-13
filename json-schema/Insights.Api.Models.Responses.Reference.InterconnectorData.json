@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Reference.InterconnectorData.json",
+  "title": "Insights.Api.Models.Responses.Reference.InterconnectorData",
+  "type": "object",
+  "properties": {
+    "interconnectorId": {
+      "type": "string",
+      "nullable": true
+    },
+    "interconnectorName": {
+      "type": "string",
+      "nullable": true
+    },
+    "interconnectorBiddingZone": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

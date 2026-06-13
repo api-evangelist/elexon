@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "ABUC"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-ABUC-00688983"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-08-22T07:43:04Z"
+    },
+    "businessType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Replacement reserve"
+    },
+    "psrType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Generation"
+    },
+    "marketAgreementType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Daily"
+    },
+    "flowDirection": {
+      "type": "string",
+      "nullable": true,
+      "example": "Up"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-08-23"
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 1140
+    }
+  },
+  "additionalProperties": false
+}

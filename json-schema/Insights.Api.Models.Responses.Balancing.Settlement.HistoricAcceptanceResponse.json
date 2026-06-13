@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.HistoricAcceptanceResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.HistoricAcceptanceResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-11-15"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "2__AFLEX003"
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "AG-AFLX03"
+    },
+    "acceptanceNumber": {
+      "type": "integer",
+      "format": "int64",
+      "example": 22
+    },
+    "acceptanceTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-11-15T00:00:00Z"
+    },
+    "bidPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -44.95
+    },
+    "offerPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 449.95
+    },
+    "bidOfferPairId": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    }
+  },
+  "additionalProperties": false
+}

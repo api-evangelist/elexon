@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.AgptSummaryData.json",
+  "title": "Insights.Api.Models.Responses.Transparency.AgptSummaryData",
+  "type": "object",
+  "properties": {
+    "psrType": {
+      "type": "string",
+      "nullable": true
+    },
+    "halfHourUsage": {
+      "type": "number",
+      "format": "double"
+    },
+    "halfHourPercentage": {
+      "type": "number",
+      "format": "double"
+    },
+    "twentyFourHourUsage": {
+      "type": "number",
+      "format": "double"
+    },
+    "twentyFourHourPercentage": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "additionalProperties": false
+}

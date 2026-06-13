@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand.json",
+  "title": "Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand",
+  "type": "object",
+  "properties": {
+    "recordType": {
+      "type": "string",
+      "nullable": true
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "demand": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

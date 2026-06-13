@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryResponse",
+  "type": "object",
+  "properties": {
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-03-01T00:44:58Z"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-03-01"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2023-03-01T00:00:00Z"
+    },
+    "adjuster": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 0
+    },
+    "priceDerivationCode": {
+      "type": "string",
+      "nullable": true,
+      "example": "N"
+    },
+    "systemSellPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 54
+    },
+    "systemBuyPrice": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 54
+    },
+    "mainPrice": {
+      "$ref": "#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryPrice"
+    },
+    "marketPrice": {
+      "$ref": "#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryPrice"
+    }
+  },
+  "additionalProperties": false
+}

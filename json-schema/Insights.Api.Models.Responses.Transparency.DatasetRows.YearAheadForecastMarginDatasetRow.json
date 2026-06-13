@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadForecastMarginDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadForecastMarginDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "YAFM"
+    },
+    "documentId": {
+      "type": "string",
+      "nullable": true,
+      "example": "NGET-EMFIP-YAFM-00687705"
+    },
+    "documentRevisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-07-12 05:00:00Z"
+    },
+    "businessType": {
+      "type": "string",
+      "nullable": true,
+      "example": "Positive forecast margin"
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32",
+      "example": 2023
+    },
+    "quantity": {
+      "type": "number",
+      "format": "double",
+      "example": 1.08
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow.json",
+  "title": "Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "SOSO"
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2022-09-20T00:00Z"
+    },
+    "senderIdentification": {
+      "type": "string",
+      "nullable": true,
+      "example": "10X1001A1001A515"
+    },
+    "receiverIdentification": {
+      "type": "string",
+      "nullable": true,
+      "example": "10X1001A1001A59Q"
+    },
+    "contractIdentification": {
+      "type": "string",
+      "nullable": true,
+      "example": "EG_20210928_1100_1"
+    },
+    "resourceProvider": {
+      "type": "string",
+      "nullable": true,
+      "example": "EG_20210928_1100_1"
+    },
+    "tradeDirection": {
+      "type": "string",
+      "nullable": true,
+      "example": "A02"
+    },
+    "tradeQuantity": {
+      "type": "number",
+      "format": "double",
+      "example": 25
+    },
+    "tradePrice": {
+      "type": "number",
+      "format": "double",
+      "example": 30.4
+    },
+    "traderUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "EWIC_EG"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-25 18:30"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-09-20 18:30"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-01-31"
+    }
+  },
+  "additionalProperties": false
+}

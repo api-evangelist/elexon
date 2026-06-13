@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Misc.DemandControlInstructionData.json",
+  "title": "Insights.Api.Models.Responses.Misc.DemandControlInstructionData",
+  "type": "object",
+  "properties": {
+    "mRID": {
+      "type": "string",
+      "nullable": true,
+      "example": "DCI_202104300853_00000030"
+    },
+    "revisionNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2021-04-30T08:53:39Z"
+    },
+    "publishingPeriodCommencingTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-04-30T08:53:39Z"
+    },
+    "affectedDso": {
+      "type": "string",
+      "nullable": true,
+      "example": "SP(D)"
+    },
+    "demandControlId": {
+      "type": "string",
+      "nullable": true,
+      "example": "00135"
+    },
+    "instructionSequence": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "demandControlEventFlag": {
+      "type": "string",
+      "example": "I"
+    },
+    "timeFrom": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-04-30T12:45:00Z"
+    },
+    "timeTo": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2021-04-30T13:09:00Z"
+    },
+    "volume": {
+      "type": "number",
+      "format": "double",
+      "example": 68
+    },
+    "systemManagementActionFlag": {
+      "type": "string",
+      "nullable": true,
+      "example": "T"
+    },
+    "amendmentFlag": {
+      "type": "string",
+      "nullable": true,
+      "example": "ORI"
+    }
+  },
+  "additionalProperties": false
+}

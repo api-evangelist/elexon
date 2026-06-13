@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.LegacyInteroperability.LegacyRemitDetailItem.json",
+  "title": "Insights.Api.LegacyInteroperability.LegacyRemitDetailItem",
+  "type": "object",
+  "properties": {
+    "messageId": {
+      "type": "string",
+      "nullable": true
+    },
+    "sequenceId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "messageHeading": {
+      "type": "string",
+      "nullable": true
+    },
+    "eventType": {
+      "type": "string",
+      "nullable": true
+    },
+    "publishDateTimeString": {
+      "type": "string",
+      "nullable": true
+    },
+    "participantMarketParticipantId": {
+      "type": "string",
+      "nullable": true
+    },
+    "assetId": {
+      "type": "string",
+      "nullable": true
+    },
+    "assetEicCode": {
+      "type": "string",
+      "nullable": true
+    },
+    "assetType": {
+      "type": "string",
+      "nullable": true
+    },
+    "affectedUnit": {
+      "type": "string",
+      "nullable": true
+    },
+    "affectedArea": {
+      "type": "string",
+      "nullable": true
+    },
+    "assetFuelType": {
+      "type": "string",
+      "nullable": true
+    },
+    "assetNormalCapacity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "availableCapacity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "unavailableCapacity": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "eventStartString": {
+      "type": "string",
+      "nullable": true
+    },
+    "eventEndString": {
+      "type": "string",
+      "nullable": true
+    },
+    "cause": {
+      "type": "string",
+      "nullable": true
+    },
+    "eventStatus": {
+      "type": "string",
+      "nullable": true
+    },
+    "relatedInformation": {
+      "type": "string",
+      "nullable": true
+    },
+    "activeFlag": {
+      "type": "string",
+      "nullable": true
+    },
+    "messageType": {
+      "type": "string",
+      "nullable": true
+    },
+    "unavailabilityType": {
+      "type": "string",
+      "nullable": true
+    },
+    "acerCode": {
+      "type": "string",
+      "nullable": true
+    },
+    "biddingZone": {
+      "type": "string",
+      "nullable": true
+    },
+    "outageProfile": {
+      "$ref": "#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitOutageProfile"
+    },
+    "revisionNumber": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "additionalProperties": false
+}

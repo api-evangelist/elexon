@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true,
+      "example": "BOALF"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-07-25"
+    },
+    "settlementPeriodFrom": {
+      "type": "integer",
+      "format": "int32",
+      "example": 29
+    },
+    "settlementPeriodTo": {
+      "type": "integer",
+      "format": "int32",
+      "example": 32
+    },
+    "timeFrom": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-06-25T13:34:00Z"
+    },
+    "timeTo": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-06-25T13:37:00Z"
+    },
+    "levelFrom": {
+      "type": "integer",
+      "format": "int32",
+      "example": 5
+    },
+    "levelTo": {
+      "type": "integer",
+      "format": "int32",
+      "example": 46
+    },
+    "acceptanceNumber": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1234567
+    },
+    "acceptanceTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-06-25T13:37:00Z"
+    },
+    "deemedBoFlag": {
+      "type": "boolean"
+    },
+    "soFlag": {
+      "type": "boolean"
+    },
+    "amendmentFlag": {
+      "type": "string",
+      "nullable": true,
+      "example": "ORI"
+    },
+    "storFlag": {
+      "type": "boolean"
+    },
+    "rrFlag": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "ABRBO-1"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_ABRBO-1"
+    }
+  },
+  "additionalProperties": false
+}

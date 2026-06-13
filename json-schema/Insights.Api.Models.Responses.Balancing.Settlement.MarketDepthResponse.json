@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.Settlement.MarketDepthResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.Settlement.MarketDepthResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-11-15"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "indicatedImbalance": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "example": 419
+    },
+    "offerVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 51708.5
+    },
+    "bidVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -60941.5
+    },
+    "totalAcceptedOfferVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 376.35834
+    },
+    "totalAcceptedBidVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -164.875
+    },
+    "pricedAcceptedOffersVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": 573.8417
+    },
+    "pricedAcceptedBidsVolume": {
+      "type": "number",
+      "format": "double",
+      "nullable": true,
+      "example": -42.375
+    }
+  },
+  "additionalProperties": false
+}

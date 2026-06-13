@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead.json",
+  "title": "Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "nullable": true
+    },
+    "demand": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "publishTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "settlementDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "boundary": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

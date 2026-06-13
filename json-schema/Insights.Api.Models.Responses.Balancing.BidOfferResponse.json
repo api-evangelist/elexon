@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/elexon/json-schema/Insights.Api.Models.Responses.Balancing.BidOfferResponse.json",
+  "title": "Insights.Api.Models.Responses.Balancing.BidOfferResponse",
+  "type": "object",
+  "properties": {
+    "settlementDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2022-07-25"
+    },
+    "settlementPeriod": {
+      "type": "integer",
+      "format": "int32",
+      "example": 3
+    },
+    "nationalGridBmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "ABRBO-1"
+    },
+    "bmUnit": {
+      "type": "string",
+      "nullable": true,
+      "example": "T_ABRBO-1"
+    },
+    "timeFrom": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-07-01T13:34:00Z"
+    },
+    "timeTo": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-07-01T13:34:00Z"
+    },
+    "levelFrom": {
+      "type": "integer",
+      "format": "int32",
+      "example": 5
+    },
+    "levelTo": {
+      "type": "integer",
+      "format": "int32",
+      "example": 46
+    },
+    "bid": {
+      "type": "number",
+      "format": "double",
+      "example": 668.67
+    },
+    "offer": {
+      "type": "number",
+      "format": "double",
+      "example": -71.5
+    },
+    "pairId": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    }
+  },
+  "additionalProperties": false
+}
