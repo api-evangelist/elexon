@@ -2,7 +2,7 @@ aid: elexon
 url: https://raw.githubusercontent.com/api-evangelist/elexon/refs/heads/main/apis.yml
 name: Elexon
 kind: company
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Electricity
   - Energy
@@ -48,7 +48,7 @@ apis:
       - Market Transparency
       - Meter Data
       - Electricity
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://data.elexon.co.uk/bmrs/api/v1
     humanURL: https://developer.data.elexon.co.uk/
     description: >-
