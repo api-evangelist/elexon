@@ -2,11 +2,13 @@
   "repo": "elexon",
   "feeds": [
     {
-      "source": "https://www.elexon.co.uk/news-insights/",
+      "source": "https://github.com/elexon-data/iris-clients",
+      "feed_url": "https://github.com/elexon-data/iris-clients",
+      "title": "",
       "saved": 0,
-      "error": "HTTP 403 Forbidden on all fetch attempts"
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-27T12:38:20Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
