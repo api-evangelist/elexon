@@ -95,6 +95,8 @@ apis:
       - BMRS Data Portal (bmrs.elexon.co.uk)
       - Data Integration Platform (DIP — industry data exchange)
 common:
+  - type: AgenticAccess
+    url: agentic-access/elexon-agentic-access.yml
   - type: DomainSecurity
     url: security/elexon-domain-security.yml
   - type: Portal
