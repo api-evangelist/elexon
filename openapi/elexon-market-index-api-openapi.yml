@@ -1,0 +1,148 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Market Index API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Market Index
+  description: Market Index prices filtered by time.
+paths:
+  /balancing/pricing/market-index:
+    get:
+      tags:
+      - Market Index
+      summary: Market Index Data (MID) price time series
+      description: "This endpoint provides Market Index Data received from NGESO.\n            \nMarket Index Data is a key component in the calculation of System Buy Price and System Sell Price for each\nSettlement Period. This data is received from each of the appointed Market Index Data Providers (MIDPs) and\nreflects the price of wholesale electricity in Great Britain in the short term markets. The Market Index Data\nwhich is received from each MIDP for each Settlement Period consists of a Market Index Volume and\nMarket Index Price, representing the volume and price of trading for the relevant period in the market operated\nby the MIDP. The Market Price (the volume weighed average Market Index Price) is used to derive\nthe Reverse Price (SBP or SSP).\"\n            \nThe two data providers available to query are N2EX (\"N2EXMIDP\") and APX (\"APXMIDP\").\n\nBy default, the from and to parameters filter the data by time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1"
+      parameters:
+      - name: from
+        in: query
+        description: The "from" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-10-12T00:00Z
+        example: 2022-10-12T00:00Z
+      - name: to
+        in: query
+        description: The "to" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-10-13T00:00Z
+        example: 2022-10-13T00:00Z
+      - name: settlementPeriodFrom
+        in: query
+        description: The "from" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: settlementPeriodTo
+        in: query
+        description: The "to" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: dataProviders
+        in: query
+        description: The data providers to query. If no data provider is selected both will be displayed.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - N2EXMIDP
+        example:
+        - N2EXMIDP
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.MarketIndexResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.MarketIndexResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.MarketIndexResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.MarketIndexResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.MarketIndexResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.MarketIndexResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Responses.Balancing.MarketIndexResponse:
+      type: object
+      properties:
+        startTime:
+          type: string
+          format: date-time
+          example: '2022-09-26T13:00:00Z'
+        dataProvider:
+          type: string
+          nullable: true
+          example: N2EXMIDP
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-09-26'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        price:
+          type: number
+          format: double
+          example: 678.12
+        volume:
+          type: number
+          format: double
+          example: 678.123
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.MarketIndexResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.MarketIndexResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false

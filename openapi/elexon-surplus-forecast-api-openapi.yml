@@ -1,0 +1,374 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Surplus Forecast API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Surplus Forecast
+  description: Generating Plant Operating Surplus forecast data, including historical views of data by publish time or forecast date.
+paths:
+  /forecast/surplus/daily:
+    get:
+      tags:
+      - Surplus Forecast
+      summary: Daily surplus forecast (OCNMFD)
+      description: 'This endpoint provides the Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.
+
+        The Daily API outputs the latest published data for daily surplus forecast for D+2 t D+14'
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+  /forecast/surplus/daily/history:
+    get:
+      tags:
+      - Surplus Forecast
+      summary: Historical daily surplus forecast (OCNMFD)
+      description: 'This endpoint provides the historic Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.
+
+        The historic API outputs the latest published data for historic daily surplus forecast for D+2 to D+14'
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+  /forecast/surplus/daily/evolution:
+    get:
+      tags:
+      - Surplus Forecast
+      summary: Evolution daily surplus forecast (OCNMFD)
+      description: "This endpoint provides the daily evolution Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily surplus forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: forecastDate
+        in: query
+        description: The forecast date for the filter. This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+  /forecast/surplus/weekly:
+    get:
+      tags:
+      - Surplus Forecast
+      summary: Weekly surplus forecast (OCNMFW, OCNMF3Y)
+      description: 'This endpoint provides the Generating Plant Operating Surplus covering 2 weeks ahead to 156 weeks ahead in MW values.
+
+        The weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156'
+      parameters:
+      - name: range
+        in: query
+        schema:
+          enum:
+          - 52W
+          - 156W
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+  /forecast/surplus/weekly/history:
+    get:
+      tags:
+      - Surplus Forecast
+      summary: Historical weekly surplus forecast (OCNMFW, OCNMF3Y)
+      description: 'This endpoint provides the historic Generating Plant Operating Surplus covering 2 weeks ahead to 156 weeks ahead in MW values.
+
+        The weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156.
+
+        Historical published data of weekly surplus forecasts for a given publish date in the 2-156 week dataset.'
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: range
+        in: query
+        schema:
+          enum:
+          - 52W
+          - 156W
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+  /forecast/surplus/weekly/evolution:
+    get:
+      tags:
+      - Surplus Forecast
+      summary: Evolution weekly surplus forecast (OCNMFW, OCNMF3Y)
+      description: 'This endpoint provides the evolution Generating Plant Operating Surplus  covering 2 weeks ahead to 156 weeks ahead in MW values.
+
+        The weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156'
+      parameters:
+      - name: year
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: week
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: range
+        in: query
+        schema:
+          enum:
+          - 52W
+          - 156W
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+components:
+  schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        surplus:
+          type: integer
+          format: int64
+          nullable: true
+        forecastDate:
+          type: string
+          format: date
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        surplus:
+          type: integer
+          format: int64
+          nullable: true
+        week:
+          type: integer
+          format: int32
+        year:
+          type: integer
+          format: int32
+        weekStartDate:
+          type: string
+          format: date
+      additionalProperties: false

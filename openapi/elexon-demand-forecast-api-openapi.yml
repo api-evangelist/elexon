@@ -1,0 +1,1219 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Demand Forecast API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Demand Forecast
+  description: Current or historic demand forecasts.
+paths:
+  /forecast/demand/day-ahead:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Day-ahead demand forecast (NDF, TSDF)
+      description: 'This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);
+
+        the forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.
+
+        The data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.
+
+        NDF takes into account transmission losses but but does not include station transformer load, pumped storage demand or Interconnector demand;
+
+        the data is reported only at national level; and TSDF which takes into account transmission losses , station transformer load, pumped storage demand and interconnector demand.
+
+        The data is reported both at national and boundary (system zones) level. Boundary data only available for Transmission System Demand Forecast (TSDF).'
+      parameters:
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/daily:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Fourteen day demand forecast (NDFD, TSDFD)
+      description: Retrieve latest 14-day forecast demand data
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/weekly:
+    get:
+      tags:
+      - Demand Forecast
+      summary: One-year demand forecast (NDFW, TSDFW)
+      description: This endpoint provides the latest weekly forecast demand data
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/day-ahead/history:
+    get:
+      tags:
+      - Demand Forecast
+      summary: History of the day-ahead demand forecast (NDF, TSDF)
+      description: 'This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);
+
+        the forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.
+
+        The data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.
+
+        NDF takes into account transmission losses but but does not include station transformer load, pumped storage demand or Interconnector demand;
+
+        the data is reported only at national level; and TSDF which takes into account transmission losses , station transformer load, pumped storage demand and interconnector demand.
+
+        The data is reported both at national and boundary (system zones) level. Boundary data only available for Transmission System Demand Forecast (TSDF).'
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/daily/history:
+    get:
+      tags:
+      - Demand Forecast
+      summary: History of the fourteen-day demand forecast (NDFD, TSDFD)
+      description: Retrieve historical daily forecast demand data
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/weekly/history:
+    get:
+      tags:
+      - Demand Forecast
+      summary: History of the one-year demand forecast (NDFW, TSDFW)
+      description: Retrieve historical weekly forecast demand data
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/day-ahead/evolution:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Evolution of the day-ahead demand forecast over time (NDF, TSDF)
+      description: "This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);\nthe forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.\nNDF takes into account transmission losses but but does not include station transformer load, pumped storage demand or Interconnector demand;\nthe data is reported only at national level; and TSDF which takes into account transmission losses , station transformer load, pumped storage demand and interconnector demand.\nThe data is reported both at national and boundary (system zones) level. Boundary data only available for Transmission System Demand Forecast (TSDF).\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: settlementDate
+        in: query
+        description: The settlement date for the filter. This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementPeriod
+        in: query
+        required: true
+        schema:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+          example:
+          - 1
+        example:
+        - 1
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/daily/evolution:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Evolution of the fourteen-day demand forecast over time (NDFD, TSDFD)
+      description: "This endpoint provides the evolution of all daily demand forecasts over time for a given forecast date.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: forecastDate
+        in: query
+        description: The forecast date for the filter. This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/weekly/evolution:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Evolution of the one-year demand forecast over time  (NDFW, TSDFW)
+      description: This endpoint provides all weekly demand forecasts over time for a given forecast Year and Week
+      parameters:
+      - name: forecastYear
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: forecastWeek
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/day-ahead/latest:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Historic view of the latest forecasted demand (NDF, TSDF)
+      description: 'This endpoint allows for retrieving latest day-ahead demand forecast data from National Grid ESO.
+
+        Results are filtered by settlement time, and only the latest published forecast for each settlement period is shown.'
+      parameters:
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/day-ahead/latest/stream:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Historic view of the latest forecasted demand (NDF, TSDF) stream
+      description: 'This endpoint allows for retrieving a stream of latest day-ahead demand forecast data from National Grid ESO.
+
+        Results are filtered by settlement time, and only the latest published forecast for each settlement period is shown.
+
+        This endpoint has an optimised JSON payload and aimed at frequent request for the day-ahead demand forecast data.'
+      parameters:
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.DayAheadDemandForecastRow'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.DayAheadDemandForecastRow'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.DayAheadDemandForecastRow'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/day-ahead/earliest:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Historic view of the earliest forecasted demand (NDF, TSDF)
+      description: 'This endpoint allows for retrieving earliest day-ahead demand forecast data from National Grid ESO.
+
+        Results are filtered by settlement time, and only the earliest published forecast for each settlement period is shown.'
+      parameters:
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/day-ahead/earliest/stream:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Historic view of the earliest forecasted demand (NDF, TSDF) stream
+      description: 'This endpoint allows for retrieving a stream of earliest day-ahead demand forecast data from National Grid ESO.
+
+        Results are filtered by settlement time, and only the earliest published forecast for each settlement period is shown.
+
+        This endpoint has an optimised JSON payload and aimed at frequent request for the day-ahead demand forecast data.'
+      parameters:
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.DayAheadDemandForecastRow'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.DayAheadDemandForecastRow'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.DayAheadDemandForecastRow'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/day-ahead/peak:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Peak forecasted demand per day (TSDF)
+      description: "This endpoint allows for retrieving the peak demand that is forecast for each day from National Grid ESO.\nResults are filtered by a range of Date parameters.\nResults default to yesterday, today and tomorrow if no parameters are supplied.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: boundary
+        in: query
+        schema:
+          type: string
+      - name: from
+        in: query
+        description: The start of the requested date range.
+        schema:
+          type: string
+          format: date
+          example: '2021-10-01'
+        example: '2021-10-01'
+      - name: to
+        in: query
+        description: The end of the requested date range.
+        schema:
+          type: string
+          format: date
+          example: '2021-10-30'
+        example: '2021-10-30'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/total/day-ahead:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Day-ahead total load forecast (DATL/B0620)
+      description: "This endpoint provides day-ahead total load forecast per bidding zone data.\nIt can be filtered by settlement period dates.\n            \nThis API endpoint has a maximum range of 7 days."
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-18'
+        example: '2023-07-18'
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-21'
+        example: '2023-07-21'
+      - name: settlementPeriodFrom
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 36
+        example: 36
+      - name: settlementPeriodTo
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 12
+        example: 12
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/total/week-ahead:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Week-ahead total load forecast (WATL/B0630)
+      description: "This endpoint returns week-ahead total load forecast per bidding zone data with the minimum possible\nand maximum available total loads in MW values, filtered by forecast week.\n            \nFor a given forecast date, if more than one forecast has been published, only the most recent forecast\nis returned.\n            \nThis API endpoint has a maximum range of 367 days.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: from
+        in: query
+        description: The earliest forecast date to include.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2023-08-21'
+        example: '2023-08-21'
+      - name: to
+        in: query
+        description: The latest forecast date to include.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2023-08-27'
+        example: '2023-08-27'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/demand/total/week-ahead/latest:
+    get:
+      tags:
+      - Demand Forecast
+      summary: Latest week-ahead total load forecast (WATL/B0630)
+      description: "This endpoint returns the most recently published WATL / B0630 forecast.\n            \nThis forecast is the week-ahead total load forecast per bidding zone data,\nwith minimum possible and maximum available total loads in MW values."
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-05 12:00:08Z'
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-08-06 23:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-07'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 2
+        quantity:
+          type: number
+          format: double
+          example: 18648
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+        nationalDemand:
+          type: integer
+          format: int64
+          nullable: true
+        forecastDate:
+          type: string
+          format: date
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+        nationalDemand:
+          type: integer
+          format: int64
+          nullable: true
+        forecastWeek:
+          type: integer
+          format: int32
+        forecastYear:
+          type: integer
+          format: int32
+        weekStartDate:
+          type: string
+          format: date
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        forecastDate:
+          type: string
+          format: date
+          example: '2023-07-24'
+        forecastWeek:
+          type: integer
+          format: int32
+          example: 30
+        minimumPossible:
+          type: number
+          format: double
+          example: 18034
+        maximumAvailable:
+          type: number
+          format: double
+          example: 35011
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type: string
+          nullable: true
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Service.DayAheadDemandForecastRow:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type: string
+          nullable: true
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+        nationalDemand:
+          type: integer
+          format: int64
+          nullable: true
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+        nationalDemand:
+          type: integer
+          format: int64
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false

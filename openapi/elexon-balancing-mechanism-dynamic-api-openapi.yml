@@ -1,0 +1,526 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Balancing Mechanism Dynamic
+  description: Dynamic data.
+paths:
+  /balancing/dynamic:
+    get:
+      tags:
+      - Balancing Mechanism Dynamic
+      summary: Dynamic data per BMU (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)
+      description: "This endpoint provides the dynamic data for a requested BMU, excluding physical rate data.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV, MDP.\nThe results from each dataset are transformed to a common response model, with the common integer field *Value*\nmapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant."
+      parameters:
+      - name: bmUnit
+        in: query
+        description: The BM Unit to query.
+        required: true
+        schema:
+          type: string
+          example: 2__HFLEX001
+        example: 2__HFLEX001
+      - name: snapshotAt
+        in: query
+        description: 'When to retrieve a snapshot of data at.
+
+          That is, the latest datapoint before this time will be returned for each dataset.'
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-08-23T00:00Z
+        example: 2022-08-23T00:00Z
+      - name: until
+        in: query
+        description: 'When to retrieve data until.
+
+          Data from the snapshot until this time will be returned.'
+        schema:
+          type: string
+          format: date-time
+          example: 2022-08-24T00:00Z
+        example: 2022-08-24T00:00Z
+      - name: snapshotAtSettlementPeriod
+        in: query
+        description: 'The settlement period to retrieve a snapshot of data at.
+
+          If provided, the time part of SnapshotAt will be ignored.'
+        schema:
+          type: integer
+          format: int32
+          example: 2
+        example: 2
+      - name: untilSettlementPeriod
+        in: query
+        description: 'The settlement period to retrieve data until.
+
+          If provided, the time part of Until will be ignored.'
+        schema:
+          type: integer
+          format: int32
+          example: 2
+        example: 2
+      - name: dataset
+        in: query
+        description: Datasets to filter. If omitted, all datasets will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - SEL
+          - MNZT
+          - MDP
+        example:
+        - SEL
+        - MNZT
+        - MDP
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/dynamic/all:
+    get:
+      tags:
+      - Balancing Mechanism Dynamic
+      summary: Market-wide dynamic data (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)
+      description: "This endpoint provides the dynamic data for multiple requested BMUs or all BMUs, excluding dynamic rate data.\nIt returns the data valid for a single settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV & MDP.\nThe results from each dataset are transformed to a common response model, with the common integer field *Value*\nmapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant.\n            \nThe settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: settlementDate
+        in: query
+        description: The settlement date or datetime to filter.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2023-01-18'
+        example: '2023-01-18'
+      - name: settlementPeriod
+        in: query
+        description: The settlement period to filter. This should be an integer from 1-50 inclusive.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 3
+        example: 3
+      - name: bmUnit
+        in: query
+        description: The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - 2__HFLEX001
+          - HUMR-1
+        example:
+        - 2__HFLEX001
+        - HUMR-1
+      - name: dataset
+        in: query
+        description: Datasets to filter. If omitted, all datasets will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - SEL
+          - MNZT
+          - MDP
+        example:
+        - SEL
+        - MNZT
+        - MDP
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/dynamic/rates:
+    get:
+      tags:
+      - Balancing Mechanism Dynamic
+      summary: Rate data per BMU (RDRE, RURE, RDRI, RURI)
+      description: "This endpoint provides the physical rate data for a requested BMU.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI."
+      parameters:
+      - name: bmUnit
+        in: query
+        description: The BM Unit to query.
+        required: true
+        schema:
+          type: string
+          example: DRAXX-1
+        example: DRAXX-1
+      - name: snapshotAt
+        in: query
+        description: 'When to retrieve a snapshot of data at.
+
+          That is, the latest datapoint before this time will be returned for each dataset.'
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-09-01T00:00Z
+        example: 2022-09-01T00:00Z
+      - name: until
+        in: query
+        description: 'When to retrieve data until.
+
+          Data from the snapshot until this time will be returned.'
+        schema:
+          type: string
+          format: date-time
+          example: 2022-09-30T00:00Z
+        example: 2022-09-30T00:00Z
+      - name: snapshotAtSettlementPeriod
+        in: query
+        description: 'The settlement period to retrieve a snapshot of data at.
+
+          If provided, the time part of SnapshotAt will be ignored.'
+        schema:
+          type: integer
+          format: int32
+          example: 2
+        example: 2
+      - name: untilSettlementPeriod
+        in: query
+        description: 'The settlement period to retrieve data until.
+
+          If provided, the time part of Until will be ignored.'
+        schema:
+          type: integer
+          format: int32
+          example: 2
+        example: 2
+      - name: dataset
+        in: query
+        description: Datasets to filter. If empty, all datasets will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - RURE
+          - RDRE
+          - RDRI
+        example:
+        - RURE
+        - RDRE
+        - RDRI
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/dynamic/rates/all:
+    get:
+      tags:
+      - Balancing Mechanism Dynamic
+      summary: Market-wide rate data (RDRE, RURE, RDRI, RURI)
+      description: "This endpoint provides market-wide physical rate data, for all BMUs or a requested set of multiple BMUs.\nIt returns the data valid for a given settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nThe settlement period to query can be specified as a date and settlement period. The settlement date must be provided in the format yyyy-MM-dd.\n\nBy default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI.\n            \nThis endpoint is quota limited.\nFor individual rate datasets, use the relevant /datasets/ endpoints.\nFor real-time updates as each data point is published, use the Insights IRIS service. You can register for free at  https://bmrs.elexon.co.uk/iris .\nFor historical data, check out the IRIS archive, which keeps a record of all published datasets."
+      parameters:
+      - name: settlementDate
+        in: query
+        description: The settlement date to filter.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-09-01'
+        example: '2022-09-01'
+      - name: settlementPeriod
+        in: query
+        description: The settlement period to filter. This should be an integer from 1-50 inclusive.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 2
+        example: 2
+      - name: bmUnit
+        in: query
+        description: The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - 2__HFLEX001
+          - HUMR-1
+        example:
+        - 2__HFLEX001
+        - HUMR-1
+      - name: dataset
+        in: query
+        description: Datasets to return. If omitted, all datasets will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - RURE
+          - RDRE
+          - RDRI
+        example:
+        - RURE
+        - RDRE
+        - RDRI
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
+      type: object
+      properties:
+        dataset:
+          type: string
+          nullable: true
+          example: RURE
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        time:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        rate1:
+          type: number
+          format: double
+          example: 0.4
+        elbow2:
+          type: number
+          format: double
+          nullable: true
+          example: 5
+        rate2:
+          type: number
+          format: double
+          nullable: true
+          example: 300.2
+        elbow3:
+          type: number
+          format: double
+          nullable: true
+          example: null
+        rate3:
+          type: number
+          format: double
+          nullable: true
+          example: null
+        nationalGridBmUnit:
+          type: string
+          nullable: true
+          example: ABRBO-1
+        bmUnit:
+          type: string
+          nullable: true
+          example: T_ABRBO-1
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData:
+      type: object
+      properties:
+        dataset:
+          type: string
+          nullable: true
+          example: SEL
+        bmUnit:
+          type: string
+          nullable: true
+          example: T_ABRBO-1
+        nationalGridBmUnit:
+          type: string
+          nullable: true
+          example: ABRBO-1
+        time:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        value:
+          type: integer
+          format: int64
+          example: 5
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false

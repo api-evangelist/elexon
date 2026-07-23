@@ -1,0 +1,808 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Data Status API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Data Status
+  description: The number of datapoints ingested for a dataset in a given period of time, grouped by settlement period.
+paths:
+  /data-status/ISPSTACK:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested ISPSTACK Data
+      description: "This endpoint provides information about the number of data points ingested for the ISPSTACK dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/FREQ:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested FREQ Data
+      description: "This endpoint provides information about the number of data points ingested for the FREQ dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/BOALF:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested BOALF Data
+      description: "This endpoint provides information about the number of data points ingested for the BOALF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/DISEBSP:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested DISEBSP Data
+      description: "This endpoint provides information about the number of data points ingested for the DISEBSP dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/DISPTAV:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested DISPTAV Data
+      description: "This endpoint provides information about the number of data points ingested for the DISPTAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/DISBSAD:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested DISBSAD Data
+      description: "This endpoint provides information about the number of data points ingested for the DISBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/NETBSAD:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested NETBSAD Data
+      description: "This endpoint provides information about the number of data points ingested for the NETBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/BOD:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested BOD Data
+      description: "This endpoint provides information about the number of data points ingested for the BOD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/EBOCF:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested EBOCF Data
+      description: "This endpoint provides information about the number of data points ingested for the EBOCF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/BOAV:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested BOAV Data
+      description: "This endpoint provides information about the number of data points ingested for the BOAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/PN:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested PN Data
+      description: "This endpoint provides information about the number of data points ingested for the PN dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      parameters:
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /data-status/REMIT:
+    get:
+      tags:
+      - Data Status
+      summary: Status of ingested REMIT Data
+      description: "This endpoint provides information about the number of data points ingested for the REMIT dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.\n            \nThe source parameter is optional and allows filtering by data source:\n- 'Elexon' for Elexon Portal data (files prefixed with ELXP-RMT)\n- 'MFT' for MFT data (files prefixed with NGET-RMT)\n- If not provided, returns total data points from all sources"
+      parameters:
+      - name: source
+        in: query
+        description: Optional filter for data source. Use 'Elexon' for Elexon Portal data (ELXP-RMT prefix) or 'MFT' for MFT data (NGET-RMT prefix). If not provided, returns all data points.
+        schema:
+          $ref: '#/components/schemas/Insights.Api.Models.Requests.DataStatus.RemitDataSource'
+        example: Elexon
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.RemitApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Requests.DataStatus.RemitDataSource:
+      enum:
+      - Elexon
+      - MFT
+      type: string
+    Insights.Api.Models.Metadata.RemitApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+        source:
+          type: string
+          nullable: true
+          example: Elexon
+      additionalProperties: false
+    Insights.Api.Models.Responses.DataStatus.DataStatusResponse:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+          format: date
+          example: '2021-12-05'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 14
+        dataPointCount:
+          type: integer
+          format: int32
+          example: 31
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false

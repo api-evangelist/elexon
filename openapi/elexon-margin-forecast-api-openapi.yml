@@ -1,0 +1,372 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Margin Forecast API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Margin Forecast
+  description: Generating Plant Operating Margin forecast data, including historical views of data by publish time or forecast date.
+paths:
+  /forecast/margin/daily:
+    get:
+      tags:
+      - Margin Forecast
+      summary: Daily margin forecast (OCNMFD2)
+      description: 'This endpoint provides the Generating Plant Operating Margin covering 2 days ahead to 14 days ahead
+
+        in MW values. The Daily API outputs the latest published data for daily margin forecast for D+2 t D+14'
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+  /forecast/margin/daily/history:
+    get:
+      tags:
+      - Margin Forecast
+      summary: Historical daily margin forecast (OCNMFD2)
+      description: 'This endpoint provides the historic Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.
+
+        The historic API outputs the latest published data for historic daily margin forecast for D+2 to D+14'
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+  /forecast/margin/daily/evolution:
+    get:
+      tags:
+      - Margin Forecast
+      summary: Evolution daily margin forecast (OCNMFD2)
+      description: "This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily margin forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: forecastDate
+        in: query
+        description: The forecast date for the filter. This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+  /forecast/margin/weekly:
+    get:
+      tags:
+      - Margin Forecast
+      summary: Weekly margin forecast (OCNMFW2, OCNMF3Y2)
+      description: 'This endpoint provides the Generating Plant Operating Margin covering 2 weeks ahead to 156 weeks ahead in MW values.
+
+        The weekly API outputs the latest published data for weekly margin forecast for W+2 to W+156'
+      parameters:
+      - name: range
+        in: query
+        schema:
+          enum:
+          - 52W
+          - 156W
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+  /forecast/margin/weekly/history:
+    get:
+      tags:
+      - Margin Forecast
+      summary: Historical weekly margin forecast (OCNMFW2, OCNMF3Y2)
+      description: 'This endpoint provides the weekly historic  Generating Plant Operating Margin.
+
+        This historic API output 2 weeks ahead to 156 weeks ahead in MW values'
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: range
+        in: query
+        schema:
+          enum:
+          - 52W
+          - 156W
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+  /forecast/margin/weekly/evolution:
+    get:
+      tags:
+      - Margin Forecast
+      summary: Evolution daily margin forecast (OCNMFW2, OCNMF3Y2)
+      description: 'This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.
+
+        The Daily API outputs the latest published data for daily margin forecast for D+2 t D+14'
+      parameters:
+      - name: year
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: week
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: range
+        in: query
+        schema:
+          enum:
+          - 52W
+          - 156W
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+components:
+  schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        margin:
+          type: integer
+          format: int64
+          nullable: true
+        week:
+          type: integer
+          format: int32
+        year:
+          type: integer
+          format: int32
+        weekStartDate:
+          type: string
+          format: date
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        margin:
+          type: integer
+          format: int64
+          nullable: true
+        forecastDate:
+          type: string
+          format: date
+      additionalProperties: false

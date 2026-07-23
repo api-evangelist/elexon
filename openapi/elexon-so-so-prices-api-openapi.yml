@@ -1,0 +1,125 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic SO-SO Prices API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: SO-SO Prices
+  description: SO-SO Prices (SOSO) data, filtered by start time.
+paths:
+  /soso/prices:
+    get:
+      tags:
+      - SO-SO Prices
+      summary: SO-SO prices (SOSO)
+      description: "This endpoint provides system operator to system operator prices data.\nIt can be filtered by start time.\n            \nThis API endpoint has a maximum range of 24 hours."
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-09-26T07:00:00Z'
+        example: '2023-09-26T07:00:00Z'
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-09-27T07:00:00Z'
+        example: '2023-09-27T07:00:00Z'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices'
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SoSoPrices'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.SoSoPrices:
+      type: object
+      properties:
+        contractIdentification:
+          type: string
+          nullable: true
+          example: EG_20210928_1100_1
+        tradeDirection:
+          type: string
+          nullable: true
+          example: A02
+        tradeQuantity:
+          type: number
+          format: double
+          example: 25
+        tradePrice:
+          type: number
+          format: double
+          example: 30.4
+        traderUnit:
+          type: string
+          nullable: true
+          example: EWIC_EG
+        startTime:
+          type: string
+          format: date-time
+          example: 2023-09-25 18:30
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-01-31'
+      additionalProperties: false

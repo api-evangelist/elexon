@@ -1,0 +1,31 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Credit Default Notice API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Credit Default Notice
+  description: Credit Default Notice data.
+paths:
+  /CDN:
+    get:
+      tags:
+      - Credit Default Notice
+      summary: '[DEPRECATED] Credit default notices (CDN)'
+      description: This endpoint has been moved to balancing/settlement/default-notices.
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+      deprecated: true

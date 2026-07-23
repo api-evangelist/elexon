@@ -1,0 +1,352 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Bid-Offer Acceptances API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Bid-Offer Acceptances
+  description: Bid-offer acceptance data (BOALF).
+paths:
+  /balancing/acceptances:
+    get:
+      tags:
+      - Bid-Offer Acceptances
+      summary: Bid-offer acceptances per BMU (BOALF)
+      description: "This endpoint provides the bid-offer acceptance data (BOALF) for a requested BMU.\n            \nBy default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of start time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1"
+      parameters:
+      - name: bmUnit
+        in: query
+        description: The BM Unit to query.
+        required: true
+        schema:
+          type: string
+          example: T_MILWW-1
+        example: T_MILWW-1
+      - name: from
+        in: query
+        description: The "from" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-10-03T00:00Z
+        example: 2022-10-03T00:00Z
+      - name: to
+        in: query
+        description: The "to" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-10-06T00:00Z
+        example: 2022-10-06T00:00Z
+      - name: settlementPeriodFrom
+        in: query
+        description: The "from" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: settlementPeriodTo
+        in: query
+        description: The "to" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/acceptances/all:
+    get:
+      tags:
+      - Bid-Offer Acceptances
+      summary: Market-wide bid-offer acceptances (BOALF)
+      description: "This endpoint provides the bid-offer acceptance data (BOALF) for multiple requested BMUs or all BMUs.\nIt returns the data valid for a single settlement period.\n            \nThe settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: settlementDate
+        in: query
+        description: The settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2023-01-24'
+        example: '2023-01-24'
+      - name: settlementPeriod
+        in: query
+        description: The settlement period for the filter. This should be an integer from 1-50 inclusive.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 39
+        example: 39
+      - name: bmUnit
+        in: query
+        description: The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - T_DINO-2
+          - HUMR-1
+        example:
+        - T_DINO-2
+        - HUMR-1
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/acceptances/all/latest:
+    get:
+      tags:
+      - Bid-Offer Acceptances
+      summary: Latest market-wide bid-offer acceptances (BOALF)
+      description: This endpoint provides the latest market-wide bid-offer acceptance data (BOALF). The latest 100 acceptances will be returned.
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/acceptances/{acceptanceNumber}:
+    get:
+      tags:
+      - Bid-Offer Acceptances
+      summary: Bid-Offer acceptances by acceptance id
+      description: 'This endpoint returns bid-offer acceptances for a given acceptance id.
+
+        Acceptance ids must be integers.'
+      parameters:
+      - name: acceptanceNumber
+        in: path
+        description: The acceptance id to filter results by.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 4162
+        example: 4162
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-06-25'
+        settlementPeriodFrom:
+          type: integer
+          format: int32
+          example: 29
+        settlementPeriodTo:
+          type: integer
+          format: int32
+          example: 32
+        timeFrom:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:34:00Z'
+        timeTo:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:37:00Z'
+        levelFrom:
+          type: integer
+          format: int32
+          example: 5
+        levelTo:
+          type: integer
+          format: int32
+          example: 46
+        nationalGridBmUnit:
+          type: string
+          nullable: true
+          example: ABRBO-1
+        bmUnit:
+          type: string
+          nullable: true
+          example: T_ABRBO-1
+        acceptanceNumber:
+          type: integer
+          format: int32
+          example: 1234567
+        acceptanceTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:30:00Z'
+        deemedBoFlag:
+          type: boolean
+          example: true
+        soFlag:
+          type: boolean
+          example: false
+        storFlag:
+          type: boolean
+          example: true
+        rrFlag:
+          type: boolean
+          nullable: true
+          example: false
+      additionalProperties: false

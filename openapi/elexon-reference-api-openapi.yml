@@ -1,0 +1,387 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Reference API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Reference
+  description: Reference data which can be used to filter other API requests.
+paths:
+  /reference/fueltypes/all:
+    get:
+      tags:
+      - Reference
+      summary: Fuel types
+      description: This endpoint provides a current list of fuel types
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/csv:
+              schema:
+                type: array
+                items:
+                  type: string
+  /reference/remit/participants/all:
+    get:
+      tags:
+      - Reference
+      summary: Participants
+      description: This endpoint provides a current list of participant IDs received from REMIT messages
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/csv:
+              schema:
+                type: array
+                items:
+                  type: string
+  /reference/remit/assets/all:
+    get:
+      tags:
+      - Reference
+      summary: Assets
+      description: This endpoint provides a current list of asset IDs received from REMIT messages
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/csv:
+              schema:
+                type: array
+                items:
+                  type: string
+  /reference/remit/fueltypes/all:
+    get:
+      tags:
+      - Reference
+      summary: REMIT fuel types
+      description: This endpoint provides a current list of fuel types received from REMIT messages
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/csv:
+              schema:
+                type: array
+                items:
+                  type: string
+  /reference/bmunits/all:
+    get:
+      tags:
+      - Reference
+      summary: BM Units
+      description: This endpoint provides a current list of BM units held by Elexon
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+  /reference/bmunits:
+    get:
+      tags:
+      - Reference
+      summary: BM Units (filtered)
+      description: "This endpoint provides a list of BM units filtered by lead party IDs.\n            \nThe PartyIds query parameter is required. Provide one or more lead party IDs to filter the results."
+      parameters:
+      - name: partyIds
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - ADELA
+          - LENCO
+        example:
+        - ADELA
+        - LENCO
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+  /reference/interconnectors/all:
+    get:
+      tags:
+      - Reference
+      summary: Interconnectors
+      description: This endpoint provides a current list of interconnectors
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.InterconnectorData'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.InterconnectorData'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.InterconnectorData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.InterconnectorData'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.InterconnectorData'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.InterconnectorData'
+components:
+  schemas:
+    Insights.Api.Models.Responses.Reference.InterconnectorData:
+      type: object
+      properties:
+        interconnectorId:
+          type: string
+          nullable: true
+        interconnectorName:
+          type: string
+          nullable: true
+        interconnectorBiddingZone:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Insights.Api.Models.Responses.Reference.BmUnitData:
+      type: object
+      properties:
+        nationalGridBmUnit:
+          type: string
+          nullable: true
+        elexonBmUnit:
+          type: string
+          nullable: true
+        eic:
+          type: string
+          nullable: true
+        fuelType:
+          type: string
+          nullable: true
+        leadPartyName:
+          type: string
+          nullable: true
+        bmUnitType:
+          type: string
+          nullable: true
+        fpnFlag:
+          type: boolean
+          nullable: true
+        bmUnitName:
+          type: string
+          nullable: true
+        leadPartyId:
+          type: string
+          nullable: true
+        demandCapacity:
+          type: string
+          nullable: true
+        generationCapacity:
+          type: string
+          nullable: true
+        productionOrConsumptionFlag:
+          type: string
+          nullable: true
+        transmissionLossFactor:
+          type: string
+          nullable: true
+        workingDayCreditAssessmentImportCapability:
+          type: string
+          nullable: true
+        nonWorkingDayCreditAssessmentImportCapability:
+          type: string
+          nullable: true
+        workingDayCreditAssessmentExportCapability:
+          type: string
+          nullable: true
+        nonWorkingDayCreditAssessmentExportCapability:
+          type: string
+          nullable: true
+        creditQualifyingStatus:
+          type: boolean
+        demandInProductionFlag:
+          type: boolean
+        gspGroupId:
+          type: string
+          nullable: true
+        gspGroupName:
+          type: string
+          nullable: true
+        interconnectorId:
+          type: string
+          nullable: true
+      additionalProperties: false

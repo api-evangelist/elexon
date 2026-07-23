@@ -1,0 +1,304 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Balancing Services Adjustment - Disaggregated API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Balancing Services Adjustment - Disaggregated
+  description: Adjustment actions (DISBSAD) for a given settlement period, or summarised by settlement period over a time range.
+paths:
+  /balancing/nonbm/disbsad/summary:
+    get:
+      tags:
+      - Balancing Services Adjustment - Disaggregated
+      summary: Disaggregated balancing services adjustment time series (DISBSAD)
+      description: "This endpoint provides disaggregated balancing services adjustment data batched by settlement period. Each\nbatch in the time series contains a summary of all records for that settlement period, detailing the number of\nbuy and sell actions, price information and volume information.\n\nBy default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of start time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/nonbm/disbsad/summary?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/nonbm/disbsad/summary?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/nonbm/disbsad/summary?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/nonbm/disbsad/summary?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1"
+      parameters:
+      - name: from
+        in: query
+        description: The "from" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-09-20T00:00Z
+        example: 2022-09-20T00:00Z
+      - name: to
+        in: query
+        description: The "to" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-09-27T00:00Z
+        example: 2022-09-27T00:00Z
+      - name: settlementPeriodFrom
+        in: query
+        description: The "from" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: settlementPeriodTo
+        in: query
+        description: The "to" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/nonbm/disbsad/details:
+    get:
+      tags:
+      - Balancing Services Adjustment - Disaggregated
+      summary: Disaggregated balancing services adjustment per settlement period (DISBSAD)
+      description: "This endpoint provides disaggregated balancing services adjustment data for a single settlement period. The\nresponse includes all the buying and selling actions that occurred during that settlement period.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: settlementDate
+        in: query
+        description: The settlement date to query.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-10-26'
+        example: '2022-10-26'
+      - name: settlementPeriod
+        in: query
+        description: The settlement period to query. This should be an integer from 1-50 inclusive.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 3
+        example: 3
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-06-25'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 29
+        startTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:00:00Z'
+        id:
+          type: integer
+          format: int32
+          example: 1
+        cost:
+          type: number
+          format: double
+          nullable: true
+          example: 1850.9
+        volume:
+          type: number
+          format: double
+          example: 5
+        price:
+          type: number
+          format: double
+          nullable: true
+          example: 370.18
+        soFlag:
+          type: boolean
+        storFlag:
+          type: boolean
+        partyId:
+          type: string
+          nullable: true
+          example: ElectroRoute Energy Trading Limited
+        assetId:
+          type: string
+          nullable: true
+          example: ING-ELTR1
+        isTendered:
+          type: boolean
+          nullable: true
+        service:
+          type: string
+          nullable: true
+          example: Energy
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-09-26'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 27
+        startTime:
+          type: string
+          format: date-time
+          example: '2022-09-26T13:00:00Z'
+        buyActionCount:
+          type: integer
+          format: int32
+          example: 2
+        sellActionCount:
+          type: integer
+          format: int32
+          example: 2
+        buyPriceMinimum:
+          type: number
+          format: double
+          nullable: true
+          example: 10.23
+        buyPriceMaximum:
+          type: number
+          format: double
+          nullable: true
+          example: 30.45
+        buyPriceAverage:
+          type: number
+          format: double
+          nullable: true
+          example: 20.34
+        sellPriceMinimum:
+          type: number
+          format: double
+          nullable: true
+          example: 1.23
+        sellPriceMaximum:
+          type: number
+          format: double
+          nullable: true
+          example: 3.45
+        sellPriceAverage:
+          type: number
+          format: double
+          nullable: true
+          example: 2.34
+        buyVolumeTotal:
+          type: number
+          format: double
+          nullable: true
+          example: 40.68
+        sellVolumeTotal:
+          type: number
+          format: double
+          nullable: true
+          example: 4.68
+        netVolume:
+          type: number
+          format: double
+          nullable: true
+          example: 36
+      additionalProperties: false

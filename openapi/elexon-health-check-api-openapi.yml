@@ -1,0 +1,24 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Health Check API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Health Check
+  description: Provides an endpoint to check the health of the Insights API service.
+paths:
+  /health:
+    get:
+      tags:
+      - Health Check
+      summary: Health check
+      description: This endpoint provides a success response code (200) with status code 2 if the service is alive
+      responses:
+        '200':
+          description: API is healthy
+        '429':
+          description: Too many requests
+        '503':
+          description: API is unhealthy or in degraded state

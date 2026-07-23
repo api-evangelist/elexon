@@ -1,0 +1,351 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic System API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: System
+  description: Transmission System data.
+paths:
+  /system/frequency:
+    get:
+      tags:
+      - System
+      summary: System frequency (FREQ)
+      description: 'This endpoint allows for retrieving a collection of recent system frequency data from National Grid ESO. Results
+
+        can be filtered by a range of DateTime parameters. This endpoint is useful for ad-hoc querying frequency data.'
+      parameters:
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency'
+  /system/frequency/stream:
+    get:
+      tags:
+      - System
+      summary: System frequency (FREQ) stream
+      description: 'This endpoint allows for retrieving a stream of recent system frequency data from National Grid ESO. Results can
+
+        be filtered by a range of DateTime parameters. This endpoint has an optimised JSON payload and aimed at frequent
+
+        request for the frequency data.'
+      parameters:
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+  /system/warnings:
+    get:
+      tags:
+      - System
+      summary: System warnings (SYSWARN)
+      description: 'This endpoint provides system warnings data. Results can be filtered by warning type and a range of DateTime parameters.
+
+        - If no parameters are specified then the latest message is returned
+
+        - If just a warning type is specified then the latest message of that type is returned
+
+        - If just publish times are specified then all messages within that range are returned'
+      parameters:
+      - name: warningType
+        in: query
+        schema:
+          type: string
+          example: IT SYSTEMS OUTAGE
+        example: IT SYSTEMS OUTAGE
+      - name: publishDateTimeFrom
+        in: query
+        schema:
+          type: string
+          format: date-time
+          example: 2023/06/01 07:00
+        example: 2023/06/01 07:00
+      - name: publishDateTimeTo
+        in: query
+        schema:
+          type: string
+          format: date-time
+          example: 2023/06/30 10:00
+        example: 2023/06/30 10:00
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData'
+  /system/demand-control-instructions:
+    get:
+      tags:
+      - System
+      summary: Demand control instructions (DCI)
+      description: 'This endpoint provides demand control instruction data, filtered by the time range of the instruction.
+
+        There is no date range limit on parameters.
+
+        If no query parameters are supplied all data is returned.'
+      parameters:
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date-time
+          example: 2021-04-30T00:00Z
+        example: 2021-04-30T00:00Z
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date-time
+          example: 2021-04-30T20:00Z
+        example: 2021-04-30T20:00Z
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+components:
+  schemas:
+    Insights.Api.Models.Responses.Misc.SystemWarningsData:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+          example: 2022-09-20T00:00Z
+        warningType:
+          type: string
+          nullable: true
+          example: IT SYSTEMS OUTAGE
+        warningText:
+          type: string
+          nullable: true
+          example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemWarningsData'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
+      type: object
+      properties:
+        mRID:
+          type: string
+          nullable: true
+          example: DCI_202104300853_00000030
+        revisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-04-30T08:53:39Z'
+        publishingPeriodCommencingTime:
+          type: string
+          format: date-time
+          example: '2021-04-30T08:53:39Z'
+        affectedDso:
+          type: string
+          nullable: true
+          example: SP(D)
+        demandControlId:
+          type: string
+          nullable: true
+          example: '00135'
+        instructionSequence:
+          type: integer
+          format: int32
+          example: 1
+        demandControlEventFlag:
+          type: string
+          example: I
+        timeFrom:
+          type: string
+          format: date-time
+          example: '2021-04-30T12:45:00Z'
+        timeTo:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2021-04-30T13:09:00Z'
+        volume:
+          type: number
+          format: double
+          example: 68
+        systemManagementActionFlag:
+          type: string
+          nullable: true
+          example: T
+        amendmentFlag:
+          type: string
+          nullable: true
+          example: ORI
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.SystemFrequency:
+      type: object
+      properties:
+        measurementTime:
+          type: string
+          format: date-time
+        frequency:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false

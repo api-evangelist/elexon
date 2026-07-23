@@ -1,0 +1,1293 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Generation Forecast API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Generation Forecast
+  description: Current or historic generation forecasts.
+paths:
+  /forecast/availability/daily:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Fourteen-day generation capacity forecast (FOU2T14D)
+      description: This endpoint provides the latest fourteen-day generation forecast
+      parameters:
+      - name: level
+        in: query
+        description: 'The filter level for the forecast. This can be one of the following:
+
+          - `total`: the total forecast for the given time period.
+
+          - `bmUnit`: the forecast for each specified BM unit.
+
+          - `fuelType`: the forecast aggregated, and optionally filtered by fuel type.'
+        schema:
+          enum:
+          - total
+          - fuelType
+          - bmUnit
+          type: string
+          example: fuelType
+        example: fuelType
+      - name: bmUnit
+        in: query
+        description: 'The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.
+
+          Between 1 and 10 units should be queried when using the `bmUnit` level.'
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fuelType
+        in: query
+        description: The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - CCGT
+        example:
+        - CCGT
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+  /forecast/availability/weekly:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Three-year generation capacity forecast (FOU2T3YW)
+      description: This endpoint provides the latest three-year generation forecast
+      parameters:
+      - name: level
+        in: query
+        description: 'The filter level for the forecast. This can be one of the following:
+
+          - `total`: the total forecast for the given time period.
+
+          - `bmUnit`: the forecast for each specified BM unit.
+
+          - `fuelType`: the forecast aggregated, and optionally filtered by fuel type.'
+        schema:
+          enum:
+          - total
+          - fuelType
+          - bmUnit
+          type: string
+          example: fuelType
+        example: fuelType
+      - name: bmUnit
+        in: query
+        description: 'The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.
+
+          Between 1 and 10 units should be queried when using the `bmUnit` level.'
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fuelType
+        in: query
+        description: The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - CCGT
+        example:
+        - CCGT
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+  /forecast/availability/daily/history:
+    get:
+      tags:
+      - Generation Forecast
+      summary: History of the fourteen-day generation capacity forecast (FOU2T14D)
+      description: This endpoint provides the latest fourteen-day generation forecast from a given DateTime
+      parameters:
+      - name: publishTime
+        in: query
+        description: The UTC publish time to query. This should be in the format yyyy-MM-ddT:HH:mm:ssZ.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2024-06-07T15:00:00Z'
+        example: '2024-06-07T15:00:00Z'
+      - name: level
+        in: query
+        description: 'The filter level for the forecast. This can be one of the following:
+
+          - `total`: the total forecast for the given time period.
+
+          - `bmUnit`: the forecast for each specified BM unit.
+
+          - `fuelType`: the forecast aggregated, and optionally filtered by fuel type.'
+        schema:
+          enum:
+          - total
+          - fuelType
+          - bmUnit
+          type: string
+          example: fuelType
+        example: fuelType
+      - name: bmUnit
+        in: query
+        description: 'The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.
+
+          Between 1 and 10 units should be queried when using the `bmUnit` level.'
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fuelType
+        in: query
+        description: The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - CCGT
+        example:
+        - CCGT
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+  /forecast/availability/weekly/history:
+    get:
+      tags:
+      - Generation Forecast
+      summary: History of the three-year generation capacity forecast (FOU2T3YW)
+      description: This endpoint provides the latest three-year forecast from a given DateTime
+      parameters:
+      - name: publishTime
+        in: query
+        description: The UTC publish time to query. This should be in the format yyyy-MM-ddT:HH:mm:ssZ.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2024-06-07T15:00:00Z'
+        example: '2024-06-07T15:00:00Z'
+      - name: level
+        in: query
+        description: 'The filter level for the forecast. This can be one of the following:
+
+          - `total`: the total forecast for the given time period.
+
+          - `bmUnit`: the forecast for each specified BM unit.
+
+          - `fuelType`: the forecast aggregated, and optionally filtered by fuel type.'
+        schema:
+          enum:
+          - total
+          - fuelType
+          - bmUnit
+          type: string
+          example: fuelType
+        example: fuelType
+      - name: bmUnit
+        in: query
+        description: 'The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.
+
+          Between 1 and 10 units should be queried when using the `bmUnit` level.'
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fuelType
+        in: query
+        description: The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - CCGT
+        example:
+        - CCGT
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+  /forecast/availability/daily/evolution:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Evolution of the fourteen-day generation capacity forecast over time (FOU2T14D)
+      description: "This endpoint provides the evolution of all daily generation forecasts over time for a given Forecast Date.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: forecastDate
+        in: query
+        description: The forecast date for the filter. This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: level
+        in: query
+        description: 'The filter level for the forecast. This can be one of the following:
+
+          - `total`: the total forecast for the given time period.
+
+          - `bmUnit`: the forecast for each specified BM unit.
+
+          - `fuelType`: the forecast aggregated, and optionally filtered by fuel type.'
+        schema:
+          enum:
+          - total
+          - fuelType
+          - bmUnit
+          type: string
+          example: fuelType
+        example: fuelType
+      - name: bmUnit
+        in: query
+        description: 'The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.
+
+          Between 1 and 10 units should be queried when using the `bmUnit` level.'
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fuelType
+        in: query
+        description: The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - CCGT
+        example:
+        - CCGT
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+  /forecast/availability/weekly/evolution:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Evolution of the three-year generation capacity forecast over time (FOU2T3YW)
+      description: This endpoint provides all weekly generation forecasts over time for a given Year and Week
+      parameters:
+      - name: year
+        in: query
+        description: The forecast year for the filter.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 2024
+        example: 2024
+      - name: week
+        in: query
+        description: The forecast week for the filter.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 17
+        example: 17
+      - name: level
+        in: query
+        description: 'The filter level for the forecast. This can be one of the following:
+
+          - `total`: the total forecast for the given time period.
+
+          - `bmUnit`: the forecast for each specified BM unit.
+
+          - `fuelType`: the forecast aggregated, and optionally filtered by fuel type.'
+        schema:
+          enum:
+          - total
+          - fuelType
+          - bmUnit
+          type: string
+          example: fuelType
+        example: fuelType
+      - name: bmUnit
+        in: query
+        description: 'The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.
+
+          Between 1 and 10 units should be queried when using the `bmUnit` level.'
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fuelType
+        in: query
+        description: The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - CCGT
+        example:
+        - CCGT
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+  /forecast/generation/day-ahead:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Day-ahead aggregated generation (DAG/B1430)
+      description: "This endpoint provides day-ahead aggregated generation data filtered by settlement date.\n            \nThis API endpoint has a maximum range of 7 days."
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-20'
+        example: '2023-07-20'
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-22'
+        example: '2023-07-22'
+      - name: settlementPeriodFrom
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 13
+        example: 13
+      - name: settlementPeriodTo
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 19
+        example: 19
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /forecast/generation/wind-and-solar/day-ahead:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Day-ahead generation forecast for wind and solar (DGWS/B1440)
+      description: "This endpoint provides day-ahead forecast generation data for wind and solar.\n            \nThis endpoint filters by startTime and provides a maximum data output range of 7 days."
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-18'
+        example: '2023-07-18'
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-21'
+        example: '2023-07-21'
+      - name: settlementPeriodFrom
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 36
+        example: 36
+      - name: settlementPeriodTo
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 12
+        example: 12
+      - name: processType
+        in: query
+        required: true
+        schema:
+          enum:
+          - all
+          - day ahead
+          - intraday process
+          - intraday total
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+  /forecast/generation/wind:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Current wind generation forecast (WINDFOR)
+      description: 'This endpoint provides the latest wind generation forecast data. This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30. Results are filtered by a range of DateTime parameters.'
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+  /forecast/generation/wind/history:
+    get:
+      tags:
+      - Generation Forecast
+      summary: History of the wind generation forecast (WINDFOR)
+      description: 'This endpoint provides the historical wind generation forecast data. This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.
+
+        Results are filtered by a range of DateTime parameters.'
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+  /forecast/generation/wind/evolution:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Evolution of the wind generation forecast over time (WINDFOR)
+      description: 'This endpoint provides the evolution wind generation forecast data.
+
+        This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.
+
+        Results are filtered by a range of DateTime parameters.'
+      parameters:
+      - name: startTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+  /forecast/generation/wind/latest:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Historic view of the latest forecasted wind generation (WINDFOR)
+      description: 'This endpoint provides the latest wind generation forecast data.
+
+        This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.
+
+        Results are filtered by a range of DateTime parameters.'
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+  /forecast/generation/wind/latest/stream:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Historic view of the latest forecasted wind generation (WINDFOR) stream
+      description: 'This endpoint provides the latest wind generation forecast data.
+
+        This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.
+
+        Results are filtered by a range of DateTime parameters.
+
+        This endpoint has an optimised JSON payload and is aimed at frequent requests for the wind generation forecast data.'
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+  /forecast/generation/wind/earliest:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Historic view of the earliest forecasted wind generation (WINDFOR)
+      description: 'This endpoint provides the eariest wind generation forecast data.
+
+        This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.
+
+        Results are filtered by a range of DateTime parameters.'
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+  /forecast/generation/wind/earliest/stream:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Historic view of the earliest forecasted wind generation (WINDFOR) stream
+      description: 'This endpoint provides the earliest wind generation forecast data.
+
+        This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.
+
+        Results are filtered by a range of DateTime parameters.
+
+        This endpoint has an optimised JSON payload and is aimed at frequent requests for the wind generation forecast data.'
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+  /forecast/generation/wind/peak:
+    get:
+      tags:
+      - Generation Forecast
+      summary: Peak wind generation forecast for each day (WINDFOR)
+      description: "This endpoint provides the peak wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: from
+        in: query
+        description: The start of the requested date range.
+        schema:
+          type: string
+          format: date
+          example: '2021-10-01'
+        example: '2021-10-01'
+      - name: to
+        in: query
+        description: The end of the requested date range.
+        schema:
+          type: string
+          format: date
+          example: '2021-10-30'
+        example: '2021-10-30'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+components:
+  schemas:
+    Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        quantity:
+          type: number
+          format: double
+          example: 1804.5
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 06:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-07-12'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 16
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.WindGenerationForecast:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        generation:
+          type: integer
+          format: int64
+          nullable: true
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.AvailabilityDaily:
+      type: object
+      properties:
+        dataset:
+          type: string
+          nullable: true
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2024-06-07T15:00:00Z'
+        fuelType:
+          type: string
+          nullable: true
+          example: CCGT
+        ngcBmUnit:
+          type: string
+          nullable: true
+          example: CARR-1
+        bmUnit:
+          type: string
+          nullable: true
+          example: T_CARR-1
+        outputUsable:
+          type: integer
+          format: int64
+          nullable: true
+          example: 418
+        forecastDate:
+          type: string
+          format: date
+          example: '2024-06-07'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-06-29T17:25:09Z'
+        processType:
+          type: string
+          nullable: true
+          example: Intraday process
+        businessType:
+          type: string
+          nullable: true
+          example: Wind generation
+        psrType:
+          type: string
+          nullable: true
+          example: Wind Offshore
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-06-29T15:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-06-29'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 40
+        quantity:
+          type: number
+          format: double
+          example: 1000
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Service.WindGenerationForecastRow:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        generation:
+          type: integer
+          format: int64
+          nullable: true
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
+      type: object
+      properties:
+        dataset:
+          type: string
+          nullable: true
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2024-06-07T15:00:00Z'
+        fuelType:
+          type: string
+          nullable: true
+          example: CCGT
+        ngcBmUnit:
+          type: string
+          nullable: true
+          example: CARR-1
+        bmUnit:
+          type: string
+          nullable: true
+          example: T_CARR-1
+        outputUsable:
+          type: integer
+          format: int64
+          nullable: true
+          example: 418
+        year:
+          type: integer
+          format: int32
+          example: 2024
+        calendarWeekNumber:
+          type: integer
+          format: int32
+          example: 23
+      additionalProperties: false

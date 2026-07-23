@@ -1,0 +1,149 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic System forecast API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: System forecast
+  description: Transmission System forecasts
+paths:
+  /forecast/system/loss-of-load:
+    get:
+      tags:
+      - System forecast
+      summary: Loss of load probability and de-rated margin forecast (LOLPDRM)
+      description: "This endpoint provides the 1h, 2h, 4h, 8h and 12h+ Loss of Load Probability and De-rated Margin forecasts\nfor each settlement period over a requested time range.\n            \nFor each forecast horizon at 1, 2, 4 or 8 hours, the returned value is the forecast received that number of hours\nbefore the start of the settlement period.\n            \nFor the forecast horizon of 12h, the returned value is the most recent forecast received 12 or more hours\nbefore the start of the settlement period. That is, if the most recent forecast was published today at 00:00,\n- for 11:30 today, the 12h forecast is the one published yesterday at 23:30 (12h before)\n- for 12:00 today, the 12h forecast is the one published today at 00:00 (12h before)\n- for 12:30 today, the 12h forecast is the one published today at 00:00 (the latest published)"
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2023-03-06T07:00Z
+        example: 2023-03-06T07:00Z
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2023-03-06T12:00Z
+        example: 2023-03-06T12:00Z
+      - name: settlementPeriodFrom
+        in: query
+        description: The "from" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+          example: 15
+        example: 15
+      - name: settlementPeriodTo
+        in: query
+        description: The "to" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+          example: 25
+        example: 25
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: 2023-01-31 17:36
+        publishingPeriodCommencingTime:
+          type: string
+          format: date-time
+          example: 2023-01-31 17:30
+        startTime:
+          type: string
+          format: date-time
+          example: 2023-01-31 18:30
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-01-31'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 38
+        forecastHorizon:
+          type: number
+          format: double
+          example: 1
+        lossOfLoadProbability:
+          type: number
+          format: double
+          nullable: true
+          example: 0
+        deratedMargin:
+          type: number
+          format: double
+          nullable: true
+          example: 12570.207
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false

@@ -1,0 +1,130 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic SAA Datasets API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: SAA Datasets
+  description: Datasets received from the Settlement Administration Agent (SAA)
+paths:
+  /saa/datasets/total-exempt-volume/{settlementDate}:
+    get:
+      tags:
+      - SAA Datasets
+      summary: Total Exempt Supply Volume (S0621)
+      description: "Returns the total Import and Export Exempt Metered Volume (in MWh) for the requested settlement date and settlement run type.\n            \nThis endpoint will not return any data until S0621 data is first published at the beginning of March 2025.\n\nSettlement date parameter must be provided in the exact format YYYY-MM-dd."
+      parameters:
+      - name: settlementDate
+        in: path
+        description: The settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2025-02-27'
+        example: '2025-02-27'
+      - name: settlementRunType
+        in: query
+        description: 'The settlement run type for the filter.
+
+          If one or more run types are specified, only data with those run types is returned.
+
+          If no run type is specified, for each settlement period only the single data point with the most recent run type is returned.'
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+          - II
+          - SF
+        example:
+        - II
+        - SF
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.TotalExemptSupplyVolume.TotalExemptSupplyVolumeResponse:
+      type: object
+      properties:
+        creationTime:
+          type: string
+          format: date-time
+          example: '2025-01-16T15:31:12Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2025-01-16'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 5
+        settlementRunType:
+          type: string
+          nullable: true
+          example: R1
+        totalExemptSupplyVolume:
+          type: number
+          format: double
+          nullable: true
+          example: 505.3
+      additionalProperties: false

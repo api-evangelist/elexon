@@ -1,0 +1,214 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Non-BM STOR API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Non-BM STOR
+  description: Short Term Operating Reserves (STOR) data, provided as a time series or filtered to events.
+paths:
+  /balancing/nonbm/stor:
+    get:
+      tags:
+      - Non-BM STOR
+      summary: Non-BM STOR time series (NONBM)
+      description: "This endpoint provides data about the Short Term Operating Reserves (STOR) that have been made use of\nby NGESO. This is activity that is outside of the Balancing Mechanism and takes place to meet the need to\nincrease generation or decrease demand.\n            \nBy default, the from and to parameters filter the data by time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/nonbm/stor?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/nonbm/stor?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/nonbm/stor?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/nonbm/stor?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1"
+      parameters:
+      - name: from
+        in: query
+        description: The "from" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-06-01T00:00Z
+          x-max-day-range-including-zeroes: 31
+          x-max-day-range-excluding-zeroes: 3653
+        example: 2022-06-01T00:00Z
+      - name: to
+        in: query
+        description: The "to" start time or settlement date for the filter.
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: 2022-07-01T00:00Z
+        example: 2022-07-01T00:00Z
+      - name: settlementPeriodFrom
+        in: query
+        description: The "from" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: settlementPeriodTo
+        in: query
+        description: The "to" settlement period for the filter. This should be an integer from 1-50 inclusive.
+        schema:
+          type: integer
+          format: int32
+      - name: includeZero
+        in: query
+        description: Include data points with a generation of zero.
+        schema:
+          type: boolean
+          example: false
+        example: false
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /balancing/nonbm/stor/events:
+    get:
+      tags:
+      - Non-BM STOR
+      summary: Non-BM STOR events (NONBM)
+      description: "This endpoint provides data about the start of NGESO Short Term Operating Reserves (STOR) events. This is\nactivity that is outside of the Balancing Mechanism and takes place to meet the need to\nincrease generation or decrease demand. Each result has a non-zero generation value which was preceded by a zero\ngeneration value.\n            \nBy default, the before parameter filters the data by start time. If the settlementPeriodBefore parameter is\nprovided, the before parameter instead filters on settlement date, allowing for searching by start time or\nsettlement date & settlement period.\nNote: When filtering via settlement date, before is treated as a Date only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering latest 3 events:\n            \n    /balancing/nonbm/stor/events?count=3\n            \nFiltering latest 3 events before start time:\n            \n    /balancing/nonbm/stor/events?before=2022-08-01T00:00Z&count=3\n            \nFiltering latest 3 events before settlement date and settlement period:\n            \n    /balancing/nonbm/stor/events?before=2022-08-01T00:00Z&settlementPeriodBefore=48&count=3"
+      parameters:
+      - name: count
+        in: query
+        description: The number of events to return.
+        required: true
+        schema:
+          type: integer
+          format: int32
+          example: 3
+          x-max-event-count: 100
+        example: 3
+      - name: before
+        in: query
+        description: 'If specified, filters events to those with a start time before or at the date, or a settlement date before the date if
+
+          settlementPeriodBefore is also specified.
+
+          If omitted, latest events are returned.'
+        schema:
+          type: string
+          format: date-time
+      - name: settlementPeriodBefore
+        in: query
+        description: 'Filters events to those with a settlement period before or at the value.
+
+          Before parameter must be specified if this is specified.'
+        schema:
+          type: integer
+          format: int32
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.NonBmStorResponse:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:34:00Z'
+        startTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:00:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-06-25'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 29
+        generation:
+          type: integer
+          format: int64
+          example: 0
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.NonBmStorResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.NonBmStorResponse'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false

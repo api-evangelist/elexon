@@ -1,0 +1,718 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Generation API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Generation
+  description: GB electricity generation output, including historic.
+paths:
+  /generation/actual/per-type:
+    get:
+      tags:
+      - Generation
+      summary: Historic actual generation automatically down-sampled (AGPT/B1620)
+      description: "⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.\nDepending on the quantity of data requested, data returned may be averaged hourly, daily,\nweekly or monthly. Quantities are rounded to the nearest MWh.\nUse /datasets/AGPT for full access.\n            \nThis endpoint provides actual aggregated generation data per Power System Resource type \n(Fuel Type categories as defined by Commission Regulation (EU) No 543/2013).\n\nThis endpoint filters by startTime, and groups results by settlement period."
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-20'
+        example: '2023-07-20'
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-22'
+        example: '2023-07-22'
+      - name: settlementPeriodFrom
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 13
+        example: 13
+      - name: settlementPeriodTo
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 19
+        example: 19
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod'
+  /generation/actual/per-type/day-total:
+    get:
+      tags:
+      - Generation
+      summary: Current snapshot of actual generation by fuel type categories (AGPT/B1620)
+      description: 'This endpoint provides aggregated AGPT (B1620) data. It returns totals and percentages
+
+        for the last half hour and 24 hours for each generation type.'
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.AgptSummaryData'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.AgptSummaryData'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.AgptSummaryData'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.AgptSummaryData'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.AgptSummaryData'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.AgptSummaryData'
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+  /generation/actual/per-type/wind-and-solar:
+    get:
+      tags:
+      - Generation
+      summary: Historic actual or estimated wind and solar power generation (AGWS/B1630)
+      description: "This endpoint provides actual or estimated wind and solar power generation\nper settlement period. It returns generation with Power System Resource type\nSolar, Wind Onshore or Wind Offshore (Fuel Type categories as defined by\nCommission Regulation (EU) No 543/2013).\n            \nThis endpoint filters by startTime and provides a maximum data output range of 7 days."
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-18'
+        example: '2023-07-18'
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+          example: '2023-07-21'
+        example: '2023-07-21'
+      - name: settlementPeriodFrom
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 36
+        example: 36
+      - name: settlementPeriodTo
+        in: query
+        schema:
+          type: integer
+          format: int32
+          example: 12
+        example: 12
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+  /generation/outturn/interconnectors:
+    get:
+      tags:
+      - Generation
+      summary: Historic half-hourly interconnector flows (FUELINST)
+      description: "This endpoint provides the interconnector flows report derived from the Generation by Fuel Type (FUELINST)\ndata and shows both interconnector imports and exports; the data is updated every five minutes.\n            \nSettlement date parameters must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: publishDateTimeFrom
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: publishDateTimeTo
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: settlementDateFrom
+        in: query
+        description: The settlement date from filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementDateTo
+        in: query
+        description: The settlement date to filter. This must be in the format yyyy-MM-dd.
+        schema:
+          type: string
+          format: date
+          example: '2022-09-21'
+        example: '2022-09-21'
+      - name: settlementPeriod
+        in: query
+        schema:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+      - name: interconnectorName
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+  /generation/outturn/current:
+    get:
+      tags:
+      - Generation
+      summary: Current snapshot of generation by fuel type categories (FUELINST, FUELHH)
+      description: This endpoint provides a snapshot view of the last 24 hours generation by individual fuel type categories including interconnector.
+      parameters:
+      - name: fuelType
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.GenerationByFuelType'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.GenerationByFuelType'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.GenerationByFuelType'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.GenerationByFuelType'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.GenerationByFuelType'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.GenerationByFuelType'
+  /generation/outturn/summary:
+    get:
+      tags:
+      - Generation
+      summary: Historic generation automatically down-sampled (FUELINST)
+      description: '⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.
+
+        Use raw dataset endpoints under /datasets for full access.'
+      parameters:
+      - name: startTime
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: endTime
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: includeNegativeGeneration
+        in: query
+        schema:
+          type: boolean
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.OutturnGenerationBySettlementPeriod'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.OutturnGenerationBySettlementPeriod'
+  /generation/outturn/halfHourlyInterconnector:
+    get:
+      tags:
+      - Generation
+      summary: 'This endpoint is obsolete, and this location may be removed with no further notice. '
+      description: This endpoint has been moved to generation/outturn/interconnectors.
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+      deprecated: true
+  /generation/outturn/FUELINSTHHCUR:
+    get:
+      tags:
+      - Generation
+      summary: 'This endpoint is obsolete, and this location may be removed with no further notice. '
+      description: This endpoint has been moved to generation/outturn/current.
+      parameters:
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+      deprecated: true
+  /generation/outturn:
+    get:
+      tags:
+      - Generation
+      summary: Total generation outturn (FUELINST)
+      description: "This endpoint provides the total generation outturn across all fuel types, derived by summing generation\nof all categories from the Generation by Fuel Type report.\n            \nThis data can be used as a proxy for rolling system demand."
+      parameters:
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+        '429':
+          description: Too many requests
+        '400':
+          description: Error with query parameters - see response for details
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn:
+      type: object
+      properties:
+        dataset:
+          type: string
+          nullable: true
+          readOnly: true
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+        settlementDate:
+          type: string
+          format: date
+        settlementDateTimezone:
+          type: string
+          nullable: true
+          readOnly: true
+        settlementPeriod:
+          type: integer
+          format: int32
+          nullable: true
+        interconnectorName:
+          type: string
+          nullable: true
+        generation:
+          type: integer
+          format: int64
+          nullable: true
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
+      type: object
+      properties:
+        recordType:
+          type: string
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+        demand:
+          type: integer
+          format: int64
+          nullable: true
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.GenerationByFuelType:
+      type: object
+      properties:
+        dataset:
+          type: string
+          nullable: true
+          readOnly: true
+        fuelType:
+          type: string
+          nullable: true
+        currentUsage:
+          type: integer
+          format: int64
+          nullable: true
+        currentPercentage:
+          type: number
+          format: double
+        halfHourUsage:
+          type: integer
+          format: int64
+          nullable: true
+        halfHourPercentage:
+          type: number
+          format: double
+        twentyFourHourUsage:
+          type: integer
+          format: int64
+          nullable: true
+        twentyFourHourPercentage:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        businessType:
+          type: string
+          nullable: true
+          example: Solar generation
+        psrType:
+          type: string
+          nullable: true
+          example: Solar
+        quantity:
+          type: number
+          format: double
+          example: 1829
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 06:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-12'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 16
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.OutturnGenerationValue:
+      type: object
+      properties:
+        fuelType:
+          type: string
+          nullable: true
+        generation:
+          type: integer
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod:
+      type: object
+      properties:
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 06:30:00Z'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 16
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationValue'
+          nullable: true
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.AgptSummaryData:
+      type: object
+      properties:
+        psrType:
+          type: string
+          nullable: true
+        halfHourUsage:
+          type: number
+          format: double
+        halfHourPercentage:
+          type: number
+          format: double
+        twentyFourHourUsage:
+          type: number
+          format: double
+        twentyFourHourPercentage:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.ActualGenerationValue:
+      type: object
+      properties:
+        businessType:
+          type: string
+          nullable: true
+          example: Solar generation
+        psrType:
+          type: string
+          nullable: true
+          example: Solar
+        quantity:
+          type: number
+          format: double
+          example: 1829
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn
+    : type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.OutturnGenerationBySettlementPeriod:
+      type: object
+      properties:
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+        settlementPeriod:
+          type: integer
+          format: int32
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.OutturnGenerationValue'
+          nullable: true
+      additionalProperties: false

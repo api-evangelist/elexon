@@ -1,0 +1,407 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Load Shape API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Load Shape
+  description: Load shape period data and load shape totals data as calculated by the Load Shaping Service
+paths:
+  /lss/load-shape-period:
+    get:
+      tags:
+      - Load Shape
+      summary: Load shape period data (IF022)
+      description: "This endpoint enables the retrieval of load shape period (IF022) data for a specified date and settlement period range.\n\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: date
+        in: query
+        description: The settlement date to return load shape period data for. This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2026-03-01'
+        example: '2026-03-01'
+      - name: settlementPeriodFrom
+        in: query
+        description: Optional settlement period range start (inclusive).
+        schema:
+          type: integer
+          format: int32
+          example: 1
+        example: 1
+      - name: settlementPeriodTo
+        in: query
+        description: Optional settlement period range end (inclusive).
+        schema:
+          type: integer
+          format: int32
+          example: 10
+        example: 10
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+        '400':
+          description: Error with query parameters - see response for details
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+  /lss/load-shape-period/stream:
+    get:
+      tags:
+      - Load Shape
+      summary: Load shape period data stream (IF022)
+      description: "This endpoint provides a stream of load shape period (IF022) data for a specified date and settlement period range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: fromDate
+        in: query
+        description: The settlement date range start (inclusive). This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2026-03-01'
+        example: '2026-03-01'
+      - name: toDate
+        in: query
+        description: The settlement date range end (inclusive). This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2026-03-02'
+        example: '2026-03-02'
+      - name: settlementPeriodFrom
+        in: query
+        description: Optional settlement period range start (inclusive).
+        schema:
+          type: integer
+          format: int32
+          example: 40
+        example: 40
+      - name: settlementPeriodTo
+        in: query
+        description: Optional settlement period range end (inclusive).
+        schema:
+          type: integer
+          format: int32
+          example: 2
+        example: 2
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+        '400':
+          description: Error with query parameters - see response for details
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+  /lss/load-shape-totals:
+    get:
+      tags:
+      - Load Shape
+      summary: Load shape totals data (IF023)
+      description: "This endpoint enables the retrieval of Load shape totals data (IF023) for a specified settlement day.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: fromDate
+        in: query
+        description: The settlement date range start (inclusive). This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2026-03-01'
+        example: '2026-03-01'
+      - name: toDate
+        in: query
+        description: The settlement date range end (inclusive). This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2026-03-31'
+        example: '2026-03-31'
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+        '400':
+          description: Error with query parameters - see response for details
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+  /lss/load-shape-totals/stream:
+    get:
+      tags:
+      - Load Shape
+      summary: Load shape totals data stream (IF023)
+      description: "This endpoint provides a stream of load shape totals (IF023) data for a specified date range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      parameters:
+      - name: fromDate
+        in: query
+        description: The settlement date range start (inclusive). This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2026-03-01'
+        example: '2026-03-01'
+      - name: toDate
+        in: query
+        description: The settlement date range end (inclusive). This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2026-03-31'
+        example: '2026-03-31'
+      responses:
+        '200':
+          description: Data retrieved
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+        '400':
+          description: Error with query parameters - see response for details
+        '429':
+          description: Too many requests
+        '500':
+          description: Server error - please try again later
+components:
+  schemas:
+    Insights.Api.Models.Data.Entities.LoadShapeTotalsData:
+      type: object
+      properties:
+        sourceFileName:
+          type: string
+          nullable: true
+        sourceFileDatetime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        gspGroupId:
+          type: string
+          nullable: true
+        connectionTypeIndicator:
+          type: string
+          nullable: true
+        marketSegmentIndicator:
+          type: string
+          nullable: true
+        domesticPremiseIndicator:
+          type: string
+          nullable: true
+        measurementQuantityId:
+          type: string
+          nullable: true
+        runNumber:
+          type: integer
+          format: int32
+        eventCode:
+          type: string
+          nullable: true
+        settlementPeriodDuration:
+          type: integer
+          format: int32
+        loadShapeDayTotal:
+          type: number
+          format: double
+        loadShapeDayPeakTotal:
+          type: number
+          format: double
+          nullable: true
+        loadShapeDayOffPeakTotal:
+          type: number
+          format: double
+          nullable: true
+        loadShape7DayRollingTotal:
+          type: number
+          format: double
+        loadShape7DayRollingPeakTotal:
+          type: number
+          format: double
+          nullable: true
+        loadShape7DayRollingOffPeakTotal:
+          type: number
+          format: double
+          nullable: true
+        loadShapeRollingAnnualTotal:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Data.Entities.LoadShapePeriodData:
+      type: object
+      properties:
+        sourceFileName:
+          type: string
+          nullable: true
+        sourceFileDatetime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriodStartDateTime:
+          type: string
+          format: date-time
+        settlementPeriodEndDateTime:
+          type: string
+          format: date-time
+        settlementPeriod:
+          type: integer
+          format: int32
+        gspGroupId:
+          type: string
+          nullable: true
+        connectionTypeIndicator:
+          type: string
+          nullable: true
+        marketSegmentIndicator:
+          type: string
+          nullable: true
+        domesticPremiseIndicator:
+          type: string
+          nullable: true
+        measurementQuantityId:
+          type: string
+          nullable: true
+        runNumber:
+          type: integer
+          format: int32
+        eventCode:
+          type: string
+          nullable: true
+        settlementPeriodDuration:
+          type: integer
+          format: int32
+        loadShapePeriodValue:
+          type: number
+          format: double
+        defaultLoadShapeFlag:
+          type: string
+          nullable: true
+      additionalProperties: false

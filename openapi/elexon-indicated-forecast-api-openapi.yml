@@ -1,0 +1,231 @@
+openapi: 3.0.4
+info:
+  title: Insights.Api Balancing Mechanism Dynamic Indicated Forecast API
+  version: '1.0'
+  description: Dynamic data.
+servers:
+- url: https://data.elexon.co.uk/bmrs/api/v1
+tags:
+- name: Indicated Forecast
+  description: Day-and-day-ahead indicated forecast, categorized as Indicated Generation (INDGEN), Indicated Demand (INDDEM), Imbalance (IMBALNGC) and Margin (MELNGC).
+paths:
+  /forecast/indicated/day-ahead:
+    get:
+      tags:
+      - Indicated Forecast
+      summary: Latest indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)
+      description: This endpoint provides the latest forecast indicated day-ahead data
+      parameters:
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+  /forecast/indicated/day-ahead/history:
+    get:
+      tags:
+      - Indicated Forecast
+      summary: Historical indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)
+      description: ''
+      parameters:
+      - name: publishTime
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+  /forecast/indicated/day-ahead/evolution:
+    get:
+      tags:
+      - Indicated Forecast
+      summary: Evolution indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)
+      description: 'This endpoint provides the forecast indicated day-ahead data over time for the specified settlement date and settlement period.
+
+
+        Date parameter must be provided in the exact format yyyy-MM-dd.'
+      parameters:
+      - name: settlementDate
+        in: query
+        description: The settlement date for the filter. This must be in the format yyyy-MM-dd.
+        required: true
+        schema:
+          type: string
+          format: date
+          example: '2022-09-20'
+        example: '2022-09-20'
+      - name: settlementPeriod
+        in: query
+        required: true
+        schema:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+          example:
+          - 1
+        example:
+        - 1
+      - name: boundary
+        in: query
+        description: Omitting this will return only national data. Specifying boundary=zonal will return only zonal data.
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Response data format. Use json/xml to include metadata.
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+components:
+  schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            type: string
+          nullable: true
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type: string
+          nullable: true
+        indicatedGeneration:
+          type: integer
+          format: int64
+          nullable: true
+        indicatedDemand:
+          type: integer
+          format: int64
+          nullable: true
+        indicatedMargin:
+          type: integer
+          format: int64
+          nullable: true
+        indicatedImbalance:
+          type: integer
+          format: int64
+          nullable: true
+      additionalProperties: false
