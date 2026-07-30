@@ -2,7 +2,19 @@ aid: elexon
 url: https://raw.githubusercontent.com/api-evangelist/elexon/refs/heads/main/apis.yml
 name: Elexon
 kind: company
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/elexon.png
 tags:
   - Electricity
   - Energy
@@ -34,66 +46,532 @@ description: >-
   or API key required, and data may be reused with attribution ("Contains BMRS data
   © Elexon Limited copyright and database right").
 apis:
-  - aid: elexon:insights-solution-api
-    name: Elexon Insights Solution API
-    tags:
-      - Balancing Mechanism
-      - Physical Notifications
-      - Bid-Offer
-      - Acceptances
-      - Balancing Services Adjustment
-      - Generation Forecasts
-      - Demand Data
-      - Settlement
-      - Market Transparency
-      - Meter Data
-      - Electricity
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://data.elexon.co.uk/bmrs/api/v1
-    humanURL: https://developer.data.elexon.co.uk/
-    description: >-
-      The Elexon Insights Solution API is a publicly accessible REST API providing
-      free access to UK electricity balancing and settlement data. The API requires
-      no authentication or API key and serves production-grade data continuously.
-      Endpoints are grouped into Dataset Endpoints (raw published data, including
-      superseded historical records), Opinionated Endpoints (specific use-case queries
-      such as demand evolution or generation availability), Streaming Endpoints (JSON
-      only, no paging restrictions), and Summary/Reference Data endpoints. Response
-      formats include JSON, XML, and CSV. Core data domains include balancing mechanism
-      dynamic and physical data per BMU, bid-offer data and acceptances, disaggregated
-      and net balancing services adjustments (DISBSAD/NETBSAD), physical notifications
-      (PN/QPN), non-BM STOR (NONBM), and 50+ BMRS datasets covering generation,
-      demand, frequency, temperature, and market transparency. An interactive OpenAPI
-      specification is published at https://data.elexon.co.uk/swagger/v1/swagger.json.
-    properties:
-      - type: Documentation
-        url: https://developer.data.elexon.co.uk/
-      - type: Documentation
-        url: https://bmrs.elexon.co.uk/api-documentation/guidance
-      - type: OpenAPI
-        url: https://data.elexon.co.uk/swagger/v1/swagger.json
-      - type: GitHub
-        url: https://github.com/elexon-data/insights-docs
-    x-features:
-      - No API key or registration required — fully public access
-      - 50+ BMRS dataset endpoints covering the full UK electricity market
-      - Dataset endpoints return superseded historical records for audit/research
-      - Streaming endpoints with no pagination restrictions
-      - Responses available in JSON, XML, and CSV formats
-      - Opinionated endpoints for common use-case queries (demand evolution, generation forecasts)
-      - Companion IRIS service for near-real-time push delivery of the same datasets
-    x-use-cases:
-      - Real-time balancing mechanism monitoring for energy traders
-      - Historical settlement data retrieval for reconciliation and audit
-      - Generation and demand forecasting using published forecast datasets
-      - UK electricity market transparency reporting (regulatory compliance)
-      - Academic and public research into UK grid operations
-      - Energy management systems and smart meter data aggregation
-      - Building dashboards for grid frequency, demand, and supply visibility
-    x-integrations:
-      - IRIS (Insights Real-time Information Service — WebSocket/STOMP push)
-      - BMRS Data Portal (bmrs.elexon.co.uk)
-      - Data Integration Platform (DIP — industry data exchange)
+- aid: elexon:elexon-balancing-mechanism-dynamic-api
+  name: Elexon Balancing Mechanism Dynamic API
+  description: Dynamic data.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Balancing Mechanism Dynamic
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-balancing-mechanism-dynamic-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-balancing-mechanism-physical-api
+  name: Elexon Balancing Mechanism Physical API
+  description: Physical data consists of PN, QPN, MILS, &amp; MELS.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Balancing Mechanism Physical
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-balancing-mechanism-physical-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-balancing-services-adjustment-disaggregated-api
+  name: Elexon Balancing Services Adjustment - Disaggregated API
+  description: >-
+    Adjustment actions (DISBSAD) for a given settlement period, or summarised by settlement period over
+    a time range.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Balancing Services Adjustment - Disaggregated
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-balancing-services-adjustment-disaggregated-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-balancing-services-adjustment-net-api
+  name: Elexon Balancing Services Adjustment - Net API
+  description: >-
+    Net balancing services adjustment data (NETBSAD), provided as a time series or filtered to events.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Balancing Services Adjustment - Net
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-balancing-services-adjustment-net-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-bid-offer-acceptances-api
+  name: Elexon Bid-Offer Acceptances API
+  description: Bid-offer acceptance data (BOALF).
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Bid-Offer Acceptances
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-bid-offer-acceptances-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-bid-offer-api
+  name: Elexon Bid-Offer API
+  description: Bid-offer data.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Bid-Offer
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-bid-offer-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-bmrs-datasets-api
+  name: Elexon BMRS Datasets API
+  description: >-
+    Raw datasets as received from the National Grid, with associated metadata. The output in JSON format
+    matches IRIS, and can be used interchangeably with IRIS output.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - BMRS Datasets
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-bmrs-datasets-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-credit-default-notice-api
+  name: Elexon Credit Default Notice API
+  description: Credit Default Notice data.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Credit Default Notice
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-credit-default-notice-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-data-status-api
+  name: Elexon Data Status API
+  description: >-
+    The number of datapoints ingested for a dataset in a given period of time, grouped by settlement period.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Data Status
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-data-status-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-demand-api
+  name: Elexon Demand API
+  description: GB electricity demand, including historic.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Demand
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-demand-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-demand-forecast-api
+  name: Elexon Demand Forecast API
+  description: Current or historic demand forecasts.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Demand Forecast
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-demand-forecast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-generation-api
+  name: Elexon Generation API
+  description: GB electricity generation output, including historic.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-generation-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-generation-forecast-api
+  name: Elexon Generation Forecast API
+  description: Current or historic generation forecasts.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Generation Forecast
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-generation-forecast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-health-check-api
+  name: Elexon Health Check API
+  description: Provides an endpoint to check the health of the Insights API service.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Health Check
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-health-check-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-indicated-forecast-api
+  name: Elexon Indicated Forecast API
+  description: >-
+    Day-and-day-ahead indicated forecast, categorized as Indicated Generation (INDGEN), Indicated Demand
+    (INDDEM), Imbalance (IMBALNGC) and Margin (MELNGC).
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Indicated Forecast
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-indicated-forecast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-indicative-imbalance-settlement-api
+  name: Elexon Indicative Imbalance Settlement API
+  description: Data related to the settlement process.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Indicative Imbalance Settlement
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-indicative-imbalance-settlement-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-legacy-api
+  name: Elexon Legacy API
+  description: The Legacy API from Elexon — 2 operation(s) for legacy.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Legacy
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-legacy-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-load-shape-api
+  name: Elexon Load Shape API
+  description: >-
+    Load shape period data and load shape totals data as calculated by the Load Shaping Service
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Load Shape
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-load-shape-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-loss-of-load-probability-and-de-rated-margin-api
+  name: Elexon Loss of Load Probability and De-rated Margin API
+  description: Loss of load probability and de-rated margin forecast data.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Loss of Load Probability and De-rated Margin
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-loss-of-load-probability-and-de-rated-margin-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-margin-forecast-api
+  name: Elexon Margin Forecast API
+  description: >-
+    Generating Plant Operating Margin forecast data, including historical views of data by publish time
+    or forecast date.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Margin Forecast
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-margin-forecast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-market-index-api
+  name: Elexon Market Index API
+  description: Market Index prices filtered by time.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Market Index
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-market-index-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-non-bm-stor-api
+  name: Elexon Non-BM STOR API
+  description: >-
+    Short Term Operating Reserves (STOR) data, provided as a time series or filtered to events.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Non-BM STOR
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-non-bm-stor-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-non-bm-volumes-api
+  name: Elexon Non-BM Volumes API
+  description: Balancing services volume data, filtered by BM Unit and time range.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Non-BM Volumes
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-non-bm-volumes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-reference-api
+  name: Elexon Reference API
+  description: Reference data which can be used to filter other API requests.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Reference
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-reference-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-remit-api
+  name: Elexon REMIT API
+  description: REMIT messages, including previous revisions.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - REMIT
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-remit-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-rolling-system-demand-api
+  name: Elexon Rolling System Demand API
+  description: The Rolling System Demand API from Elexon — 1 operation(s) for rolling system demand.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Rolling System Demand
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-rolling-system-demand-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-saa-datasets-api
+  name: Elexon SAA Datasets API
+  description: Datasets received from the Settlement Administration Agent (SAA)
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - SAA Datasets
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-saa-datasets-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-so-so-prices-api
+  name: Elexon SO-SO Prices API
+  description: SO-SO Prices (SOSO) data, filtered by start time.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - SO-SO Prices
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-so-so-prices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-surplus-forecast-api
+  name: Elexon Surplus Forecast API
+  description: >-
+    Generating Plant Operating Surplus forecast data, including historical views of data by publish time
+    or forecast date.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Surplus Forecast
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-surplus-forecast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-system-api
+  name: Elexon System API
+  description: Transmission System data.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-system-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-system-forecast-api
+  name: Elexon System forecast API
+  description: Transmission System forecasts
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - System forecast
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-system-forecast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
+- aid: elexon:elexon-temperature-api
+  name: Elexon Temperature API
+  description: Daily average & reference temperatures.
+  humanURL: https://developer.data.elexon.co.uk/
+  baseURL: https://data.elexon.co.uk/bmrs/api/v1
+  tags:
+  - Temperature
+  properties:
+  - type: OpenAPI
+    url: openapi/elexon-temperature-api-openapi.yml
+  - type: Documentation
+    url: https://developer.data.elexon.co.uk/
+  - type: Documentation
+    url: https://bmrs.elexon.co.uk/api-documentation/guidance
+  - type: GitHub
+    url: https://github.com/elexon-data/insights-docs
 common:
   - type: AgenticAccess
     url: agentic-access/elexon-agentic-access.yml
