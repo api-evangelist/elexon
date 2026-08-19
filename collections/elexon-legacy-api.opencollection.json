@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Legacy API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Legacy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/interop/MessageListRetrieval",
+            "params": [
+              {
+                "name": "eventStart",
+                "value": "2023-08-01",
+                "type": "query"
+              },
+              {
+                "name": "eventEnd",
+                "value": "2023-08-02",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/interop/MessageDetailRetrieval",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "2023060105000001-ELXP-RMT-20230601",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

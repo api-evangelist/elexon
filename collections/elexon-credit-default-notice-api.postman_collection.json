@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "486fb9fd-ccb8-4623-bef5-6338c721d542",
+      "name": "Credit Default Notice",
+      "description": {
+        "content": "Credit Default Notice data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a4890d4d-3f49-40cb-b910-9c53efdc781a",
+          "name": "[DEPRECATED] Credit default notices (CDN)",
+          "request": {
+            "name": "[DEPRECATED] Credit default notices (CDN)",
+            "description": {
+              "content": "This endpoint has been moved to balancing/settlement/default-notices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CDN"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "145a2915-9476-4cbf-ab3c-2e739d61166a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CDN"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a597dd19-69d6-49d6-84d5-dc61119214f7",
+    "name": "Insights.Api Balancing Mechanism Dynamic Credit Default Notice API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

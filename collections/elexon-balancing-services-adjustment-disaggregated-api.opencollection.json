@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Balancing Services Adjustment - Disaggregated API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Balancing Services Adjustment - Disaggregated",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Disaggregated balancing services adjustment time series (DISBSAD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/nonbm/disbsad/summary",
+            "params": [
+              {
+                "name": "from",
+                "value": "2022-09-20T00:00Z",
+                "type": "query",
+                "description": "The \"from\" start time or settlement date for the filter."
+              },
+              {
+                "name": "to",
+                "value": "2022-09-27T00:00Z",
+                "type": "query",
+                "description": "The \"to\" start time or settlement date for the filter."
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "",
+                "type": "query",
+                "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "",
+                "type": "query",
+                "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides disaggregated balancing services adjustment data batched by settlement period. Each\nbatch in the time series contains a summary of all records for that settlement period, detailing the number of\nbuy and sell actions, price information and volume information.\n\nBy default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on se"
+        },
+        {
+          "info": {
+            "name": "Disaggregated balancing services adjustment per settlement period (DISBSAD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/nonbm/disbsad/details",
+            "params": [
+              {
+                "name": "settlementDate",
+                "value": "2022-10-26",
+                "type": "query",
+                "description": "The settlement date to query."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "3",
+                "type": "query",
+                "description": "The settlement period to query. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides disaggregated balancing services adjustment data for a single settlement period. The\nresponse includes all the buying and selling actions that occurred during that settlement period.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

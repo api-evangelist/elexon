@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Non-BM Volumes API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Non-BM Volumes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Balancing services volume (QAS)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/nonbm/volumes",
+            "params": [
+              {
+                "name": "from",
+                "value": "2022-08-12T00:00Z",
+                "type": "query",
+                "description": "The \"from\" start time or settlement date for the filter."
+              },
+              {
+                "name": "to",
+                "value": "2022-08-13T00:00Z",
+                "type": "query",
+                "description": "The \"to\" start time or settlement date for the filter."
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "",
+                "type": "query",
+                "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "",
+                "type": "query",
+                "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "bmUnit",
+                "value": "T_CNQPS-1",
+                "type": "query",
+                "description": "The BM units to query. Add each unit separately. If no BM unit is selected all BM units will be displayed."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides balancing services volume data received from NGESO, with an added computed 'Time' field.\n(The time field is calculated from the settlement date & period and represents the earliest possible time for\nfor which the datapoint applies)\n            \nBalancing services volume is a volume which is received from the System Operator, which represents the volume\nof energy (MWh) associated with the provision of Applicable Balancing Services for each relevant BM Unit and\nSettlement Pe"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

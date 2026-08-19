@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic SO-SO Prices API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SO-SO Prices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SO-SO prices (SOSO)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/soso/prices",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-09-26T07:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-09-27T07:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides system operator to system operator prices data.\nIt can be filtered by start time.\n            \nThis API endpoint has a maximum range of 24 hours."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

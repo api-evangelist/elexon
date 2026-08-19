@@ -1,0 +1,613 @@
+{
+  "item": [
+    {
+      "id": "d9bfd07e-dc0d-4591-aa22-d479c6985c54",
+      "name": "Bid-Offer",
+      "description": {
+        "content": "Bid-offer data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "17d27f7d-cd0b-49eb-af02-f791bc64445e",
+          "name": "Bid-offer data per BMU (BOD)",
+          "request": {
+            "name": "Bid-offer data per BMU (BOD)",
+            "description": {
+              "content": "This endpoint provides the bid-offer data for a requested BMU. It returns the data valid over a given time\nrange, excluding any results where LevelFrom and LevelTo are both zero.\n            \nBy default, the from and to parameters filter the data inclusively and this endpoint will return any data that\noverlaps even at a single instant. If the settlementPeriodFrom or settlementPeriodTo parameters are provided, it\nwill instead filter to return any data that overlaps with the specified range of settlement periods. It is\npossible to search using a combination of time and/or settlement date & settlement period. Note: When\nfiltering via settlement date, from/to are treated as Dates only, with the time being ignored. For example,\n2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering by timeFrom and timeTo:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from timeFrom to settlement date and period:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to TimeTo:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "bid-offer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "(Required) The BM Unit to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"from\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"to\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21e6aa15-9a26-4f08-8675-4113c288ef36",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2022-07-25\",\n      \"settlementPeriod\": 3,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"bid\": 668.67,\n      \"offer\": -71.5,\n      \"pairId\": 1\n    },\n    {\n      \"settlementDate\": \"2022-07-25\",\n      \"settlementPeriod\": 3,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"bid\": 668.67,\n      \"offer\": -71.5,\n      \"pairId\": 1\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6714c28-ea09-424e-825d-e9556db9bc64",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2cb7c607-b16a-4895-b4a2-1a7658ae7baa",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55419653-f3a9-4ed0-bc53-cf1f0d7a2513",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f21705ab-bc87-4d93-8eda-4adce6df3021",
+          "name": "Market-wide bid-offer data (BOD)",
+          "request": {
+            "name": "Market-wide bid-offer data (BOD)",
+            "description": {
+              "content": "This endpoint provides market-wide bid-offer data, for all BMUs or a requested set of multiple BMUs.\nIt returns the data valid for a given settlement period, excluding any results where LevelFrom and LevelTo are both zero.\n            \nThe settlement period to query must be specified as a date and settlement period. The date should be provided in the format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "bid-offer",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date to filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) The settlement period to filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "062ea285-db37-4779-a4ba-8d37000ab1eb",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-22"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2022-07-25\",\n      \"settlementPeriod\": 3,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"bid\": 668.67,\n      \"offer\": -71.5,\n      \"pairId\": 1\n    },\n    {\n      \"settlementDate\": \"2022-07-25\",\n      \"settlementPeriod\": 3,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"bid\": 668.67,\n      \"offer\": -71.5,\n      \"pairId\": 1\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d58f32c-edbd-4425-8c17-99ecbe1711ea",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-22"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "035eb4c9-c8d2-4d12-b9bd-df4adf622f40",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-22"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2d851f92-af1d-4d3b-a464-cb7c28b808a1",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "bid-offer",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-22"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "40ab94fb-deb7-419d-a050-b793d28a1921",
+    "name": "Insights.Api Balancing Mechanism Dynamic Bid-Offer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "1c6b21c6-2597-443f-a997-1a0210f272b1",
+      "name": "Legacy",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08e7810c-a2a1-44ce-885d-146aef6b6c71",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.",
+            "description": {},
+            "url": {
+              "path": [
+                "interop",
+                "MessageListRetrieval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eventStart",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "eventEnd",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b316133-bf4d-426c-8d79-f4f89146dd2a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interop",
+                    "MessageListRetrieval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eventStart",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "eventEnd",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <legacyRemitListMetadata>\n    <httpCode>(integer)</httpCode>\n    <errorType>(string)</errorType>\n    <description>(string)</description>\n    <cappingApplied>(string)</cappingApplied>\n    <cappingLimit>(integer)</cappingLimit>\n    <queryString>(string)</queryString>\n  </legacyRemitListMetadata>\n  <legacyRemitListResponseBody>\n    <dataItem>(string)</dataItem>\n    <legacyRemitResponseList>\n      <item>\n        <messageId>(string)</messageId>\n        <sequenceId>(integer)</sequenceId>\n        <messageHeading>(string)</messageHeading>\n        <eventType>(string)</eventType>\n        <publishDateTimeString>(string)</publishDateTimeString>\n        <participantMarketParticipantId>(string)</participantMarketParticipantId>\n        <assetId>(string)</assetId>\n        <assetEicCode>(string)</assetEicCode>\n        <assetType>(string)</assetType>\n        <affectedUnit>(string)</affectedUnit>\n        <affectedArea>(string)</affectedArea>\n        <assetFuelType>(string)</assetFuelType>\n        <assetNormalCapacity>(number)</assetNormalCapacity>\n        <assetNormalCapacitySpecified>(boolean)</assetNormalCapacitySpecified>\n        <availableCapacity>(number)</availableCapacity>\n        <availableCapacitySpecified>(boolean)</availableCapacitySpecified>\n        <eventStartString>(string)</eventStartString>\n        <eventEndString>(string)</eventEndString>\n        <durationUncertainty>(string)</durationUncertainty>\n        <cause>(string)</cause>\n        <eventStatus>(string)</eventStatus>\n        <relatedInformation>(string)</relatedInformation>\n        <activeFlag>(string)</activeFlag>\n        <revisionNumber>(integer)</revisionNumber>\n        <messageType>(string)</messageType>\n        <unavailabilityType>(string)</unavailabilityType>\n        <unavailableCapacity>(number)</unavailableCapacity>\n        <unavailableCapacitySpecified>(boolean)</unavailableCapacitySpecified>\n      </item>\n      <item>\n        <messageId>(string)</messageId>\n        <sequenceId>(integer)</sequenceId>\n        <messageHeading>(string)</messageHeading>\n        <eventType>(string)</eventType>\n        <publishDateTimeString>(string)</publishDateTimeString>\n        <participantMarketParticipantId>(string)</participantMarketParticipantId>\n        <assetId>(string)</assetId>\n        <assetEicCode>(string)</assetEicCode>\n        <assetType>(string)</assetType>\n        <affectedUnit>(string)</affectedUnit>\n        <affectedArea>(string)</affectedArea>\n        <assetFuelType>(string)</assetFuelType>\n        <assetNormalCapacity>(number)</assetNormalCapacity>\n        <assetNormalCapacitySpecified>(boolean)</assetNormalCapacitySpecified>\n        <availableCapacity>(number)</availableCapacity>\n        <availableCapacitySpecified>(boolean)</availableCapacitySpecified>\n        <eventStartString>(string)</eventStartString>\n        <eventEndString>(string)</eventEndString>\n        <durationUncertainty>(string)</durationUncertainty>\n        <cause>(string)</cause>\n        <eventStatus>(string)</eventStatus>\n        <relatedInformation>(string)</relatedInformation>\n        <activeFlag>(string)</activeFlag>\n        <revisionNumber>(integer)</revisionNumber>\n        <messageType>(string)</messageType>\n        <unavailabilityType>(string)</unavailabilityType>\n        <unavailableCapacity>(number)</unavailableCapacity>\n        <unavailableCapacitySpecified>(boolean)</unavailableCapacitySpecified>\n      </item>\n    </legacyRemitResponseList>\n  </legacyRemitListResponseBody>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eed201ae-5788-45e5-91df-8926eb3a9341",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.",
+            "description": {},
+            "url": {
+              "path": [
+                "interop",
+                "MessageDetailRetrieval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "messageId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d74f255d-b170-44e2-8702-05c6a3c8d0cb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interop",
+                    "MessageDetailRetrieval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "messageId",
+                      "value": "2023060105000001-ELXP-RMT-20230601"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <metadata>\n    <httpCode>(integer)</httpCode>\n    <errorType>(string)</errorType>\n    <description>(string)</description>\n    <queryString>(string)</queryString>\n  </metadata>\n  <body>\n    <dataItem>(string)</dataItem>\n    <list>\n      <item>\n        <messageId>(string)</messageId>\n        <sequenceId>(integer)</sequenceId>\n        <messageHeading>(string)</messageHeading>\n        <eventType>(string)</eventType>\n        <publishDateTimeString>(string)</publishDateTimeString>\n        <participantMarketParticipantId>(string)</participantMarketParticipantId>\n        <assetId>(string)</assetId>\n        <assetEicCode>(string)</assetEicCode>\n        <assetType>(string)</assetType>\n        <affectedUnit>(string)</affectedUnit>\n        <affectedArea>(string)</affectedArea>\n        <assetFuelType>(string)</assetFuelType>\n        <assetNormalCapacity>(number)</assetNormalCapacity>\n        <availableCapacity>(number)</availableCapacity>\n        <unavailableCapacity>(number)</unavailableCapacity>\n        <eventStartString>(string)</eventStartString>\n        <eventEndString>(string)</eventEndString>\n        <cause>(string)</cause>\n        <eventStatus>(string)</eventStatus>\n        <relatedInformation>(string)</relatedInformation>\n        <activeFlag>(string)</activeFlag>\n        <messageType>(string)</messageType>\n        <unavailabilityType>(string)</unavailabilityType>\n        <acerCode>(string)</acerCode>\n        <biddingZone>(string)</biddingZone>\n        <outageProfile>\n        </outageProfile>\n        <revisionNumber>(integer)</revisionNumber>\n      </item>\n    </list>\n  </body>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a0125e26-59cb-46ed-888e-e29009b125cd",
+    "name": "Insights.Api Balancing Mechanism Dynamic Legacy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

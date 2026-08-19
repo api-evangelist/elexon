@@ -1,0 +1,996 @@
+{
+  "item": [
+    {
+      "id": "6ea33791-d078-4f5d-ae34-60901c4a434c",
+      "name": "Load Shape",
+      "description": {
+        "content": "Load shape period data and load shape totals data as calculated by the Load Shaping Service",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "891e7712-6990-4c00-8e5a-4b4e77e2c3a2",
+          "name": "Load shape period data (IF022)",
+          "request": {
+            "name": "Load shape period data (IF022)",
+            "description": {
+              "content": "This endpoint enables the retrieval of load shape period (IF022) data for a specified date and settlement period range.\n\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lss",
+                "load-shape-period"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date to return load shape period data for. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "Optional settlement period range start (inclusive)."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "Optional settlement period range end (inclusive)."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f413350-f393-4b5e-80bd-b12f8fe9037c",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "1"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "10"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"sourceFileName\": \"string\",\n      \"sourceFileDatetime\": \"2021-12-09T22:21:26.818Z\",\n      \"settlementDate\": \"2000-08-03\",\n      \"settlementPeriodStartDateTime\": \"1949-05-27T07:56:59.340Z\",\n      \"settlementPeriodEndDateTime\": \"1959-09-29T19:06:44.480Z\",\n      \"settlementPeriod\": 6701,\n      \"gspGroupId\": \"string\",\n      \"connectionTypeIndicator\": \"string\",\n      \"marketSegmentIndicator\": \"string\",\n      \"domesticPremiseIndicator\": \"string\",\n      \"measurementQuantityId\": \"string\",\n      \"runNumber\": 1255,\n      \"eventCode\": \"string\",\n      \"settlementPeriodDuration\": 6330,\n      \"loadShapePeriodValue\": 1452.8459277351058,\n      \"defaultLoadShapeFlag\": \"string\"\n    },\n    {\n      \"sourceFileName\": \"string\",\n      \"sourceFileDatetime\": \"1975-03-16T01:34:58.226Z\",\n      \"settlementDate\": \"2019-07-06\",\n      \"settlementPeriodStartDateTime\": \"1985-02-22T21:57:38.833Z\",\n      \"settlementPeriodEndDateTime\": \"1999-05-29T06:01:52.506Z\",\n      \"settlementPeriod\": 1128,\n      \"gspGroupId\": \"string\",\n      \"connectionTypeIndicator\": \"string\",\n      \"marketSegmentIndicator\": \"string\",\n      \"domesticPremiseIndicator\": \"string\",\n      \"measurementQuantityId\": \"string\",\n      \"runNumber\": 1491,\n      \"eventCode\": \"string\",\n      \"settlementPeriodDuration\": 2718,\n      \"loadShapePeriodValue\": 445.25640286859016,\n      \"defaultLoadShapeFlag\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69439272-e86f-464f-98b0-83776d2d7fb1",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "1"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "10"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a38af69a-f73d-4c4d-a859-9c480c1ecbef",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "1"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "10"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45a1053a-ce3c-48d7-94c7-6512a1ef9168",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "1"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "10"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14899083-8bae-4fea-a489-82186fa3e42e",
+          "name": "Load shape period data stream (IF022)",
+          "request": {
+            "name": "Load shape period data stream (IF022)",
+            "description": {
+              "content": "This endpoint provides a stream of load shape period (IF022) data for a specified date and settlement period range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lss",
+                "load-shape-period",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date range start (inclusive). This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date range end (inclusive). This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "Optional settlement period range start (inclusive)."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "Optional settlement period range end (inclusive)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3c02081-5a1c-4f26-94b5-f2585a67dbbb",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-02"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "40"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"sourceFileName\": \"string\",\n    \"sourceFileDatetime\": \"1948-04-19T18:01:07.291Z\",\n    \"settlementDate\": \"1980-10-17\",\n    \"settlementPeriodStartDateTime\": \"2003-10-03T09:59:37.444Z\",\n    \"settlementPeriodEndDateTime\": \"1980-08-23T12:44:01.291Z\",\n    \"settlementPeriod\": 4150,\n    \"gspGroupId\": \"string\",\n    \"connectionTypeIndicator\": \"string\",\n    \"marketSegmentIndicator\": \"string\",\n    \"domesticPremiseIndicator\": \"string\",\n    \"measurementQuantityId\": \"string\",\n    \"runNumber\": 7905,\n    \"eventCode\": \"string\",\n    \"settlementPeriodDuration\": 1107,\n    \"loadShapePeriodValue\": 8869.949502659241,\n    \"defaultLoadShapeFlag\": \"string\"\n  },\n  {\n    \"sourceFileName\": \"string\",\n    \"sourceFileDatetime\": \"2016-04-12T23:06:36.724Z\",\n    \"settlementDate\": \"2001-11-24\",\n    \"settlementPeriodStartDateTime\": \"2023-05-18T06:34:29.741Z\",\n    \"settlementPeriodEndDateTime\": \"1996-01-06T18:43:13.185Z\",\n    \"settlementPeriod\": 3864,\n    \"gspGroupId\": \"string\",\n    \"connectionTypeIndicator\": \"string\",\n    \"marketSegmentIndicator\": \"string\",\n    \"domesticPremiseIndicator\": \"string\",\n    \"measurementQuantityId\": \"string\",\n    \"runNumber\": 3008,\n    \"eventCode\": \"string\",\n    \"settlementPeriodDuration\": 943,\n    \"loadShapePeriodValue\": 4577.857267272743,\n    \"defaultLoadShapeFlag\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5700cc18-b036-4ed4-8e0a-0ef301848db1",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-02"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "40"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15b3aea1-0f5c-40d9-9867-29b001f25d92",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-02"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "40"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6539ae5d-239d-43ee-8eb6-79aa5607ce02",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-period",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-02"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "40"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "366da37a-690a-4d4e-8650-a0ac533e994f",
+          "name": "Load shape totals data (IF023)",
+          "request": {
+            "name": "Load shape totals data (IF023)",
+            "description": {
+              "content": "This endpoint enables the retrieval of Load shape totals data (IF023) for a specified settlement day.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lss",
+                "load-shape-totals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date range start (inclusive). This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date range end (inclusive). This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ce1a2f1-e22f-4dca-bfc4-a06f2df679c4",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"sourceFileName\": \"string\",\n      \"sourceFileDatetime\": \"1958-05-21T23:28:08.184Z\",\n      \"settlementDate\": \"1954-05-04\",\n      \"gspGroupId\": \"string\",\n      \"connectionTypeIndicator\": \"string\",\n      \"marketSegmentIndicator\": \"string\",\n      \"domesticPremiseIndicator\": \"string\",\n      \"measurementQuantityId\": \"string\",\n      \"runNumber\": 8373,\n      \"eventCode\": \"string\",\n      \"settlementPeriodDuration\": 6640,\n      \"loadShapeDayTotal\": 3577.5842425764827,\n      \"loadShapeDayPeakTotal\": 1359.2003040267075,\n      \"loadShapeDayOffPeakTotal\": 2312.928925882812,\n      \"loadShape7DayRollingTotal\": 5003.74892633749,\n      \"loadShape7DayRollingPeakTotal\": 4683.781150308146,\n      \"loadShape7DayRollingOffPeakTotal\": 4903.850886519642,\n      \"loadShapeRollingAnnualTotal\": 8755.05841945826\n    },\n    {\n      \"sourceFileName\": \"string\",\n      \"sourceFileDatetime\": \"1978-07-15T17:32:24.654Z\",\n      \"settlementDate\": \"2001-11-02\",\n      \"gspGroupId\": \"string\",\n      \"connectionTypeIndicator\": \"string\",\n      \"marketSegmentIndicator\": \"string\",\n      \"domesticPremiseIndicator\": \"string\",\n      \"measurementQuantityId\": \"string\",\n      \"runNumber\": 7919,\n      \"eventCode\": \"string\",\n      \"settlementPeriodDuration\": 5340,\n      \"loadShapeDayTotal\": 9706.183669011087,\n      \"loadShapeDayPeakTotal\": 8476.381915129057,\n      \"loadShapeDayOffPeakTotal\": 8932.974486576355,\n      \"loadShape7DayRollingTotal\": 7482.959277496842,\n      \"loadShape7DayRollingPeakTotal\": 4800.394290037331,\n      \"loadShape7DayRollingOffPeakTotal\": 995.5138794056418,\n      \"loadShapeRollingAnnualTotal\": 3997.740552307667\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20ec15f1-7156-4bf6-bdd6-b6eaed2e2fc1",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b55aa50-23dc-427b-98bf-2c005d7aecde",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b03423db-d80f-4d7c-87e4-fb056cc7773c",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4a499d6-4a2f-4d09-9aae-61fa057f64ea",
+          "name": "Load shape totals data stream (IF023)",
+          "request": {
+            "name": "Load shape totals data stream (IF023)",
+            "description": {
+              "content": "This endpoint provides a stream of load shape totals (IF023) data for a specified date range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lss",
+                "load-shape-totals",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date range start (inclusive). This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date range end (inclusive). This must be in the format yyyy-MM-dd."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bbcb42d8-08e4-48a9-bc2b-d84d6424e94d",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"sourceFileName\": \"string\",\n    \"sourceFileDatetime\": \"1998-12-11T20:03:46.678Z\",\n    \"settlementDate\": \"1994-06-09\",\n    \"gspGroupId\": \"string\",\n    \"connectionTypeIndicator\": \"string\",\n    \"marketSegmentIndicator\": \"string\",\n    \"domesticPremiseIndicator\": \"string\",\n    \"measurementQuantityId\": \"string\",\n    \"runNumber\": 1702,\n    \"eventCode\": \"string\",\n    \"settlementPeriodDuration\": 9029,\n    \"loadShapeDayTotal\": 4868.159749053404,\n    \"loadShapeDayPeakTotal\": 1368.6446580271515,\n    \"loadShapeDayOffPeakTotal\": 3034.5722630847695,\n    \"loadShape7DayRollingTotal\": 7512.369926801179,\n    \"loadShape7DayRollingPeakTotal\": 8495.500809906227,\n    \"loadShape7DayRollingOffPeakTotal\": 4063.1610151656005,\n    \"loadShapeRollingAnnualTotal\": 8839.024044128677\n  },\n  {\n    \"sourceFileName\": \"string\",\n    \"sourceFileDatetime\": \"1986-06-17T05:39:30.861Z\",\n    \"settlementDate\": \"2023-12-18\",\n    \"gspGroupId\": \"string\",\n    \"connectionTypeIndicator\": \"string\",\n    \"marketSegmentIndicator\": \"string\",\n    \"domesticPremiseIndicator\": \"string\",\n    \"measurementQuantityId\": \"string\",\n    \"runNumber\": 5871,\n    \"eventCode\": \"string\",\n    \"settlementPeriodDuration\": 5051,\n    \"loadShapeDayTotal\": 7474.12749241338,\n    \"loadShapeDayPeakTotal\": 781.2846176151888,\n    \"loadShapeDayOffPeakTotal\": 1485.8836171614143,\n    \"loadShape7DayRollingTotal\": 5820.290568024131,\n    \"loadShape7DayRollingPeakTotal\": 4561.672461080748,\n    \"loadShape7DayRollingOffPeakTotal\": 9897.465664014013,\n    \"loadShapeRollingAnnualTotal\": 7461.39363851969\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18a9b80e-f468-4802-a0b2-750af535ef4d",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dcdc7b3e-03cb-4672-b1b8-4719f8488cc8",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c789bf1-253d-4a17-9cee-35f698dae128",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lss",
+                    "load-shape-totals",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "2026-03-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2026-03-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b81d26e9-fb15-41f1-a332-4205cb33ce57",
+    "name": "Insights.Api Balancing Mechanism Dynamic Load Shape API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

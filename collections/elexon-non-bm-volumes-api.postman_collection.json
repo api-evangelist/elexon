@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "d885ba6c-d662-4455-8ad8-c8ca2d223ecd",
+      "name": "Non-BM Volumes",
+      "description": {
+        "content": "Balancing services volume data, filtered by BM Unit and time range.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "044e7222-3209-4a93-8f01-a659fd04a59e",
+          "name": "Balancing services volume (QAS)",
+          "request": {
+            "name": "Balancing services volume (QAS)",
+            "description": {
+              "content": "This endpoint provides balancing services volume data received from NGESO, with an added computed 'Time' field.\n(The time field is calculated from the settlement date & period and represents the earliest possible time for\nfor which the datapoint applies)\n            \nBalancing services volume is a volume which is received from the System Operator, which represents the volume\nof energy (MWh) associated with the provision of Applicable Balancing Services for each relevant BM Unit and\nSettlement Period.\n\nQAS can be positive or negative and is normally only provided where there is a non-zero volume.\n            \nBy default, the from and to parameters filter the data by time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/nonbm/volumes?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/nonbm/volumes?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/nonbm/volumes?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/nonbm/volumes?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "nonbm",
+                "volumes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"from\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"to\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. If no BM unit is selected all BM units will be displayed."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. If no BM unit is selected all BM units will be displayed."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af6acf9c-fb8c-43bf-83d5-8ea289a6ade2",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_CNQPS-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2022-07-25\",\n      \"settlementPeriod\": 3,\n      \"bmUnitApplicableBalancingServicesVolume\": 123.45,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"time\": \"2022-07-25T09:34:00Z\"\n    },\n    {\n      \"settlementDate\": \"2022-07-25\",\n      \"settlementPeriod\": 3,\n      \"bmUnitApplicableBalancingServicesVolume\": 123.45,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"time\": \"2022-07-25T09:34:00Z\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "333652c7-210c-43a9-ba47-28a9ad6c093d",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_CNQPS-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "345bf7c6-027a-4b6f-bdbe-851c4fbe8a3b",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_CNQPS-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "428d8001-5528-402f-b2b0-9522f84c6d03",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_CNQPS-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c79152d2-2186-47a0-93c8-0840fe3be049",
+    "name": "Insights.Api Balancing Mechanism Dynamic Non-BM Volumes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

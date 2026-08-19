@@ -1,0 +1,2850 @@
+{
+  "item": [
+    {
+      "id": "f4b26a42-07b6-4727-bf8f-3beddeea7898",
+      "name": "Data Status",
+      "description": {
+        "content": "The number of datapoints ingested for a dataset in a given period of time, grouped by settlement period.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d778cc6e-0777-40fc-b1e2-868a2be9ef71",
+          "name": "Status of ingested ISPSTACK Data",
+          "request": {
+            "name": "Status of ingested ISPSTACK Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the ISPSTACK dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "ISPSTACK"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f245264-1b45-4cdf-bd10-2357b0429e43",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "ISPSTACK"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "959614ee-5eb0-45c4-9367-5094fda83299",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "ISPSTACK"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "91e148dc-fd32-4d8b-aa0a-cb3c23943c9a",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "ISPSTACK"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d53e43f-3766-4036-ad87-1ad67162874a",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "ISPSTACK"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e55d2b13-9c8a-4777-85f7-3060d6e08a2d",
+          "name": "Status of ingested FREQ Data",
+          "request": {
+            "name": "Status of ingested FREQ Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the FREQ dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "FREQ"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20b5ef3d-786e-4cea-8ba0-8afa79625fa4",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "FREQ"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aeb7b9dc-1137-47e0-8c1f-be7b15a9397a",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "FREQ"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6c1fffd-4140-4850-bb38-a1630c7ee2b1",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "FREQ"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ae17f5b-2ee5-42bd-80be-b6d72054e128",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "FREQ"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af28b7e2-c5cb-4773-914c-9299a6e5ea81",
+          "name": "Status of ingested BOALF Data",
+          "request": {
+            "name": "Status of ingested BOALF Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the BOALF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "BOALF"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dc28ba2-6ee8-4dec-84d4-8d9387d42a88",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOALF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba39538a-af3c-4e0d-a40d-e2e1ac2843a3",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOALF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04989a99-2775-48d6-9feb-f45cf7adbc1a",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOALF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e656e38-5c90-4339-8fd2-f927605faeaf",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOALF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ef6fb7f-5210-4d93-93f3-bcc9017e0188",
+          "name": "Status of ingested DISEBSP Data",
+          "request": {
+            "name": "Status of ingested DISEBSP Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the DISEBSP dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "DISEBSP"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26860e53-7c9d-4cff-baf5-458d7b7e50fe",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISEBSP"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0be32a46-6e04-49fd-9dbb-b40685bda6fb",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISEBSP"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cee0fcd4-2788-45ff-8cf1-5cf191cb5d17",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISEBSP"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3aa64d0d-0655-4340-a9b8-35ec2856cb0a",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISEBSP"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c7d874a-1a50-4df3-8c5e-753fb8f2b756",
+          "name": "Status of ingested DISPTAV Data",
+          "request": {
+            "name": "Status of ingested DISPTAV Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the DISPTAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "DISPTAV"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2d67440-5fc4-4bfc-a487-00ea0222c00b",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISPTAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19ce916a-8692-448d-9887-300924d49861",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISPTAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "460d0f4e-fe9a-4639-9622-9270d9ef8fcd",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISPTAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5865b447-b4b5-41b3-ad95-964a883f887b",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISPTAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5b06df0-dfb4-47ac-82d5-0d62f6bee6db",
+          "name": "Status of ingested DISBSAD Data",
+          "request": {
+            "name": "Status of ingested DISBSAD Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the DISBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "DISBSAD"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1726cdd-4796-4db9-8100-d0adc397f243",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af6b8d93-c6ab-4666-8ba8-eb3c42e0d31d",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a3da2541-373d-4156-8120-05a668bcb403",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e20dc5e3-ecc9-4b72-acdf-681db1062a08",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "DISBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d8e372d-3bfd-4aab-aab9-2b6a30f79b4c",
+          "name": "Status of ingested NETBSAD Data",
+          "request": {
+            "name": "Status of ingested NETBSAD Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the NETBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "NETBSAD"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbb0c072-91d7-434d-a363-762a9448c2ec",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "NETBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2586225-6fef-41cd-96d2-fada6d67d656",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "NETBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6aeea3fb-27ee-496d-aafe-0af74028fa3f",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "NETBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bdad9e7-9058-4916-a84c-a2c92c478013",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "NETBSAD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69bb4a56-e12b-448f-9860-8badd9e3c53a",
+          "name": "Status of ingested BOD Data",
+          "request": {
+            "name": "Status of ingested BOD Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the BOD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "BOD"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4851c679-44ec-46df-a8c9-7773a13e9e83",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d53aac0a-c0ee-4db1-b1e2-dbd85011798b",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be4932a5-bf31-4322-baba-ae1ee33042e1",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "374ce77e-02cd-4f1f-8a2b-80651b97fbe9",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOD"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24295a5d-7908-4d5c-b4e2-a785a762f343",
+          "name": "Status of ingested EBOCF Data",
+          "request": {
+            "name": "Status of ingested EBOCF Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the EBOCF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "EBOCF"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8169cff-e6b2-4cb8-aaf4-e99d7ba1f835",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "EBOCF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65de373e-bbec-42f5-b502-a1c1a5d996f9",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "EBOCF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac8ca74b-3a6f-453f-88ea-2f34e5babdcc",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "EBOCF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9324c6a0-cfc8-4bac-9e99-48ebf131dce2",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "EBOCF"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5fcdd2a-0b82-4e73-91ff-9e01658254ed",
+          "name": "Status of ingested BOAV Data",
+          "request": {
+            "name": "Status of ingested BOAV Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the BOAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "BOAV"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11dc492f-8b3e-4287-9352-2e90c5146cae",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a03bf90d-ebb5-413a-9e76-f9f00eea6767",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f5d54532-4e41-4349-870e-2d8438bdf6db",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11f3caaa-4e22-48e4-8539-bdd2318daa90",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "BOAV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecfee9ec-5163-4a07-8168-32528cb2b36a",
+          "name": "Status of ingested PN Data",
+          "request": {
+            "name": "Status of ingested PN Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the PN dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "PN"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b24ad491-b208-4637-b25d-9d3330da9240",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "PN"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "890d5a73-d9fe-4e20-be16-32cf85348198",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "PN"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94c4b53e-ca12-4166-9e6d-65c3a60f5e3f",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "PN"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6dee450d-c7f1-4080-9176-f5fbfa45ad81",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "PN"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0e36b9d-bbba-4ddc-bae8-5f8441bce8d8",
+          "name": "Status of ingested REMIT Data",
+          "request": {
+            "name": "Status of ingested REMIT Data",
+            "description": {
+              "content": "This endpoint provides information about the number of data points ingested for the REMIT dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.\n            \nThe source parameter is optional and allows filtering by data source:\n- 'Elexon' for Elexon Portal data (files prefixed with ELXP-RMT)\n- 'MFT' for MFT data (files prefixed with NGET-RMT)\n- If not provided, returns total data points from all sources",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-status",
+                "REMIT"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "Optional filter for data source. Use 'Elexon' for Elexon Portal data (ELXP-RMT prefix) or 'MFT' for MFT data (NGET-RMT prefix). If not provided, returns all data points."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75dd1e2b-e24c-47f4-b0e7-8df94456174d",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "REMIT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "Elexon"
+                    },
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    },\n    {\n      \"settlementDate\": \"2021-12-05\",\n      \"settlementPeriod\": 14,\n      \"dataPointCount\": 31\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ],\n    \"source\": \"Elexon\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e56be45e-aa9a-4fc7-a6ba-d9fb87935bfb",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "REMIT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "Elexon"
+                    },
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "91946654-6906-40a5-8d43-3ca9106c597b",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "REMIT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "Elexon"
+                    },
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd0183c7-b397-4986-a312-85d149b5635b",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-status",
+                    "REMIT"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "Elexon"
+                    },
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ded96bc8-2ee6-4a19-be65-b83dc29755d4",
+    "name": "Insights.Api Balancing Mechanism Dynamic Data Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

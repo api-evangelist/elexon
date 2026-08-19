@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Margin Forecast API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Margin Forecast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Daily margin forecast (OCNMFD2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/margin/daily",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the Generating Plant Operating Margin covering 2 days ahead to 14 days ahead\nin MW values. The Daily API outputs the latest published data for daily margin forecast for D+2 t D+14"
+        },
+        {
+          "info": {
+            "name": "Historical daily margin forecast (OCNMFD2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/margin/daily/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the historic Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe historic API outputs the latest published data for historic daily margin forecast for D+2 to D+14"
+        },
+        {
+          "info": {
+            "name": "Evolution daily margin forecast (OCNMFD2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/margin/daily/evolution",
+            "params": [
+              {
+                "name": "forecastDate",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The forecast date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily margin forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Weekly margin forecast (OCNMFW2, OCNMF3Y2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/margin/weekly",
+            "params": [
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the Generating Plant Operating Margin covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly margin forecast for W+2 to W+156"
+        },
+        {
+          "info": {
+            "name": "Historical weekly margin forecast (OCNMFW2, OCNMF3Y2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/margin/weekly/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the weekly historic  Generating Plant Operating Margin.\nThis historic API output 2 weeks ahead to 156 weeks ahead in MW values"
+        },
+        {
+          "info": {
+            "name": "Evolution daily margin forecast (OCNMFW2, OCNMF3Y2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/margin/weekly/evolution",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily margin forecast for D+2 t D+14"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

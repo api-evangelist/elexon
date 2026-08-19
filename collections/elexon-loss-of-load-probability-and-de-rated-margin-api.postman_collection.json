@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "4b96c6d9-3742-4745-9f87-d117a182516d",
+      "name": "Loss of Load Probability and De-rated Margin",
+      "description": {
+        "content": "Loss of load probability and de-rated margin forecast data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe517afe-be95-40f1-9ce0-6d551e8f5494",
+          "name": "Loss of load probability and de-rated margin forecast (LOLPDRM)",
+          "request": {
+            "name": "Loss of load probability and de-rated margin forecast (LOLPDRM)",
+            "description": {
+              "content": "This endpoint has been moved to forecast/system/loss-of-load.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lolpdrm",
+                "forecast",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a958bf3-3d67-483a-88c0-107bb63a43b5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lolpdrm",
+                    "forecast",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8709e1f4-d977-4d12-bed6-69c793cf3b49",
+    "name": "Insights.Api Balancing Mechanism Dynamic Loss of Load Probability and De-rated Margin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

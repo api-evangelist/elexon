@@ -1,0 +1,314 @@
+{
+  "item": [
+    {
+      "id": "2b54d621-60a7-4324-850e-aed684c07e97",
+      "name": "System forecast",
+      "description": {
+        "content": "Transmission System forecasts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "968dcbd7-b51a-4578-946d-d0b7aaaf9592",
+          "name": "Loss of load probability and de-rated margin forecast (LOLPDRM)",
+          "request": {
+            "name": "Loss of load probability and de-rated margin forecast (LOLPDRM)",
+            "description": {
+              "content": "This endpoint provides the 1h, 2h, 4h, 8h and 12h+ Loss of Load Probability and De-rated Margin forecasts\nfor each settlement period over a requested time range.\n            \nFor each forecast horizon at 1, 2, 4 or 8 hours, the returned value is the forecast received that number of hours\nbefore the start of the settlement period.\n            \nFor the forecast horizon of 12h, the returned value is the most recent forecast received 12 or more hours\nbefore the start of the settlement period. That is, if the most recent forecast was published today at 00:00,\n- for 11:30 today, the 12h forecast is the one published yesterday at 23:30 (12h before)\n- for 12:00 today, the 12h forecast is the one published today at 00:00 (12h before)\n- for 12:30 today, the 12h forecast is the one published today at 00:00 (the latest published)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "system",
+                "loss-of-load"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20d78959-dbf7-4c36-9efe-7dfe781a9c2c",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "system",
+                    "loss-of-load"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "15"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "25"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1980-01-16T08:29:37.134Z\",\n      \"publishingPeriodCommencingTime\": \"2023-03-07T00:11:32.976Z\",\n      \"startTime\": \"1963-03-11T03:00:57.165Z\",\n      \"settlementDate\": \"2023-01-31\",\n      \"settlementPeriod\": 38,\n      \"forecastHorizon\": 1,\n      \"lossOfLoadProbability\": 0,\n      \"deratedMargin\": 12570.207\n    },\n    {\n      \"publishTime\": \"1955-11-24T18:14:50.862Z\",\n      \"publishingPeriodCommencingTime\": \"1997-08-22T07:17:34.743Z\",\n      \"startTime\": \"2013-04-05T18:37:50.229Z\",\n      \"settlementDate\": \"2023-01-31\",\n      \"settlementPeriod\": 38,\n      \"forecastHorizon\": 1,\n      \"lossOfLoadProbability\": 0,\n      \"deratedMargin\": 12570.207\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "959f8dc0-3519-48ad-81bc-1774b617f7a8",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "system",
+                    "loss-of-load"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "15"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "25"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17bad6c1-7975-491f-bad5-ecce5e81aa34",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "system",
+                    "loss-of-load"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "15"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "25"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a4a4898-b162-4a51-bd18-f94670006e75",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "system",
+                    "loss-of-load"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "15"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "25"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a892b401-34bf-4ee4-bb86-89088e934212",
+    "name": "Insights.Api Balancing Mechanism Dynamic System forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

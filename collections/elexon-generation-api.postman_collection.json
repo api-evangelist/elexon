@@ -1,0 +1,1355 @@
+{
+  "item": [
+    {
+      "id": "4f8478e0-f0e2-487d-a820-72ad18c26d70",
+      "name": "Generation",
+      "description": {
+        "content": "GB electricity generation output, including historic.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae88884d-766b-4f6a-9891-39c5aa428b14",
+          "name": "Historic actual generation automatically down-sampled (AGPT/B1620)",
+          "request": {
+            "name": "Historic actual generation automatically down-sampled (AGPT/B1620)",
+            "description": {
+              "content": "⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.\nDepending on the quantity of data requested, data returned may be averaged hourly, daily,\nweekly or monthly. Quantities are rounded to the nearest MWh.\nUse /datasets/AGPT for full access.\n            \nThis endpoint provides actual aggregated generation data per Power System Resource type \n(Fuel Type categories as defined by Commission Regulation (EU) No 543/2013).\n\nThis endpoint filters by startTime, and groups results by settlement period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "actual",
+                "per-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c74b645f-6e1c-4ef8-9cce-44339c9f35dc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "13"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "19"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"startTime\": \"2023-07-12 06:30:00Z\",\n      \"settlementPeriod\": 16,\n      \"data\": [\n        {\n          \"businessType\": \"Solar generation\",\n          \"psrType\": \"Solar\",\n          \"quantity\": 1829\n        },\n        {\n          \"businessType\": \"Solar generation\",\n          \"psrType\": \"Solar\",\n          \"quantity\": 1829\n        }\n      ]\n    },\n    {\n      \"startTime\": \"2023-07-12 06:30:00Z\",\n      \"settlementPeriod\": 16,\n      \"data\": [\n        {\n          \"businessType\": \"Solar generation\",\n          \"psrType\": \"Solar\",\n          \"quantity\": 1829\n        },\n        {\n          \"businessType\": \"Solar generation\",\n          \"psrType\": \"Solar\",\n          \"quantity\": 1829\n        }\n      ]\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0543c54-9401-48a6-9b83-75ca8f2f2793",
+          "name": "Current snapshot of actual generation by fuel type categories (AGPT/B1620)",
+          "request": {
+            "name": "Current snapshot of actual generation by fuel type categories (AGPT/B1620)",
+            "description": {
+              "content": "This endpoint provides aggregated AGPT (B1620) data. It returns totals and percentages\nfor the last half hour and 24 hours for each generation type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "actual",
+                "per-type",
+                "day-total"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44405b8f-84fa-4ade-9b81-c01038a77720",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type",
+                    "day-total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"psrType\": \"string\",\n    \"halfHourUsage\": 8635.971766961053,\n    \"halfHourPercentage\": 4611.923146272187,\n    \"twentyFourHourUsage\": 9949.822453373055,\n    \"twentyFourHourPercentage\": 6181.5607451519745\n  },\n  {\n    \"psrType\": \"string\",\n    \"halfHourUsage\": 7249.425049131794,\n    \"halfHourPercentage\": 5943.552587221355,\n    \"twentyFourHourUsage\": 6447.429627652027,\n    \"twentyFourHourPercentage\": 5831.67564583643\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5c366f3-830e-4bd7-8672-ab49fa257f32",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type",
+                    "day-total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c61ca9b-6e37-4f97-9928-1cd279c0807d",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type",
+                    "day-total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "787981ee-c623-48e7-a440-3e29a8898802",
+          "name": "Historic actual or estimated wind and solar power generation (AGWS/B1630)",
+          "request": {
+            "name": "Historic actual or estimated wind and solar power generation (AGWS/B1630)",
+            "description": {
+              "content": "This endpoint provides actual or estimated wind and solar power generation\nper settlement period. It returns generation with Power System Resource type\nSolar, Wind Onshore or Wind Offshore (Fuel Type categories as defined by\nCommission Regulation (EU) No 543/2013).\n            \nThis endpoint filters by startTime and provides a maximum data output range of 7 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "actual",
+                "per-type",
+                "wind-and-solar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d25f1faf-8b78-447a-b50f-4f202e7c3ff7",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type",
+                    "wind-and-solar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"businessType\": \"Solar generation\",\n      \"psrType\": \"Solar\",\n      \"quantity\": 1829,\n      \"startTime\": \"2023-07-12 06:30:00Z\",\n      \"settlementDate\": \"2022-07-12\",\n      \"settlementPeriod\": 16\n    },\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"businessType\": \"Solar generation\",\n      \"psrType\": \"Solar\",\n      \"quantity\": 1829,\n      \"startTime\": \"2023-07-12 06:30:00Z\",\n      \"settlementDate\": \"2022-07-12\",\n      \"settlementPeriod\": 16\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "035efd8c-281e-4799-834a-a2152b6fadbd",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type",
+                    "wind-and-solar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd8d07f2-a38e-4e1f-a04f-a3aab65e15e8",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type",
+                    "wind-and-solar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51d37132-eabc-4a2c-819a-6e149f16265c",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "actual",
+                    "per-type",
+                    "wind-and-solar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3f58fe5-b111-4331-b7d5-084079ab816e",
+          "name": "Historic half-hourly interconnector flows (FUELINST)",
+          "request": {
+            "name": "Historic half-hourly interconnector flows (FUELINST)",
+            "description": {
+              "content": "This endpoint provides the interconnector flows report derived from the Generation by Fuel Type (FUELINST)\ndata and shows both interconnector imports and exports; the data is updated every five minutes.\n            \nSettlement date parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "outturn",
+                "interconnectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishDateTimeFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishDateTimeTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interconnectorName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "interconnectorName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef1f9251-c7c7-45e3-95d8-768cfe2d230a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn",
+                    "interconnectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishDateTimeFrom",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "publishDateTimeTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "interconnectorName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interconnectorName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"1997-10-29T04:58:25.237Z\",\n      \"startTime\": \"1973-12-22T16:08:47.224Z\",\n      \"settlementDate\": \"1972-10-19\",\n      \"settlementDateTimezone\": \"string\",\n      \"settlementPeriod\": 7474,\n      \"interconnectorName\": \"string\",\n      \"generation\": 1363\n    },\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"1968-07-12T04:03:28.628Z\",\n      \"startTime\": \"2019-05-31T03:27:56.960Z\",\n      \"settlementDate\": \"2014-08-24\",\n      \"settlementDateTimezone\": \"string\",\n      \"settlementPeriod\": 6783,\n      \"interconnectorName\": \"string\",\n      \"generation\": 904\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e1c5404-65da-4809-87e8-b4406ec4ecf5",
+          "name": "Current snapshot of generation by fuel type categories (FUELINST, FUELHH)",
+          "request": {
+            "name": "Current snapshot of generation by fuel type categories (FUELINST, FUELHH)",
+            "description": {
+              "content": "This endpoint provides a snapshot view of the last 24 hours generation by individual fuel type categories including interconnector.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "outturn",
+                "current"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd7bc734-91ab-4cf9-8952-e4c09a639fdc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fuelType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dataset\": \"string\",\n    \"fuelType\": \"string\",\n    \"currentUsage\": 7995,\n    \"currentPercentage\": 6700.391582614858,\n    \"halfHourUsage\": 800,\n    \"halfHourPercentage\": 692.9573280714252,\n    \"twentyFourHourUsage\": 1271,\n    \"twentyFourHourPercentage\": 23.01486351811932\n  },\n  {\n    \"dataset\": \"string\",\n    \"fuelType\": \"string\",\n    \"currentUsage\": 5459,\n    \"currentPercentage\": 4931.678857611781,\n    \"halfHourUsage\": 477,\n    \"halfHourPercentage\": 7597.219219871525,\n    \"twentyFourHourUsage\": 2350,\n    \"twentyFourHourPercentage\": 603.7029472860023\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e401e1e4-46c4-4631-a58e-7e123daa5e08",
+          "name": "Historic generation automatically down-sampled (FUELINST)",
+          "request": {
+            "name": "Historic generation automatically down-sampled (FUELINST)",
+            "description": {
+              "content": "⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.\nUse raw dataset endpoints under /datasets for full access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "outturn",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeNegativeGeneration",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9909a04-5b5c-4a75-86b8-547794ae3572",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "includeNegativeGeneration",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"startTime\": \"1978-12-06T19:26:46.576Z\",\n    \"settlementPeriod\": 2562,\n    \"data\": [\n      {\n        \"fuelType\": \"string\",\n        \"generation\": 2543\n      },\n      {\n        \"fuelType\": \"string\",\n        \"generation\": 694\n      }\n    ]\n  },\n  {\n    \"startTime\": \"2012-08-31T00:23:25.356Z\",\n    \"settlementPeriod\": 3183,\n    \"data\": [\n      {\n        \"fuelType\": \"string\",\n        \"generation\": 765\n      },\n      {\n        \"fuelType\": \"string\",\n        \"generation\": 1396\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "575602e5-ebaa-420a-ba0a-84571d4f7a8f",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "description": {
+              "content": "This endpoint has been moved to generation/outturn/interconnectors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "outturn",
+                "halfHourlyInterconnector"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78c968cd-dfe9-4e65-a05e-b403908f9947",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn",
+                    "halfHourlyInterconnector"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79a7f412-c422-4388-9ad5-7589abcfc26e",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "description": {
+              "content": "This endpoint has been moved to generation/outturn/current.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "outturn",
+                "FUELINSTHHCUR"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "290671e9-9437-42f7-903f-9af243a242af",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn",
+                    "FUELINSTHHCUR"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85d60e6c-1a2e-4b24-af25-5af4897044a6",
+          "name": "Total generation outturn (FUELINST)",
+          "request": {
+            "name": "Total generation outturn (FUELINST)",
+            "description": {
+              "content": "This endpoint provides the total generation outturn across all fuel types, derived by summing generation\nof all categories from the Generation by Fuel Type report.\n            \nThis data can be used as a proxy for rolling system demand.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                "outturn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "827caaf5-fea1-453b-a815-368fc47067b2",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"recordType\": \"string\",\n      \"startTime\": \"2002-04-13T03:45:22.559Z\",\n      \"demand\": 9031\n    },\n    {\n      \"recordType\": \"string\",\n      \"startTime\": \"1967-12-13T21:10:13.182Z\",\n      \"demand\": 3350\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e78101f-62b3-474d-8dde-163c9df58201",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12763fa6-7d03-489b-ad3b-ec074a88605c",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7f22477-c7d4-4c45-9fa4-2d11bcdf6be9",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "338c8b50-2b71-42ca-b08f-7abb358b67ea",
+    "name": "Insights.Api Balancing Mechanism Dynamic Generation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

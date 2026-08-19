@@ -1,0 +1,1444 @@
+{
+  "item": [
+    {
+      "id": "11cafba2-fe79-48d1-9a83-69768b79afc2",
+      "name": "Balancing Mechanism Dynamic",
+      "description": {
+        "content": "Dynamic data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "21c1df93-ae9a-4b7e-92c3-1fc8d246ac86",
+          "name": "Dynamic data per BMU (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)",
+          "request": {
+            "name": "Dynamic data per BMU (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)",
+            "description": {
+              "content": "This endpoint provides the dynamic data for a requested BMU, excluding physical rate data.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV, MDP.\nThe results from each dataset are transformed to a common response model, with the common integer field *Value*\nmapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "dynamic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "(Required) The BM Unit to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "snapshotAt",
+                  "value": "<dateTime>",
+                  "description": "(Required) When to retrieve a snapshot of data at.\nThat is, the latest datapoint before this time will be returned for each dataset."
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "When to retrieve data until.\nData from the snapshot until this time will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "snapshotAtSettlementPeriod",
+                  "value": "<integer>",
+                  "description": "The settlement period to retrieve a snapshot of data at.\nIf provided, the time part of SnapshotAt will be ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "untilSettlementPeriod",
+                  "value": "<integer>",
+                  "description": "The settlement period to retrieve data until.\nIf provided, the time part of Until will be ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If omitted, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If omitted, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01d87ebb-b52e-4a5b-b321-0aff92474760",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"SEL\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"value\": 5,\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3\n    },\n    {\n      \"dataset\": \"SEL\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"value\": 5,\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c7376e3-bfd0-48c9-83d3-77cadab1cabb",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10ef860e-69a5-4572-9e4e-e5b61bed763b",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f2820c0-db24-4d2c-b49c-18ee7046d20b",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c52cf5c1-d6a0-4ebf-8902-dd075aa05e93",
+          "name": "Market-wide dynamic data (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)",
+          "request": {
+            "name": "Market-wide dynamic data (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)",
+            "description": {
+              "content": "This endpoint provides the dynamic data for multiple requested BMUs or all BMUs, excluding dynamic rate data.\nIt returns the data valid for a single settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV & MDP.\nThe results from each dataset are transformed to a common response model, with the common integer field *Value*\nmapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant.\n            \nThe settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "dynamic",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date or datetime to filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) The settlement period to filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If omitted, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If omitted, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "332aa917-f831-4e0b-aff9-1387833cd592",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"SEL\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"value\": 5,\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3\n    },\n    {\n      \"dataset\": \"SEL\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"value\": 5,\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6966c1cf-8ce9-487f-a1dd-01c4d277f498",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d8263b4-372a-4bb0-8ca9-a53f1c6eb0d6",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf00d19a-3a45-423c-b73a-b27f4d8983e6",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "SEL"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MNZT"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ed8bd37-df60-43ab-bf02-d80a108a5775",
+          "name": "Rate data per BMU (RDRE, RURE, RDRI, RURI)",
+          "request": {
+            "name": "Rate data per BMU (RDRE, RURE, RDRI, RURI)",
+            "description": {
+              "content": "This endpoint provides the physical rate data for a requested BMU.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "dynamic",
+                "rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "(Required) The BM Unit to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "snapshotAt",
+                  "value": "<dateTime>",
+                  "description": "(Required) When to retrieve a snapshot of data at.\nThat is, the latest datapoint before this time will be returned for each dataset."
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "When to retrieve data until.\nData from the snapshot until this time will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "snapshotAtSettlementPeriod",
+                  "value": "<integer>",
+                  "description": "The settlement period to retrieve a snapshot of data at.\nIf provided, the time part of SnapshotAt will be ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "untilSettlementPeriod",
+                  "value": "<integer>",
+                  "description": "The settlement period to retrieve data until.\nIf provided, the time part of Until will be ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If empty, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If empty, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3e3feec-d8bd-4d4b-9e0d-0a74e997ac70",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "DRAXX-1"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"RURE\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"rate1\": 0.4,\n      \"elbow2\": 5,\n      \"rate2\": 300.2,\n      \"elbow3\": null,\n      \"rate3\": null,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    },\n    {\n      \"dataset\": \"RURE\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"rate1\": 0.4,\n      \"elbow2\": 5,\n      \"rate2\": 300.2,\n      \"elbow3\": null,\n      \"rate3\": null,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31318dc5-ab8e-4c5b-bf08-1c44d8723635",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "DRAXX-1"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84c4cfc9-e3c8-41d3-9d85-232e40baeb09",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "DRAXX-1"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5741f163-686b-4794-ad3a-42d956a1bcaf",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "DRAXX-1"
+                    },
+                    {
+                      "key": "snapshotAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "snapshotAtSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "untilSettlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22a8a35d-e4d0-4b77-937c-fca971516d55",
+          "name": "Market-wide rate data (RDRE, RURE, RDRI, RURI)",
+          "request": {
+            "name": "Market-wide rate data (RDRE, RURE, RDRI, RURI)",
+            "description": {
+              "content": "This endpoint provides market-wide physical rate data, for all BMUs or a requested set of multiple BMUs.\nIt returns the data valid for a given settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nThe settlement period to query can be specified as a date and settlement period. The settlement date must be provided in the format yyyy-MM-dd.\n\nBy default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI.\n            \nThis endpoint is quota limited.\nFor individual rate datasets, use the relevant /datasets/ endpoints.\nFor real-time updates as each data point is published, use the Insights IRIS service. You can register for free at  https://bmrs.elexon.co.uk/iris .\nFor historical data, check out the IRIS archive, which keeps a record of all published datasets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "dynamic",
+                "rates",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date to filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) The settlement period to filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to return. If omitted, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to return. If omitted, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a1b2eb2-8bbf-454e-a0a5-688213cb44ff",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-01"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"RURE\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"rate1\": 0.4,\n      \"elbow2\": 5,\n      \"rate2\": 300.2,\n      \"elbow3\": null,\n      \"rate3\": null,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    },\n    {\n      \"dataset\": \"RURE\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"time\": \"2022-07-01T13:34:00Z\",\n      \"rate1\": 0.4,\n      \"elbow2\": 5,\n      \"rate2\": 300.2,\n      \"elbow3\": null,\n      \"rate3\": null,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab94fcb6-4407-4f51-97d4-d9087537e223",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-01"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a6775dd-0154-490a-b717-e031483b11f5",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-01"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40b09eba-980d-43fa-9edb-9b839ce8c33f",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "dynamic",
+                    "rates",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-01"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RURE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRE"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "RDRI"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2e504aa6-aa6e-48d9-ab9a-d7d9dee58263",
+    "name": "Insights.Api Balancing Mechanism Dynamic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

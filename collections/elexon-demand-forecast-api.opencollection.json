@@ -1,0 +1,502 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Demand Forecast API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Demand Forecast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Day-ahead demand forecast (NDF, TSDF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead",
+            "params": [
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);\nthe forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.\nNDF takes into account transmission losses but but does not include station transformer load, pumped storage demand "
+        },
+        {
+          "info": {
+            "name": "Fourteen day demand forecast (NDFD, TSDFD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/daily",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Retrieve latest 14-day forecast demand data"
+        },
+        {
+          "info": {
+            "name": "One-year demand forecast (NDFW, TSDFW)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/weekly",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest weekly forecast demand data"
+        },
+        {
+          "info": {
+            "name": "History of the day-ahead demand forecast (NDF, TSDF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);\nthe forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.\nNDF takes into account transmission losses but but does not include station transformer load, pumped storage demand "
+        },
+        {
+          "info": {
+            "name": "History of the fourteen-day demand forecast (NDFD, TSDFD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/daily/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Retrieve historical daily forecast demand data"
+        },
+        {
+          "info": {
+            "name": "History of the one-year demand forecast (NDFW, TSDFW)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/weekly/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Retrieve historical weekly forecast demand data"
+        },
+        {
+          "info": {
+            "name": "Evolution of the day-ahead demand forecast over time (NDF, TSDF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead/evolution",
+            "params": [
+              {
+                "name": "settlementDate",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);\nthe forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.\nNDF takes into account transmission losses but but does not include station transformer load, pumped storage demand "
+        },
+        {
+          "info": {
+            "name": "Evolution of the fourteen-day demand forecast over time (NDFD, TSDFD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/daily/evolution",
+            "params": [
+              {
+                "name": "forecastDate",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The forecast date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the evolution of all daily demand forecasts over time for a given forecast date.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Evolution of the one-year demand forecast over time  (NDFW, TSDFW)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/weekly/evolution",
+            "params": [
+              {
+                "name": "forecastYear",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "forecastWeek",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all weekly demand forecasts over time for a given forecast Year and Week"
+        },
+        {
+          "info": {
+            "name": "Historic view of the latest forecasted demand (NDF, TSDF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead/latest",
+            "params": [
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint allows for retrieving latest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the latest published forecast for each settlement period is shown."
+        },
+        {
+          "info": {
+            "name": "Historic view of the latest forecasted demand (NDF, TSDF) stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead/latest/stream",
+            "params": [
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint allows for retrieving a stream of latest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the latest published forecast for each settlement period is shown.\nThis endpoint has an optimised JSON payload and aimed at frequent request for the day-ahead demand forecast data."
+        },
+        {
+          "info": {
+            "name": "Historic view of the earliest forecasted demand (NDF, TSDF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead/earliest",
+            "params": [
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint allows for retrieving earliest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the earliest published forecast for each settlement period is shown."
+        },
+        {
+          "info": {
+            "name": "Historic view of the earliest forecasted demand (NDF, TSDF) stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead/earliest/stream",
+            "params": [
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint allows for retrieving a stream of earliest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the earliest published forecast for each settlement period is shown.\nThis endpoint has an optimised JSON payload and aimed at frequent request for the day-ahead demand forecast data."
+        },
+        {
+          "info": {
+            "name": "Peak forecasted demand per day (TSDF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/day-ahead/peak",
+            "params": [
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "2021-10-01",
+                "type": "query",
+                "description": "The start of the requested date range."
+              },
+              {
+                "name": "to",
+                "value": "2021-10-30",
+                "type": "query",
+                "description": "The end of the requested date range."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint allows for retrieving the peak demand that is forecast for each day from National Grid ESO.\nResults are filtered by a range of Date parameters.\nResults default to yesterday, today and tomorrow if no parameters are supplied.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Day-ahead total load forecast (DATL/B0620)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/total/day-ahead",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-07-18",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-07-21",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "36",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "12",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides day-ahead total load forecast per bidding zone data.\nIt can be filtered by settlement period dates.\n            \nThis API endpoint has a maximum range of 7 days."
+        },
+        {
+          "info": {
+            "name": "Week-ahead total load forecast (WATL/B0630)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/total/week-ahead",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-08-21",
+                "type": "query",
+                "description": "The earliest forecast date to include."
+              },
+              {
+                "name": "to",
+                "value": "2023-08-27",
+                "type": "query",
+                "description": "The latest forecast date to include."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint returns week-ahead total load forecast per bidding zone data with the minimum possible\nand maximum available total loads in MW values, filtered by forecast week.\n            \nFor a given forecast date, if more than one forecast has been published, only the most recent forecast\nis returned.\n            \nThis API endpoint has a maximum range of 367 days.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Latest week-ahead total load forecast (WATL/B0630)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/demand/total/week-ahead/latest",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint returns the most recently published WATL / B0630 forecast.\n            \nThis forecast is the week-ahead total load forecast per bidding zone data,\nwith minimum possible and maximum available total loads in MW values."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

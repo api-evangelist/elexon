@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Reference API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fuel types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/fueltypes/all"
+          },
+          "docs": "This endpoint provides a current list of fuel types"
+        },
+        {
+          "info": {
+            "name": "Participants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/remit/participants/all"
+          },
+          "docs": "This endpoint provides a current list of participant IDs received from REMIT messages"
+        },
+        {
+          "info": {
+            "name": "Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/remit/assets/all"
+          },
+          "docs": "This endpoint provides a current list of asset IDs received from REMIT messages"
+        },
+        {
+          "info": {
+            "name": "REMIT fuel types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/remit/fueltypes/all"
+          },
+          "docs": "This endpoint provides a current list of fuel types received from REMIT messages"
+        },
+        {
+          "info": {
+            "name": "BM Units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/bmunits/all"
+          },
+          "docs": "This endpoint provides a current list of BM units held by Elexon"
+        },
+        {
+          "info": {
+            "name": "BM Units (filtered)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/bmunits",
+            "params": [
+              {
+                "name": "partyIds",
+                "value": "ADELA,LENCO",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides a list of BM units filtered by lead party IDs.\n            \nThe PartyIds query parameter is required. Provide one or more lead party IDs to filter the results."
+        },
+        {
+          "info": {
+            "name": "Interconnectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/interconnectors/all"
+          },
+          "docs": "This endpoint provides a current list of interconnectors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

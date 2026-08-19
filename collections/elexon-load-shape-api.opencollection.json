@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Load Shape API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Load Shape",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Load shape period data (IF022)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/lss/load-shape-period",
+            "params": [
+              {
+                "name": "date",
+                "value": "2026-03-01",
+                "type": "query",
+                "description": "The settlement date to return load shape period data for. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "1",
+                "type": "query",
+                "description": "Optional settlement period range start (inclusive)."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "10",
+                "type": "query",
+                "description": "Optional settlement period range end (inclusive)."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint enables the retrieval of load shape period (IF022) data for a specified date and settlement period range.\n\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Load shape period data stream (IF022)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/lss/load-shape-period/stream",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "2026-03-01",
+                "type": "query",
+                "description": "The settlement date range start (inclusive). This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "toDate",
+                "value": "2026-03-02",
+                "type": "query",
+                "description": "The settlement date range end (inclusive). This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "40",
+                "type": "query",
+                "description": "Optional settlement period range start (inclusive)."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "2",
+                "type": "query",
+                "description": "Optional settlement period range end (inclusive)."
+              }
+            ]
+          },
+          "docs": "This endpoint provides a stream of load shape period (IF022) data for a specified date and settlement period range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Load shape totals data (IF023)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/lss/load-shape-totals",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "2026-03-01",
+                "type": "query",
+                "description": "The settlement date range start (inclusive). This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "toDate",
+                "value": "2026-03-31",
+                "type": "query",
+                "description": "The settlement date range end (inclusive). This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint enables the retrieval of Load shape totals data (IF023) for a specified settlement day.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Load shape totals data stream (IF023)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/lss/load-shape-totals/stream",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "2026-03-01",
+                "type": "query",
+                "description": "The settlement date range start (inclusive). This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "toDate",
+                "value": "2026-03-31",
+                "type": "query",
+                "description": "The settlement date range end (inclusive). This must be in the format yyyy-MM-dd."
+              }
+            ]
+          },
+          "docs": "This endpoint provides a stream of load shape totals (IF023) data for a specified date range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

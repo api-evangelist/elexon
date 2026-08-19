@@ -1,0 +1,360 @@
+{
+  "item": [
+    {
+      "id": "6d0c72d9-3ecb-4e08-a560-07fde0a16782",
+      "name": "Indicated Forecast",
+      "description": {
+        "content": "Day-and-day-ahead indicated forecast, categorized as Indicated Generation (INDGEN), Indicated Demand (INDDEM), Imbalance (IMBALNGC) and Margin (MELNGC).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8ce6e4d-dda0-473b-8a4a-850f54cb94ce",
+          "name": "Latest indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+          "request": {
+            "name": "Latest indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+            "description": {
+              "content": "This endpoint provides the latest forecast indicated day-ahead data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "indicated",
+                "day-ahead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "248ec266-2654-4461-8427-c68706c7db42",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "indicated",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1968-11-14T19:28:12.962Z\",\n      \"startTime\": \"2008-04-07T11:41:26.197Z\",\n      \"settlementDate\": \"1992-03-16\",\n      \"settlementPeriod\": 2226,\n      \"boundary\": \"string\",\n      \"indicatedGeneration\": 3734,\n      \"indicatedDemand\": 1555,\n      \"indicatedMargin\": 5795,\n      \"indicatedImbalance\": 2013\n    },\n    {\n      \"publishTime\": \"2021-12-31T08:36:29.263Z\",\n      \"startTime\": \"1987-09-30T13:46:19.616Z\",\n      \"settlementDate\": \"1949-06-04\",\n      \"settlementPeriod\": 9631,\n      \"boundary\": \"string\",\n      \"indicatedGeneration\": 4852,\n      \"indicatedDemand\": 6141,\n      \"indicatedMargin\": 176,\n      \"indicatedImbalance\": 2104\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ec13226-b34d-4143-a4ff-db50e58d82b9",
+          "name": "Historical indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+          "request": {
+            "name": "Historical indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "indicated",
+                "day-ahead",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28acd0aa-fc9d-491f-872d-1fd74c293d36",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "indicated",
+                    "day-ahead",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2017-04-28T09:08:00.016Z\",\n      \"startTime\": \"2008-03-02T07:10:32.583Z\",\n      \"settlementDate\": \"2008-10-07\",\n      \"settlementPeriod\": 988,\n      \"boundary\": \"string\",\n      \"indicatedGeneration\": 2624,\n      \"indicatedDemand\": 565,\n      \"indicatedMargin\": 5973,\n      \"indicatedImbalance\": 9951\n    },\n    {\n      \"publishTime\": \"1952-11-10T13:20:18.425Z\",\n      \"startTime\": \"2003-07-15T13:45:27.193Z\",\n      \"settlementDate\": \"2022-11-01\",\n      \"settlementPeriod\": 1845,\n      \"boundary\": \"string\",\n      \"indicatedGeneration\": 6984,\n      \"indicatedDemand\": 6913,\n      \"indicatedMargin\": 2021,\n      \"indicatedImbalance\": 5829\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be607c17-eeb2-4a49-bd5e-765d99ea650a",
+          "name": "Evolution indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+          "request": {
+            "name": "Evolution indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+            "description": {
+              "content": "This endpoint provides the forecast indicated day-ahead data over time for the specified settlement date and settlement period.\n\nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "indicated",
+                "day-ahead",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3964b86-08e2-432c-bb2e-bdea7449a613",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "indicated",
+                    "day-ahead",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2017-04-28T09:08:00.016Z\",\n      \"startTime\": \"2008-03-02T07:10:32.583Z\",\n      \"settlementDate\": \"2008-10-07\",\n      \"settlementPeriod\": 988,\n      \"boundary\": \"string\",\n      \"indicatedGeneration\": 2624,\n      \"indicatedDemand\": 565,\n      \"indicatedMargin\": 5973,\n      \"indicatedImbalance\": 9951\n    },\n    {\n      \"publishTime\": \"1952-11-10T13:20:18.425Z\",\n      \"startTime\": \"2003-07-15T13:45:27.193Z\",\n      \"settlementDate\": \"2022-11-01\",\n      \"settlementPeriod\": 1845,\n      \"boundary\": \"string\",\n      \"indicatedGeneration\": 6984,\n      \"indicatedDemand\": 6913,\n      \"indicatedMargin\": 2021,\n      \"indicatedImbalance\": 5829\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "feee1fd5-5dec-42e2-bcfe-60d997ad02f7",
+    "name": "Insights.Api Balancing Mechanism Dynamic Indicated Forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

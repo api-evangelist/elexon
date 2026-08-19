@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Generation API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Historic actual generation automatically down-sampled (AGPT/B1620)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/actual/per-type",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-07-20",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-07-22",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "13",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "19",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.\nDepending on the quantity of data requested, data returned may be averaged hourly, daily,\nweekly or monthly. Quantities are rounded to the nearest MWh.\nUse /datasets/AGPT for full access.\n            \nThis endpoint provides actual aggregated generation data per Power System Resource type \n(Fuel Type categories as defined by Commission Regulation (EU) No 543/2013).\n\nThis endpoint filters by startTime, and gr"
+        },
+        {
+          "info": {
+            "name": "Current snapshot of actual generation by fuel type categories (AGPT/B1620)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/actual/per-type/day-total",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides aggregated AGPT (B1620) data. It returns totals and percentages\nfor the last half hour and 24 hours for each generation type."
+        },
+        {
+          "info": {
+            "name": "Historic actual or estimated wind and solar power generation (AGWS/B1630)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/actual/per-type/wind-and-solar",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-07-18",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-07-21",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "36",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "12",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides actual or estimated wind and solar power generation\nper settlement period. It returns generation with Power System Resource type\nSolar, Wind Onshore or Wind Offshore (Fuel Type categories as defined by\nCommission Regulation (EU) No 543/2013).\n            \nThis endpoint filters by startTime and provides a maximum data output range of 7 days."
+        },
+        {
+          "info": {
+            "name": "Historic half-hourly interconnector flows (FUELINST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn/interconnectors",
+            "params": [
+              {
+                "name": "publishDateTimeFrom",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishDateTimeTo",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "interconnectorName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the interconnector flows report derived from the Generation by Fuel Type (FUELINST)\ndata and shows both interconnector imports and exports; the data is updated every five minutes.\n            \nSettlement date parameters must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Current snapshot of generation by fuel type categories (FUELINST, FUELHH)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn/current",
+            "params": [
+              {
+                "name": "fuelType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides a snapshot view of the last 24 hours generation by individual fuel type categories including interconnector."
+        },
+        {
+          "info": {
+            "name": "Historic generation automatically down-sampled (FUELINST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn/summary",
+            "params": [
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeNegativeGeneration",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.\nUse raw dataset endpoints under /datasets for full access."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn/halfHourlyInterconnector",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to generation/outturn/interconnectors."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn/FUELINSTHHCUR",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to generation/outturn/current."
+        },
+        {
+          "info": {
+            "name": "Total generation outturn (FUELINST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the total generation outturn across all fuel types, derived by summing generation\nof all categories from the Generation by Fuel Type report.\n            \nThis data can be used as a proxy for rolling system demand."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

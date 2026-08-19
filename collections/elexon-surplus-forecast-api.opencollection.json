@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Surplus Forecast API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Surplus Forecast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Daily surplus forecast (OCNMFD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/surplus/daily",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily surplus forecast for D+2 t D+14"
+        },
+        {
+          "info": {
+            "name": "Historical daily surplus forecast (OCNMFD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/surplus/daily/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the historic Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe historic API outputs the latest published data for historic daily surplus forecast for D+2 to D+14"
+        },
+        {
+          "info": {
+            "name": "Evolution daily surplus forecast (OCNMFD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/surplus/daily/evolution",
+            "params": [
+              {
+                "name": "forecastDate",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The forecast date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the daily evolution Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily surplus forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Weekly surplus forecast (OCNMFW, OCNMF3Y)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/surplus/weekly",
+            "params": [
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the Generating Plant Operating Surplus covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156"
+        },
+        {
+          "info": {
+            "name": "Historical weekly surplus forecast (OCNMFW, OCNMF3Y)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/surplus/weekly/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the historic Generating Plant Operating Surplus covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156.\nHistorical published data of weekly surplus forecasts for a given publish date in the 2-156 week dataset."
+        },
+        {
+          "info": {
+            "name": "Evolution weekly surplus forecast (OCNMFW, OCNMF3Y)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/surplus/weekly/evolution",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the evolution Generating Plant Operating Surplus  covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

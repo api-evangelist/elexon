@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Temperature API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Temperature",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Temperature data (TEMP)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/temperature",
+            "params": [
+              {
+                "name": "from",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The from date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "to",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The to date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides daily average GB temperature data (in Celsius) as well as reference temperatures (low, normal and high).\nThis average data is calculated by National Grid ESO from the data retrieved from 6 weather stations around Britain.\nNGESO use this data as part of the electricity demand forecasting process.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

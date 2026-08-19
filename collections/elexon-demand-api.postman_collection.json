@@ -1,0 +1,3137 @@
+{
+  "item": [
+    {
+      "id": "3cd1ed52-710d-441f-8e89-bc72ec64e1ad",
+      "name": "Demand",
+      "description": {
+        "content": "GB electricity demand, including historic.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf445eb4-f0b6-4320-8258-51d9e64dffbd",
+          "name": "Restoration Zone Demand Restored Submissions (RZDR)",
+          "request": {
+            "name": "Restoration Zone Demand Restored Submissions (RZDR)",
+            "description": {
+              "content": "This endpoint provides data about the end of system restoration events. It returns the restored demand value\nfor each restoration zone at the last submission time of each event. The number of events to return is\ndetermined by the `count` parameter.\n            \nThe data can be filtered by submission date/time, region, and GSP Group ID (when received by NESO).\n            \nAll DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n\nSome examples of parameter combinations are shown below.\n            \nFiltering latest 3 events:\n            \n    /demand/by-restoration-zone/restored/submissions?count=3\n            \nFiltering latest 3 events before a given submission time:\n            \n    /demand/by-restoration-zone/restored/submissions?before=2025-10-01T00:00Z&count=3\n            \nFiltering latest 10 events for a given region:\n            \n    /demand/by-restoration-zone/restored/submissions?region=North West&count=10",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "by-restoration-zone",
+                "restored",
+                "submissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>",
+                  "description": "(Required) The number of system restoration events to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "If specified, filters events to those with a submission time before or at the specified date and time.\nIf omitted, latest events are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "The region to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "gspGroupId",
+                  "value": "<string>",
+                  "description": "The GSP Group ID to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a887f60-e5a3-41cb-b3dc-f6915051d968",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "by-restoration-zone",
+                    "restored",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gspGroupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"RZDR\",\n      \"submissionDateTime\": \"2025-01-01T07:01:07\",\n      \"publishTime\": \"2025-01-01T00:00:10\",\n      \"region\": \"North Scotland\",\n      \"gspGroupId\": \"_A\",\n      \"restoredDemand\": 1234\n    },\n    {\n      \"dataset\": \"RZDR\",\n      \"submissionDateTime\": \"2025-01-01T07:01:07\",\n      \"publishTime\": \"2025-01-01T00:00:10\",\n      \"region\": \"North Scotland\",\n      \"gspGroupId\": \"_A\",\n      \"restoredDemand\": 1234\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "541e18dc-3709-4e56-b67a-a619486c25f2",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "by-restoration-zone",
+                    "restored",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gspGroupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "896542ff-d398-4da5-956a-5b48c551c67e",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "by-restoration-zone",
+                    "restored",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gspGroupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92710109-3c2e-4f70-8659-39cbbe02d466",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "by-restoration-zone",
+                    "restored",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gspGroupId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6759ccb6-7954-44e4-af38-7d71040d76ac",
+          "name": "Initial National Demand outturn (INDO)",
+          "request": {
+            "name": "Initial National Demand outturn (INDO)",
+            "description": {
+              "content": "This endpoint provides data for Initial National Demand Outturn, which measures the\nhalf-hour average MW demand metered by the Transmission Company based on its operational metering.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:\n- INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.\n- ITSDO (initial Transmission System Demand outturn) which takes into account transmission losses, station transformer load, pumped storage demand and interconnector demand.\n            \nThis endpoint is useful for ad-hoc querying of the data.\n            \nSettlement date parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "outturn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26190cf7-977f-4eaa-8dff-bbeab81f61d8",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1967-11-11T08:03:16.621Z\",\n      \"startTime\": \"2002-03-06T04:03:53.829Z\",\n      \"settlementDate\": \"1970-02-28\",\n      \"settlementPeriod\": 8874,\n      \"initialDemandOutturn\": 8785,\n      \"initialTransmissionSystemDemandOutturn\": 3368\n    },\n    {\n      \"publishTime\": \"1990-05-30T02:05:10.366Z\",\n      \"startTime\": \"1991-09-06T06:11:48.382Z\",\n      \"settlementDate\": \"1973-01-04\",\n      \"settlementPeriod\": 7429,\n      \"initialDemandOutturn\": 4794,\n      \"initialTransmissionSystemDemandOutturn\": 1628\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f55d8456-29c1-41f5-b592-b34a988810fb",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a799c6b-96c2-4391-ba6d-12397dd9e344",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15e224b1-9612-4ca9-9070-a4c8d6a11159",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1c8f9ef-26c6-4323-af75-23fe682f4192",
+          "name": "Initial National Demand outturn (INDO) stream",
+          "request": {
+            "name": "Initial National Demand outturn (INDO) stream",
+            "description": {
+              "content": "This endpoint provides data for initial National Demand outturn, which measures the\nhalf-hour average MW demand metered by the Transmission Company based on its operational metering.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:\n- INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.\n- ITSDO (initial Transmission System Demand outturn) which takes into account transmission losses, station transformer load, pumped storage demand and interconnector demand.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the data.\n            \nSettlement date parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "outturn",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>",
+                  "description": "The settlement date from for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>",
+                  "description": "The settlement date to for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fec5534-3aa6-4b0a-b4fb-c34dedb2e8b9",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"publishTime\": \"1995-04-02T21:08:54.024Z\",\n    \"startTime\": \"1973-03-20T08:44:14.867Z\",\n    \"settlementDate\": \"2017-02-28\",\n    \"settlementPeriod\": 5265,\n    \"initialDemandOutturn\": 1550,\n    \"initialTransmissionSystemDemandOutturn\": 3822\n  },\n  {\n    \"publishTime\": \"1984-02-28T15:18:38.982Z\",\n    \"startTime\": \"1962-08-29T02:19:40.286Z\",\n    \"settlementDate\": \"1969-03-29\",\n    \"settlementPeriod\": 8556,\n    \"initialDemandOutturn\": 369,\n    \"initialTransmissionSystemDemandOutturn\": 2455\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "232028a0-7aba-42b0-9dcc-277df3d2bfd5",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5cffa51-862a-4aad-8cea-e4a4445e0384",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b19aac27-2e1e-4a35-a882-dba943e707f1",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bef295c2-c91c-47dc-8f99-e301e527318e",
+          "name": "Initial National Demand outturn per day (INDOD)",
+          "request": {
+            "name": "Initial National Demand outturn per day (INDOD)",
+            "description": {
+              "content": "This endpoint provides initial National Demand outturn data per day. The total daily energy volume is the total\ndemand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding\nstation transformer, pumping and interconnector export demand. It is calculated from summing the half hourly\nINDO demands (divided by two to convert to MWh).\n            \nIf no date window is chosen, the search will default to results from the last 31 days.\n\nThis API endpoint has a maximum range of 2 years (731 days).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "outturn",
+                "daily"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39222ae4-4927-4948-b7c9-fb2540842f02",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-08-26T23:15:00Z\",\n      \"settlementDate\": \"2023-08-26\",\n      \"demand\": 494802\n    },\n    {\n      \"publishTime\": \"2023-08-26T23:15:00Z\",\n      \"settlementDate\": \"2023-08-26\",\n      \"demand\": 494802\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a473c4b-3932-49e2-99d1-2ea42fd9172b",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f1e93c5-c7c3-4a7f-bd25-2452f4c1b2da",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b1340c6c-154a-44bb-be3d-ac2b1dabda1a",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "442c59ea-c7d7-4a9f-aa55-8dc2ea23c0a0",
+          "name": "Initial National Demand outturn per day (INDOD) stream",
+          "request": {
+            "name": "Initial National Demand outturn per day (INDOD) stream",
+            "description": {
+              "content": "This endpoint provides initial National Demand outturn daily data. The total daily energy volume is the total\ndemand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding\nstation transformer, pumping and interconnector export demand. It is calculated from summing the half hourly\nINDO demands (divided by two to convert to MWh).\n            \nIf no date window is chosen, the search will default to results from the last 31 days.\n\nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "outturn",
+                "daily",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDateFrom",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDateTo",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1892fd00-ba59-43cc-a3d9-ed8fc684ad02",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"publishTime\": \"2023-08-26T23:15:00Z\",\n    \"settlementDate\": \"2023-08-26\",\n    \"demand\": 494802\n  },\n  {\n    \"publishTime\": \"2023-08-26T23:15:00Z\",\n    \"settlementDate\": \"2023-08-26\",\n    \"demand\": 494802\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a339e810-4b1b-497b-9f0b-0b773ae78eaa",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59495c0a-ffb4-438f-8845-784872e7c643",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a2b5a95-57ac-4139-92c9-13b5f8f79400",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "daily",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDateFrom",
+                      "value": "2023-08-26"
+                    },
+                    {
+                      "key": "settlementDateTo",
+                      "value": "2023-08-27"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d865d73-15ae-4f81-8dd4-7b2a9f23f7db",
+          "name": "System demand summary (FUELINST)",
+          "request": {
+            "name": "System demand summary (FUELINST)",
+            "description": {
+              "content": "⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.\nUse datasets endpoints for full dataset access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "outturn",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b5aadc7-656b-4187-88e1-08584e595300",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"recordType\": \"string\",\n    \"startTime\": \"2020-05-18T07:50:29.332Z\",\n    \"demand\": 5748\n  },\n  {\n    \"recordType\": \"string\",\n    \"startTime\": \"1946-11-05T21:48:31.332Z\",\n    \"demand\": 9680\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b31075f-0d02-41c7-a076-c1bcb2eacae2",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b2efd52-04f1-472d-aaf7-5ef58ba796d3",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a7510d0-0ef0-40bb-8cab-b0fbed4b6590",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "outturn",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09730fdb-5579-438b-832e-61a864ca2b0b",
+          "name": "Peak demand per day (ITSDO)",
+          "request": {
+            "name": "Peak demand per day (ITSDO)",
+            "description": {
+              "content": "This endpoint allows for retrieving peak ITSDO demand for each day from National Grid ESO.\nResults are filtered by a range of Date parameters.\nResults default to yesterday's peak if no parameters are supplied.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "peak"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "The start of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "The end of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3d4a4ff-12ee-464d-99db-aa5761449013",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2001-12-29T18:16:19.892Z\",\n      \"startTime\": \"1994-04-22T05:47:57.827Z\",\n      \"settlementDate\": \"1998-12-18\",\n      \"settlementPeriod\": 7498,\n      \"initialTransmissionSystemDemandOutturn\": 6044\n    },\n    {\n      \"publishTime\": \"1983-01-14T22:31:37.576Z\",\n      \"startTime\": \"1988-11-26T06:37:33.018Z\",\n      \"settlementDate\": \"1951-05-10\",\n      \"settlementPeriod\": 6294,\n      \"initialTransmissionSystemDemandOutturn\": 9696\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "458b5598-2044-4b30-b9a0-70bed269be8e",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ec6024c-3961-4c6b-b689-76ddc2564913",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ef3c4975-057b-4299-932e-c943e0cee913",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98333d3b-ac68-49bc-adc1-c47bc0beb08e",
+          "name": "Indicative peak demand per day (S0142, ITSDO, FUELHH)",
+          "request": {
+            "name": "Indicative peak demand per day (S0142, ITSDO, FUELHH)",
+            "description": {
+              "content": "Indicative demand peaks using operational metering data are daily maxima values determined from\nITSDO and FUELHH data used to determine and visualise Triad.\n            \nIndicative demand peaks using settlement metering data are daily maxima values determined from\nmetered volume data from the S0142_bpi file. These peaks are not used for Triad visualisation as\nthey are always calculated based on the latest run type. Triads for settlement data\nremain static after the National Grid report posted at the beginning of April after the Triad season has ended. \n            \nIf no filters are supplied, results default to the latest or current Triad season.\nTo specify a custom filter, you can supplier EITHER a Triad season start year, OR a date range, but not both.\nIf a Triad Season Start year is supplied, data for the Triad season beginning on 1 November\nof the specified year will be returned.\nIf a date range is supplied, data will be returned for settlement dates within the date range inclusively.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "peak",
+                "indicative"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "(Required) The type of data. Supports values of 'operational' or 'settlement'."
+                },
+                {
+                  "disabled": false,
+                  "key": "triadSeasonStartYear",
+                  "value": "<integer>",
+                  "description": "A year indicating the Triad season starting on 1 November of the given year, e.g. 2021."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "The start of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "The end of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a99b532e-6e5e-4f18-a253-79b0fa0f7de5",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "indicative"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    },\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5125f67a-b011-4624-80bd-637d91b9b6bd",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "indicative"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "629284a5-8463-4142-a916-f651526cadbb",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "indicative"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e1d95dc-6acb-4be0-8962-ba90606c0630",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "indicative"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cc921df-1f2f-4b6b-b67a-4c594e80329f",
+          "name": "Settlement data demand peaks for a Triad season (S0142)",
+          "request": {
+            "name": "Settlement data demand peaks for a Triad season (S0142)",
+            "description": {
+              "content": "Provides indicative demand peak data for a Triad season from S0142_bpi files that were calculated\nduring the Triad season. For the data from the latest settlement runs for the Triad season use the\n`peak/indicative` endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "peak",
+                "indicative",
+                "settlement",
+                ":triadSeason"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "triadSeason",
+                  "description": "(Required) A year indicating the Triad season starting on 1 November of the given year"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a4f7268-c482-473b-8117-8d42426e372e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "indicative",
+                    "settlement",
+                    ":triadSeason"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "triadSeason",
+                      "description": "(Required) A year indicating the Triad season starting on 1 November of the given year"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    },\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55b95194-a8ec-46c7-87bb-6360ca3d8556",
+          "name": "Operational data demand peaks for a Triad season (ITSDO, FUELHH)",
+          "request": {
+            "name": "Operational data demand peaks for a Triad season (ITSDO, FUELHH)",
+            "description": {
+              "content": "Provides indicative demand peak data for a Triad season ITSDO and FUELHH files over a Triad season. For non-Triad\nseason dates please use the `peak/indicative` endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "peak",
+                "indicative",
+                "operational",
+                ":triadSeason"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "triadSeason",
+                  "description": "(Required) A year indicating the Triad season starting on 1 November of the given year"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da2b7876-e12a-4bba-8d59-825c4608be9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "indicative",
+                    "operational",
+                    ":triadSeason"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "triadSeason",
+                      "description": "(Required) A year indicating the Triad season starting on 1 November of the given year"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    },\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5916da2c-e0af-413f-add7-6e85a34896bc",
+          "name": "Triad demand peaks (S0142, ITSDO, FUELHH)",
+          "request": {
+            "name": "Triad demand peaks (S0142, ITSDO, FUELHH)",
+            "description": {
+              "content": "Operational Triad peaks are calculated from the indicative demand peaks data.\n\nSettlement Triad Peaks are calculated from the latest metered volume data available at the point one month following the Triad season's end.\nFor any Triad season still in progress, the latest run type data is used.\n            \nAll Triad peaks are at least 10 days clear of one another.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "peak",
+                "triad"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "(Required) The type of data. Supports values of 'operational' or 'settlement'."
+                },
+                {
+                  "disabled": false,
+                  "key": "triadSeasonStartYear",
+                  "value": "<integer>",
+                  "description": "A year indicating the Triad season starting on 1 November of the given year."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a8b6260-912f-4da6-ab51-37f8c144db5e",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "triad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "2021"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    },\n    {\n      \"settlementDate\": \"2021-10-01\",\n      \"settlementPeriod\": 3,\n      \"halfHourEndTime\": \"2021-10-01T01:00:00Z\",\n      \"demand\": 36256,\n      \"settlementRunType\": \"II\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba429d7a-c44b-4658-9be1-61ca9a179270",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "triad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "2021"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c50aa05b-599a-41f7-bfed-f2dbab921fab",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "triad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "2021"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "825a7966-5d10-44e3-adbd-9cc880418665",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "peak",
+                    "triad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data",
+                      "value": "operational"
+                    },
+                    {
+                      "key": "triadSeasonStartYear",
+                      "value": "2021"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "415e9065-f50b-410f-b854-5d407d9eef14",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "description": {
+              "content": "This endpoint has been moved to demand/outturn.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d88a381-9ed0-4937-a58a-0cadf606def8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "451de765-2402-4dbb-84fb-9259ba5ff727",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "description": {
+              "content": "This endpoint has been moved to demand/outturn/stream.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4bf7f3e-1d36-452e-a8c7-3b4106d74cd7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9102b235-96d7-49a0-9e4b-e4fdc7f5420e",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "description": {
+              "content": "This endpoint has been moved to generation/outturn.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "rollingSystemDemand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88d59d52-6b56-4607-acb4-068b40b02b1f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "rollingSystemDemand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94da6c4b-f311-44a3-860b-83b68949169b",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "description": {
+              "content": "This endpoint has been moved to demand/outturn/summary.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b5ff3dc-d25e-4822-98be-7921f5d1426e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f517f42e-f57f-404e-9fdc-69de16fc7508",
+          "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+          "request": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "description": {
+              "content": "This endpoint has been moved to demand/actual/total.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "total",
+                "actual"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7f527da-1b7f-47c9-8e38-5c6497910ca6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "total",
+                    "actual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1091e129-f893-479c-ba41-25ef14384018",
+          "name": "Actual total load (ATL/B0610)",
+          "request": {
+            "name": "Actual total load (ATL/B0610)",
+            "description": {
+              "content": "This endpoint provides actual total load data per bidding zone.\nIt can be filtered by settlement period dates.\n            \nThis API endpoint has a maximum range of 7 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demand",
+                "actual",
+                "total"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dbbd9a2-3536-4380-a4a6-457de00e422d",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "actual",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-06-29 17:25:09Z\",\n      \"startTime\": \"2023-06-29 15:30:00Z\",\n      \"settlementDate\": \"2023-06-29\",\n      \"settlementPeriod\": 40,\n      \"quantity\": 1000\n    },\n    {\n      \"publishTime\": \"2023-06-29 17:25:09Z\",\n      \"startTime\": \"2023-06-29 15:30:00Z\",\n      \"settlementDate\": \"2023-06-29\",\n      \"settlementPeriod\": 40,\n      \"quantity\": 1000\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "432b97c1-f514-42ab-847c-7ddecd3ec2a6",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "actual",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e55296dd-84b4-49f7-9527-4bbc9510c839",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "actual",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e4d9a77c-123c-4ad0-8b03-9617b8abb820",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demand",
+                    "actual",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7f5ab22b-5e88-44eb-943a-901970eb2d25",
+    "name": "Insights.Api Balancing Mechanism Dynamic Demand API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Health Check API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health Check",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/health"
+          },
+          "docs": "This endpoint provides a success response code (200) with status code 2 if the service is alive"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

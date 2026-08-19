@@ -1,0 +1,441 @@
+{
+  "item": [
+    {
+      "id": "8cf1d37c-8032-4385-9139-cbdd1548b73a",
+      "name": "System",
+      "description": {
+        "content": "Transmission System data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "480b0ada-a36a-45a6-88ef-bb4e80a1f7a9",
+          "name": "System frequency (FREQ)",
+          "request": {
+            "name": "System frequency (FREQ)",
+            "description": {
+              "content": "This endpoint allows for retrieving a collection of recent system frequency data from National Grid ESO. Results\ncan be filtered by a range of DateTime parameters. This endpoint is useful for ad-hoc querying frequency data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "system",
+                "frequency"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a64887be-5b6f-43c5-b550-b311c7ee7b5d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "system",
+                    "frequency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"measurementTime\": \"1967-10-27T08:12:46.822Z\",\n      \"frequency\": 7164.572385310953\n    },\n    {\n      \"measurementTime\": \"2025-10-11T04:03:39.192Z\",\n      \"frequency\": 2159.0126392900365\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c95d5e5a-5800-4e7c-ab5a-876dd825a127",
+          "name": "System frequency (FREQ) stream",
+          "request": {
+            "name": "System frequency (FREQ) stream",
+            "description": {
+              "content": "This endpoint allows for retrieving a stream of recent system frequency data from National Grid ESO. Results can\nbe filtered by a range of DateTime parameters. This endpoint has an optimised JSON payload and aimed at frequent\nrequest for the frequency data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "system",
+                "frequency",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01203190-0bfd-4d74-b4ae-0f897a6c7867",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "system",
+                    "frequency",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"measurementTime\": \"2017-12-21T06:04:48.285Z\",\n    \"frequency\": 2943.940787020949\n  },\n  {\n    \"measurementTime\": \"1978-08-26T03:22:27.964Z\",\n    \"frequency\": 4194.007496673712\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d8985e0-1226-40c9-bcf4-166de1b2c482",
+          "name": "System warnings (SYSWARN)",
+          "request": {
+            "name": "System warnings (SYSWARN)",
+            "description": {
+              "content": "This endpoint provides system warnings data. Results can be filtered by warning type and a range of DateTime parameters.\n- If no parameters are specified then the latest message is returned\n- If just a warning type is specified then the latest message of that type is returned\n- If just publish times are specified then all messages within that range are returned",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "system",
+                "warnings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "warningType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishDateTimeFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishDateTimeTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff5107c3-c6ad-466f-b3cd-bfea43a042bb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "system",
+                    "warnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warningType",
+                      "value": "IT SYSTEMS OUTAGE"
+                    },
+                    {
+                      "key": "publishDateTimeFrom",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "publishDateTimeTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2000-06-20T17:32:43.990Z\",\n      \"warningType\": \"IT SYSTEMS OUTAGE\",\n      \"warningText\": \"NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions\"\n    },\n    {\n      \"publishTime\": \"1967-03-18T05:17:05.039Z\",\n      \"warningType\": \"IT SYSTEMS OUTAGE\",\n      \"warningText\": \"NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "847bbeb4-9808-4c40-be43-3e8900708137",
+          "name": "Demand control instructions (DCI)",
+          "request": {
+            "name": "Demand control instructions (DCI)",
+            "description": {
+              "content": "This endpoint provides demand control instruction data, filtered by the time range of the instruction.\nThere is no date range limit on parameters.\nIf no query parameters are supplied all data is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "system",
+                "demand-control-instructions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "700768b6-19f0-487c-a590-53f2adbc7483",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "system",
+                    "demand-control-instructions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"mRID\": \"DCI_202104300853_00000030\",\n      \"revisionNumber\": 1,\n      \"publishTime\": \"2021-04-30T08:53:39Z\",\n      \"publishingPeriodCommencingTime\": \"2021-04-30T08:53:39Z\",\n      \"affectedDso\": \"SP(D)\",\n      \"demandControlId\": \"00135\",\n      \"instructionSequence\": 1,\n      \"demandControlEventFlag\": \"I\",\n      \"timeFrom\": \"2021-04-30T12:45:00Z\",\n      \"timeTo\": \"2021-04-30T13:09:00Z\",\n      \"volume\": 68,\n      \"systemManagementActionFlag\": \"T\",\n      \"amendmentFlag\": \"ORI\"\n    },\n    {\n      \"mRID\": \"DCI_202104300853_00000030\",\n      \"revisionNumber\": 1,\n      \"publishTime\": \"2021-04-30T08:53:39Z\",\n      \"publishingPeriodCommencingTime\": \"2021-04-30T08:53:39Z\",\n      \"affectedDso\": \"SP(D)\",\n      \"demandControlId\": \"00135\",\n      \"instructionSequence\": 1,\n      \"demandControlEventFlag\": \"I\",\n      \"timeFrom\": \"2021-04-30T12:45:00Z\",\n      \"timeTo\": \"2021-04-30T13:09:00Z\",\n      \"volume\": 68,\n      \"systemManagementActionFlag\": \"T\",\n      \"amendmentFlag\": \"ORI\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "06573064-140e-452a-a974-f6c700632d8f",
+    "name": "Insights.Api Balancing Mechanism Dynamic System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

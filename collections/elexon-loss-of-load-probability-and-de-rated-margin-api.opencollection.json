@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Loss of Load Probability and De-rated Margin API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Loss of Load Probability and De-rated Margin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Loss of load probability and de-rated margin forecast (LOLPDRM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/lolpdrm/forecast/evolution",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to forecast/system/loss-of-load."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

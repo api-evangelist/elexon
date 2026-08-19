@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic System forecast API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System forecast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Loss of load probability and de-rated margin forecast (LOLPDRM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/system/loss-of-load",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-03-06T07:00Z",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-03-06T12:00Z",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "15",
+                "type": "query",
+                "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "25",
+                "type": "query",
+                "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the 1h, 2h, 4h, 8h and 12h+ Loss of Load Probability and De-rated Margin forecasts\nfor each settlement period over a requested time range.\n            \nFor each forecast horizon at 1, 2, 4 or 8 hours, the returned value is the forecast received that number of hours\nbefore the start of the settlement period.\n            \nFor the forecast horizon of 12h, the returned value is the most recent forecast received 12 or more hours\nbefore the start of the settlement period. That i"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

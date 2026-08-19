@@ -1,0 +1,1046 @@
+{
+  "item": [
+    {
+      "id": "51934beb-fbef-40b2-9b89-c2a22e9cfd91",
+      "name": "Bid-Offer Acceptances",
+      "description": {
+        "content": "Bid-offer acceptance data (BOALF).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1595939-6371-4ca3-b00e-2db56d67e3b3",
+          "name": "Bid-offer acceptances per BMU (BOALF)",
+          "request": {
+            "name": "Bid-offer acceptances per BMU (BOALF)",
+            "description": {
+              "content": "This endpoint provides the bid-offer acceptance data (BOALF) for a requested BMU.\n            \nBy default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of start time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "acceptances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "(Required) The BM Unit to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"from\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"to\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba5cb0ea-d476-4863-97a0-53a2f04760eb",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "T_MILWW-1"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    },\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e865d2b-bf3f-482f-baf9-008b6532a1c8",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "T_MILWW-1"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c6bcfbf-cd45-4d33-92e8-10468ca802b6",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "T_MILWW-1"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a514995-e79d-4ebb-ab68-d562a34975f5",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "T_MILWW-1"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c260e88a-29ee-43da-9ba4-a67048707aa9",
+          "name": "Market-wide bid-offer acceptances (BOALF)",
+          "request": {
+            "name": "Market-wide bid-offer acceptances (BOALF)",
+            "description": {
+              "content": "This endpoint provides the bid-offer acceptance data (BOALF) for multiple requested BMUs or all BMUs.\nIt returns the data valid for a single settlement period.\n            \nThe settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "acceptances",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) The settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42906b5f-259e-4874-a35a-1b3a4e70c704",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-24"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "39"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_DINO-2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    },\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3674ecac-8c37-4a30-b59c-773030ed4828",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-24"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "39"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_DINO-2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9a9cb69-399f-42f5-b3b8-26e6e71ac229",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-24"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "39"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_DINO-2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "026cf3de-7252-404b-b8b5-90c036d208ef",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-24"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "39"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "T_DINO-2"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa7d9bc3-c024-4a06-af41-f46b1139ac70",
+          "name": "Latest market-wide bid-offer acceptances (BOALF)",
+          "request": {
+            "name": "Latest market-wide bid-offer acceptances (BOALF)",
+            "description": {
+              "content": "This endpoint provides the latest market-wide bid-offer acceptance data (BOALF). The latest 100 acceptances will be returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "acceptances",
+                "all",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bde3e7e8-e9bd-48d9-be12-3f94b78e070d",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    },\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcede764-576f-4304-b405-f9740e5ad5ce",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5381e7c-1279-44f5-a5dd-ae7f17b85217",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12b30d3a-806e-4e84-94c1-963e4cd7fb34",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    "all",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afbd6267-3350-4546-b2cf-fd18dfa9c648",
+          "name": "Bid-Offer acceptances by acceptance id",
+          "request": {
+            "name": "Bid-Offer acceptances by acceptance id",
+            "description": {
+              "content": "This endpoint returns bid-offer acceptances for a given acceptance id.\nAcceptance ids must be integers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "acceptances",
+                ":acceptanceNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "acceptanceNumber",
+                  "description": "(Required) The acceptance id to filter results by."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad7d048c-c987-48e0-b779-dd86ca3df830",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    ":acceptanceNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "acceptanceNumber",
+                      "description": "(Required) The acceptance id to filter results by."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    },\n    {\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriodFrom\": 29,\n      \"settlementPeriodTo\": 32,\n      \"timeFrom\": \"2022-06-25T13:34:00Z\",\n      \"timeTo\": \"2022-06-25T13:37:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\",\n      \"acceptanceNumber\": 1234567,\n      \"acceptanceTime\": \"2022-06-25T13:30:00Z\",\n      \"deemedBoFlag\": true,\n      \"soFlag\": false,\n      \"storFlag\": true,\n      \"rrFlag\": false\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c666aa8-1d14-4008-b6bc-7818eec5139a",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    ":acceptanceNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "acceptanceNumber",
+                      "description": "(Required) The acceptance id to filter results by."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60a2957e-c339-42a1-a7b0-48bff9dccef5",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    ":acceptanceNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "acceptanceNumber",
+                      "description": "(Required) The acceptance id to filter results by."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9836343-b09b-490e-8c4e-4bf46ed34587",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "acceptances",
+                    ":acceptanceNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "acceptanceNumber",
+                      "description": "(Required) The acceptance id to filter results by."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e3484aa6-a0f9-45d8-aeab-6640cfb28fc4",
+    "name": "Insights.Api Balancing Mechanism Dynamic Bid-Offer Acceptances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

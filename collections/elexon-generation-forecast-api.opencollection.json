@@ -1,0 +1,555 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Generation Forecast API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Generation Forecast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fourteen-day generation capacity forecast (FOU2T14D)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/availability/daily",
+            "params": [
+              {
+                "name": "level",
+                "value": "fuelType",
+                "type": "query",
+                "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+              },
+              {
+                "name": "bmUnit",
+                "value": "",
+                "type": "query",
+                "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+              },
+              {
+                "name": "fuelType",
+                "value": "CCGT",
+                "type": "query",
+                "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest fourteen-day generation forecast"
+        },
+        {
+          "info": {
+            "name": "Three-year generation capacity forecast (FOU2T3YW)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/availability/weekly",
+            "params": [
+              {
+                "name": "level",
+                "value": "fuelType",
+                "type": "query",
+                "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+              },
+              {
+                "name": "bmUnit",
+                "value": "",
+                "type": "query",
+                "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+              },
+              {
+                "name": "fuelType",
+                "value": "CCGT",
+                "type": "query",
+                "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest three-year generation forecast"
+        },
+        {
+          "info": {
+            "name": "History of the fourteen-day generation capacity forecast (FOU2T14D)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/availability/daily/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "2024-06-07T15:00:00Z",
+                "type": "query",
+                "description": "The UTC publish time to query. This should be in the format yyyy-MM-ddT:HH:mm:ssZ."
+              },
+              {
+                "name": "level",
+                "value": "fuelType",
+                "type": "query",
+                "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+              },
+              {
+                "name": "bmUnit",
+                "value": "",
+                "type": "query",
+                "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+              },
+              {
+                "name": "fuelType",
+                "value": "CCGT",
+                "type": "query",
+                "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest fourteen-day generation forecast from a given DateTime"
+        },
+        {
+          "info": {
+            "name": "History of the three-year generation capacity forecast (FOU2T3YW)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/availability/weekly/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "2024-06-07T15:00:00Z",
+                "type": "query",
+                "description": "The UTC publish time to query. This should be in the format yyyy-MM-ddT:HH:mm:ssZ."
+              },
+              {
+                "name": "level",
+                "value": "fuelType",
+                "type": "query",
+                "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+              },
+              {
+                "name": "bmUnit",
+                "value": "",
+                "type": "query",
+                "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+              },
+              {
+                "name": "fuelType",
+                "value": "CCGT",
+                "type": "query",
+                "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest three-year forecast from a given DateTime"
+        },
+        {
+          "info": {
+            "name": "Evolution of the fourteen-day generation capacity forecast over time (FOU2T14D)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/availability/daily/evolution",
+            "params": [
+              {
+                "name": "forecastDate",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The forecast date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "level",
+                "value": "fuelType",
+                "type": "query",
+                "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+              },
+              {
+                "name": "bmUnit",
+                "value": "",
+                "type": "query",
+                "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+              },
+              {
+                "name": "fuelType",
+                "value": "CCGT",
+                "type": "query",
+                "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the evolution of all daily generation forecasts over time for a given Forecast Date.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Evolution of the three-year generation capacity forecast over time (FOU2T3YW)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/availability/weekly/evolution",
+            "params": [
+              {
+                "name": "year",
+                "value": "2024",
+                "type": "query",
+                "description": "The forecast year for the filter."
+              },
+              {
+                "name": "week",
+                "value": "17",
+                "type": "query",
+                "description": "The forecast week for the filter."
+              },
+              {
+                "name": "level",
+                "value": "fuelType",
+                "type": "query",
+                "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+              },
+              {
+                "name": "bmUnit",
+                "value": "",
+                "type": "query",
+                "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+              },
+              {
+                "name": "fuelType",
+                "value": "CCGT",
+                "type": "query",
+                "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all weekly generation forecasts over time for a given Year and Week"
+        },
+        {
+          "info": {
+            "name": "Day-ahead aggregated generation (DAG/B1430)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/day-ahead",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-07-20",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-07-22",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "13",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "19",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides day-ahead aggregated generation data filtered by settlement date.\n            \nThis API endpoint has a maximum range of 7 days."
+        },
+        {
+          "info": {
+            "name": "Day-ahead generation forecast for wind and solar (DGWS/B1440)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind-and-solar/day-ahead",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-07-18",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-07-21",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "36",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "12",
+                "type": "query"
+              },
+              {
+                "name": "processType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides day-ahead forecast generation data for wind and solar.\n            \nThis endpoint filters by startTime and provides a maximum data output range of 7 days."
+        },
+        {
+          "info": {
+            "name": "Current wind generation forecast (WINDFOR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest wind generation forecast data. This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30. Results are filtered by a range of DateTime parameters."
+        },
+        {
+          "info": {
+            "name": "History of the wind generation forecast (WINDFOR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the historical wind generation forecast data. This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters."
+        },
+        {
+          "info": {
+            "name": "Evolution of the wind generation forecast over time (WINDFOR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/evolution",
+            "params": [
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the evolution wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters."
+        },
+        {
+          "info": {
+            "name": "Historic view of the latest forecasted wind generation (WINDFOR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/latest",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters."
+        },
+        {
+          "info": {
+            "name": "Historic view of the latest forecasted wind generation (WINDFOR) stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/latest/stream",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the wind generation forecast data."
+        },
+        {
+          "info": {
+            "name": "Historic view of the earliest forecasted wind generation (WINDFOR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/earliest",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the eariest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters."
+        },
+        {
+          "info": {
+            "name": "Historic view of the earliest forecasted wind generation (WINDFOR) stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/earliest/stream",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides the earliest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the wind generation forecast data."
+        },
+        {
+          "info": {
+            "name": "Peak wind generation forecast for each day (WINDFOR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/generation/wind/peak",
+            "params": [
+              {
+                "name": "from",
+                "value": "2021-10-01",
+                "type": "query",
+                "description": "The start of the requested date range."
+              },
+              {
+                "name": "to",
+                "value": "2021-10-30",
+                "type": "query",
+                "description": "The end of the requested date range."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the peak wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

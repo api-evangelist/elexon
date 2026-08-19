@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Credit Default Notice API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Credit Default Notice",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "[DEPRECATED] Credit default notices (CDN)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/CDN",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to balancing/settlement/default-notices."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

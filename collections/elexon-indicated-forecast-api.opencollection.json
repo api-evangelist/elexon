@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Indicated Forecast API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Indicated Forecast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/indicated/day-ahead",
+            "params": [
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest forecast indicated day-ahead data"
+        },
+        {
+          "info": {
+            "name": "Historical indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/indicated/day-ahead/history",
+            "params": [
+              {
+                "name": "publishTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Historical indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)"
+        },
+        {
+          "info": {
+            "name": "Evolution indicated day-ahead forecast (INDDEM, INDGEN, IMBALNGC, MELNGC)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/forecast/indicated/day-ahead/evolution",
+            "params": [
+              {
+                "name": "settlementDate",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "boundary",
+                "value": "",
+                "type": "query",
+                "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the forecast indicated day-ahead data over time for the specified settlement date and settlement period.\n\nDate parameter must be provided in the exact format yyyy-MM-dd."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

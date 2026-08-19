@@ -1,0 +1,679 @@
+{
+  "item": [
+    {
+      "id": "334f0a68-9aac-48af-877b-a2a5a09a7bb8",
+      "name": "Balancing Mechanism Physical",
+      "description": {
+        "content": "Physical data consists of PN, QPN, MILS, &amp; MELS.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89ffa604-860f-4144-b358-a878d8605074",
+          "name": "Physical data per BMU (PN, QPN, MILS, MELS)",
+          "request": {
+            "name": "Physical data per BMU (PN, QPN, MILS, MELS)",
+            "description": {
+              "content": "This endpoint provides the physical data for a requested BMU.\nIt returns the data valid over a given time range.\n            \nBy default, all of the relevant datasets are returned: PN, QPN, MILS, & MELS.\nThe results from each dataset are transformed to a common response model, with fields not present in all 4 datasets dropped.\n            \nBy default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of start time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/physical?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/physical?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/physical?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/physical?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "physical"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "(Required) The BM Unit to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"from\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"to\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If empty, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "Datasets to filter. If empty, all datasets will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94da2732-7906-4867-97b5-24380f4c15be",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MILS"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"PN\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    },\n    {\n      \"dataset\": \"PN\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7af6db0b-704b-4984-b7f1-c6ddce7dff86",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MILS"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0044a69f-9d99-4216-bb8e-0e1e5cca04bf",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MILS"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa527425-7291-45ee-9ddc-21a2bc081cbf",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "dataset",
+                      "value": "MILS"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a670b5a7-b7dd-4c49-bbaf-bb3a79ca5ae0",
+          "name": "Market-wide physical data (PN, QPN, MILS, MELS)",
+          "request": {
+            "name": "Market-wide physical data (PN, QPN, MILS, MELS)",
+            "description": {
+              "content": "This endpoint provides the physical data for multiple requested BMUs or all BMUs.\nIt returns the data valid for a single settlement period.\n            \nOnly one dataset can be queried at a time: PN, QPN, MILS, or MELS.\nThe results from each dataset are transformed to a common response model, with fields not present in all 4 datasets dropped.\n            \nThe settlement period to query must be specified as a date and settlement period. The date must be given in the format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "physical",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dataset",
+                  "value": "<string>",
+                  "description": "(Required) Dataset to query."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) The settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18d5825a-8813-4dfa-8ccb-ec4622f270b1",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"PN\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    },\n    {\n      \"dataset\": \"PN\",\n      \"settlementDate\": \"2022-07-01\",\n      \"settlementPeriod\": 3,\n      \"timeFrom\": \"2022-07-01T13:34:00Z\",\n      \"timeTo\": \"2022-07-01T13:34:00Z\",\n      \"levelFrom\": 5,\n      \"levelTo\": 46,\n      \"nationalGridBmUnit\": \"ABRBO-1\",\n      \"bmUnit\": \"T_ABRBO-1\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ff78164-d88d-411c-9270-12fe5f7b106d",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8dd210ac-cee4-4607-ae55-663e4ef3ca2a",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a47aacb8-76a5-4507-bc85-c56f58920936",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "physical",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dataset",
+                      "value": "PN"
+                    },
+                    {
+                      "key": "settlementDate",
+                      "value": "2023-01-18"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "2__HFLEX001"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "HUMR-1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "82e7ee85-3437-47d5-bb59-3d212da8b21f",
+    "name": "Insights.Api Balancing Mechanism Dynamic Balancing Mechanism Physical API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

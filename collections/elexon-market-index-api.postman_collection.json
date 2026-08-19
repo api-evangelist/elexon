@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "decee684-5a6f-4ea5-9ee1-eaed63ed2ec3",
+      "name": "Market Index",
+      "description": {
+        "content": "Market Index prices filtered by time.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "43559471-af18-42f8-91f4-68e7c46254ba",
+          "name": "Market Index Data (MID) price time series",
+          "request": {
+            "name": "Market Index Data (MID) price time series",
+            "description": {
+              "content": "This endpoint provides Market Index Data received from NGESO.\n            \nMarket Index Data is a key component in the calculation of System Buy Price and System Sell Price for each\nSettlement Period. This data is received from each of the appointed Market Index Data Providers (MIDPs) and\nreflects the price of wholesale electricity in Great Britain in the short term markets. The Market Index Data\nwhich is received from each MIDP for each Settlement Period consists of a Market Index Volume and\nMarket Index Price, representing the volume and price of trading for the relevant period in the market operated\nby the MIDP. The Market Price (the volume weighed average Market Index Price) is used to derive\nthe Reverse Price (SBP or SSP).\"\n            \nThe two data providers available to query are N2EX (\"N2EXMIDP\") and APX (\"APXMIDP\").\n\nBy default, the from and to parameters filter the data by time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/pricing/market-index?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "pricing",
+                "market-index"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"from\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"to\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataProviders",
+                  "value": "<string>",
+                  "description": "The data providers to query. If no data provider is selected both will be displayed."
+                },
+                {
+                  "disabled": false,
+                  "key": "dataProviders",
+                  "value": "<string>",
+                  "description": "The data providers to query. If no data provider is selected both will be displayed."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "facdbd49-7cc4-458d-b155-c21f6f89c9ff",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "pricing",
+                    "market-index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataProviders",
+                      "value": "N2EXMIDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"startTime\": \"2022-09-26T13:00:00Z\",\n      \"dataProvider\": \"N2EXMIDP\",\n      \"settlementDate\": \"2022-09-26\",\n      \"settlementPeriod\": 3,\n      \"price\": 678.12,\n      \"volume\": 678.123\n    },\n    {\n      \"startTime\": \"2022-09-26T13:00:00Z\",\n      \"dataProvider\": \"N2EXMIDP\",\n      \"settlementDate\": \"2022-09-26\",\n      \"settlementPeriod\": 3,\n      \"price\": 678.12,\n      \"volume\": 678.123\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4c8da8b-8a13-4f78-9966-a5d2d3d48dc0",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "pricing",
+                    "market-index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataProviders",
+                      "value": "N2EXMIDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a851da6-8a21-4999-9d66-c4fb5f10adce",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "pricing",
+                    "market-index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataProviders",
+                      "value": "N2EXMIDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea2bd8ea-8184-47f5-97f5-17a8ccab192e",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "pricing",
+                    "market-index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dataProviders",
+                      "value": "N2EXMIDP"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4cefe293-7b7d-4380-b72d-2a4b484f740e",
+    "name": "Insights.Api Balancing Mechanism Dynamic Market Index API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

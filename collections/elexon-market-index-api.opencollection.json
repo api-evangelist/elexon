@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Market Index API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Index",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Market Index Data (MID) price time series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index",
+            "params": [
+              {
+                "name": "from",
+                "value": "2022-10-12T00:00Z",
+                "type": "query",
+                "description": "The \"from\" start time or settlement date for the filter."
+              },
+              {
+                "name": "to",
+                "value": "2022-10-13T00:00Z",
+                "type": "query",
+                "description": "The \"to\" start time or settlement date for the filter."
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "",
+                "type": "query",
+                "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "",
+                "type": "query",
+                "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "dataProviders",
+                "value": "N2EXMIDP",
+                "type": "query",
+                "description": "The data providers to query. If no data provider is selected both will be displayed."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides Market Index Data received from NGESO.\n            \nMarket Index Data is a key component in the calculation of System Buy Price and System Sell Price for each\nSettlement Period. This data is received from each of the appointed Market Index Data Providers (MIDPs) and\nreflects the price of wholesale electricity in Great Britain in the short term markets. The Market Index Data\nwhich is received from each MIDP for each Settlement Period consists of a Market Index Volume and\nMa"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

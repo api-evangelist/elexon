@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic SAA Datasets API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SAA Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Total Exempt Supply Volume (S0621)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/saa/datasets/total-exempt-volume/:settlementDate",
+            "params": [
+              {
+                "name": "settlementDate",
+                "value": "2025-02-27",
+                "type": "path",
+                "description": "The settlement date for the filter."
+              },
+              {
+                "name": "settlementRunType",
+                "value": "II,SF",
+                "type": "query",
+                "description": "The settlement run type for the filter.\nIf one or more run types are specified, only data with those run types is returned.\nIf no run type is specified, for each settlement period only the single data point with the most recent run type is returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Returns the total Import and Export Exempt Metered Volume (in MWh) for the requested settlement date and settlement run type.\n            \nThis endpoint will not return any data until S0621 data is first published at the beginning of March 2025.\n\nSettlement date parameter must be provided in the exact format YYYY-MM-dd."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2104 @@
+{
+  "item": [
+    {
+      "id": "98770588-7b4e-4c9e-8315-175936a2cbf6",
+      "name": "Generation Forecast",
+      "description": {
+        "content": "Current or historic generation forecasts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4cd59bd-981d-441e-871f-d85607cd5bf8",
+          "name": "Fourteen-day generation capacity forecast (FOU2T14D)",
+          "request": {
+            "name": "Fourteen-day generation capacity forecast (FOU2T14D)",
+            "description": {
+              "content": "This endpoint provides the latest fourteen-day generation forecast",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "availability",
+                "daily"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "add25f48-e414-431f-842f-150de99735e0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "availability",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "level",
+                      "value": "fuelType"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "CCGT"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"forecastDate\": \"2024-06-07\"\n    },\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"forecastDate\": \"2024-06-07\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "799f28f2-ecaf-426b-80f2-975a7eba2517",
+          "name": "Three-year generation capacity forecast (FOU2T3YW)",
+          "request": {
+            "name": "Three-year generation capacity forecast (FOU2T3YW)",
+            "description": {
+              "content": "This endpoint provides the latest three-year generation forecast",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "availability",
+                "weekly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38a3b459-170c-42cb-b80a-eeb7ca425492",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "availability",
+                    "weekly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "level",
+                      "value": "fuelType"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "CCGT"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"year\": 2024,\n      \"calendarWeekNumber\": 23\n    },\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"year\": 2024,\n      \"calendarWeekNumber\": 23\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "557cb16c-71bf-4988-9e77-8afd7b8dbe73",
+          "name": "History of the fourteen-day generation capacity forecast (FOU2T14D)",
+          "request": {
+            "name": "History of the fourteen-day generation capacity forecast (FOU2T14D)",
+            "description": {
+              "content": "This endpoint provides the latest fourteen-day generation forecast from a given DateTime",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "availability",
+                "daily",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) The UTC publish time to query. This should be in the format yyyy-MM-ddT:HH:mm:ssZ."
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "229db3e6-6ea8-475d-ad70-c36a31e83cac",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "availability",
+                    "daily",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "2024-06-07T15:00:00Z"
+                    },
+                    {
+                      "key": "level",
+                      "value": "fuelType"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "CCGT"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"forecastDate\": \"2024-06-07\"\n    },\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"forecastDate\": \"2024-06-07\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40670728-7625-4954-82e4-52ce9ec95d38",
+          "name": "History of the three-year generation capacity forecast (FOU2T3YW)",
+          "request": {
+            "name": "History of the three-year generation capacity forecast (FOU2T3YW)",
+            "description": {
+              "content": "This endpoint provides the latest three-year forecast from a given DateTime",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "availability",
+                "weekly",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) The UTC publish time to query. This should be in the format yyyy-MM-ddT:HH:mm:ssZ."
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f55df0e9-0df5-40e8-acaa-1d95aab319b1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "availability",
+                    "weekly",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "2024-06-07T15:00:00Z"
+                    },
+                    {
+                      "key": "level",
+                      "value": "fuelType"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "CCGT"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"year\": 2024,\n      \"calendarWeekNumber\": 23\n    },\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"year\": 2024,\n      \"calendarWeekNumber\": 23\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0ca0e98-ad5e-493a-a6fb-b17b22bb58e9",
+          "name": "Evolution of the fourteen-day generation capacity forecast over time (FOU2T14D)",
+          "request": {
+            "name": "Evolution of the fourteen-day generation capacity forecast over time (FOU2T14D)",
+            "description": {
+              "content": "This endpoint provides the evolution of all daily generation forecasts over time for a given Forecast Date.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "availability",
+                "daily",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "forecastDate",
+                  "value": "<date>",
+                  "description": "(Required) The forecast date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24152d0a-c233-478a-9142-b3e0519a8d1a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "availability",
+                    "daily",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "level",
+                      "value": "fuelType"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "CCGT"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"forecastDate\": \"2024-06-07\"\n    },\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"forecastDate\": \"2024-06-07\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49bb58df-8c83-4052-99f1-f96b4d7152fe",
+          "name": "Evolution of the three-year generation capacity forecast over time (FOU2T3YW)",
+          "request": {
+            "name": "Evolution of the three-year generation capacity forecast over time (FOU2T3YW)",
+            "description": {
+              "content": "This endpoint provides all weekly generation forecasts over time for a given Year and Week",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "availability",
+                "weekly",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) The forecast year for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "week",
+                  "value": "<integer>",
+                  "description": "(Required) The forecast week for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "The filter level for the forecast. This can be one of the following:\n- `total`: the total forecast for the given time period.\n- `bmUnit`: the forecast for each specified BM unit.\n- `fuelType`: the forecast aggregated, and optionally filtered by fuel type."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "bmUnit",
+                  "value": "<string>",
+                  "description": "The BM units to query. Add each unit separately. Either the Elexon ID (Eg: `T_CARR-1`) or National Grid ID (Eg: `CARR-1`) can be used.\nBetween 1 and 10 units should be queried when using the `bmUnit` level."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>",
+                  "description": "The fuel type to query when using the `fuelType` level. Add each fuel type separately. If no fuel types are supplied, all fuel types will be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c2b3675-3540-4228-b5e0-58ce01fd8c89",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "availability",
+                    "weekly",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "week",
+                      "value": "17"
+                    },
+                    {
+                      "key": "level",
+                      "value": "fuelType"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bmUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "CCGT"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"year\": 2024,\n      \"calendarWeekNumber\": 23\n    },\n    {\n      \"dataset\": \"string\",\n      \"publishTime\": \"2024-06-07T15:00:00Z\",\n      \"fuelType\": \"CCGT\",\n      \"ngcBmUnit\": \"CARR-1\",\n      \"bmUnit\": \"T_CARR-1\",\n      \"outputUsable\": 418,\n      \"year\": 2024,\n      \"calendarWeekNumber\": 23\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a255947-cac5-4390-87e3-bdb1e0f5e4d3",
+          "name": "Day-ahead aggregated generation (DAG/B1430)",
+          "request": {
+            "name": "Day-ahead aggregated generation (DAG/B1430)",
+            "description": {
+              "content": "This endpoint provides day-ahead aggregated generation data filtered by settlement date.\n            \nThis API endpoint has a maximum range of 7 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "day-ahead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45e18f36-2e30-416d-8a62-c3629615b5b7",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "13"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "19"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"quantity\": 1804.5,\n      \"startTime\": \"2023-07-12 06:30:00Z\",\n      \"settlementDate\": \"2023-07-12\",\n      \"settlementPeriod\": 16\n    },\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"quantity\": 1804.5,\n      \"startTime\": \"2023-07-12 06:30:00Z\",\n      \"settlementDate\": \"2023-07-12\",\n      \"settlementPeriod\": 16\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "148b97f6-203e-4056-b969-c081da92e9b4",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "13"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "19"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "97182fac-37d5-4166-8cdc-6060ef8a93ea",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "13"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "19"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05127129-0c04-4eff-8379-d62d3c1956f6",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "13"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "19"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bb3ce70-d798-492a-86f6-734a2b65941c",
+          "name": "Day-ahead generation forecast for wind and solar (DGWS/B1440)",
+          "request": {
+            "name": "Day-ahead generation forecast for wind and solar (DGWS/B1440)",
+            "description": {
+              "content": "This endpoint provides day-ahead forecast generation data for wind and solar.\n            \nThis endpoint filters by startTime and provides a maximum data output range of 7 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind-and-solar",
+                "day-ahead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "processType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f733e675-9524-4b18-8589-32f9f4eca37b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind-and-solar",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "processType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-06-29T17:25:09Z\",\n      \"processType\": \"Intraday process\",\n      \"businessType\": \"Wind generation\",\n      \"psrType\": \"Wind Offshore\",\n      \"startTime\": \"2023-06-29T15:30:00Z\",\n      \"settlementDate\": \"2023-06-29\",\n      \"settlementPeriod\": 40,\n      \"quantity\": 1000\n    },\n    {\n      \"publishTime\": \"2023-06-29T17:25:09Z\",\n      \"processType\": \"Intraday process\",\n      \"businessType\": \"Wind generation\",\n      \"psrType\": \"Wind Offshore\",\n      \"startTime\": \"2023-06-29T15:30:00Z\",\n      \"settlementDate\": \"2023-06-29\",\n      \"settlementPeriod\": 40,\n      \"quantity\": 1000\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a2eab5e-6005-423b-ae6a-0070365a0023",
+          "name": "Current wind generation forecast (WINDFOR)",
+          "request": {
+            "name": "Current wind generation forecast (WINDFOR)",
+            "description": {
+              "content": "This endpoint provides the latest wind generation forecast data. This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30. Results are filtered by a range of DateTime parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a166e4a3-3ca8-43b7-aeaa-d13045d77c32",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2002-09-23T00:15:34.229Z\",\n      \"startTime\": \"1946-08-27T14:50:01.595Z\",\n      \"settlementDate\": \"1952-04-10\",\n      \"settlementPeriod\": 8490,\n      \"generation\": 6952\n    },\n    {\n      \"publishTime\": \"2016-06-11T21:17:11.238Z\",\n      \"startTime\": \"1965-03-27T10:40:15.343Z\",\n      \"settlementDate\": \"1964-11-05\",\n      \"settlementPeriod\": 2607,\n      \"generation\": 3609\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6e81692-4803-4419-abad-aee1d7e26ae6",
+          "name": "History of the wind generation forecast (WINDFOR)",
+          "request": {
+            "name": "History of the wind generation forecast (WINDFOR)",
+            "description": {
+              "content": "This endpoint provides the historical wind generation forecast data. This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "677cec4b-74b9-45c0-afe4-7f29f8a0260e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1969-02-18T02:35:29.893Z\",\n      \"startTime\": \"1961-05-30T17:37:58.661Z\",\n      \"settlementDate\": \"2023-10-18\",\n      \"settlementPeriod\": 9400,\n      \"generation\": 932\n    },\n    {\n      \"publishTime\": \"2019-07-04T02:13:51.738Z\",\n      \"startTime\": \"1998-09-06T04:06:59.019Z\",\n      \"settlementDate\": \"1998-12-03\",\n      \"settlementPeriod\": 1556,\n      \"generation\": 3526\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5368b7a4-9587-481b-8296-8b2a67f1bca6",
+          "name": "Evolution of the wind generation forecast over time (WINDFOR)",
+          "request": {
+            "name": "Evolution of the wind generation forecast over time (WINDFOR)",
+            "description": {
+              "content": "This endpoint provides the evolution wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f246460-3496-4e31-97ae-5cab0151a4ba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1969-02-18T02:35:29.893Z\",\n      \"startTime\": \"1961-05-30T17:37:58.661Z\",\n      \"settlementDate\": \"2023-10-18\",\n      \"settlementPeriod\": 9400,\n      \"generation\": 932\n    },\n    {\n      \"publishTime\": \"2019-07-04T02:13:51.738Z\",\n      \"startTime\": \"1998-09-06T04:06:59.019Z\",\n      \"settlementDate\": \"1998-12-03\",\n      \"settlementPeriod\": 1556,\n      \"generation\": 3526\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7efcb7c9-cade-4f42-9dfa-063b375e7f72",
+          "name": "Historic view of the latest forecasted wind generation (WINDFOR)",
+          "request": {
+            "name": "Historic view of the latest forecasted wind generation (WINDFOR)",
+            "description": {
+              "content": "This endpoint provides the latest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4f985a4-d516-48b1-a791-8e7644a3eb21",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1969-02-18T02:35:29.893Z\",\n      \"startTime\": \"1961-05-30T17:37:58.661Z\",\n      \"settlementDate\": \"2023-10-18\",\n      \"settlementPeriod\": 9400,\n      \"generation\": 932\n    },\n    {\n      \"publishTime\": \"2019-07-04T02:13:51.738Z\",\n      \"startTime\": \"1998-09-06T04:06:59.019Z\",\n      \"settlementDate\": \"1998-12-03\",\n      \"settlementPeriod\": 1556,\n      \"generation\": 3526\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "295a0d59-99dc-4503-bbed-ffc19f2e528e",
+          "name": "Historic view of the latest forecasted wind generation (WINDFOR) stream",
+          "request": {
+            "name": "Historic view of the latest forecasted wind generation (WINDFOR) stream",
+            "description": {
+              "content": "This endpoint provides the latest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the wind generation forecast data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind",
+                "latest",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "598c7cd2-7a66-49f2-95a6-e908c98595fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind",
+                    "latest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"publishTime\": \"1998-07-03T01:25:13.757Z\",\n    \"startTime\": \"1976-11-06T19:04:42.790Z\",\n    \"settlementDate\": \"2000-02-01\",\n    \"settlementPeriod\": 4603,\n    \"generation\": 1948\n  },\n  {\n    \"publishTime\": \"2009-07-04T09:04:58.467Z\",\n    \"startTime\": \"1969-07-12T06:30:35.454Z\",\n    \"settlementDate\": \"1951-02-11\",\n    \"settlementPeriod\": 5547,\n    \"generation\": 126\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a2afe80-6732-43be-a2b2-bdd40ace4475",
+          "name": "Historic view of the earliest forecasted wind generation (WINDFOR)",
+          "request": {
+            "name": "Historic view of the earliest forecasted wind generation (WINDFOR)",
+            "description": {
+              "content": "This endpoint provides the eariest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind",
+                "earliest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25579b17-230d-4e80-9cee-63e5ab5136fa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind",
+                    "earliest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1969-02-18T02:35:29.893Z\",\n      \"startTime\": \"1961-05-30T17:37:58.661Z\",\n      \"settlementDate\": \"2023-10-18\",\n      \"settlementPeriod\": 9400,\n      \"generation\": 932\n    },\n    {\n      \"publishTime\": \"2019-07-04T02:13:51.738Z\",\n      \"startTime\": \"1998-09-06T04:06:59.019Z\",\n      \"settlementDate\": \"1998-12-03\",\n      \"settlementPeriod\": 1556,\n      \"generation\": 3526\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdca0c13-e91c-4c13-9078-ce7a2e72254c",
+          "name": "Historic view of the earliest forecasted wind generation (WINDFOR) stream",
+          "request": {
+            "name": "Historic view of the earliest forecasted wind generation (WINDFOR) stream",
+            "description": {
+              "content": "This endpoint provides the earliest wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the wind generation forecast data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind",
+                "earliest",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "679a0308-49dc-4371-9ffc-0f3ab560f552",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind",
+                    "earliest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"publishTime\": \"1998-07-03T01:25:13.757Z\",\n    \"startTime\": \"1976-11-06T19:04:42.790Z\",\n    \"settlementDate\": \"2000-02-01\",\n    \"settlementPeriod\": 4603,\n    \"generation\": 1948\n  },\n  {\n    \"publishTime\": \"2009-07-04T09:04:58.467Z\",\n    \"startTime\": \"1969-07-12T06:30:35.454Z\",\n    \"settlementDate\": \"1951-02-11\",\n    \"settlementPeriod\": 5547,\n    \"generation\": 126\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "569769a8-f0c9-4dab-b465-0d89c2dfaf03",
+          "name": "Peak wind generation forecast for each day (WINDFOR)",
+          "request": {
+            "name": "Peak wind generation forecast for each day (WINDFOR)",
+            "description": {
+              "content": "This endpoint provides the peak wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "generation",
+                "wind",
+                "peak"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "The start of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "The end of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7eddd1b0-8621-4a99-b1c0-333cc1408fce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "generation",
+                    "wind",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1969-02-18T02:35:29.893Z\",\n      \"startTime\": \"1961-05-30T17:37:58.661Z\",\n      \"settlementDate\": \"2023-10-18\",\n      \"settlementPeriod\": 9400,\n      \"generation\": 932\n    },\n    {\n      \"publishTime\": \"2019-07-04T02:13:51.738Z\",\n      \"startTime\": \"1998-09-06T04:06:59.019Z\",\n      \"settlementDate\": \"1998-12-03\",\n      \"settlementPeriod\": 1556,\n      \"generation\": 3526\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0ebe64a1-9d75-4ae7-ba6f-6dc82eee074b",
+    "name": "Insights.Api Balancing Mechanism Dynamic Generation Forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

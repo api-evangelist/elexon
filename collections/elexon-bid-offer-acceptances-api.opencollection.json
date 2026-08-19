@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Bid-Offer Acceptances API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bid-Offer Acceptances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bid-offer acceptances per BMU (BOALF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/acceptances",
+            "params": [
+              {
+                "name": "bmUnit",
+                "value": "T_MILWW-1",
+                "type": "query",
+                "description": "The BM Unit to query."
+              },
+              {
+                "name": "from",
+                "value": "2022-10-03T00:00Z",
+                "type": "query",
+                "description": "The \"from\" start time or settlement date for the filter."
+              },
+              {
+                "name": "to",
+                "value": "2022-10-06T00:00Z",
+                "type": "query",
+                "description": "The \"to\" start time or settlement date for the filter."
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "",
+                "type": "query",
+                "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "",
+                "type": "query",
+                "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the bid-offer acceptance data (BOALF) for a requested BMU.\n            \nBy default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of start time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only"
+        },
+        {
+          "info": {
+            "name": "Market-wide bid-offer acceptances (BOALF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/acceptances/all",
+            "params": [
+              {
+                "name": "settlementDate",
+                "value": "2023-01-24",
+                "type": "query",
+                "description": "The settlement date for the filter."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "39",
+                "type": "query",
+                "description": "The settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "bmUnit",
+                "value": "T_DINO-2,HUMR-1",
+                "type": "query",
+                "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the bid-offer acceptance data (BOALF) for multiple requested BMUs or all BMUs.\nIt returns the data valid for a single settlement period.\n            \nThe settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Latest market-wide bid-offer acceptances (BOALF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/acceptances/all/latest",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the latest market-wide bid-offer acceptance data (BOALF). The latest 100 acceptances will be returned."
+        },
+        {
+          "info": {
+            "name": "Bid-Offer acceptances by acceptance id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/acceptances/:acceptanceNumber",
+            "params": [
+              {
+                "name": "acceptanceNumber",
+                "value": "4162",
+                "type": "path",
+                "description": "The acceptance id to filter results by."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint returns bid-offer acceptances for a given acceptance id.\nAcceptance ids must be integers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

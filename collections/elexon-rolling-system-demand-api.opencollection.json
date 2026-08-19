@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Rolling System Demand API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rolling System Demand",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Total generation outturn (FUELINST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the total generation outturn across all fuel types, derived by summing generation\nof all categories from the Generation by Fuel Type report.\n            \nThis data can be used as a proxy for rolling system demand."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

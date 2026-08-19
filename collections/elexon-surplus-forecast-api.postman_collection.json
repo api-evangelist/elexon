@@ -1,0 +1,633 @@
+{
+  "item": [
+    {
+      "id": "b4f57abf-7c38-490c-a6e2-d4e121957b5c",
+      "name": "Surplus Forecast",
+      "description": {
+        "content": "Generating Plant Operating Surplus forecast data, including historical views of data by publish time or forecast date.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5c14b99-1a7f-4ff4-905e-874ccdb44b01",
+          "name": "Daily surplus forecast (OCNMFD)",
+          "request": {
+            "name": "Daily surplus forecast (OCNMFD)",
+            "description": {
+              "content": "This endpoint provides the Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily surplus forecast for D+2 t D+14",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "surplus",
+                "daily"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d14c87f5-f01e-4e54-aaef-33142cc62b7f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "surplus",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1961-02-09T20:40:08.971Z\",\n      \"surplus\": 7352,\n      \"forecastDate\": \"2017-04-08\"\n    },\n    {\n      \"publishTime\": \"1988-03-17T16:51:21.725Z\",\n      \"surplus\": 9548,\n      \"forecastDate\": \"1965-02-08\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7561b42-0967-44d2-bdd3-7bd7ca8f7d2c",
+          "name": "Historical daily surplus forecast (OCNMFD)",
+          "request": {
+            "name": "Historical daily surplus forecast (OCNMFD)",
+            "description": {
+              "content": "This endpoint provides the historic Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe historic API outputs the latest published data for historic daily surplus forecast for D+2 to D+14",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "surplus",
+                "daily",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f369e9db-2ebb-4539-a48c-a0360be6ffa0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "surplus",
+                    "daily",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1970-01-28T22:28:32.372Z\",\n      \"surplus\": 1733,\n      \"forecastDate\": \"1974-04-14\"\n    },\n    {\n      \"publishTime\": \"1966-02-05T21:34:51.518Z\",\n      \"surplus\": 266,\n      \"forecastDate\": \"1992-05-23\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6aa317a9-cdfc-48e4-b504-ac93f0bca267",
+          "name": "Evolution daily surplus forecast (OCNMFD)",
+          "request": {
+            "name": "Evolution daily surplus forecast (OCNMFD)",
+            "description": {
+              "content": "This endpoint provides the daily evolution Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily surplus forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "surplus",
+                "daily",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "forecastDate",
+                  "value": "<date>",
+                  "description": "(Required) The forecast date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e095a9f-f2d1-4711-a972-02a42cd6c8c0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "surplus",
+                    "daily",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1970-01-28T22:28:32.372Z\",\n      \"surplus\": 1733,\n      \"forecastDate\": \"1974-04-14\"\n    },\n    {\n      \"publishTime\": \"1966-02-05T21:34:51.518Z\",\n      \"surplus\": 266,\n      \"forecastDate\": \"1992-05-23\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac60f2ca-8e62-47b2-8034-31d59d49908a",
+          "name": "Weekly surplus forecast (OCNMFW, OCNMF3Y)",
+          "request": {
+            "name": "Weekly surplus forecast (OCNMFW, OCNMF3Y)",
+            "description": {
+              "content": "This endpoint provides the Generating Plant Operating Surplus covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "surplus",
+                "weekly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "794c3ff2-1884-41ef-b126-067e61577747",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "surplus",
+                    "weekly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1971-10-10T03:05:37.304Z\",\n      \"surplus\": 5708,\n      \"week\": 5569,\n      \"year\": 7270,\n      \"weekStartDate\": \"1975-07-18\"\n    },\n    {\n      \"publishTime\": \"2005-03-23T20:44:47.065Z\",\n      \"surplus\": 8877,\n      \"week\": 8700,\n      \"year\": 6752,\n      \"weekStartDate\": \"1969-02-09\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cc9c24d-3cf7-4eb4-af62-035aafcac3a0",
+          "name": "Historical weekly surplus forecast (OCNMFW, OCNMF3Y)",
+          "request": {
+            "name": "Historical weekly surplus forecast (OCNMFW, OCNMF3Y)",
+            "description": {
+              "content": "This endpoint provides the historic Generating Plant Operating Surplus covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156.\nHistorical published data of weekly surplus forecasts for a given publish date in the 2-156 week dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "surplus",
+                "weekly",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "155cb2a2-55d9-451c-a7b1-c9eb92970c27",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "surplus",
+                    "weekly",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2012-04-24T04:26:03.820Z\",\n      \"surplus\": 4784,\n      \"week\": 9960,\n      \"year\": 1245,\n      \"weekStartDate\": \"1975-11-14\"\n    },\n    {\n      \"publishTime\": \"1979-02-18T10:39:44.622Z\",\n      \"surplus\": 1504,\n      \"week\": 9719,\n      \"year\": 8171,\n      \"weekStartDate\": \"1950-02-08\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afb3d7a6-3e13-40e3-9929-54453549a022",
+          "name": "Evolution weekly surplus forecast (OCNMFW, OCNMF3Y)",
+          "request": {
+            "name": "Evolution weekly surplus forecast (OCNMFW, OCNMF3Y)",
+            "description": {
+              "content": "This endpoint provides the evolution Generating Plant Operating Surplus  covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "surplus",
+                "weekly",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "week",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d905132b-6be5-4cd4-b289-82e79fc3cd87",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "surplus",
+                    "weekly",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "week",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2012-04-24T04:26:03.820Z\",\n      \"surplus\": 4784,\n      \"week\": 9960,\n      \"year\": 1245,\n      \"weekStartDate\": \"1975-11-14\"\n    },\n    {\n      \"publishTime\": \"1979-02-18T10:39:44.622Z\",\n      \"surplus\": 1504,\n      \"week\": 9719,\n      \"year\": 8171,\n      \"weekStartDate\": \"1950-02-08\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3aaf943f-a8da-466b-b4f2-cd5eb7c47c89",
+    "name": "Insights.Api Balancing Mechanism Dynamic Surplus Forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Non-BM STOR API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Non-BM STOR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Non-BM STOR time series (NONBM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/nonbm/stor",
+            "params": [
+              {
+                "name": "from",
+                "value": "2022-06-01T00:00Z",
+                "type": "query",
+                "description": "The \"from\" start time or settlement date for the filter."
+              },
+              {
+                "name": "to",
+                "value": "2022-07-01T00:00Z",
+                "type": "query",
+                "description": "The \"to\" start time or settlement date for the filter."
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "",
+                "type": "query",
+                "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "",
+                "type": "query",
+                "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "includeZero",
+                "value": "false",
+                "type": "query",
+                "description": "Include data points with a generation of zero."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides data about the Short Term Operating Reserves (STOR) that have been made use of\nby NGESO. This is activity that is outside of the Balancing Mechanism and takes place to meet the need to\nincrease generation or decrease demand.\n            \nBy default, the from and to parameters filter the data by time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for "
+        },
+        {
+          "info": {
+            "name": "Non-BM STOR events (NONBM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/nonbm/stor/events",
+            "params": [
+              {
+                "name": "count",
+                "value": "3",
+                "type": "query",
+                "description": "The number of events to return."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "If specified, filters events to those with a start time before or at the date, or a settlement date before the date if\nsettlementPeriodBefore is also specified.\nIf omitted, latest events are returned."
+              },
+              {
+                "name": "settlementPeriodBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters events to those with a settlement period before or at the value.\nBefore parameter must be specified if this is specified."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides data about the start of NGESO Short Term Operating Reserves (STOR) events. This is\nactivity that is outside of the Balancing Mechanism and takes place to meet the need to\nincrease generation or decrease demand. Each result has a non-zero generation value which was preceded by a zero\ngeneration value.\n            \nBy default, the before parameter filters the data by start time. If the settlementPeriodBefore parameter is\nprovided, the before parameter instead filters on sett"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

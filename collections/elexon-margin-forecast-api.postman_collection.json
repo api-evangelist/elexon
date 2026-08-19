@@ -1,0 +1,633 @@
+{
+  "item": [
+    {
+      "id": "9d7a3c94-ec4f-4d97-8e1e-4ff29e0dfc45",
+      "name": "Margin Forecast",
+      "description": {
+        "content": "Generating Plant Operating Margin forecast data, including historical views of data by publish time or forecast date.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd632292-d785-40d1-bb61-00a01694141b",
+          "name": "Daily margin forecast (OCNMFD2)",
+          "request": {
+            "name": "Daily margin forecast (OCNMFD2)",
+            "description": {
+              "content": "This endpoint provides the Generating Plant Operating Margin covering 2 days ahead to 14 days ahead\nin MW values. The Daily API outputs the latest published data for daily margin forecast for D+2 t D+14",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "margin",
+                "daily"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "297b6036-8b8f-4bfd-bc7c-63ca2600ce4d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "margin",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2010-10-02T20:26:17.400Z\",\n      \"margin\": 4576,\n      \"forecastDate\": \"1947-09-13\"\n    },\n    {\n      \"publishTime\": \"1993-10-28T00:22:51.404Z\",\n      \"margin\": 6230,\n      \"forecastDate\": \"1984-07-11\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ef64372-0a55-4995-a28e-9db1416a1c5a",
+          "name": "Historical daily margin forecast (OCNMFD2)",
+          "request": {
+            "name": "Historical daily margin forecast (OCNMFD2)",
+            "description": {
+              "content": "This endpoint provides the historic Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe historic API outputs the latest published data for historic daily margin forecast for D+2 to D+14",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "margin",
+                "daily",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ce81608-50c4-4e37-90da-143a8a899fb1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "margin",
+                    "daily",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-09-09T00:58:29.664Z\",\n      \"margin\": 6550,\n      \"forecastDate\": \"1963-05-07\"\n    },\n    {\n      \"publishTime\": \"2010-09-10T08:01:20.787Z\",\n      \"margin\": 9171,\n      \"forecastDate\": \"2021-04-29\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5297c25b-d77a-49d0-a5ae-63c557450218",
+          "name": "Evolution daily margin forecast (OCNMFD2)",
+          "request": {
+            "name": "Evolution daily margin forecast (OCNMFD2)",
+            "description": {
+              "content": "This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily margin forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "margin",
+                "daily",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "forecastDate",
+                  "value": "<date>",
+                  "description": "(Required) The forecast date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91245fca-8262-4bb0-9993-5881fb07c9db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "margin",
+                    "daily",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-09-09T00:58:29.664Z\",\n      \"margin\": 6550,\n      \"forecastDate\": \"1963-05-07\"\n    },\n    {\n      \"publishTime\": \"2010-09-10T08:01:20.787Z\",\n      \"margin\": 9171,\n      \"forecastDate\": \"2021-04-29\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9457af26-aa75-4581-8a2e-614a4e378fe4",
+          "name": "Weekly margin forecast (OCNMFW2, OCNMF3Y2)",
+          "request": {
+            "name": "Weekly margin forecast (OCNMFW2, OCNMF3Y2)",
+            "description": {
+              "content": "This endpoint provides the Generating Plant Operating Margin covering 2 weeks ahead to 156 weeks ahead in MW values.\nThe weekly API outputs the latest published data for weekly margin forecast for W+2 to W+156",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "margin",
+                "weekly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac424322-53ed-4708-b100-6f860bed41a6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "margin",
+                    "weekly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1983-09-22T06:09:01.121Z\",\n      \"margin\": 8988,\n      \"week\": 9908,\n      \"year\": 7346,\n      \"weekStartDate\": \"1993-10-18\"\n    },\n    {\n      \"publishTime\": \"1999-08-01T16:12:17.356Z\",\n      \"margin\": 8922,\n      \"week\": 7376,\n      \"year\": 95,\n      \"weekStartDate\": \"1965-07-17\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e54595a-3fac-4694-bbac-b1a45922251f",
+          "name": "Historical weekly margin forecast (OCNMFW2, OCNMF3Y2)",
+          "request": {
+            "name": "Historical weekly margin forecast (OCNMFW2, OCNMF3Y2)",
+            "description": {
+              "content": "This endpoint provides the weekly historic  Generating Plant Operating Margin.\nThis historic API output 2 weeks ahead to 156 weeks ahead in MW values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "margin",
+                "weekly",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a79bc97-f6f5-4234-9931-7af4cfb65d1f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "margin",
+                    "weekly",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1958-03-07T12:51:16.932Z\",\n      \"margin\": 5339,\n      \"week\": 797,\n      \"year\": 755,\n      \"weekStartDate\": \"1993-08-19\"\n    },\n    {\n      \"publishTime\": \"1965-05-10T04:00:26.688Z\",\n      \"margin\": 7765,\n      \"week\": 9713,\n      \"year\": 7127,\n      \"weekStartDate\": \"2003-02-11\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb18070a-cc62-4f3c-9e32-216147336131",
+          "name": "Evolution daily margin forecast (OCNMFW2, OCNMF3Y2)",
+          "request": {
+            "name": "Evolution daily margin forecast (OCNMFW2, OCNMF3Y2)",
+            "description": {
+              "content": "This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily margin forecast for D+2 t D+14",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "margin",
+                "weekly",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "week",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7dbb415b-f074-437b-b81d-112f50db1483",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "margin",
+                    "weekly",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "week",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1958-03-07T12:51:16.932Z\",\n      \"margin\": 5339,\n      \"week\": 797,\n      \"year\": 755,\n      \"weekStartDate\": \"1993-08-19\"\n    },\n    {\n      \"publishTime\": \"1965-05-10T04:00:26.688Z\",\n      \"margin\": 7765,\n      \"week\": 9713,\n      \"year\": 7127,\n      \"weekStartDate\": \"2003-02-11\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9d52a5a6-f7f7-4484-a341-44ebce334f1e",
+    "name": "Insights.Api Balancing Mechanism Dynamic Margin Forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

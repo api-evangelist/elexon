@@ -1,0 +1,502 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Demand API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Demand",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Restoration Zone Demand Restored Submissions (RZDR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/by-restoration-zone/restored/submissions",
+            "params": [
+              {
+                "name": "count",
+                "value": "3",
+                "type": "query",
+                "description": "The number of system restoration events to return."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "If specified, filters events to those with a submission time before or at the specified date and time.\nIf omitted, latest events are returned."
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "The region to filter by."
+              },
+              {
+                "name": "gspGroupId",
+                "value": "",
+                "type": "query",
+                "description": "The GSP Group ID to filter by."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides data about the end of system restoration events. It returns the restored demand value\nfor each restoration zone at the last submission time of each event. The number of events to return is\ndetermined by the `count` parameter.\n            \nThe data can be filtered by submission date/time, region, and GSP Group ID (when received by NESO).\n            \nAll DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" targe"
+        },
+        {
+          "info": {
+            "name": "Initial National Demand outturn (INDO)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/outturn",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides data for Initial National Demand Outturn, which measures the\nhalf-hour average MW demand metered by the Transmission Company based on its operational metering.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:\n- INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.\n"
+        },
+        {
+          "info": {
+            "name": "Initial National Demand outturn (INDO) stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/outturn/stream",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to for the filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides data for initial National Demand outturn, which measures the\nhalf-hour average MW demand metered by the Transmission Company based on its operational metering.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:\n- INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.\n"
+        },
+        {
+          "info": {
+            "name": "Initial National Demand outturn per day (INDOD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/outturn/daily",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2023-08-26",
+                "type": "query"
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2023-08-27",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides initial National Demand outturn data per day. The total daily energy volume is the total\ndemand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding\nstation transformer, pumping and interconnector export demand. It is calculated from summing the half hourly\nINDO demands (divided by two to convert to MWh).\n            \nIf no date window is chosen, the search will default to results from the last 31 days.\n\nThis API endpoint"
+        },
+        {
+          "info": {
+            "name": "Initial National Demand outturn per day (INDOD) stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/outturn/daily/stream",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2023-08-26",
+                "type": "query"
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2023-08-27",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides initial National Demand outturn daily data. The total daily energy volume is the total\ndemand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding\nstation transformer, pumping and interconnector export demand. It is calculated from summing the half hourly\nINDO demands (divided by two to convert to MWh).\n            \nIf no date window is chosen, the search will default to results from the last 31 days.\n\nThis endpoint has a"
+        },
+        {
+          "info": {
+            "name": "System demand summary (FUELINST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/outturn/summary",
+            "params": [
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "⚠ This endpoint provides a down-sampled data summary intended for visualisation purposes.\nUse datasets endpoints for full dataset access."
+        },
+        {
+          "info": {
+            "name": "Peak demand per day (ITSDO)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/peak",
+            "params": [
+              {
+                "name": "from",
+                "value": "2021-10-01",
+                "type": "query",
+                "description": "The start of the requested date range."
+              },
+              {
+                "name": "to",
+                "value": "2021-10-30",
+                "type": "query",
+                "description": "The end of the requested date range."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint allows for retrieving peak ITSDO demand for each day from National Grid ESO.\nResults are filtered by a range of Date parameters.\nResults default to yesterday's peak if no parameters are supplied.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+        },
+        {
+          "info": {
+            "name": "Indicative peak demand per day (S0142, ITSDO, FUELHH)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/peak/indicative",
+            "params": [
+              {
+                "name": "data",
+                "value": "operational",
+                "type": "query",
+                "description": "The type of data. Supports values of 'operational' or 'settlement'."
+              },
+              {
+                "name": "triadSeasonStartYear",
+                "value": "",
+                "type": "query",
+                "description": "A year indicating the Triad season starting on 1 November of the given year, e.g. 2021."
+              },
+              {
+                "name": "from",
+                "value": "2021-10-01",
+                "type": "query",
+                "description": "The start of the requested date range."
+              },
+              {
+                "name": "to",
+                "value": "2021-10-30",
+                "type": "query",
+                "description": "The end of the requested date range."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Indicative demand peaks using operational metering data are daily maxima values determined from\nITSDO and FUELHH data used to determine and visualise Triad.\n            \nIndicative demand peaks using settlement metering data are daily maxima values determined from\nmetered volume data from the S0142_bpi file. These peaks are not used for Triad visualisation as\nthey are always calculated based on the latest run type. Triads for settlement data\nremain static after the National Grid report posted at"
+        },
+        {
+          "info": {
+            "name": "Settlement data demand peaks for a Triad season (S0142)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/peak/indicative/settlement/:triadSeason",
+            "params": [
+              {
+                "name": "triadSeason",
+                "value": "2021",
+                "type": "path",
+                "description": "A year indicating the Triad season starting on 1 November of the given year"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Provides indicative demand peak data for a Triad season from S0142_bpi files that were calculated\nduring the Triad season. For the data from the latest settlement runs for the Triad season use the\n`peak/indicative` endpoint."
+        },
+        {
+          "info": {
+            "name": "Operational data demand peaks for a Triad season (ITSDO, FUELHH)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/peak/indicative/operational/:triadSeason",
+            "params": [
+              {
+                "name": "triadSeason",
+                "value": "2021",
+                "type": "path",
+                "description": "A year indicating the Triad season starting on 1 November of the given year"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Provides indicative demand peak data for a Triad season ITSDO and FUELHH files over a Triad season. For non-Triad\nseason dates please use the `peak/indicative` endpoint."
+        },
+        {
+          "info": {
+            "name": "Triad demand peaks (S0142, ITSDO, FUELHH)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/peak/triad",
+            "params": [
+              {
+                "name": "data",
+                "value": "operational",
+                "type": "query",
+                "description": "The type of data. Supports values of 'operational' or 'settlement'."
+              },
+              {
+                "name": "triadSeasonStartYear",
+                "value": "2021",
+                "type": "query",
+                "description": "A year indicating the Triad season starting on 1 November of the given year."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "Operational Triad peaks are calculated from the indicative demand peaks data.\n\nSettlement Triad Peaks are calculated from the latest metered volume data available at the point one month following the Triad season's end.\nFor any Triad season still in progress, the latest run type data is used.\n            \nAll Triad peaks are at least 10 days clear of one another."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to demand/outturn."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/stream",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to demand/outturn/stream."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/rollingSystemDemand",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to generation/outturn."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/summary",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to demand/outturn/summary."
+        },
+        {
+          "info": {
+            "name": "This endpoint is obsolete, and this location may be removed with no further notice. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/total/actual",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint has been moved to demand/actual/total."
+        },
+        {
+          "info": {
+            "name": "Actual total load (ATL/B0610)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/demand/actual/total",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023-07-18",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023-07-21",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodFrom",
+                "value": "36",
+                "type": "query"
+              },
+              {
+                "name": "settlementPeriodTo",
+                "value": "12",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides actual total load data per bidding zone.\nIt can be filtered by settlement period dates.\n            \nThis API endpoint has a maximum range of 7 days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

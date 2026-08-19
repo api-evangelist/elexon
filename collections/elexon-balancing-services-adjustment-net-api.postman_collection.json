@@ -1,0 +1,601 @@
+{
+  "item": [
+    {
+      "id": "1f6c96a4-b9ec-4d0a-bb25-9d7965ff42ca",
+      "name": "Balancing Services Adjustment - Net",
+      "description": {
+        "content": "Net balancing services adjustment data (NETBSAD), provided as a time series or filtered to events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51e3c8fc-d27b-4f81-888f-4fb4c10ec341",
+          "name": "Net balancing services adjustment time series (NETBSAD)",
+          "request": {
+            "name": "Net balancing services adjustment time series (NETBSAD)",
+            "description": {
+              "content": "This endpoint provides data about the Net Balancing Services Adjustment (NETBSAD). Each\nentry in the time series contains the NETBSAD values for that settlement period.\n            \nBy default, the from and to parameters filter the data by time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/nonbm/netbsad?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/nonbm/netbsad?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/nonbm/netbsad?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/nonbm/netbsad?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "nonbm",
+                "netbsad"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"from\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) The \"to\" start time or settlement date for the filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>",
+                  "description": "The \"from\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>",
+                  "description": "The \"to\" settlement period for the filter. This should be an integer from 1-50 inclusive."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeZero",
+                  "value": "<boolean>",
+                  "description": "Include data points with a generation of zero."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fea15b1b-b1ed-4dbd-b818-48308b26ca24",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeZero",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"startTime\": \"2022-06-25T13:00:00Z\",\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriod\": 29,\n      \"netBuyPriceCostAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentSystem\": 0,\n      \"buyPricePriceAdjustment\": 0,\n      \"netSellPriceCostAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentSystem\": 0,\n      \"sellPricePriceAdjustment\": 0\n    },\n    {\n      \"startTime\": \"2022-06-25T13:00:00Z\",\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriod\": 29,\n      \"netBuyPriceCostAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentSystem\": 0,\n      \"buyPricePriceAdjustment\": 0,\n      \"netSellPriceCostAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentSystem\": 0,\n      \"sellPricePriceAdjustment\": 0\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "694f16d1-b4d7-403a-be99-6cfefd04befc",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeZero",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "37d61d78-80b8-408f-95d1-a077c721451b",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeZero",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca2e9a80-ba6e-474b-b3ef-559f16cf276c",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeZero",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ad5ba88-f409-44e0-bcf2-0f01f4de91e5",
+          "name": "Net balancing services adjustment events (NETBSAD)",
+          "request": {
+            "name": "Net balancing services adjustment events (NETBSAD)",
+            "description": {
+              "content": "This endpoint provides data about the start of NGESO Net Balancing Services Adjustment (NETBSAD) events.\nAn event is a point in time where one of the NETBSAD values has changed from 0 to a value.\nEach event details the start time of the event and the NETBSAD values associated with the start of the event.\n            \nBy default, the before parameter filters the data by start time. If the settlementPeriodBefore parameter is\nprovided, the before parameter instead filters on settlement date, allowing for searching by start time or\nsettlement date & settlement period.\nNote: When filtering via settlement date, before is treated as a Date only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering latest 3 events:\n            \n    /balancing/nonbm/netbsad/events?count=3\n            \nFiltering latest 3 events before start time:\n            \n    /balancing/nonbm/netbsad/events?before=2022-08-01T00:00Z&count=3\n            \nFiltering latest 3 events before settlement date and settlement period:\n            \n    /balancing/nonbm/netbsad/events?before=2022-08-01T00:00Z&settlementPeriodBefore=48&count=3",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancing",
+                "nonbm",
+                "netbsad",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>",
+                  "description": "(Required) The number of events to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "If specified, filters events to those with a start time before or at the date, or a settlement date before the date if\nsettlementPeriodBefore is also specified.\nIf omitted, latest events are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodBefore",
+                  "value": "<integer>",
+                  "description": "Filters events to those with a settlement period before or at the value.\nBefore parameter must be specified if this is specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69bcc066-7c85-4954-b3dc-4de0fb8e4cbd",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodBefore",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"startTime\": \"2022-06-25T13:00:00Z\",\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriod\": 29,\n      \"netBuyPriceCostAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentSystem\": 0,\n      \"buyPricePriceAdjustment\": 0,\n      \"netSellPriceCostAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentSystem\": 0,\n      \"sellPricePriceAdjustment\": 0\n    },\n    {\n      \"startTime\": \"2022-06-25T13:00:00Z\",\n      \"settlementDate\": \"2022-06-25\",\n      \"settlementPeriod\": 29,\n      \"netBuyPriceCostAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentEnergy\": 0,\n      \"netBuyPriceVolumeAdjustmentSystem\": 0,\n      \"buyPricePriceAdjustment\": 0,\n      \"netSellPriceCostAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentEnergy\": 0,\n      \"netSellPriceVolumeAdjustmentSystem\": 0,\n      \"sellPricePriceAdjustment\": 0\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fa5d3f6-5571-4595-a7fb-008fb0148abe",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodBefore",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a2f6283-9f6b-4236-b059-91541d7f21bc",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodBefore",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d7b70c2-7437-44b8-a861-832d5401d68b",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancing",
+                    "nonbm",
+                    "netbsad",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "3"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodBefore",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b7d8b5aa-dc06-427f-932e-19c8f48a258c",
+    "name": "Insights.Api Balancing Mechanism Dynamic Balancing Services Adjustment - Net API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "d1265fe5-8682-48fa-b054-191b38381c3f",
+      "name": "Temperature",
+      "description": {
+        "content": "Daily average & reference temperatures.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "31a39d0c-9dc8-4c47-be9e-08fdefc7c2af",
+          "name": "Temperature data (TEMP)",
+          "request": {
+            "name": "Temperature data (TEMP)",
+            "description": {
+              "content": "This endpoint provides daily average GB temperature data (in Celsius) as well as reference temperatures (low, normal and high).\nThis average data is calculated by National Grid ESO from the data retrieved from 6 weather stations around Britain.\nNGESO use this data as part of the electricity demand forecasting process.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "temperature"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "The from date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "The to date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce622f8e-9b62-4539-b053-d5f33a0fe3ef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "temperature"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2022-09-21"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"measurementDate\": \"1965-09-28\",\n      \"publishTime\": \"1978-01-22T09:18:38.930Z\",\n      \"temperature\": 8897.117343087106,\n      \"temperatureReferenceAverage\": 2919.478324562237,\n      \"temperatureReferenceHigh\": 8280.571159315217,\n      \"temperatureReferenceLow\": 8251.994078797243\n    },\n    {\n      \"measurementDate\": \"1982-07-15\",\n      \"publishTime\": \"1972-08-02T20:57:33.693Z\",\n      \"temperature\": 1977.9944730956356,\n      \"temperatureReferenceAverage\": 9999.329840505672,\n      \"temperatureReferenceHigh\": 8753.994007658222,\n      \"temperatureReferenceLow\": 336.19995227785137\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4500f342-9d19-40de-885a-c1b6999e5a09",
+    "name": "Insights.Api Balancing Mechanism Dynamic Temperature API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

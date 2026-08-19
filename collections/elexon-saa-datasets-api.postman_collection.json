@@ -1,0 +1,315 @@
+{
+  "item": [
+    {
+      "id": "997ff708-42d4-45e0-a425-06c5cf52df5f",
+      "name": "SAA Datasets",
+      "description": {
+        "content": "Datasets received from the Settlement Administration Agent (SAA)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cdb56c38-cc44-497f-940d-d16cff361649",
+          "name": "Total Exempt Supply Volume (S0621)",
+          "request": {
+            "name": "Total Exempt Supply Volume (S0621)",
+            "description": {
+              "content": "Returns the total Import and Export Exempt Metered Volume (in MWh) for the requested settlement date and settlement run type.\n            \nThis endpoint will not return any data until S0621 data is first published at the beginning of March 2025.\n\nSettlement date parameter must be provided in the exact format YYYY-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "saa",
+                "datasets",
+                "total-exempt-volume",
+                ":settlementDate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementRunType",
+                  "value": "<string>",
+                  "description": "The settlement run type for the filter.\nIf one or more run types are specified, only data with those run types is returned.\nIf no run type is specified, for each settlement period only the single data point with the most recent run type is returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementRunType",
+                  "value": "<string>",
+                  "description": "The settlement run type for the filter.\nIf one or more run types are specified, only data with those run types is returned.\nIf no run type is specified, for each settlement period only the single data point with the most recent run type is returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "settlementDate",
+                  "description": "(Required) The settlement date for the filter."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39dae24c-8594-4b7b-b23d-797a99c31f97",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saa",
+                    "datasets",
+                    "total-exempt-volume",
+                    ":settlementDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementRunType",
+                      "value": "II"
+                    },
+                    {
+                      "key": "settlementRunType",
+                      "value": "SF"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "settlementDate",
+                      "description": "(Required) The settlement date for the filter."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"creationTime\": \"2025-01-16T15:31:12Z\",\n      \"settlementDate\": \"2025-01-16\",\n      \"settlementPeriod\": 5,\n      \"settlementRunType\": \"R1\",\n      \"totalExemptSupplyVolume\": 505.3\n    },\n    {\n      \"creationTime\": \"2025-01-16T15:31:12Z\",\n      \"settlementDate\": \"2025-01-16\",\n      \"settlementPeriod\": 5,\n      \"settlementRunType\": \"R1\",\n      \"totalExemptSupplyVolume\": 505.3\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ffd2a2b-c475-4d92-8559-2db5875e6d9b",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saa",
+                    "datasets",
+                    "total-exempt-volume",
+                    ":settlementDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementRunType",
+                      "value": "II"
+                    },
+                    {
+                      "key": "settlementRunType",
+                      "value": "SF"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "settlementDate",
+                      "description": "(Required) The settlement date for the filter."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "114bcd02-0fc2-463f-8954-a50131fa1326",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saa",
+                    "datasets",
+                    "total-exempt-volume",
+                    ":settlementDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementRunType",
+                      "value": "II"
+                    },
+                    {
+                      "key": "settlementRunType",
+                      "value": "SF"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "settlementDate",
+                      "description": "(Required) The settlement date for the filter."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a6fd58d-2ddd-485a-8ae5-bb2ce7403a4e",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saa",
+                    "datasets",
+                    "total-exempt-volume",
+                    ":settlementDate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementRunType",
+                      "value": "II"
+                    },
+                    {
+                      "key": "settlementRunType",
+                      "value": "SF"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "settlementDate",
+                      "description": "(Required) The settlement date for the filter."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "10401560-9e48-48f9-a298-91fafd6a66db",
+    "name": "Insights.Api Balancing Mechanism Dynamic SAA Datasets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic REMIT API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "REMIT",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk fetch message details by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "1,2,3,4",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides one or more REMIT messages based on the given message IDs."
+        },
+        {
+          "info": {
+            "name": "Fetch message details by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit/:messageId",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides a REMIT message based on a given message ID."
+        },
+        {
+          "info": {
+            "name": "Fetch message details by mRID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit/search",
+            "params": [
+              {
+                "name": "mrid",
+                "value": "48X000000000080X-NGET-RMT-00014669",
+                "type": "query"
+              },
+              {
+                "name": "revisionNumber",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides one or more REMIT messages based on the given mRID and revision number. If none is given\nit returns the REMIT message revision with the latest revision number."
+        },
+        {
+          "info": {
+            "name": "List all message revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit/revisions",
+            "params": [
+              {
+                "name": "mrid",
+                "value": "48X000000000080X-NGET-RMT-00014669",
+                "type": "query"
+              },
+              {
+                "name": "messageId",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all revisions for a given REMIT message.\nThe message can be specified in two ways:\n- the mRID\n- the message ID of a specific revision, which will return the entire list of revisions for that message"
+        },
+        {
+          "info": {
+            "name": "List messages by publish time",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit/list/by-publish",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023/04/13 07:00",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023/04/14 07:00",
+                "type": "query"
+              },
+              {
+                "name": "participantId",
+                "value": "EECL",
+                "type": "query"
+              },
+              {
+                "name": "assetId",
+                "value": "T_RATSGT-2",
+                "type": "query"
+              },
+              {
+                "name": "messageType",
+                "value": "UnavailabilitiesOfElectricityFacilities",
+                "type": "query"
+              },
+              {
+                "name": "unavailabilityType",
+                "value": "Planned",
+                "type": "query"
+              },
+              {
+                "name": "eventType",
+                "value": "Production Unavailability,Transmission unavailability",
+                "type": "query"
+              },
+              {
+                "name": "fuelType",
+                "value": "Fossil Hard coal,Biomass",
+                "type": "query"
+              },
+              {
+                "name": "latestRevisionOnly",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "profileOnly",
+                "value": "false",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile."
+        },
+        {
+          "info": {
+            "name": "List messages by publish time (stream)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit/list/by-publish/stream",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023/04/13 07:00",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023/04/14 07:00",
+                "type": "query"
+              },
+              {
+                "name": "participantId",
+                "value": "EECL",
+                "type": "query"
+              },
+              {
+                "name": "assetId",
+                "value": "T_RATSGT-2",
+                "type": "query"
+              },
+              {
+                "name": "messageType",
+                "value": "UnavailabilitiesOfElectricityFacilities",
+                "type": "query"
+              },
+              {
+                "name": "unavailabilityType",
+                "value": "Planned",
+                "type": "query"
+              },
+              {
+                "name": "eventType",
+                "value": "Production Unavailability,Transmission unavailability",
+                "type": "query"
+              },
+              {
+                "name": "fuelType",
+                "value": "Fossil Hard coal,Biomass",
+                "type": "query"
+              },
+              {
+                "name": "latestRevisionOnly",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "profileOnly",
+                "value": "false",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for this data."
+        },
+        {
+          "info": {
+            "name": "List messages by event time",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit/list/by-event",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023/04/13 07:00",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023/04/14 07:00",
+                "type": "query"
+              },
+              {
+                "name": "participantId",
+                "value": "EECL",
+                "type": "query"
+              },
+              {
+                "name": "assetId",
+                "value": "T_RATSGT-2",
+                "type": "query"
+              },
+              {
+                "name": "messageType",
+                "value": "UnavailabilitiesOfElectricityFacilities",
+                "type": "query"
+              },
+              {
+                "name": "unavailabilityType",
+                "value": "Planned",
+                "type": "query"
+              },
+              {
+                "name": "eventType",
+                "value": "Production Unavailability,Transmission unavailability",
+                "type": "query"
+              },
+              {
+                "name": "fuelType",
+                "value": "Fossil Hard coal,Biomass",
+                "type": "query"
+              },
+              {
+                "name": "latestRevisionOnly",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "profileOnly",
+                "value": "false",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides a list of REMIT message identifiers based on the event start time, end time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile."
+        },
+        {
+          "info": {
+            "name": "List messages by event time (stream)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/remit/list/by-event/stream",
+            "params": [
+              {
+                "name": "from",
+                "value": "2023/04/13 07:00",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "2023/04/14 07:00",
+                "type": "query"
+              },
+              {
+                "name": "participantId",
+                "value": "EECL",
+                "type": "query"
+              },
+              {
+                "name": "assetId",
+                "value": "T_RATSGT-2",
+                "type": "query"
+              },
+              {
+                "name": "messageType",
+                "value": "UnavailabilitiesOfElectricityFacilities",
+                "type": "query"
+              },
+              {
+                "name": "unavailabilityType",
+                "value": "Planned",
+                "type": "query"
+              },
+              {
+                "name": "eventType",
+                "value": "Production Unavailability,Transmission unavailability",
+                "type": "query"
+              },
+              {
+                "name": "fuelType",
+                "value": "Fossil Hard coal,Biomass",
+                "type": "query"
+              },
+              {
+                "name": "latestRevisionOnly",
+                "value": "true",
+                "type": "query"
+              },
+              {
+                "name": "profileOnly",
+                "value": "false",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint provides a list of REMIT message identifiers based on the event start, end time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for this data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

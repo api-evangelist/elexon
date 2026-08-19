@@ -1,0 +1,574 @@
+{
+  "item": [
+    {
+      "id": "9b7162c4-fa09-4a5c-948f-b892ceb9cf88",
+      "name": "Reference",
+      "description": {
+        "content": "Reference data which can be used to filter other API requests.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "815b2495-9c08-4dd8-a3fb-4624d89ae5fe",
+          "name": "Fuel types",
+          "request": {
+            "name": "Fuel types",
+            "description": {
+              "content": "This endpoint provides a current list of fuel types",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference",
+                "fueltypes",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d9ed67c-0859-4110-ad2b-a4fed6375004",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference",
+                    "fueltypes",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f1699a6-cb97-46ec-b7af-7b5bd8ed5bbc",
+          "name": "Participants",
+          "request": {
+            "name": "Participants",
+            "description": {
+              "content": "This endpoint provides a current list of participant IDs received from REMIT messages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference",
+                "remit",
+                "participants",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89fc7f30-4bfd-4c6f-b347-14c796391169",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference",
+                    "remit",
+                    "participants",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e1c2496-211b-4b99-b05a-7dd9daa21037",
+          "name": "Assets",
+          "request": {
+            "name": "Assets",
+            "description": {
+              "content": "This endpoint provides a current list of asset IDs received from REMIT messages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference",
+                "remit",
+                "assets",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df672455-7551-4fa1-95a2-364789fe6a07",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference",
+                    "remit",
+                    "assets",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64b783a1-1407-41e8-924c-056cc1448e64",
+          "name": "REMIT fuel types",
+          "request": {
+            "name": "REMIT fuel types",
+            "description": {
+              "content": "This endpoint provides a current list of fuel types received from REMIT messages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference",
+                "remit",
+                "fueltypes",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40a1897b-6709-4b6b-9648-bbd24bd8415c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference",
+                    "remit",
+                    "fueltypes",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89a7846d-396c-47e9-a686-0956ce1f3f0a",
+          "name": "BM Units",
+          "request": {
+            "name": "BM Units",
+            "description": {
+              "content": "This endpoint provides a current list of BM units held by Elexon",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference",
+                "bmunits",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "515c95bb-cbaf-416b-b452-ffb3ee12188d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference",
+                    "bmunits",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"nationalGridBmUnit\": \"string\",\n    \"elexonBmUnit\": \"string\",\n    \"eic\": \"string\",\n    \"fuelType\": \"string\",\n    \"leadPartyName\": \"string\",\n    \"bmUnitType\": \"string\",\n    \"fpnFlag\": true,\n    \"bmUnitName\": \"string\",\n    \"leadPartyId\": \"string\",\n    \"demandCapacity\": \"string\",\n    \"generationCapacity\": \"string\",\n    \"productionOrConsumptionFlag\": \"string\",\n    \"transmissionLossFactor\": \"string\",\n    \"workingDayCreditAssessmentImportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentImportCapability\": \"string\",\n    \"workingDayCreditAssessmentExportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentExportCapability\": \"string\",\n    \"creditQualifyingStatus\": false,\n    \"demandInProductionFlag\": true,\n    \"gspGroupId\": \"string\",\n    \"gspGroupName\": \"string\",\n    \"interconnectorId\": \"string\"\n  },\n  {\n    \"nationalGridBmUnit\": \"string\",\n    \"elexonBmUnit\": \"string\",\n    \"eic\": \"string\",\n    \"fuelType\": \"string\",\n    \"leadPartyName\": \"string\",\n    \"bmUnitType\": \"string\",\n    \"fpnFlag\": true,\n    \"bmUnitName\": \"string\",\n    \"leadPartyId\": \"string\",\n    \"demandCapacity\": \"string\",\n    \"generationCapacity\": \"string\",\n    \"productionOrConsumptionFlag\": \"string\",\n    \"transmissionLossFactor\": \"string\",\n    \"workingDayCreditAssessmentImportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentImportCapability\": \"string\",\n    \"workingDayCreditAssessmentExportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentExportCapability\": \"string\",\n    \"creditQualifyingStatus\": false,\n    \"demandInProductionFlag\": false,\n    \"gspGroupId\": \"string\",\n    \"gspGroupName\": \"string\",\n    \"interconnectorId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c5d060a-7131-477f-a181-87c19e49171f",
+          "name": "BM Units (filtered)",
+          "request": {
+            "name": "BM Units (filtered)",
+            "description": {
+              "content": "This endpoint provides a list of BM units filtered by lead party IDs.\n            \nThe PartyIds query parameter is required. Provide one or more lead party IDs to filter the results.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference",
+                "bmunits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "partyIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "partyIds",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2184379-aea2-4806-961a-32108bcb02a6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference",
+                    "bmunits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partyIds",
+                      "value": "ADELA"
+                    },
+                    {
+                      "key": "partyIds",
+                      "value": "LENCO"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"nationalGridBmUnit\": \"string\",\n    \"elexonBmUnit\": \"string\",\n    \"eic\": \"string\",\n    \"fuelType\": \"string\",\n    \"leadPartyName\": \"string\",\n    \"bmUnitType\": \"string\",\n    \"fpnFlag\": true,\n    \"bmUnitName\": \"string\",\n    \"leadPartyId\": \"string\",\n    \"demandCapacity\": \"string\",\n    \"generationCapacity\": \"string\",\n    \"productionOrConsumptionFlag\": \"string\",\n    \"transmissionLossFactor\": \"string\",\n    \"workingDayCreditAssessmentImportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentImportCapability\": \"string\",\n    \"workingDayCreditAssessmentExportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentExportCapability\": \"string\",\n    \"creditQualifyingStatus\": false,\n    \"demandInProductionFlag\": true,\n    \"gspGroupId\": \"string\",\n    \"gspGroupName\": \"string\",\n    \"interconnectorId\": \"string\"\n  },\n  {\n    \"nationalGridBmUnit\": \"string\",\n    \"elexonBmUnit\": \"string\",\n    \"eic\": \"string\",\n    \"fuelType\": \"string\",\n    \"leadPartyName\": \"string\",\n    \"bmUnitType\": \"string\",\n    \"fpnFlag\": true,\n    \"bmUnitName\": \"string\",\n    \"leadPartyId\": \"string\",\n    \"demandCapacity\": \"string\",\n    \"generationCapacity\": \"string\",\n    \"productionOrConsumptionFlag\": \"string\",\n    \"transmissionLossFactor\": \"string\",\n    \"workingDayCreditAssessmentImportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentImportCapability\": \"string\",\n    \"workingDayCreditAssessmentExportCapability\": \"string\",\n    \"nonWorkingDayCreditAssessmentExportCapability\": \"string\",\n    \"creditQualifyingStatus\": false,\n    \"demandInProductionFlag\": false,\n    \"gspGroupId\": \"string\",\n    \"gspGroupName\": \"string\",\n    \"interconnectorId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4063ed1b-fe2c-473f-ac24-355580142471",
+          "name": "Interconnectors",
+          "request": {
+            "name": "Interconnectors",
+            "description": {
+              "content": "This endpoint provides a current list of interconnectors",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference",
+                "interconnectors",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae10d7d0-b9a1-4b51-aeb1-799b114abf1c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference",
+                    "interconnectors",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"interconnectorId\": \"string\",\n    \"interconnectorName\": \"string\",\n    \"interconnectorBiddingZone\": \"string\"\n  },\n  {\n    \"interconnectorId\": \"string\",\n    \"interconnectorName\": \"string\",\n    \"interconnectorBiddingZone\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4ad7698e-685a-4e33-a9aa-14d59438fb0d",
+    "name": "Insights.Api Balancing Mechanism Dynamic Reference API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

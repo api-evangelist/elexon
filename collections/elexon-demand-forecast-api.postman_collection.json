@@ -1,0 +1,4006 @@
+{
+  "item": [
+    {
+      "id": "ee6fd08e-e679-436b-982f-e43039d549e1",
+      "name": "Demand Forecast",
+      "description": {
+        "content": "Current or historic demand forecasts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89023eb6-d399-4755-8946-fab8a88dbd3c",
+          "name": "Day-ahead demand forecast (NDF, TSDF)",
+          "request": {
+            "name": "Day-ahead demand forecast (NDF, TSDF)",
+            "description": {
+              "content": "This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);\nthe forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.\nNDF takes into account transmission losses but but does not include station transformer load, pumped storage demand or Interconnector demand;\nthe data is reported only at national level; and TSDF which takes into account transmission losses , station transformer load, pumped storage demand and interconnector demand.\nThe data is reported both at national and boundary (system zones) level. Boundary data only available for Transmission System Demand Forecast (TSDF).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5e09726-881a-4aa4-a175-f3c555adfe2b",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2007-08-23T19:38:45.435Z\",\n      \"transmissionSystemDemand\": 7742,\n      \"nationalDemand\": 4864,\n      \"startTime\": \"2012-01-23T11:06:44.881Z\",\n      \"settlementDate\": \"1972-12-20\",\n      \"settlementPeriod\": 2402,\n      \"boundary\": \"string\"\n    },\n    {\n      \"publishTime\": \"2011-06-08T15:49:45.262Z\",\n      \"transmissionSystemDemand\": 1461,\n      \"nationalDemand\": 3189,\n      \"startTime\": \"1971-03-28T16:38:42.866Z\",\n      \"settlementDate\": \"1952-10-23\",\n      \"settlementPeriod\": 3915,\n      \"boundary\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58bae028-69a7-41f3-8c4f-900187d63d7e",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aad882d7-ad60-47af-a13a-f67a39c66b92",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16ef6a2a-41a7-4865-9eda-d1391a658a95",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22460d4f-231d-4ba6-91a9-3b747812d5bf",
+          "name": "Fourteen day demand forecast (NDFD, TSDFD)",
+          "request": {
+            "name": "Fourteen day demand forecast (NDFD, TSDFD)",
+            "description": {
+              "content": "Retrieve latest 14-day forecast demand data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "daily"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2949960b-60a2-4d47-9618-6991c94fecce",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1969-02-19T13:00:29.921Z\",\n      \"transmissionSystemDemand\": 5851,\n      \"nationalDemand\": 5286,\n      \"forecastDate\": \"1963-02-07\"\n    },\n    {\n      \"publishTime\": \"1959-04-02T18:44:04.195Z\",\n      \"transmissionSystemDemand\": 2295,\n      \"nationalDemand\": 4116,\n      \"forecastDate\": \"2021-05-08\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20d62352-25f7-4c11-b111-e462c62cbc31",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6dcf58f0-996e-4049-9791-1c051a0e5d02",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "176085fd-9cd1-4398-81d0-548d25d732e5",
+          "name": "One-year demand forecast (NDFW, TSDFW)",
+          "request": {
+            "name": "One-year demand forecast (NDFW, TSDFW)",
+            "description": {
+              "content": "This endpoint provides the latest weekly forecast demand data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "weekly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aef8ebae-78c4-4378-993d-7083c295d78d",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1955-09-13T16:39:38.107Z\",\n      \"transmissionSystemDemand\": 1182,\n      \"nationalDemand\": 4176,\n      \"forecastWeek\": 6771,\n      \"forecastYear\": 1626,\n      \"weekStartDate\": \"1950-08-13\"\n    },\n    {\n      \"publishTime\": \"1975-11-09T13:25:07.823Z\",\n      \"transmissionSystemDemand\": 3455,\n      \"nationalDemand\": 8941,\n      \"forecastWeek\": 9660,\n      \"forecastYear\": 8981,\n      \"weekStartDate\": \"1992-06-25\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbbc8f06-8c45-4311-b13f-580153bc84c2",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bccb26d-f55d-4d9a-ba86-28d849f2e241",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c562b479-050e-4139-bad0-15f716b1e0a8",
+          "name": "History of the day-ahead demand forecast (NDF, TSDF)",
+          "request": {
+            "name": "History of the day-ahead demand forecast (NDF, TSDF)",
+            "description": {
+              "content": "This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);\nthe forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.\nNDF takes into account transmission losses but but does not include station transformer load, pumped storage demand or Interconnector demand;\nthe data is reported only at national level; and TSDF which takes into account transmission losses , station transformer load, pumped storage demand and interconnector demand.\nThe data is reported both at national and boundary (system zones) level. Boundary data only available for Transmission System Demand Forecast (TSDF).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57414dcf-13b7-415d-89f0-0c7b42eeed97",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2026-07-17T17:13:24.849Z\",\n      \"transmissionSystemDemand\": 9803,\n      \"nationalDemand\": 3387,\n      \"startTime\": \"1968-03-16T06:06:45.299Z\",\n      \"settlementDate\": \"1992-05-01\",\n      \"settlementPeriod\": 9538,\n      \"boundary\": \"string\"\n    },\n    {\n      \"publishTime\": \"1989-12-23T20:20:45.053Z\",\n      \"transmissionSystemDemand\": 9527,\n      \"nationalDemand\": 5483,\n      \"startTime\": \"2022-12-06T10:39:59.219Z\",\n      \"settlementDate\": \"1962-02-07\",\n      \"settlementPeriod\": 9814,\n      \"boundary\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94b24e0c-1d6b-4563-b173-32492413fcc5",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "588a265b-0203-4841-8203-93aef444d4c1",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d561dc4-4af3-4314-bbd1-ec7c4889795f",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68dd571e-bfd2-4649-851d-4600c4f90f0c",
+          "name": "History of the fourteen-day demand forecast (NDFD, TSDFD)",
+          "request": {
+            "name": "History of the fourteen-day demand forecast (NDFD, TSDFD)",
+            "description": {
+              "content": "Retrieve historical daily forecast demand data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "daily",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd1a74c8-7819-4c52-a8c2-03272c263bf2",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1977-12-16T13:44:27.802Z\",\n      \"transmissionSystemDemand\": 9662,\n      \"nationalDemand\": 2709,\n      \"forecastDate\": \"1949-03-09\"\n    },\n    {\n      \"publishTime\": \"1978-05-09T21:00:51.405Z\",\n      \"transmissionSystemDemand\": 9076,\n      \"nationalDemand\": 5377,\n      \"forecastDate\": \"2014-10-01\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa0ba5aa-77ad-44eb-9214-e59672605f48",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5e111d1-cc1d-423c-8054-f9b5fd08faea",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7980606-9e42-46c5-88db-57a9bfc71279",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37c47d5f-8bc8-4f24-ad17-19cc50eaa9fd",
+          "name": "History of the one-year demand forecast (NDFW, TSDFW)",
+          "request": {
+            "name": "History of the one-year demand forecast (NDFW, TSDFW)",
+            "description": {
+              "content": "Retrieve historical weekly forecast demand data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "weekly",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publishTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "293cdc0d-c738-4c9f-b263-fdf28bbf6f51",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1956-08-07T22:33:33.676Z\",\n      \"transmissionSystemDemand\": 6872,\n      \"nationalDemand\": 8014,\n      \"forecastWeek\": 9686,\n      \"forecastYear\": 7717,\n      \"weekStartDate\": \"2005-05-23\"\n    },\n    {\n      \"publishTime\": \"2017-07-20T01:54:37.011Z\",\n      \"transmissionSystemDemand\": 2085,\n      \"nationalDemand\": 7004,\n      \"forecastWeek\": 660,\n      \"forecastYear\": 8319,\n      \"weekStartDate\": \"1952-12-05\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef1d6ab4-2380-41f6-b1d4-ab464d61a10f",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f14b351c-3c9c-4ac3-8785-892ecdee3886",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92e4d22e-2efe-46e4-ae69-b0a5011d2eba",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publishTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c0debcf-b55d-4835-8937-357e6b874aa8",
+          "name": "Evolution of the day-ahead demand forecast over time (NDF, TSDF)",
+          "request": {
+            "name": "Evolution of the day-ahead demand forecast over time (NDF, TSDF)",
+            "description": {
+              "content": "This endpoint provides the day and day ahead demand forecast and are categorized as National Demand Forecast (NDF) and Transmission System Demand Forecast (TSDF);\nthe forecast values are derived by NGESO and is based on historically metered generation output for Great Britain.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective Settlement Period.\nNDF takes into account transmission losses but but does not include station transformer load, pumped storage demand or Interconnector demand;\nthe data is reported only at national level; and TSDF which takes into account transmission losses , station transformer load, pumped storage demand and interconnector demand.\nThe data is reported both at national and boundary (system zones) level. Boundary data only available for Transmission System Demand Forecast (TSDF).\n            \nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "settlementDate",
+                  "value": "<date>",
+                  "description": "(Required) The settlement date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriod",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77c8c418-aec2-408a-b4bc-4cc8e712ad6b",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2026-07-17T17:13:24.849Z\",\n      \"transmissionSystemDemand\": 9803,\n      \"nationalDemand\": 3387,\n      \"startTime\": \"1968-03-16T06:06:45.299Z\",\n      \"settlementDate\": \"1992-05-01\",\n      \"settlementPeriod\": 9538,\n      \"boundary\": \"string\"\n    },\n    {\n      \"publishTime\": \"1989-12-23T20:20:45.053Z\",\n      \"transmissionSystemDemand\": 9527,\n      \"nationalDemand\": 5483,\n      \"startTime\": \"2022-12-06T10:39:59.219Z\",\n      \"settlementDate\": \"1962-02-07\",\n      \"settlementPeriod\": 9814,\n      \"boundary\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "997316a5-1acd-40e6-b699-f9ddbd83a07f",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb018c62-070c-4318-90e5-9e5f17850709",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c311e4ef-9426-4238-8b47-4572609153c0",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "settlementDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "settlementPeriod",
+                      "value": "1"
+                    },
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faddd443-e6fd-4ceb-ab98-9164ed83e034",
+          "name": "Evolution of the fourteen-day demand forecast over time (NDFD, TSDFD)",
+          "request": {
+            "name": "Evolution of the fourteen-day demand forecast over time (NDFD, TSDFD)",
+            "description": {
+              "content": "This endpoint provides the evolution of all daily demand forecasts over time for a given forecast date.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "daily",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "forecastDate",
+                  "value": "<date>",
+                  "description": "(Required) The forecast date for the filter. This must be in the format yyyy-MM-dd."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5677adcc-8206-4601-926f-4510b097ddf7",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1977-12-16T13:44:27.802Z\",\n      \"transmissionSystemDemand\": 9662,\n      \"nationalDemand\": 2709,\n      \"forecastDate\": \"1949-03-09\"\n    },\n    {\n      \"publishTime\": \"1978-05-09T21:00:51.405Z\",\n      \"transmissionSystemDemand\": 9076,\n      \"nationalDemand\": 5377,\n      \"forecastDate\": \"2014-10-01\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f79d7faa-9cb3-4197-b9ac-ec430510f2cf",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92b69e0b-8898-4400-b1e0-5b484f4020dc",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28c10573-0a1c-40b8-aac5-514b2f08ff58",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "daily",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastDate",
+                      "value": "2022-09-20"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a4a548d-4617-42f4-b1ce-fdedfa2871e6",
+          "name": "Evolution of the one-year demand forecast over time  (NDFW, TSDFW)",
+          "request": {
+            "name": "Evolution of the one-year demand forecast over time  (NDFW, TSDFW)",
+            "description": {
+              "content": "This endpoint provides all weekly demand forecasts over time for a given forecast Year and Week",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "weekly",
+                "evolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "forecastYear",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "forecastWeek",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1e4d8d3-f3d4-42cb-95d9-55b34bcac0e6",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "forecastWeek",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1956-08-07T22:33:33.676Z\",\n      \"transmissionSystemDemand\": 6872,\n      \"nationalDemand\": 8014,\n      \"forecastWeek\": 9686,\n      \"forecastYear\": 7717,\n      \"weekStartDate\": \"2005-05-23\"\n    },\n    {\n      \"publishTime\": \"2017-07-20T01:54:37.011Z\",\n      \"transmissionSystemDemand\": 2085,\n      \"nationalDemand\": 7004,\n      \"forecastWeek\": 660,\n      \"forecastYear\": 8319,\n      \"weekStartDate\": \"1952-12-05\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa0c4d7d-f7d7-4971-8cb7-17268ffda8f4",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "forecastWeek",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50538487-1802-4b19-be71-61e093473c70",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "forecastWeek",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b450224-1a80-4808-9d26-15b29bf91724",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "weekly",
+                    "evolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forecastYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "forecastWeek",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56e42184-4369-4f8a-bcf1-a53b3d0e42d0",
+          "name": "Historic view of the latest forecasted demand (NDF, TSDF)",
+          "request": {
+            "name": "Historic view of the latest forecasted demand (NDF, TSDF)",
+            "description": {
+              "content": "This endpoint allows for retrieving latest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the latest published forecast for each settlement period is shown.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28fd3d15-878d-4a96-959e-2465c72ad734",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2026-07-17T17:13:24.849Z\",\n      \"transmissionSystemDemand\": 9803,\n      \"nationalDemand\": 3387,\n      \"startTime\": \"1968-03-16T06:06:45.299Z\",\n      \"settlementDate\": \"1992-05-01\",\n      \"settlementPeriod\": 9538,\n      \"boundary\": \"string\"\n    },\n    {\n      \"publishTime\": \"1989-12-23T20:20:45.053Z\",\n      \"transmissionSystemDemand\": 9527,\n      \"nationalDemand\": 5483,\n      \"startTime\": \"2022-12-06T10:39:59.219Z\",\n      \"settlementDate\": \"1962-02-07\",\n      \"settlementPeriod\": 9814,\n      \"boundary\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6c94889-fefe-4757-89d7-be407edb8199",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b80bf76d-54ba-4d17-83df-f27bacb0373f",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d89d399-2c71-4bd7-8166-8ce2a22f00d0",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1282de7e-8ec5-4bf6-8f46-95e5a6502885",
+          "name": "Historic view of the latest forecasted demand (NDF, TSDF) stream",
+          "request": {
+            "name": "Historic view of the latest forecasted demand (NDF, TSDF) stream",
+            "description": {
+              "content": "This endpoint allows for retrieving a stream of latest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the latest published forecast for each settlement period is shown.\nThis endpoint has an optimised JSON payload and aimed at frequent request for the day-ahead demand forecast data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead",
+                "latest",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2cd00016-d91d-40e1-b5ae-b976fe9b0217",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"publishTime\": \"1963-02-16T19:50:25.584Z\",\n    \"startTime\": \"1999-03-16T17:35:43.738Z\",\n    \"settlementDate\": \"1972-09-11\",\n    \"settlementPeriod\": 4502,\n    \"boundary\": \"string\",\n    \"transmissionSystemDemand\": 9672,\n    \"nationalDemand\": 2237\n  },\n  {\n    \"publishTime\": \"2019-09-22T14:56:41.368Z\",\n    \"startTime\": \"1970-10-05T09:12:36.432Z\",\n    \"settlementDate\": \"1957-05-07\",\n    \"settlementPeriod\": 3693,\n    \"boundary\": \"string\",\n    \"transmissionSystemDemand\": 2492,\n    \"nationalDemand\": 641\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd3b1606-ea8b-4625-a2e3-5ee91068a65d",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "88b0e13d-887b-4c65-914b-c64b0f9159e3",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "216fee79-07b0-4f78-aaeb-f1aa3a71d08a",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "latest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b52ec456-1dd6-4629-923c-a5d8ad30c1b5",
+          "name": "Historic view of the earliest forecasted demand (NDF, TSDF)",
+          "request": {
+            "name": "Historic view of the earliest forecasted demand (NDF, TSDF)",
+            "description": {
+              "content": "This endpoint allows for retrieving earliest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the earliest published forecast for each settlement period is shown.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead",
+                "earliest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d84e0e8-7956-4d17-a60b-d8741f5ee235",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2026-07-17T17:13:24.849Z\",\n      \"transmissionSystemDemand\": 9803,\n      \"nationalDemand\": 3387,\n      \"startTime\": \"1968-03-16T06:06:45.299Z\",\n      \"settlementDate\": \"1992-05-01\",\n      \"settlementPeriod\": 9538,\n      \"boundary\": \"string\"\n    },\n    {\n      \"publishTime\": \"1989-12-23T20:20:45.053Z\",\n      \"transmissionSystemDemand\": 9527,\n      \"nationalDemand\": 5483,\n      \"startTime\": \"2022-12-06T10:39:59.219Z\",\n      \"settlementDate\": \"1962-02-07\",\n      \"settlementPeriod\": 9814,\n      \"boundary\": \"string\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d9ba451-d3f4-40fc-8162-cd7ce5f7d781",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fdddcb65-689e-494c-af00-68ee9a91fb86",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8015ec9b-7e44-44a5-8f41-4d0f4d0ebccf",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d4149ad-e6c9-4d98-9f8c-c65a23f12381",
+          "name": "Historic view of the earliest forecasted demand (NDF, TSDF) stream",
+          "request": {
+            "name": "Historic view of the earliest forecasted demand (NDF, TSDF) stream",
+            "description": {
+              "content": "This endpoint allows for retrieving a stream of earliest day-ahead demand forecast data from National Grid ESO.\nResults are filtered by settlement time, and only the earliest published forecast for each settlement period is shown.\nThis endpoint has an optimised JSON payload and aimed at frequent request for the day-ahead demand forecast data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead",
+                "earliest",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>",
+                  "description": "Omitting this will return only national data. Specifying boundary=zonal will return only zonal data."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76924bf4-94be-4489-ae94-911a788f3299",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"publishTime\": \"1963-02-16T19:50:25.584Z\",\n    \"startTime\": \"1999-03-16T17:35:43.738Z\",\n    \"settlementDate\": \"1972-09-11\",\n    \"settlementPeriod\": 4502,\n    \"boundary\": \"string\",\n    \"transmissionSystemDemand\": 9672,\n    \"nationalDemand\": 2237\n  },\n  {\n    \"publishTime\": \"2019-09-22T14:56:41.368Z\",\n    \"startTime\": \"1970-10-05T09:12:36.432Z\",\n    \"settlementDate\": \"1957-05-07\",\n    \"settlementPeriod\": 3693,\n    \"boundary\": \"string\",\n    \"transmissionSystemDemand\": 2492,\n    \"nationalDemand\": 641\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee84faad-6764-4abc-81b6-2fad5c4adc94",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "68a32fa3-69f4-4e29-9ba9-e8cf171140ba",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52f79e76-ce91-4b41-830d-c92213c63af1",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "earliest",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20bf1f93-fda9-4cbd-8892-55561b66a79f",
+          "name": "Peak forecasted demand per day (TSDF)",
+          "request": {
+            "name": "Peak forecasted demand per day (TSDF)",
+            "description": {
+              "content": "This endpoint allows for retrieving the peak demand that is forecast for each day from National Grid ESO.\nResults are filtered by a range of Date parameters.\nResults default to yesterday, today and tomorrow if no parameters are supplied.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "day-ahead",
+                "peak"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "boundary",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "The start of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "The end of the requested date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d71a6a4-5474-4315-a0b1-53f5301243d8",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"1996-10-21T04:49:09.827Z\",\n      \"startTime\": \"1975-08-13T12:49:24.294Z\",\n      \"settlementDate\": \"1968-07-21\",\n      \"settlementPeriod\": 4615,\n      \"boundary\": \"string\",\n      \"transmissionSystemDemand\": 337\n    },\n    {\n      \"publishTime\": \"1974-03-06T20:43:50.536Z\",\n      \"startTime\": \"1998-08-31T20:59:25.106Z\",\n      \"settlementDate\": \"1961-06-26\",\n      \"settlementPeriod\": 7672,\n      \"boundary\": \"string\",\n      \"transmissionSystemDemand\": 3898\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e14dab8-0006-4cae-8803-9f4e61fb4c48",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "afa3dec2-1123-4e2f-b956-cc87e0b93cae",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a41d1fc2-642e-439b-90b3-25d25eb61e5b",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "day-ahead",
+                    "peak"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "boundary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "2021-10-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2021-10-30"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89a3bcec-01f8-4496-adee-66d9f80c6349",
+          "name": "Day-ahead total load forecast (DATL/B0620)",
+          "request": {
+            "name": "Day-ahead total load forecast (DATL/B0620)",
+            "description": {
+              "content": "This endpoint provides day-ahead total load forecast per bidding zone data.\nIt can be filtered by settlement period dates.\n            \nThis API endpoint has a maximum range of 7 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "total",
+                "day-ahead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodFrom",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlementPeriodTo",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d59c0cf-2999-4f35-a8a5-92ff9c841115",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-08-05 12:00:08Z\",\n      \"startTime\": \"2023-08-06 23:30:00Z\",\n      \"settlementDate\": \"2023-08-07\",\n      \"settlementPeriod\": 2,\n      \"quantity\": 18648\n    },\n    {\n      \"publishTime\": \"2023-08-05 12:00:08Z\",\n      \"startTime\": \"2023-08-06 23:30:00Z\",\n      \"settlementDate\": \"2023-08-07\",\n      \"settlementPeriod\": 2,\n      \"quantity\": 18648\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d75d514e-f5e6-4adc-957c-d63a1b4183a8",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10807f33-3723-4f5a-8f98-087af488aadc",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "111f357f-87b1-4928-9df5-6354cede8fd3",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "day-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "settlementPeriodFrom",
+                      "value": "36"
+                    },
+                    {
+                      "key": "settlementPeriodTo",
+                      "value": "12"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2783563d-4272-43b9-92e9-18a5934d8a6b",
+          "name": "Week-ahead total load forecast (WATL/B0630)",
+          "request": {
+            "name": "Week-ahead total load forecast (WATL/B0630)",
+            "description": {
+              "content": "This endpoint returns week-ahead total load forecast per bidding zone data with the minimum possible\nand maximum available total loads in MW values, filtered by forecast week.\n            \nFor a given forecast date, if more than one forecast has been published, only the most recent forecast\nis returned.\n            \nThis API endpoint has a maximum range of 367 days.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "total",
+                "week-ahead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "(Required) The earliest forecast date to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "(Required) The latest forecast date to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2c7e3f6-a351-4b2c-a27f-dbe156f0ba69",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-08-21"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"forecastDate\": \"2023-07-24\",\n      \"forecastWeek\": 30,\n      \"minimumPossible\": 18034,\n      \"maximumAvailable\": 35011\n    },\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"forecastDate\": \"2023-07-24\",\n      \"forecastWeek\": 30,\n      \"minimumPossible\": 18034,\n      \"maximumAvailable\": 35011\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4caf2244-881c-44e4-86ea-3c628a7afef9",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-08-21"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e306ca9-5daa-4210-870a-57f0ac984765",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-08-21"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c937a72-3052-4681-bc71-3b3c20471202",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-08-21"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-08-27"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6beae418-6852-478e-affe-66f69ebc4496",
+          "name": "Latest week-ahead total load forecast (WATL/B0630)",
+          "request": {
+            "name": "Latest week-ahead total load forecast (WATL/B0630)",
+            "description": {
+              "content": "This endpoint returns the most recently published WATL / B0630 forecast.\n            \nThis forecast is the week-ahead total load forecast per bidding zone data,\nwith minimum possible and maximum available total loads in MW values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forecast",
+                "demand",
+                "total",
+                "week-ahead",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31bc9932-d904-4395-b139-102a800abad4",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"forecastDate\": \"2023-07-24\",\n      \"forecastWeek\": 30,\n      \"minimumPossible\": 18034,\n      \"maximumAvailable\": 35011\n    },\n    {\n      \"publishTime\": \"2023-07-12 05:00:00Z\",\n      \"forecastDate\": \"2023-07-24\",\n      \"forecastWeek\": 30,\n      \"minimumPossible\": 18034,\n      \"maximumAvailable\": 35011\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a51375cb-2893-4de9-881b-42cc2162a0a5",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2bd7171-a704-4f0f-8817-e13d712e6a9c",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5589c5e8-3c0d-4594-9edd-f13fefd820f1",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forecast",
+                    "demand",
+                    "total",
+                    "week-ahead",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e3f621c4-9e7e-4a3d-b309-a872e2e10cde",
+    "name": "Insights.Api Balancing Mechanism Dynamic Demand Forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

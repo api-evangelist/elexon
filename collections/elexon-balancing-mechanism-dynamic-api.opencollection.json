@@ -1,0 +1,214 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Balancing Mechanism Dynamic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dynamic data per BMU (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/dynamic",
+            "params": [
+              {
+                "name": "bmUnit",
+                "value": "2__HFLEX001",
+                "type": "query",
+                "description": "The BM Unit to query."
+              },
+              {
+                "name": "snapshotAt",
+                "value": "2022-08-23T00:00Z",
+                "type": "query",
+                "description": "When to retrieve a snapshot of data at.\nThat is, the latest datapoint before this time will be returned for each dataset."
+              },
+              {
+                "name": "until",
+                "value": "2022-08-24T00:00Z",
+                "type": "query",
+                "description": "When to retrieve data until.\nData from the snapshot until this time will be returned."
+              },
+              {
+                "name": "snapshotAtSettlementPeriod",
+                "value": "2",
+                "type": "query",
+                "description": "The settlement period to retrieve a snapshot of data at.\nIf provided, the time part of SnapshotAt will be ignored."
+              },
+              {
+                "name": "untilSettlementPeriod",
+                "value": "2",
+                "type": "query",
+                "description": "The settlement period to retrieve data until.\nIf provided, the time part of Until will be ignored."
+              },
+              {
+                "name": "dataset",
+                "value": "SEL,MNZT,MDP",
+                "type": "query",
+                "description": "Datasets to filter. If omitted, all datasets will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the dynamic data for a requested BMU, excluding physical rate data.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV, MDP.\nThe results from each dataset are transformed to a common response model, with the common integer field *Value*\nmapped from the fields *Level*, *Period*, *Volume* or *Notice"
+        },
+        {
+          "info": {
+            "name": "Market-wide dynamic data (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/dynamic/all",
+            "params": [
+              {
+                "name": "settlementDate",
+                "value": "2023-01-18",
+                "type": "query",
+                "description": "The settlement date or datetime to filter."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "3",
+                "type": "query",
+                "description": "The settlement period to filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "bmUnit",
+                "value": "2__HFLEX001,HUMR-1",
+                "type": "query",
+                "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+              },
+              {
+                "name": "dataset",
+                "value": "SEL,MNZT,MDP",
+                "type": "query",
+                "description": "Datasets to filter. If omitted, all datasets will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the dynamic data for multiple requested BMUs or all BMUs, excluding dynamic rate data.\nIt returns the data valid for a single settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV & MDP.\nThe results from each dataset are transformed to a common response model, with the"
+        },
+        {
+          "info": {
+            "name": "Rate data per BMU (RDRE, RURE, RDRI, RURI)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/dynamic/rates",
+            "params": [
+              {
+                "name": "bmUnit",
+                "value": "DRAXX-1",
+                "type": "query",
+                "description": "The BM Unit to query."
+              },
+              {
+                "name": "snapshotAt",
+                "value": "2022-09-01T00:00Z",
+                "type": "query",
+                "description": "When to retrieve a snapshot of data at.\nThat is, the latest datapoint before this time will be returned for each dataset."
+              },
+              {
+                "name": "until",
+                "value": "2022-09-30T00:00Z",
+                "type": "query",
+                "description": "When to retrieve data until.\nData from the snapshot until this time will be returned."
+              },
+              {
+                "name": "snapshotAtSettlementPeriod",
+                "value": "2",
+                "type": "query",
+                "description": "The settlement period to retrieve a snapshot of data at.\nIf provided, the time part of SnapshotAt will be ignored."
+              },
+              {
+                "name": "untilSettlementPeriod",
+                "value": "2",
+                "type": "query",
+                "description": "The settlement period to retrieve data until.\nIf provided, the time part of Until will be ignored."
+              },
+              {
+                "name": "dataset",
+                "value": "RURE,RDRE,RDRI",
+                "type": "query",
+                "description": "Datasets to filter. If empty, all datasets will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides the physical rate data for a requested BMU.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI."
+        },
+        {
+          "info": {
+            "name": "Market-wide rate data (RDRE, RURE, RDRI, RURI)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/dynamic/rates/all",
+            "params": [
+              {
+                "name": "settlementDate",
+                "value": "2022-09-01",
+                "type": "query",
+                "description": "The settlement date to filter."
+              },
+              {
+                "name": "settlementPeriod",
+                "value": "2",
+                "type": "query",
+                "description": "The settlement period to filter. This should be an integer from 1-50 inclusive."
+              },
+              {
+                "name": "bmUnit",
+                "value": "2__HFLEX001,HUMR-1",
+                "type": "query",
+                "description": "The BM Units to query. Elexon or NGC BMU IDs can be used. If omitted, results for all BM units will be returned."
+              },
+              {
+                "name": "dataset",
+                "value": "RURE,RDRE,RDRI",
+                "type": "query",
+                "description": "Datasets to return. If omitted, all datasets will be returned."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides market-wide physical rate data, for all BMUs or a requested set of multiple BMUs.\nIt returns the data valid for a given settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nThe settlement period to query can be specified as a date and settlement period. The settlement date must be provided in the format yyyy-MM-dd.\n\nBy default, all of the relevant datasets are "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

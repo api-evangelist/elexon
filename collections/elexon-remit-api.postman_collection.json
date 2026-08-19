@@ -1,0 +1,2921 @@
+{
+  "item": [
+    {
+      "id": "ae1c1dcd-7981-4221-82c8-16252db20c9c",
+      "name": "REMIT",
+      "description": {
+        "content": "REMIT messages, including previous revisions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cfb12a7-69c3-4ab2-afd6-5ad01225e03c",
+          "name": "Bulk fetch message details by IDs",
+          "request": {
+            "name": "Bulk fetch message details by IDs",
+            "description": {
+              "content": "This endpoint provides one or more REMIT messages based on the given message IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "messageId",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "messageId",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5fe54ee-6038-4970-8494-7c2897eea32d",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "2"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "3"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "4"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"REMIT\",\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 25,\n      \"publishTime\": \"2023-01-31T17:39:15Z\",\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"messageType\": \"UnavailabilitiesOfElectricityFacilities\",\n      \"messageHeading\": \"Planned Unavailability of Generation Unit\",\n      \"eventType\": \"Production unavailability\",\n      \"unavailabilityType\": \"Planned\",\n      \"participantId\": \"11XINNOGY------2\",\n      \"registrationCode\": \"11XINNOGY------2\",\n      \"assetId\": \"T_DIDCB5\",\n      \"assetType\": \"Production\",\n      \"affectedUnit\": \"DIDCB5\",\n      \"affectedUnitEIC\": \"48W000000DIDCB5C\",\n      \"affectedArea\": \"N\",\n      \"biddingZone\": \"10YGB----------A\",\n      \"fuelType\": \"Fossil Gas\",\n      \"normalCapacity\": 780,\n      \"availableCapacity\": 320,\n      \"unavailableCapacity\": 361,\n      \"eventStatus\": \"Inactive\",\n      \"eventStartTime\": \"2022-08-23T06:59:00Z\",\n      \"eventEndTime\": \"2022-08-25T05:20:30Z\",\n      \"durationUncertainty\": \"+- 1 day\",\n      \"cause\": \"Other\",\n      \"relatedInformation\": \"Status changed to Completed\",\n      \"outageProfile\": [\n        {\n          \"startTime\": \"2023-02-03T21:06:31.000Z\",\n          \"endTime\": \"2023-02-03T21:10:00.000Z\",\n          \"capacity\": 436\n        }\n      ],\n      \"id\": 1\n    },\n    {\n      \"dataset\": \"REMIT\",\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 25,\n      \"publishTime\": \"2023-01-31T17:39:15Z\",\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"messageType\": \"UnavailabilitiesOfElectricityFacilities\",\n      \"messageHeading\": \"Planned Unavailability of Generation Unit\",\n      \"eventType\": \"Production unavailability\",\n      \"unavailabilityType\": \"Planned\",\n      \"participantId\": \"11XINNOGY------2\",\n      \"registrationCode\": \"11XINNOGY------2\",\n      \"assetId\": \"T_DIDCB5\",\n      \"assetType\": \"Production\",\n      \"affectedUnit\": \"DIDCB5\",\n      \"affectedUnitEIC\": \"48W000000DIDCB5C\",\n      \"affectedArea\": \"N\",\n      \"biddingZone\": \"10YGB----------A\",\n      \"fuelType\": \"Fossil Gas\",\n      \"normalCapacity\": 780,\n      \"availableCapacity\": 320,\n      \"unavailableCapacity\": 361,\n      \"eventStatus\": \"Inactive\",\n      \"eventStartTime\": \"2022-08-23T06:59:00Z\",\n      \"eventEndTime\": \"2022-08-25T05:20:30Z\",\n      \"durationUncertainty\": \"+- 1 day\",\n      \"cause\": \"Other\",\n      \"relatedInformation\": \"Status changed to Completed\",\n      \"outageProfile\": [\n        {\n          \"startTime\": \"2023-02-03T21:06:31.000Z\",\n          \"endTime\": \"2023-02-03T21:10:00.000Z\",\n          \"capacity\": 436\n        }\n      ],\n      \"id\": 1\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0464e93-5567-48da-8558-7f0b81cdd7df",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "2"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "3"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "4"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e410c53a-7fe3-4b9a-8f76-a852eb64f28a",
+              "name": "No data found for given query parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "2"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "3"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "4"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b897cd8b-13c6-4444-982e-3557d2e353fa",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "2"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "3"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "4"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d3c05414-a6ef-4fed-a8b7-411ac292c74d",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "2"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "3"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "4"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ae739c5-0495-449c-af19-49cc5c01a5cd",
+          "name": "Fetch message details by ID",
+          "request": {
+            "name": "Fetch message details by ID",
+            "description": {
+              "content": "This endpoint provides a REMIT message based on a given message ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "messageId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce2d0154-a440-4113-b1b4-0f72d3b73ce2",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"REMIT\",\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 25,\n      \"publishTime\": \"2023-01-31T17:39:15Z\",\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"messageType\": \"UnavailabilitiesOfElectricityFacilities\",\n      \"messageHeading\": \"Planned Unavailability of Generation Unit\",\n      \"eventType\": \"Production unavailability\",\n      \"unavailabilityType\": \"Planned\",\n      \"participantId\": \"11XINNOGY------2\",\n      \"registrationCode\": \"11XINNOGY------2\",\n      \"assetId\": \"T_DIDCB5\",\n      \"assetType\": \"Production\",\n      \"affectedUnit\": \"DIDCB5\",\n      \"affectedUnitEIC\": \"48W000000DIDCB5C\",\n      \"affectedArea\": \"N\",\n      \"biddingZone\": \"10YGB----------A\",\n      \"fuelType\": \"Fossil Gas\",\n      \"normalCapacity\": 780,\n      \"availableCapacity\": 320,\n      \"unavailableCapacity\": 361,\n      \"eventStatus\": \"Inactive\",\n      \"eventStartTime\": \"2022-08-23T06:59:00Z\",\n      \"eventEndTime\": \"2022-08-25T05:20:30Z\",\n      \"durationUncertainty\": \"+- 1 day\",\n      \"cause\": \"Other\",\n      \"relatedInformation\": \"Status changed to Completed\",\n      \"outageProfile\": [\n        {\n          \"startTime\": \"2023-02-03T21:06:31.000Z\",\n          \"endTime\": \"2023-02-03T21:10:00.000Z\",\n          \"capacity\": 436\n        }\n      ],\n      \"id\": 1\n    },\n    {\n      \"dataset\": \"REMIT\",\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 25,\n      \"publishTime\": \"2023-01-31T17:39:15Z\",\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"messageType\": \"UnavailabilitiesOfElectricityFacilities\",\n      \"messageHeading\": \"Planned Unavailability of Generation Unit\",\n      \"eventType\": \"Production unavailability\",\n      \"unavailabilityType\": \"Planned\",\n      \"participantId\": \"11XINNOGY------2\",\n      \"registrationCode\": \"11XINNOGY------2\",\n      \"assetId\": \"T_DIDCB5\",\n      \"assetType\": \"Production\",\n      \"affectedUnit\": \"DIDCB5\",\n      \"affectedUnitEIC\": \"48W000000DIDCB5C\",\n      \"affectedArea\": \"N\",\n      \"biddingZone\": \"10YGB----------A\",\n      \"fuelType\": \"Fossil Gas\",\n      \"normalCapacity\": 780,\n      \"availableCapacity\": 320,\n      \"unavailableCapacity\": 361,\n      \"eventStatus\": \"Inactive\",\n      \"eventStartTime\": \"2022-08-23T06:59:00Z\",\n      \"eventEndTime\": \"2022-08-25T05:20:30Z\",\n      \"durationUncertainty\": \"+- 1 day\",\n      \"cause\": \"Other\",\n      \"relatedInformation\": \"Status changed to Completed\",\n      \"outageProfile\": [\n        {\n          \"startTime\": \"2023-02-03T21:06:31.000Z\",\n          \"endTime\": \"2023-02-03T21:10:00.000Z\",\n          \"capacity\": 436\n        }\n      ],\n      \"id\": 1\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4094afec-b41e-49f1-9aab-b676c2160085",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b445cf4-6f3c-4c9f-a6fb-51e539063b63",
+              "name": "No data found for given id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f1ae098-324b-4aff-a724-2cbbb950b366",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "07e62ad6-db97-4b0a-984a-a63982b521e1",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f230e7f-2a66-4bdd-8c29-8fe7612d43e3",
+          "name": "Fetch message details by mRID",
+          "request": {
+            "name": "Fetch message details by mRID",
+            "description": {
+              "content": "This endpoint provides one or more REMIT messages based on the given mRID and revision number. If none is given\nit returns the REMIT message revision with the latest revision number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mrid",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "revisionNumber",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3c331a1-abba-4558-9387-698017cab422",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "revisionNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"dataset\": \"REMIT\",\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 25,\n      \"publishTime\": \"2023-01-31T17:39:15Z\",\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"messageType\": \"UnavailabilitiesOfElectricityFacilities\",\n      \"messageHeading\": \"Planned Unavailability of Generation Unit\",\n      \"eventType\": \"Production unavailability\",\n      \"unavailabilityType\": \"Planned\",\n      \"participantId\": \"11XINNOGY------2\",\n      \"registrationCode\": \"11XINNOGY------2\",\n      \"assetId\": \"T_DIDCB5\",\n      \"assetType\": \"Production\",\n      \"affectedUnit\": \"DIDCB5\",\n      \"affectedUnitEIC\": \"48W000000DIDCB5C\",\n      \"affectedArea\": \"N\",\n      \"biddingZone\": \"10YGB----------A\",\n      \"fuelType\": \"Fossil Gas\",\n      \"normalCapacity\": 780,\n      \"availableCapacity\": 320,\n      \"unavailableCapacity\": 361,\n      \"eventStatus\": \"Inactive\",\n      \"eventStartTime\": \"2022-08-23T06:59:00Z\",\n      \"eventEndTime\": \"2022-08-25T05:20:30Z\",\n      \"durationUncertainty\": \"+- 1 day\",\n      \"cause\": \"Other\",\n      \"relatedInformation\": \"Status changed to Completed\",\n      \"outageProfile\": [\n        {\n          \"startTime\": \"2023-02-03T21:06:31.000Z\",\n          \"endTime\": \"2023-02-03T21:10:00.000Z\",\n          \"capacity\": 436\n        }\n      ],\n      \"id\": 1\n    },\n    {\n      \"dataset\": \"REMIT\",\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 25,\n      \"publishTime\": \"2023-01-31T17:39:15Z\",\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"messageType\": \"UnavailabilitiesOfElectricityFacilities\",\n      \"messageHeading\": \"Planned Unavailability of Generation Unit\",\n      \"eventType\": \"Production unavailability\",\n      \"unavailabilityType\": \"Planned\",\n      \"participantId\": \"11XINNOGY------2\",\n      \"registrationCode\": \"11XINNOGY------2\",\n      \"assetId\": \"T_DIDCB5\",\n      \"assetType\": \"Production\",\n      \"affectedUnit\": \"DIDCB5\",\n      \"affectedUnitEIC\": \"48W000000DIDCB5C\",\n      \"affectedArea\": \"N\",\n      \"biddingZone\": \"10YGB----------A\",\n      \"fuelType\": \"Fossil Gas\",\n      \"normalCapacity\": 780,\n      \"availableCapacity\": 320,\n      \"unavailableCapacity\": 361,\n      \"eventStatus\": \"Inactive\",\n      \"eventStartTime\": \"2022-08-23T06:59:00Z\",\n      \"eventEndTime\": \"2022-08-25T05:20:30Z\",\n      \"durationUncertainty\": \"+- 1 day\",\n      \"cause\": \"Other\",\n      \"relatedInformation\": \"Status changed to Completed\",\n      \"outageProfile\": [\n        {\n          \"startTime\": \"2023-02-03T21:06:31.000Z\",\n          \"endTime\": \"2023-02-03T21:10:00.000Z\",\n          \"capacity\": 436\n        }\n      ],\n      \"id\": 1\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b711737b-31a6-4e5a-acf6-dc5ea5ff157a",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "revisionNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ba77146-4b1e-4c44-9a4c-98e73f801e81",
+              "name": "No data found for given query parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "revisionNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "261a5e0b-8f32-42a8-9f4a-d4ffedd3c5cc",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "revisionNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "884651cd-78b5-45e5-9f0f-4222639d5f31",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "revisionNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3ab8fbd-ff8c-4a6e-b9e4-ddd8eb30ee6a",
+          "name": "List all message revisions",
+          "request": {
+            "name": "List all message revisions",
+            "description": {
+              "content": "This endpoint provides all revisions for a given REMIT message.\nThe message can be specified in two ways:\n- the mRID\n- the message ID of a specific revision, which will return the entire list of revisions for that message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit",
+                "revisions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mrid",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "messageId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7975ac63-29b4-4760-a5ee-574591a57cc2",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 24,\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 2,\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"publishTime\": \"2023-01-31T17:15:31Z\",\n      \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n    },\n    {\n      \"id\": 24,\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 2,\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"publishTime\": \"2023-01-31T17:15:31Z\",\n      \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10a5501a-34a5-4bed-bd9a-7271478bda85",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0f74454-b6dc-42b1-afc3-5e1c17506ade",
+              "name": "No data found for given query parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dd9e95c0-8cd2-46d3-b02b-7acbeca1ee0d",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f2c6e8f-113f-49d7-9c40-084d5b238d01",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mrid",
+                      "value": "48X000000000080X-NGET-RMT-00014669"
+                    },
+                    {
+                      "key": "messageId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "034d50e1-5e90-46dd-93b3-9b568a6359f5",
+          "name": "List messages by publish time",
+          "request": {
+            "name": "List messages by publish time",
+            "description": {
+              "content": "This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit",
+                "list",
+                "by-publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "participantId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "messageType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "unavailabilityType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "latestRevisionOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "profileOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2858f07e-7190-42b8-b739-5c4ef1f2851e",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 24,\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 2,\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"publishTime\": \"2023-01-31T17:15:31Z\",\n      \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n    },\n    {\n      \"id\": 24,\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 2,\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"publishTime\": \"2023-01-31T17:15:31Z\",\n      \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1f4347a-3503-4f34-b742-487be9271ef5",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "701e5a87-e01d-4fe0-aaf4-4a1df6c370af",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "184b7c81-6044-4134-a2ff-748b0966ea4a",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cdbd9d2-2a3c-421d-a999-493f3f77674d",
+          "name": "List messages by publish time (stream)",
+          "request": {
+            "name": "List messages by publish time (stream)",
+            "description": {
+              "content": "This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for this data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit",
+                "list",
+                "by-publish",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "participantId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "messageType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "unavailabilityType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "latestRevisionOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "profileOnly",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bba79014-a0ec-4a05-a9f7-88eeefe4be2f",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 24,\n    \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n    \"revisionNumber\": 2,\n    \"createdTime\": \"2023-01-31T17:39:15Z\",\n    \"publishTime\": \"2023-01-31T17:15:31Z\",\n    \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n  },\n  {\n    \"id\": 24,\n    \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n    \"revisionNumber\": 2,\n    \"createdTime\": \"2023-01-31T17:39:15Z\",\n    \"publishTime\": \"2023-01-31T17:15:31Z\",\n    \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aefe0593-3aac-47bf-bbfa-64fa84177559",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bda14c8-ca30-4368-b5e1-c801615d991c",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "126abb94-c6c8-408f-9eea-6441689d6bd3",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-publish",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faa4d4bd-f1bc-4842-bee3-a5c3940d3026",
+          "name": "List messages by event time",
+          "request": {
+            "name": "List messages by event time",
+            "description": {
+              "content": "This endpoint provides a list of REMIT message identifiers based on the event start time, end time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit",
+                "list",
+                "by-event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "participantId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "messageType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "unavailabilityType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "latestRevisionOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "profileOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff263b2e-33fc-43a9-ab94-afe378e596f9",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 24,\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 2,\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"publishTime\": \"2023-01-31T17:15:31Z\",\n      \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n    },\n    {\n      \"id\": 24,\n      \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n      \"revisionNumber\": 2,\n      \"createdTime\": \"2023-01-31T17:39:15Z\",\n      \"publishTime\": \"2023-01-31T17:15:31Z\",\n      \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb0981ce-1c3c-440a-ae5f-48fceff5b265",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8a5fb45-4964-4522-ac5e-fb80aa1d24f7",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b294a501-c3c9-4537-a0c5-7d7ba4abd9d4",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbb48018-03d6-4368-a3e1-1c88478774c3",
+          "name": "List messages by event time (stream)",
+          "request": {
+            "name": "List messages by event time (stream)",
+            "description": {
+              "content": "This endpoint provides a list of REMIT message identifiers based on the event start, end time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for this data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "remit",
+                "list",
+                "by-event",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "participantId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "messageType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "unavailabilityType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fuelType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "latestRevisionOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "profileOnly",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f3c3a3b-5cae-4565-9450-5ae3be029c69",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 24,\n    \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n    \"revisionNumber\": 2,\n    \"createdTime\": \"2023-01-31T17:39:15Z\",\n    \"publishTime\": \"2023-01-31T17:15:31Z\",\n    \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n  },\n  {\n    \"id\": 24,\n    \"mrid\": \"11XINNOGY------2-NGET-RMT-00084421\",\n    \"revisionNumber\": 2,\n    \"createdTime\": \"2023-01-31T17:39:15Z\",\n    \"publishTime\": \"2023-01-31T17:15:31Z\",\n    \"url\": \"https://data.elexon.co.uk/bmrs/api/v1/remit/24\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "065c5283-65c3-4271-8d53-769c2cf428b0",
+              "name": "Error with query parameters - see response for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ffc110ce-7b24-4159-adf3-a4044083cc08",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b043515-583e-42bb-9d72-f7e1b4b6e6d1",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "remit",
+                    "list",
+                    "by-event",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "participantId",
+                      "value": "EECL"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "T_RATSGT-2"
+                    },
+                    {
+                      "key": "messageType",
+                      "value": "UnavailabilitiesOfElectricityFacilities"
+                    },
+                    {
+                      "key": "unavailabilityType",
+                      "value": "Planned"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Production Unavailability"
+                    },
+                    {
+                      "key": "eventType",
+                      "value": "Transmission unavailability"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Fossil Hard coal"
+                    },
+                    {
+                      "key": "fuelType",
+                      "value": "Biomass"
+                    },
+                    {
+                      "key": "latestRevisionOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "profileOnly",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "af187fe8-235a-45df-8511-2b255c193dad",
+    "name": "Insights.Api Balancing Mechanism Dynamic REMIT API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Insights.Api Balancing Mechanism Dynamic Data Status API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Status of ingested ISPSTACK Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/ISPSTACK",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the ISPSTACK dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested FREQ Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/FREQ",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the FREQ dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested BOALF Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/BOALF",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the BOALF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested DISEBSP Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/DISEBSP",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the DISEBSP dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested DISPTAV Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/DISPTAV",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the DISPTAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested DISBSAD Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/DISBSAD",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the DISBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested NETBSAD Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/NETBSAD",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the NETBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested BOD Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/BOD",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the BOD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested EBOCF Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/EBOCF",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the EBOCF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested BOAV Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/BOAV",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the BOAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested PN Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/PN",
+            "params": [
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the PN dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+        },
+        {
+          "info": {
+            "name": "Status of ingested REMIT Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.elexon.co.uk/bmrs/api/v1/data-status/REMIT",
+            "params": [
+              {
+                "name": "source",
+                "value": "Elexon",
+                "type": "query",
+                "description": "Optional filter for data source. Use 'Elexon' for Elexon Portal data (ELXP-RMT prefix) or 'MFT' for MFT data (NGET-RMT prefix). If not provided, returns all data points."
+              },
+              {
+                "name": "settlementDateFrom",
+                "value": "2022-09-20",
+                "type": "query",
+                "description": "The settlement date from filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "settlementDateTo",
+                "value": "2022-09-21",
+                "type": "query",
+                "description": "The settlement date to filter. This must be in the format yyyy-MM-dd."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response data format. Use json/xml to include metadata."
+              }
+            ]
+          },
+          "docs": "This endpoint provides information about the number of data points ingested for the REMIT dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.\n            \nThe source parameter is optional and allows filtering by data source:\n- 'Elexon' for Elexon Portal data (files prefixed with ELXP-RMT)\n- 'MFT' for MFT data (files prefixed with"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

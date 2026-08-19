@@ -1,0 +1,222 @@
+{
+  "item": [
+    {
+      "id": "7e984404-fa17-4040-8c53-b0b2d2d7fdd7",
+      "name": "SO-SO Prices",
+      "description": {
+        "content": "SO-SO Prices (SOSO) data, filtered by start time.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "314fc888-028d-4ee0-8cd8-bf590672ca1e",
+          "name": "SO-SO prices (SOSO)",
+          "request": {
+            "name": "SO-SO prices (SOSO)",
+            "description": {
+              "content": "This endpoint provides system operator to system operator prices data.\nIt can be filtered by start time.\n            \nThis API endpoint has a maximum range of 24 hours.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "soso",
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response data format. Use json/xml to include metadata."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71cec3b9-32be-4429-9b0d-54b533118e6a",
+              "name": "Data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "soso",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-09-26T07:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-09-27T07:00:00Z"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"contractIdentification\": \"EG_20210928_1100_1\",\n      \"tradeDirection\": \"A02\",\n      \"tradeQuantity\": 25,\n      \"tradePrice\": 30.4,\n      \"traderUnit\": \"EWIC_EG\",\n      \"startTime\": \"1953-05-16T21:42:53.184Z\",\n      \"settlementDate\": \"2023-01-31\"\n    },\n    {\n      \"contractIdentification\": \"EG_20210928_1100_1\",\n      \"tradeDirection\": \"A02\",\n      \"tradeQuantity\": 25,\n      \"tradePrice\": 30.4,\n      \"traderUnit\": \"EWIC_EG\",\n      \"startTime\": \"2009-08-15T02:14:44.794Z\",\n      \"settlementDate\": \"2023-01-31\"\n    }\n  ],\n  \"metadata\": {\n    \"datasets\": [\n      \"DATASET\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2598fd4d-abbe-416f-b500-24df1b12bb4c",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "soso",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-09-26T07:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-09-27T07:00:00Z"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74a89606-feee-4fd7-a1a2-47c711ba26ee",
+              "name": "Server error - please try again later",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "soso",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-09-26T07:00:00Z"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-09-27T07:00:00Z"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.elexon.co.uk/bmrs/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6aad5862-d30e-40d8-8de0-f7fb052af3d7",
+    "name": "Insights.Api Balancing Mechanism Dynamic SO-SO Prices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dynamic data.",
+      "type": "text/plain"
+    }
+  }
+}
