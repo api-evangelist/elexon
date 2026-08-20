@@ -348,7 +348,8 @@ apis:
   description: Loss of load probability and de-rated margin forecast data.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
-  tags:
+  tags: []
+  tags_raw:
   - Loss of Load Probability and De-rated Margin
   properties:
   - type: OpenAPI
