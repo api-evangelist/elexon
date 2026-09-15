@@ -28,35 +28,32 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/elexon.png
 tags:
-  - Electricity
-  - Energy
-  - UK Energy Market
-  - Balancing Mechanism
-  - Settlement
-  - Meter Readings
-  - Market Transparency
-  - BMRS
-  - Electricity Grid
-  - Power Generation
-  - United Kingdom
+- Electricity
+- Energy
+- UK Energy Market
+- Balancing Mechanism
+- Settlement
+- Meter Readings
+- Market Transparency
+- BMRS
+- Electricity Grid
+- Power Generation
+- United Kingdom
 created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
-description: >-
-  Elexon is the UK's Balancing and Settlement Code (BSC) Company, responsible for
-  administering the electricity balancing and settlement arrangements in Great Britain.
-  As the operator of the Balancing Mechanism Reporting Service (BMRS), Elexon publishes
-  a publicly accessible REST API — the Insights Solution API — that provides free, no-key
-  access to real-time and historical data from the UK electricity market. The API covers
-  balancing mechanism dynamic and physical data per Balancing Mechanism Unit (BMU),
-  bid-offer acceptances, balancing services adjustments, physical notifications, generation
-  availability forecasts, settlement reports, meter readings, and UK market transparency
-  data mandated under European legislation. All data is returned in JSON, XML, or CSV
-  format. A companion near-real-time push service (IRIS — Insights Real-time Information
-  Service) streams the same datasets over WebSocket/STOMP for latency-sensitive consumers.
-  The API is freely accessible to industry participants and the public with no registration
-  or API key required, and data may be reused with attribution ("Contains BMRS data
-  © Elexon Limited copyright and database right").
+description: Elexon is the UK's Balancing and Settlement Code (BSC) Company, responsible for administering
+  the electricity balancing and settlement arrangements in Great Britain. As the operator of the Balancing
+  Mechanism Reporting Service (BMRS), Elexon publishes a publicly accessible REST API — the Insights Solution
+  API — that provides free, no-key access to real-time and historical data from the UK electricity market.
+  The API covers balancing mechanism dynamic and physical data per Balancing Mechanism Unit (BMU), bid-offer
+  acceptances, balancing services adjustments, physical notifications, generation availability forecasts,
+  settlement reports, meter readings, and UK market transparency data mandated under European legislation.
+  All data is returned in JSON, XML, or CSV format. A companion near-real-time push service (IRIS — Insights
+  Real-time Information Service) streams the same datasets over WebSocket/STOMP for latency-sensitive
+  consumers. The API is freely accessible to industry participants and the public with no registration
+  or API key required, and data may be reused with attribution ("Contains BMRS data © Elexon Limited copyright
+  and database right").
 apis:
 - aid: elexon:elexon-balancing-mechanism-dynamic-api
   name: Elexon Balancing Mechanism Dynamic API
@@ -76,7 +73,7 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-balancing-mechanism-physical-api
   name: Elexon Balancing Mechanism Physical API
-  description: Physical data consists of PN, QPN, MILS, &amp; MELS.
+  description: Physical data consists of PN, QPN, MILS, & MELS.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -92,9 +89,8 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-balancing-services-adjustment-disaggregated-api
   name: Elexon Balancing Services Adjustment - Disaggregated API
-  description: >-
-    Adjustment actions (DISBSAD) for a given settlement period, or summarised by settlement period over
-    a time range.
+  description: Adjustment actions (DISBSAD) for a given settlement period, or summarised by settlement
+    period over a time range.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -110,8 +106,8 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-balancing-services-adjustment-net-api
   name: Elexon Balancing Services Adjustment - Net API
-  description: >-
-    Net balancing services adjustment data (NETBSAD), provided as a time series or filtered to events.
+  description: Net balancing services adjustment data (NETBSAD), provided as a time series or filtered
+    to events.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -159,9 +155,8 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-bmrs-datasets-api
   name: Elexon BMRS Datasets API
-  description: >-
-    Raw datasets as received from the National Grid, with associated metadata. The output in JSON format
-    matches IRIS, and can be used interchangeably with IRIS output.
+  description: Raw datasets as received from the National Grid, with associated metadata. The output in
+    JSON format matches IRIS, and can be used interchangeably with IRIS output.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -193,8 +188,8 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-data-status-api
   name: Elexon Data Status API
-  description: >-
-    The number of datapoints ingested for a dataset in a given period of time, grouped by settlement period.
+  description: The number of datapoints ingested for a dataset in a given period of time, grouped by settlement
+    period.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -290,9 +285,8 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-indicated-forecast-api
   name: Elexon Indicated Forecast API
-  description: >-
-    Day-and-day-ahead indicated forecast, categorized as Indicated Generation (INDGEN), Indicated Demand
-    (INDDEM), Imbalance (IMBALNGC) and Margin (MELNGC).
+  description: Day-and-day-ahead indicated forecast, categorized as Indicated Generation (INDGEN), Indicated
+    Demand (INDDEM), Imbalance (IMBALNGC) and Margin (MELNGC).
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -340,8 +334,7 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-load-shape-api
   name: Elexon Load Shape API
-  description: >-
-    Load shape period data and load shape totals data as calculated by the Load Shaping Service
+  description: Load shape period data and load shape totals data as calculated by the Load Shaping Service
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -374,9 +367,8 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-margin-forecast-api
   name: Elexon Margin Forecast API
-  description: >-
-    Generating Plant Operating Margin forecast data, including historical views of data by publish time
-    or forecast date.
+  description: Generating Plant Operating Margin forecast data, including historical views of data by
+    publish time or forecast date.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -408,8 +400,7 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-non-bm-stor-api
   name: Elexon Non-BM STOR API
-  description: >-
-    Short Term Operating Reserves (STOR) data, provided as a time series or filtered to events.
+  description: Short Term Operating Reserves (STOR) data, provided as a time series or filtered to events.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -521,9 +512,8 @@ apis:
     url: https://github.com/elexon-data/insights-docs
 - aid: elexon:elexon-surplus-forecast-api
   name: Elexon Surplus Forecast API
-  description: >-
-    Generating Plant Operating Surplus forecast data, including historical views of data by publish time
-    or forecast date.
+  description: Generating Plant Operating Surplus forecast data, including historical views of data by
+    publish time or forecast date.
   humanURL: https://developer.data.elexon.co.uk/
   baseURL: https://data.elexon.co.uk/bmrs/api/v1
   tags:
@@ -586,41 +576,41 @@ apis:
   - type: GitHub
     url: https://github.com/elexon-data/insights-docs
 common:
-  - type: AgenticAccess
-    url: agentic-access/elexon-agentic-access.yml
-  - type: DomainSecurity
-    url: security/elexon-domain-security.yml
-  - type: Portal
-    url: https://developer.data.elexon.co.uk/
-  - type: Documentation
-    url: https://bmrs.elexon.co.uk/api-documentation/guidance
-  - type: OpenAPI
-    url: https://data.elexon.co.uk/swagger/v1/swagger.json
-  - type: TermsOfService
-    url: https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/
-  - type: StatusPage
-    url: https://status.elexon.co.uk/
-  - type: GitHub
-    url: https://github.com/elexon-data
-  - type: GitHub
-    url: https://github.com/elexon-data/insights-docs
-  - type: GitHub
-    url: https://github.com/elexon-data/insights-issues
-  - type: GitHub
-    url: https://github.com/elexon-data/iris-clients
-  - type: Blog
-    url: https://www.elexon.co.uk/news-insights/
-  - type: Support
-    url: mailto:insightssupport@elexon.co.uk
-  - type: Plans
-    url: plans/elexon-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/elexon-rate-limits.yml
-  - type: FinOps
-    url: finops/elexon-finops.yml
+- type: AgenticAccess
+  url: agentic-access/elexon-agentic-access.yml
+- type: DomainSecurity
+  url: security/elexon-domain-security.yml
+- type: Portal
+  url: https://developer.data.elexon.co.uk/
+- type: Documentation
+  url: https://bmrs.elexon.co.uk/api-documentation/guidance
+- type: OpenAPI
+  url: https://data.elexon.co.uk/swagger/v1/swagger.json
+- type: TermsOfService
+  url: https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/
+- type: StatusPage
+  url: https://status.elexon.co.uk/
+- type: GitHub
+  url: https://github.com/elexon-data
+- type: GitHub
+  url: https://github.com/elexon-data/insights-docs
+- type: GitHub
+  url: https://github.com/elexon-data/insights-issues
+- type: GitHub
+  url: https://github.com/elexon-data/iris-clients
+- type: Blog
+  url: https://www.elexon.co.uk/news-insights/
+- type: Support
+  url: mailto:insightssupport@elexon.co.uk
+- type: Plans
+  url: plans/elexon-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/elexon-rate-limits.yml
+- type: FinOps
+  url: finops/elexon-finops.yml
 x-headquarters: London, England, United Kingdom
 x-type: public-body
 x-sector: Energy / Electricity Settlement
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
