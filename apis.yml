@@ -40,7 +40,7 @@ tags:
 - Power Generation
 - United Kingdom
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 description: Elexon is the UK's Balancing and Settlement Code (BSC) Company, responsible for administering
   the electricity balancing and settlement arrangements in Great Britain. As the operator of the Balancing
@@ -576,6 +576,8 @@ apis:
   - type: GitHub
     url: https://github.com/elexon-data/insights-docs
 common:
+- type: Website
+  url: https://elexon.co.uk
 - type: AgenticAccess
   url: agentic-access/elexon-agentic-access.yml
 - type: DomainSecurity
