@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Margin Forecast API
+  title: Insights.Api Margin Forecast API
   version: '1.0'
-  description: Dynamic data.
+  description: Generating Plant Operating Margin forecast data, including historical views of data by publish time or forecast date.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -49,6 +49,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+      operationId: getForecastMarginDaily
+      x-operation-id-source: derived
   /forecast/margin/daily/history:
     get:
       tags:
@@ -95,12 +97,19 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+      operationId: getForecastMarginDailyHistory
+      x-operation-id-source: derived
   /forecast/margin/daily/evolution:
     get:
       tags:
       - Margin Forecast
       summary: Evolution daily margin forecast (OCNMFD2)
-      description: "This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily margin forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides the daily evolution Generating Plant Operating Margin covering 2 days ahead to 14 days ahead in MW values.
+
+        The Daily API outputs the latest published data for daily margin forecast for D+2 to D+14.
+
+
+        Date parameter must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: forecastDate
         in: query
@@ -142,6 +151,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+      operationId: getForecastMarginDailyEvolution
+      x-operation-id-source: derived
   /forecast/margin/weekly:
     get:
       tags:
@@ -189,12 +200,14 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+      operationId: getForecastMarginWeekly
+      x-operation-id-source: derived
   /forecast/margin/weekly/history:
     get:
       tags:
       - Margin Forecast
       summary: Historical weekly margin forecast (OCNMFW2, OCNMF3Y2)
-      description: 'This endpoint provides the weekly historic  Generating Plant Operating Margin.
+      description: 'This endpoint provides the weekly historic Generating Plant Operating Margin.
 
         This historic API output 2 weeks ahead to 156 weeks ahead in MW values'
       parameters:
@@ -242,6 +255,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+      operationId: getForecastMarginWeeklyHistory
+      x-operation-id-source: derived
   /forecast/margin/weekly/evolution:
     get:
       tags:
@@ -301,58 +316,31 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+      operationId: getForecastMarginWeeklyEvolution
+      x-operation-id-source: derived
 components:
   schemas:
     Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
         datasets:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           example:
           - DATASET
-      additionalProperties: false
-    Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-        margin:
-          type: integer
-          format: int64
-          nullable: true
-        week:
-          type: integer
-          format: int32
-        year:
-          type: integer
-          format: int32
-        weekStartDate:
-          type: string
-          format: date
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -363,10 +351,44 @@ components:
           type: string
           format: date-time
         margin:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         forecastDate:
+          type: string
+          format: date
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        margin:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        week:
+          type: integer
+          format: int32
+        year:
+          type: integer
+          format: int32
+        weekStartDate:
           type: string
           format: date
       additionalProperties: false

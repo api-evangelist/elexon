@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic System API
+  title: Insights.Api System API
   version: '1.0'
-  description: Dynamic data.
+  description: Transmission System data.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -59,6 +59,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency'
+      operationId: getSystemFrequency
+      x-operation-id-source: derived
   /system/frequency/stream:
     get:
       tags:
@@ -99,6 +101,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+      operationId: getSystemFrequencyStream
+      x-operation-id-source: derived
   /system/warnings:
     get:
       tags:
@@ -163,6 +167,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData'
+      operationId: getSystemWarnings
+      x-operation-id-source: derived
   /system/demand-control-instructions:
     get:
       tags:
@@ -219,55 +225,85 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+      operationId: getSystemDemandControlInstructions
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.Misc.SystemWarningsData:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
-        publishTime:
-          type: string
-          format: date-time
-          nullable: true
-          example: 2022-09-20T00:00Z
-        warningType:
-          type: string
-          nullable: true
-          example: IT SYSTEMS OUTAGE
-        warningText:
-          type: string
-          nullable: true
-          example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemWarningsData'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+    Insights.Api.Models.Responses.Misc.SystemFrequency:
       type: object
       properties:
-        datasets:
-          type: array
+        measurementTime:
+          type: string
+          format: date-time
+        frequency:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.SystemWarningsData:
+      type: object
+      properties:
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: 2022-09-20T00:00Z
+        warningType:
+          type:
+          - string
+          - 'null'
+          example: IT SYSTEMS OUTAGE
+        warningText:
+          type:
+          - string
+          - 'null'
+          example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
           items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -275,29 +311,33 @@ components:
       type: object
       properties:
         mRID:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: DCI_202104300853_00000030
         revisionNumber:
           type: integer
           format: int32
           example: 1
         publishTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           example: '2021-04-30T08:53:39Z'
         publishingPeriodCommencingTime:
           type: string
           format: date-time
           example: '2021-04-30T08:53:39Z'
         affectedDso:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: SP(D)
         demandControlId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: '00135'
         instructionSequence:
           type: integer
@@ -311,41 +351,23 @@ components:
           format: date-time
           example: '2021-04-30T12:45:00Z'
         timeTo:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
           example: '2021-04-30T13:09:00Z'
         volume:
           type: number
           format: double
           example: 68
         systemManagementActionFlag:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: T
         amendmentFlag:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: ORI
-      additionalProperties: false
-    Insights.Api.Models.Responses.Misc.SystemFrequency:
-      type: object
-      properties:
-        measurementTime:
-          type: string
-          format: date-time
-        frequency:
-          type: number
-          format: double
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false

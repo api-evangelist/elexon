@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Load Shape API
+  title: Insights.Api Load Shape API
   version: '1.0'
-  description: Dynamic data.
+  description: Load shape period data and load shape totals data as calculated by the Load Shaping Service
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,15 @@ paths:
       tags:
       - Load Shape
       summary: Load shape period data (IF022)
-      description: "This endpoint enables the retrieval of load shape period (IF022) data for a specified date and settlement period range.\n\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint enables the retrieval of load shape period (IF022) data for a specified date and settlement period range.
+
+
+        For more information on Load shape data & load shape categories please view the
+
+        LSS method statement.
+
+
+        Date parameter must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: date
         in: query
@@ -78,12 +86,21 @@ paths:
           description: Too many requests
         '500':
           description: Server error - please try again later
+      operationId: getLssLoadShapePeriod
+      x-operation-id-source: derived
   /lss/load-shape-period/stream:
     get:
       tags:
       - Load Shape
       summary: Load shape period data stream (IF022)
-      description: "This endpoint provides a stream of load shape period (IF022) data for a specified date and settlement period range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides a stream of load shape period (IF022) data for a specified date and settlement period range.
+
+        For more information on Load shape data & load shape categories please view the
+
+        LSS method statement.
+
+
+        Date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: fromDate
         in: query
@@ -144,12 +161,21 @@ paths:
           description: Too many requests
         '500':
           description: Server error - please try again later
+      operationId: getLssLoadShapePeriodStream
+      x-operation-id-source: derived
   /lss/load-shape-totals:
     get:
       tags:
       - Load Shape
       summary: Load shape totals data (IF023)
-      description: "This endpoint enables the retrieval of Load shape totals data (IF023) for a specified settlement day.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint enables the retrieval of Load shape totals data (IF023) for a specified settlement day.
+
+        For more information on Load shape data & load shape categories please view the
+
+        LSS method statement.
+
+
+        Date parameter must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: fromDate
         in: query
@@ -206,12 +232,21 @@ paths:
           description: Too many requests
         '500':
           description: Server error - please try again later
+      operationId: getLssLoadShapeTotals
+      x-operation-id-source: derived
   /lss/load-shape-totals/stream:
     get:
       tags:
       - Load Shape
       summary: Load shape totals data stream (IF023)
-      description: "This endpoint provides a stream of load shape totals (IF023) data for a specified date range.\nFor more information on Load shape data & load shape categories please view the\n<a href=\"https://www.mhhsprogramme.co.uk/api/documentlibrary/Design%20Documents/MHHSP_METH005%20LSS_Method_Statement%20v5.3.pdf\" target=\"_blank\">LSS method statement</a>.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides a stream of load shape totals (IF023) data for a specified date range.
+
+        For more information on Load shape data & load shape categories please view the
+
+        LSS method statement.
+
+
+        Date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: fromDate
         in: query
@@ -256,78 +291,19 @@ paths:
           description: Too many requests
         '500':
           description: Server error - please try again later
+      operationId: getLssLoadShapeTotalsStream
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Data.Entities.LoadShapeTotalsData:
-      type: object
-      properties:
-        sourceFileName:
-          type: string
-          nullable: true
-        sourceFileDatetime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        gspGroupId:
-          type: string
-          nullable: true
-        connectionTypeIndicator:
-          type: string
-          nullable: true
-        marketSegmentIndicator:
-          type: string
-          nullable: true
-        domesticPremiseIndicator:
-          type: string
-          nullable: true
-        measurementQuantityId:
-          type: string
-          nullable: true
-        runNumber:
-          type: integer
-          format: int32
-        eventCode:
-          type: string
-          nullable: true
-        settlementPeriodDuration:
-          type: integer
-          format: int32
-        loadShapeDayTotal:
-          type: number
-          format: double
-        loadShapeDayPeakTotal:
-          type: number
-          format: double
-          nullable: true
-        loadShapeDayOffPeakTotal:
-          type: number
-          format: double
-          nullable: true
-        loadShape7DayRollingTotal:
-          type: number
-          format: double
-        loadShape7DayRollingPeakTotal:
-          type: number
-          format: double
-          nullable: true
-        loadShape7DayRollingOffPeakTotal:
-          type: number
-          format: double
-          nullable: true
-        loadShapeRollingAnnualTotal:
-          type: number
-          format: double
-      additionalProperties: false
     Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
         datasets:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           example:
           - DATASET
       additionalProperties: false
@@ -335,21 +311,96 @@ components:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Data.Entities.LoadShapeTotalsData:
+      type: object
+      properties:
+        sourceFileName:
+          type:
+          - string
+          - 'null'
+        sourceFileDatetime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        gspGroupId:
+          type:
+          - string
+          - 'null'
+        connectionTypeIndicator:
+          type:
+          - string
+          - 'null'
+        marketSegmentIndicator:
+          type:
+          - string
+          - 'null'
+        domesticPremiseIndicator:
+          type:
+          - string
+          - 'null'
+        measurementQuantityId:
+          type:
+          - string
+          - 'null'
+        runNumber:
+          type: integer
+          format: int32
+        eventCode:
+          type:
+          - string
+          - 'null'
+        settlementPeriodDuration:
+          type: integer
+          format: int32
+        loadShapeDayTotal:
+          type: number
+          format: double
+        loadShapeDayPeakTotal:
+          type:
+          - number
+          - 'null'
+          format: double
+        loadShapeDayOffPeakTotal:
+          type:
+          - number
+          - 'null'
+          format: double
+        loadShape7DayRollingTotal:
+          type: number
+          format: double
+        loadShape7DayRollingPeakTotal:
+          type:
+          - number
+          - 'null'
+          format: double
+        loadShape7DayRollingOffPeakTotal:
+          type:
+          - number
+          - 'null'
+          format: double
+        loadShapeRollingAnnualTotal:
+          type: number
+          format: double
       additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapePeriodData'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -357,8 +408,9 @@ components:
       type: object
       properties:
         sourceFileName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         sourceFileDatetime:
           type: string
           format: date-time
@@ -375,26 +427,32 @@ components:
           type: integer
           format: int32
         gspGroupId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         connectionTypeIndicator:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         marketSegmentIndicator:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         domesticPremiseIndicator:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         measurementQuantityId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         runNumber:
           type: integer
           format: int32
         eventCode:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         settlementPeriodDuration:
           type: integer
           format: int32
@@ -402,6 +460,7 @@ components:
           type: number
           format: double
         defaultLoadShapeFlag:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false

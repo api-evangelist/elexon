@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Data Status API
+  title: Insights.Api Data Status API
   version: '1.0'
-  description: Dynamic data.
+  description: The number of datapoints ingested for a dataset in a given period of time, grouped by settlement period.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,12 @@ paths:
       tags:
       - Data Status
       summary: Status of ingested ISPSTACK Data
-      description: "This endpoint provides information about the number of data points ingested for the ISPSTACK dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the ISPSTACK dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -69,12 +74,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusISPSTACK
+      x-operation-id-source: derived
   /data-status/FREQ:
     get:
       tags:
       - Data Status
       summary: Status of ingested FREQ Data
-      description: "This endpoint provides information about the number of data points ingested for the FREQ dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the FREQ dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -129,12 +141,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusFREQ
+      x-operation-id-source: derived
   /data-status/BOALF:
     get:
       tags:
       - Data Status
       summary: Status of ingested BOALF Data
-      description: "This endpoint provides information about the number of data points ingested for the BOALF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the BOALF dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -189,12 +208,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusBOALF
+      x-operation-id-source: derived
   /data-status/DISEBSP:
     get:
       tags:
       - Data Status
       summary: Status of ingested DISEBSP Data
-      description: "This endpoint provides information about the number of data points ingested for the DISEBSP dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the DISEBSP dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -249,12 +275,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusDISEBSP
+      x-operation-id-source: derived
   /data-status/DISPTAV:
     get:
       tags:
       - Data Status
       summary: Status of ingested DISPTAV Data
-      description: "This endpoint provides information about the number of data points ingested for the DISPTAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the DISPTAV dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -309,12 +342,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusDISPTAV
+      x-operation-id-source: derived
   /data-status/DISBSAD:
     get:
       tags:
       - Data Status
       summary: Status of ingested DISBSAD Data
-      description: "This endpoint provides information about the number of data points ingested for the DISBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the DISBSAD dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -369,12 +409,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusDISBSAD
+      x-operation-id-source: derived
   /data-status/NETBSAD:
     get:
       tags:
       - Data Status
       summary: Status of ingested NETBSAD Data
-      description: "This endpoint provides information about the number of data points ingested for the NETBSAD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the NETBSAD dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -429,12 +476,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusNETBSAD
+      x-operation-id-source: derived
   /data-status/BOD:
     get:
       tags:
       - Data Status
       summary: Status of ingested BOD Data
-      description: "This endpoint provides information about the number of data points ingested for the BOD dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the BOD dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -489,12 +543,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusBOD
+      x-operation-id-source: derived
   /data-status/EBOCF:
     get:
       tags:
       - Data Status
       summary: Status of ingested EBOCF Data
-      description: "This endpoint provides information about the number of data points ingested for the EBOCF dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the EBOCF dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -549,12 +610,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusEBOCF
+      x-operation-id-source: derived
   /data-status/BOAV:
     get:
       tags:
       - Data Status
       summary: Status of ingested BOAV Data
-      description: "This endpoint provides information about the number of data points ingested for the BOAV dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the BOAV dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -609,12 +677,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusBOAV
+      x-operation-id-source: derived
   /data-status/PN:
     get:
       tags:
       - Data Status
       summary: Status of ingested PN Data
-      description: "This endpoint provides information about the number of data points ingested for the PN dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one."
+      description: 'This endpoint provides information about the number of data points ingested for the PN dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -669,12 +744,28 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusPN
+      x-operation-id-source: derived
   /data-status/REMIT:
     get:
       tags:
       - Data Status
       summary: Status of ingested REMIT Data
-      description: "This endpoint provides information about the number of data points ingested for the REMIT dataset.\n            \nThe settlementDateFrom and settlementDateTo query parameters are optional. If they're not provided, the endpoint\nwill return data for up to the last 25 Settlement Periods, including the current one.\n            \nThe source parameter is optional and allows filtering by data source:\n- 'Elexon' for Elexon Portal data (files prefixed with ELXP-RMT)\n- 'MFT' for MFT data (files prefixed with NGET-RMT)\n- If not provided, returns total data points from all sources"
+      description: 'This endpoint provides information about the number of data points ingested for the REMIT dataset.
+
+
+        The settlementDateFrom and settlementDateTo query parameters are optional. If they''re not provided, the endpoint
+
+        will return data for up to the last 25 Settlement Periods, including the current one.
+
+
+        The source parameter is optional and allows filtering by data source:
+
+        - ''Elexon'' for Elexon Portal data (files prefixed with ELXP-RMT)
+
+        - ''MFT'' for MFT data (files prefixed with NGET-RMT)
+
+        - If not provided, returns total data points from all sources'
       parameters:
       - name: source
         in: query
@@ -735,49 +826,62 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDataStatusREMIT
+      x-operation-id-source: derived
 components:
   schemas:
     Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
         datasets:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           example:
           - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.RemitApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
+        source:
+          type:
+          - string
+          - 'null'
+          example: Elexon
       additionalProperties: false
     Insights.Api.Models.Responses.RemitResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.RemitApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Requests.DataStatus.RemitDataSource:
-      enum:
-      - Elexon
-      - MFT
-      type: string
-    Insights.Api.Models.Metadata.RemitApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-        source:
-          type: string
-          nullable: true
-          example: Elexon
       additionalProperties: false
     Insights.Api.Models.Responses.DataStatus.DataStatusResponse:
       type: object
@@ -795,14 +899,8 @@ components:
           format: int32
           example: 31
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DataStatus.DataStatusResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DataStatus.DataStatusResponse'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
+    Insights.Api.Models.Requests.DataStatus.RemitDataSource:
+      enum:
+      - Elexon
+      - MFT
+      type: string

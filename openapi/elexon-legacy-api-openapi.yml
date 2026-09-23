@@ -1,8 +1,7 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Legacy API
+  title: Insights.Api Legacy API
   version: '1.0'
-  description: Dynamic data.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -12,7 +11,7 @@ paths:
     get:
       tags:
       - Legacy
-      summary: This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.
+      summary: This endpoint is obsolete, and this location may be removed with no further…
       parameters:
       - name: eventStart
         in: query
@@ -38,11 +37,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitListResponse'
       deprecated: true
+      operationId: getInteropMessageListRetrieval
+      x-operation-id-source: derived
   /interop/MessageDetailRetrieval:
     get:
       tags:
       - Legacy
-      summary: This endpoint is obsolete, and this location may be removed with no further notice. Use /remit/* or /datasets/REMIT endpoints instead.
+      summary: This endpoint is obsolete, and this location may be removed with no further…
       parameters:
       - name: messageId
         in: query
@@ -59,131 +60,124 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitDetailResponse'
       deprecated: true
+      operationId: getInteropMessageDetailRetrieval
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.LegacyInteroperability.LegacyRemitOutageProfile:
-      type: object
-      properties:
-        segments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitOutageProfileSegment'
-          nullable: true
-      additionalProperties: false
-    Insights.Api.LegacyInteroperability.LegacyRemitResponseList:
+    Insights.Api.LegacyInteroperability.LegacyRemitDetailList:
       type: object
       properties:
         item:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitListItem'
-          nullable: true
-      additionalProperties: false
-    Insights.Api.LegacyInteroperability.LegacyRemitListResponse:
-      type: object
-      properties:
-        legacyRemitListMetadata:
-          $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitListMetadata'
-        legacyRemitListResponseBody:
-          $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitListResponseBody'
+          $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitDetailItem'
       additionalProperties: false
     Insights.Api.LegacyInteroperability.LegacyRemitDetailItem:
       type: object
       properties:
         messageId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         sequenceId:
           type: integer
           format: int32
         messageHeading:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         eventType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         publishDateTimeString:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         participantMarketParticipantId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         assetId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         assetEicCode:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         assetType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         affectedUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         affectedArea:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         assetFuelType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         assetNormalCapacity:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         availableCapacity:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         unavailableCapacity:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         eventStartString:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         eventEndString:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         cause:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         eventStatus:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         relatedInformation:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         activeFlag:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         messageType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         unavailabilityType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         acerCode:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         biddingZone:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         outageProfile:
           $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitOutageProfile'
         revisionNumber:
-          type: integer
-          format: int32
-      additionalProperties: false
-    Insights.Api.LegacyInteroperability.LegacyRemitOutageProfileSegment:
-      type: object
-      properties:
-        segmentStartString:
-          type: string
-          nullable: true
-        segmentEndString:
-          type: string
-          nullable: true
-        segmentCapacity:
           type: integer
           format: int32
       additionalProperties: false
@@ -191,145 +185,11 @@ components:
       type: object
       properties:
         dataItem:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         legacyRemitResponseList:
           $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitResponseList'
-      additionalProperties: false
-    Insights.Api.LegacyInteroperability.LegacyRemitListItem:
-      type: object
-      properties:
-        messageId:
-          type: string
-          nullable: true
-        sequenceId:
-          type: integer
-          format: int32
-        messageHeading:
-          type: string
-          nullable: true
-        eventType:
-          type: string
-          nullable: true
-        publishDateTimeString:
-          type: string
-          nullable: true
-        participantMarketParticipantId:
-          type: string
-          nullable: true
-        assetId:
-          type: string
-          nullable: true
-        assetEicCode:
-          type: string
-          nullable: true
-        assetType:
-          type: string
-          nullable: true
-        affectedUnit:
-          type: string
-          nullable: true
-        affectedArea:
-          type: string
-          nullable: true
-        assetFuelType:
-          type: string
-          nullable: true
-        assetNormalCapacity:
-          type: number
-          format: double
-          nullable: true
-        assetNormalCapacitySpecified:
-          type: boolean
-          readOnly: true
-        availableCapacity:
-          type: number
-          format: double
-          nullable: true
-        availableCapacitySpecified:
-          type: boolean
-          readOnly: true
-        eventStartString:
-          type: string
-          nullable: true
-        eventEndString:
-          type: string
-          nullable: true
-        durationUncertainty:
-          type: string
-          nullable: true
-        cause:
-          type: string
-          nullable: true
-        eventStatus:
-          type: string
-          nullable: true
-        relatedInformation:
-          type: string
-          nullable: true
-        activeFlag:
-          type: string
-          nullable: true
-        revisionNumber:
-          type: integer
-          format: int32
-        messageType:
-          type: string
-          nullable: true
-        unavailabilityType:
-          type: string
-          nullable: true
-        unavailableCapacity:
-          type: number
-          format: double
-          nullable: true
-        unavailableCapacitySpecified:
-          type: boolean
-          readOnly: true
-      additionalProperties: false
-    Insights.Api.LegacyInteroperability.LegacyRemitDetailMetadata:
-      type: object
-      properties:
-        httpCode:
-          type: integer
-          format: int32
-        errorType:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        queryString:
-          type: string
-          nullable: true
-      additionalProperties: false
-    Insights.Api.LegacyInteroperability.LegacyRemitDetailList:
-      type: object
-      properties:
-        item:
-          $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitDetailItem'
-      additionalProperties: false
-    Insights.Api.LegacyInteroperability.LegacyRemitListMetadata:
-      type: object
-      properties:
-        httpCode:
-          type: integer
-          format: int32
-        errorType:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        cappingApplied:
-          type: string
-          nullable: true
-        cappingLimit:
-          type: integer
-          format: int32
-        queryString:
-          type: string
-          nullable: true
       additionalProperties: false
     Insights.Api.LegacyInteroperability.LegacyRemitDetailResponse:
       type: object
@@ -343,8 +203,211 @@ components:
       type: object
       properties:
         dataItem:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         list:
           $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitDetailList'
+      additionalProperties: false
+    Insights.Api.LegacyInteroperability.LegacyRemitResponseList:
+      type: object
+      properties:
+        item:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitListItem'
+      additionalProperties: false
+    Insights.Api.LegacyInteroperability.LegacyRemitOutageProfile:
+      type: object
+      properties:
+        segments:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitOutageProfileSegment'
+      additionalProperties: false
+    Insights.Api.LegacyInteroperability.LegacyRemitDetailMetadata:
+      type: object
+      properties:
+        httpCode:
+          type: integer
+          format: int32
+        errorType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        queryString:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Insights.Api.LegacyInteroperability.LegacyRemitListMetadata:
+      type: object
+      properties:
+        httpCode:
+          type: integer
+          format: int32
+        errorType:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        cappingApplied:
+          type:
+          - string
+          - 'null'
+        cappingLimit:
+          type: integer
+          format: int32
+        queryString:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Insights.Api.LegacyInteroperability.LegacyRemitOutageProfileSegment:
+      type: object
+      properties:
+        segmentStartString:
+          type:
+          - string
+          - 'null'
+        segmentEndString:
+          type:
+          - string
+          - 'null'
+        segmentCapacity:
+          type: integer
+          format: int32
+      additionalProperties: false
+    Insights.Api.LegacyInteroperability.LegacyRemitListItem:
+      type: object
+      properties:
+        messageId:
+          type:
+          - string
+          - 'null'
+        sequenceId:
+          type: integer
+          format: int32
+        messageHeading:
+          type:
+          - string
+          - 'null'
+        eventType:
+          type:
+          - string
+          - 'null'
+        publishDateTimeString:
+          type:
+          - string
+          - 'null'
+        participantMarketParticipantId:
+          type:
+          - string
+          - 'null'
+        assetId:
+          type:
+          - string
+          - 'null'
+        assetEicCode:
+          type:
+          - string
+          - 'null'
+        assetType:
+          type:
+          - string
+          - 'null'
+        affectedUnit:
+          type:
+          - string
+          - 'null'
+        affectedArea:
+          type:
+          - string
+          - 'null'
+        assetFuelType:
+          type:
+          - string
+          - 'null'
+        assetNormalCapacity:
+          type:
+          - number
+          - 'null'
+          format: double
+        assetNormalCapacitySpecified:
+          type: boolean
+          readOnly: true
+        availableCapacity:
+          type:
+          - number
+          - 'null'
+          format: double
+        availableCapacitySpecified:
+          type: boolean
+          readOnly: true
+        eventStartString:
+          type:
+          - string
+          - 'null'
+        eventEndString:
+          type:
+          - string
+          - 'null'
+        durationUncertainty:
+          type:
+          - string
+          - 'null'
+        cause:
+          type:
+          - string
+          - 'null'
+        eventStatus:
+          type:
+          - string
+          - 'null'
+        relatedInformation:
+          type:
+          - string
+          - 'null'
+        activeFlag:
+          type:
+          - string
+          - 'null'
+        revisionNumber:
+          type: integer
+          format: int32
+        messageType:
+          type:
+          - string
+          - 'null'
+        unavailabilityType:
+          type:
+          - string
+          - 'null'
+        unavailableCapacity:
+          type:
+          - number
+          - 'null'
+          format: double
+        unavailableCapacitySpecified:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    Insights.Api.LegacyInteroperability.LegacyRemitListResponse:
+      type: object
+      properties:
+        legacyRemitListMetadata:
+          $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitListMetadata'
+        legacyRemitListResponseBody:
+          $ref: '#/components/schemas/Insights.Api.LegacyInteroperability.LegacyRemitListResponseBody'
       additionalProperties: false

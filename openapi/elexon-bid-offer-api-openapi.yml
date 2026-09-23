@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Bid-Offer API
+  title: Insights.Api Bid Offer API
   version: '1.0'
-  description: Dynamic data.
+  description: Bid-offer data.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,54 @@ paths:
       tags:
       - Bid-Offer
       summary: Bid-offer data per BMU (BOD)
-      description: "This endpoint provides the bid-offer data for a requested BMU. It returns the data valid over a given time\nrange, excluding any results where LevelFrom and LevelTo are both zero.\n            \nBy default, the from and to parameters filter the data inclusively and this endpoint will return any data that\noverlaps even at a single instant. If the settlementPeriodFrom or settlementPeriodTo parameters are provided, it\nwill instead filter to return any data that overlaps with the specified range of settlement periods. It is\npossible to search using a combination of time and/or settlement date & settlement period. Note: When\nfiltering via settlement date, from/to are treated as Dates only, with the time being ignored. For example,\n2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering by timeFrom and timeTo:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from timeFrom to settlement date and period:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to TimeTo:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1"
+      description: 'This endpoint provides the bid-offer data for a requested BMU. It returns the data valid over a given time
+
+        range, excluding any results where LevelFrom and LevelTo are both zero.
+
+
+        By default, the from and to parameters filter the data inclusively and this endpoint will return any data that
+
+        overlaps even at a single instant. If the settlementPeriodFrom or settlementPeriodTo parameters are provided, it
+
+        will instead filter to return any data that overlaps with the specified range of settlement periods. It is
+
+        possible to search using a combination of time and/or settlement date & settlement period. Note: When
+
+        filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For example,
+
+        2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.
+
+
+        All Dates and DateTimes should be expressed as defined within
+
+        RFC 3339.
+
+
+        Some examples of date parameter combinations are shown below.
+
+
+        Filtering by timeFrom and timeTo:
+
+
+        /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z
+
+
+        Filtering from timeFrom to settlement date and period:
+
+
+        /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1
+
+
+        Filtering from settlement date and period to TimeTo:
+
+
+        /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1
+
+
+        Filtering from settlement date and period to settlement date and period:
+
+
+        /balancing/bid-offer?bmUnit=T_DRAXX-1&from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1'
       parameters:
       - name: bmUnit
         in: query
@@ -91,12 +138,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingBidOffer
+      x-operation-id-source: derived
   /balancing/bid-offer/all:
     get:
       tags:
       - Bid-Offer
       summary: Market-wide bid-offer data (BOD)
-      description: "This endpoint provides market-wide bid-offer data, for all BMUs or a requested set of multiple BMUs.\nIt returns the data valid for a given settlement period, excluding any results where LevelFrom and LevelTo are both zero.\n            \nThe settlement period to query must be specified as a date and settlement period. The date should be provided in the format yyyy-MM-dd."
+      description: 'This endpoint provides market-wide bid-offer data, for all BMUs or a requested set of multiple BMUs.
+
+        It returns the data valid for a given settlement period, excluding any results where LevelFrom and LevelTo are both zero.
+
+
+        The settlement period to query must be specified as a date and settlement period. The date should be provided in the format yyyy-MM-dd.'
       parameters:
       - name: settlementDate
         in: query
@@ -166,27 +220,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingBidOfferAll
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.BidOfferResponse'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
         datasets:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           example:
           - DATASET
       additionalProperties: false
@@ -202,12 +248,14 @@ components:
           format: int32
           example: 3
         nationalGridBmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: ABRBO-1
         bmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: T_ABRBO-1
         timeFrom:
           type: string
@@ -237,4 +285,16 @@ components:
           type: integer
           format: int32
           example: 1
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferResponse:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.BidOfferResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false

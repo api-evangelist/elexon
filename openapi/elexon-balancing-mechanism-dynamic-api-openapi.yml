@@ -1,4 +1,4 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
   title: Insights.Api Balancing Mechanism Dynamic API
   version: '1.0'
@@ -14,7 +14,16 @@ paths:
       tags:
       - Balancing Mechanism Dynamic
       summary: Dynamic data per BMU (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)
-      description: "This endpoint provides the dynamic data for a requested BMU, excluding physical rate data.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV, MDP.\nThe results from each dataset are transformed to a common response model, with the common integer field *Value*\nmapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant."
+      description: 'This endpoint provides the dynamic data for a requested BMU, excluding physical rate data.
+
+        It returns a "snapshot" of data valid at a given time, and optionally a time series of changes over a requested interval.
+
+
+        By default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV, MDP.
+
+        The results from each dataset are transformed to a common response model, with the common integer field *Value*
+
+        mapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant.'
       parameters:
       - name: bmUnit
         in: query
@@ -117,12 +126,28 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingDynamic
+      x-operation-id-source: derived
   /balancing/dynamic/all:
     get:
       tags:
       - Balancing Mechanism Dynamic
       summary: Market-wide dynamic data (SEL, SIL, MZT, MNZT, MDV, MDP, NTB, NTO, NDZ)
-      description: "This endpoint provides the dynamic data for multiple requested BMUs or all BMUs, excluding dynamic rate data.\nIt returns the data valid for a single settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nBy default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV & MDP.\nThe results from each dataset are transformed to a common response model, with the common integer field *Value*\nmapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant.\n            \nThe settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides the dynamic data for multiple requested BMUs or all BMUs, excluding dynamic rate data.
+
+        It returns the data valid for a single settlement period. This includes a snapshot of data valid at the start
+
+        of the settlement period, and any changes published during that settlement period.
+
+
+        By default, all of the relevant datasets are returned: SIL, SEL, NDZ, NTB, NTO, MZT, MNZT, MDV & MDP.
+
+        The results from each dataset are transformed to a common response model, with the common integer field *Value*
+
+        mapped from the fields *Level*, *Period*, *Volume* or *Notice* in the original dataset, as relevant.
+
+
+        The settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: settlementDate
         in: query
@@ -207,12 +232,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingDynamicAll
+      x-operation-id-source: derived
   /balancing/dynamic/rates:
     get:
       tags:
       - Balancing Mechanism Dynamic
       summary: Rate data per BMU (RDRE, RURE, RDRI, RURI)
-      description: "This endpoint provides the physical rate data for a requested BMU.\nIt returns a \"snapshot\" of data valid at a given time, and optionally a time series of changes over a requested interval.\n            \nBy default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI."
+      description: 'This endpoint provides the physical rate data for a requested BMU.
+
+        It returns a "snapshot" of data valid at a given time, and optionally a time series of changes over a requested interval.
+
+
+        By default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI.'
       parameters:
       - name: bmUnit
         in: query
@@ -315,12 +347,33 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingDynamicRates
+      x-operation-id-source: derived
   /balancing/dynamic/rates/all:
     get:
       tags:
       - Balancing Mechanism Dynamic
       summary: Market-wide rate data (RDRE, RURE, RDRI, RURI)
-      description: "This endpoint provides market-wide physical rate data, for all BMUs or a requested set of multiple BMUs.\nIt returns the data valid for a given settlement period. This includes a snapshot of data valid at the start\nof the settlement period, and any changes published during that settlement period.\n            \nThe settlement period to query can be specified as a date and settlement period. The settlement date must be provided in the format yyyy-MM-dd.\n\nBy default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI.\n            \nThis endpoint is quota limited.\nFor individual rate datasets, use the relevant /datasets/ endpoints.\nFor real-time updates as each data point is published, use the Insights IRIS service. You can register for free at  https://bmrs.elexon.co.uk/iris .\nFor historical data, check out the IRIS archive, which keeps a record of all published datasets."
+      description: 'This endpoint provides market-wide physical rate data, for all BMUs or a requested set of multiple BMUs.
+
+        It returns the data valid for a given settlement period. This includes a snapshot of data valid at the start
+
+        of the settlement period, and any changes published during that settlement period.
+
+
+        The settlement period to query can be specified as a date and settlement period. The settlement date must be provided in the format yyyy-MM-dd.
+
+
+        By default, all of the relevant datasets are returned: RDRE, RURE, RDRI, RURI.
+
+
+        This endpoint is quota limited.
+
+        For individual rate datasets, use the relevant /datasets/ endpoints.
+
+        For real-time updates as each data point is published, use the Insights IRIS service. You can register for free at https://bmrs.elexon.co.uk/iris .
+
+        For historical data, check out the IRIS archive, which keeps a record of all published datasets.'
       parameters:
       - name: settlementDate
         in: query
@@ -405,36 +458,17 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingDynamicRatesAll
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
       type: object
       properties:
         dataset:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: RURE
         settlementDate:
           type: string
@@ -453,48 +487,93 @@ components:
           format: double
           example: 0.4
         elbow2:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           example: 5
         rate2:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           example: 300.2
         elbow3:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           example: null
         rate3:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           example: null
         nationalGridBmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: ABRBO-1
         bmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: T_ABRBO-1
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Dynamic.DynamicData:
       type: object
       properties:
         dataset:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: SEL
         bmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: T_ABRBO-1
         nationalGridBmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: ABRBO-1
         time:
           type: string
@@ -512,15 +591,4 @@ components:
           type: integer
           format: int32
           example: 3
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false

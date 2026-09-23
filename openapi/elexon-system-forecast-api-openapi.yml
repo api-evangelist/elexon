@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic System forecast API
+  title: Insights.Api System forecast API
   version: '1.0'
-  description: Dynamic data.
+  description: Transmission System forecasts
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,25 @@ paths:
       tags:
       - System forecast
       summary: Loss of load probability and de-rated margin forecast (LOLPDRM)
-      description: "This endpoint provides the 1h, 2h, 4h, 8h and 12h+ Loss of Load Probability and De-rated Margin forecasts\nfor each settlement period over a requested time range.\n            \nFor each forecast horizon at 1, 2, 4 or 8 hours, the returned value is the forecast received that number of hours\nbefore the start of the settlement period.\n            \nFor the forecast horizon of 12h, the returned value is the most recent forecast received 12 or more hours\nbefore the start of the settlement period. That is, if the most recent forecast was published today at 00:00,\n- for 11:30 today, the 12h forecast is the one published yesterday at 23:30 (12h before)\n- for 12:00 today, the 12h forecast is the one published today at 00:00 (12h before)\n- for 12:30 today, the 12h forecast is the one published today at 00:00 (the latest published)"
+      description: 'This endpoint provides the 1h, 2h, 4h, 8h and 12h+ Loss of Load Probability and De-rated Margin forecasts
+
+        for each settlement period over a requested time range.
+
+
+        For each forecast horizon at 1, 2, 4 or 8 hours, the returned value is the forecast received that number of hours
+
+        before the start of the settlement period.
+
+
+        For the forecast horizon of 12h, the returned value is the most recent forecast received 12 or more hours
+
+        before the start of the settlement period. That is, if the most recent forecast was published today at 00:00,
+
+        - for 11:30 today, the 12h forecast is the one published yesterday at 23:30 (12h before)
+
+        - for 12:00 today, the 12h forecast is the one published today at 00:00 (12h before)
+
+        - for 12:30 today, the 12h forecast is the one published today at 00:00 (the latest published)'
       parameters:
       - name: from
         in: query
@@ -85,19 +103,10 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getForecastSystemLossOfLoad
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-      additionalProperties: false
     Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse:
       type: object
       properties:
@@ -126,24 +135,39 @@ components:
           format: double
           example: 1
         lossOfLoadProbability:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           example: 0
         deratedMargin:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           example: 12570.207
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false
     ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse
     : type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.LossOfLoadProbabilityDeratedMarginResponse'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false

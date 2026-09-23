@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Demand API
+  title: Insights.Api Demand API
   version: '1.0'
-  description: Dynamic data.
+  description: GB electricity demand, including historic.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,40 @@ paths:
       tags:
       - Demand
       summary: Restoration Zone Demand Restored Submissions (RZDR)
-      description: "This endpoint provides data about the end of system restoration events. It returns the restored demand value\nfor each restoration zone at the last submission time of each event. The number of events to return is\ndetermined by the `count` parameter.\n            \nThe data can be filtered by submission date/time, region, and GSP Group ID (when received by NESO).\n            \nAll DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n\nSome examples of parameter combinations are shown below.\n            \nFiltering latest 3 events:\n            \n    /demand/by-restoration-zone/restored/submissions?count=3\n            \nFiltering latest 3 events before a given submission time:\n            \n    /demand/by-restoration-zone/restored/submissions?before=2025-10-01T00:00Z&count=3\n            \nFiltering latest 10 events for a given region:\n            \n    /demand/by-restoration-zone/restored/submissions?region=North West&count=10"
+      description: 'This endpoint provides data about the end of system restoration events. It returns the restored demand value
+
+        for each restoration zone at the last submission time of each event. The number of events to return is
+
+        determined by the `count` parameter.
+
+
+        The data can be filtered by submission date/time, region, and GSP Group ID (when received by NESO).
+
+
+        All DateTimes should be expressed as defined within
+
+        RFC 3339.
+
+
+        Some examples of parameter combinations are shown below.
+
+
+        Filtering latest 3 events:
+
+
+        /demand/by-restoration-zone/restored/submissions?count=3
+
+
+        Filtering latest 3 events before a given submission time:
+
+
+        /demand/by-restoration-zone/restored/submissions?before=2025-10-01T00:00Z&count=3
+
+
+        Filtering latest 10 events for a given region:
+
+
+        /demand/by-restoration-zone/restored/submissions?region=North West&count=10'
       parameters:
       - name: count
         in: query
@@ -89,12 +122,28 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandByRestorationZoneRestoredSubmissions
+      x-operation-id-source: derived
   /demand/outturn:
     get:
       tags:
       - Demand
       summary: Initial National Demand outturn (INDO)
-      description: "This endpoint provides data for Initial National Demand Outturn, which measures the\nhalf-hour average MW demand metered by the Transmission Company based on its operational metering.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:\n- INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.\n- ITSDO (initial Transmission System Demand outturn) which takes into account transmission losses, station transformer load, pumped storage demand and interconnector demand.\n            \nThis endpoint is useful for ad-hoc querying of the data.\n            \nSettlement date parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides data for Initial National Demand Outturn, which measures the
+
+        half-hour average MW demand metered by the Transmission Company based on its operational metering.
+
+        The data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:
+
+        - INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.
+
+        - ITSDO (initial Transmission System Demand outturn) which takes into account transmission losses, station transformer load, pumped storage demand and interconnector demand.
+
+
+        This endpoint is useful for ad-hoc querying of the data.
+
+
+        Settlement date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -157,12 +206,28 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandOutturn
+      x-operation-id-source: derived
   /demand/outturn/stream:
     get:
       tags:
       - Demand
       summary: Initial National Demand outturn (INDO) stream
-      description: "This endpoint provides data for initial National Demand outturn, which measures the\nhalf-hour average MW demand metered by the Transmission Company based on its operational metering.\nThe data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:\n- INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.\n- ITSDO (initial Transmission System Demand outturn) which takes into account transmission losses, station transformer load, pumped storage demand and interconnector demand.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the data.\n            \nSettlement date parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides data for initial National Demand outturn, which measures the
+
+        half-hour average MW demand metered by the Transmission Company based on its operational metering.
+
+        The data is updated every 30 minutes and within 15 minutes of the end of the effective settlement period. The data is represented with:
+
+        - INDO (initial National Demand outturn) which takes into account transmission losses but does not include station transformer load, pumped storage demand or interconnector demand.
+
+        - ITSDO (initial Transmission System Demand outturn) which takes into account transmission losses, station transformer load, pumped storage demand and interconnector demand.
+
+
+        This endpoint has an optimised JSON payload and is aimed at frequent requests for the data.
+
+
+        Settlement date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -213,12 +278,26 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandOutturnStream
+      x-operation-id-source: derived
   /demand/outturn/daily:
     get:
       tags:
       - Demand
       summary: Initial National Demand outturn per day (INDOD)
-      description: "This endpoint provides initial National Demand outturn data per day. The total daily energy volume is the total\ndemand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding\nstation transformer, pumping and interconnector export demand. It is calculated from summing the half hourly\nINDO demands (divided by two to convert to MWh).\n            \nIf no date window is chosen, the search will default to results from the last 31 days.\n\nThis API endpoint has a maximum range of 2 years (731 days)."
+      description: 'This endpoint provides initial National Demand outturn data per day. The total daily energy volume is the total
+
+        demand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding
+
+        station transformer, pumping and interconnector export demand. It is calculated from summing the half hourly
+
+        INDO demands (divided by two to convert to MWh).
+
+
+        If no date window is chosen, the search will default to results from the last 31 days.
+
+
+        This API endpoint has a maximum range of 2 years (731 days).'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -271,12 +350,26 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandOutturnDaily
+      x-operation-id-source: derived
   /demand/outturn/daily/stream:
     get:
       tags:
       - Demand
       summary: Initial National Demand outturn per day (INDOD) stream
-      description: "This endpoint provides initial National Demand outturn daily data. The total daily energy volume is the total\ndemand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding\nstation transformer, pumping and interconnector export demand. It is calculated from summing the half hourly\nINDO demands (divided by two to convert to MWh).\n            \nIf no date window is chosen, the search will default to results from the last 31 days.\n\nThis endpoint has an optimised JSON payload and is aimed at frequent requests for the data."
+      description: 'This endpoint provides initial National Demand outturn daily data. The total daily energy volume is the total
+
+        demand volume for the previous day expressed on an initial National Demand outturn (INDO) basis, i.e. excluding
+
+        station transformer, pumping and interconnector export demand. It is calculated from summing the half hourly
+
+        INDO demands (divided by two to convert to MWh).
+
+
+        If no date window is chosen, the search will default to results from the last 31 days.
+
+
+        This endpoint has an optimised JSON payload and is aimed at frequent requests for the data.'
       parameters:
       - name: settlementDateFrom
         in: query
@@ -317,6 +410,8 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandOutturnDailyStream
+      x-operation-id-source: derived
   /demand/outturn/summary:
     get:
       tags:
@@ -394,12 +489,21 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandOutturnSummary
+      x-operation-id-source: derived
   /demand/peak:
     get:
       tags:
       - Demand
       summary: Peak demand per day (ITSDO)
-      description: "This endpoint allows for retrieving peak ITSDO demand for each day from National Grid ESO.\nResults are filtered by a range of Date parameters.\nResults default to yesterday's peak if no parameters are supplied.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint allows for retrieving peak ITSDO demand for each day from National Grid ESO.
+
+        Results are filtered by a range of Date parameters.
+
+        Results default to yesterday''s peak if no parameters are supplied.
+
+
+        Date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: from
         in: query
@@ -454,12 +558,39 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandPeak
+      x-operation-id-source: derived
   /demand/peak/indicative:
     get:
       tags:
       - Demand
       summary: Indicative peak demand per day (S0142, ITSDO, FUELHH)
-      description: "Indicative demand peaks using operational metering data are daily maxima values determined from\nITSDO and FUELHH data used to determine and visualise Triad.\n            \nIndicative demand peaks using settlement metering data are daily maxima values determined from\nmetered volume data from the S0142_bpi file. These peaks are not used for Triad visualisation as\nthey are always calculated based on the latest run type. Triads for settlement data\nremain static after the National Grid report posted at the beginning of April after the Triad season has ended. \n            \nIf no filters are supplied, results default to the latest or current Triad season.\nTo specify a custom filter, you can supplier EITHER a Triad season start year, OR a date range, but not both.\nIf a Triad Season Start year is supplied, data for the Triad season beginning on 1 November\nof the specified year will be returned.\nIf a date range is supplied, data will be returned for settlement dates within the date range inclusively.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'Indicative demand peaks using operational metering data are daily maxima values determined from
+
+        ITSDO and FUELHH data used to determine and visualise Triad.
+
+
+        Indicative demand peaks using settlement metering data are daily maxima values determined from
+
+        metered volume data from the S0142_bpi file. These peaks are not used for Triad visualisation as
+
+        they are always calculated based on the latest run type. Triads for settlement data
+
+        remain static after the National Grid report posted at the beginning of April after the Triad season has ended.
+
+
+        If no filters are supplied, results default to the latest or current Triad season.
+
+        To specify a custom filter, you can supplier EITHER a Triad season start year, OR a date range, but not both.
+
+        If a Triad Season Start year is supplied, data for the Triad season beginning on 1 November
+
+        of the specified year will be returned.
+
+        If a date range is supplied, data will be returned for settlement dates within the date range inclusively.
+
+
+        Date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: data
         in: query
@@ -531,6 +662,8 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandPeakIndicative
+      x-operation-id-source: derived
   /demand/peak/indicative/settlement/{triadSeason}:
     get:
       tags:
@@ -582,6 +715,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak'
+      operationId: getDemandPeakIndicativeSettlementByTriadSeason
+      x-operation-id-source: derived
   /demand/peak/indicative/operational/{triadSeason}:
     get:
       tags:
@@ -631,12 +766,22 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak'
+      operationId: getDemandPeakIndicativeOperationalByTriadSeason
+      x-operation-id-source: derived
   /demand/peak/triad:
     get:
       tags:
       - Demand
       summary: Triad demand peaks (S0142, ITSDO, FUELHH)
-      description: "Operational Triad peaks are calculated from the indicative demand peaks data.\n\nSettlement Triad Peaks are calculated from the latest metered volume data available at the point one month following the Triad season's end.\nFor any Triad season still in progress, the latest run type data is used.\n            \nAll Triad peaks are at least 10 days clear of one another."
+      description: 'Operational Triad peaks are calculated from the indicative demand peaks data.
+
+
+        Settlement Triad Peaks are calculated from the latest metered volume data available at the point one month following the Triad season''s end.
+
+        For any Triad season still in progress, the latest run type data is used.
+
+
+        All Triad peaks are at least 10 days clear of one another.'
       parameters:
       - name: data
         in: query
@@ -694,11 +839,13 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandPeakTriad
+      x-operation-id-source: derived
   /demand:
     get:
       tags:
       - Demand
-      summary: 'This endpoint is obsolete, and this location may be removed with no further notice. '
+      summary: This endpoint is obsolete, and this location may be removed with no further…
       description: This endpoint has been moved to demand/outturn.
       parameters:
       - name: format
@@ -714,11 +861,13 @@ paths:
         '200':
           description: OK
       deprecated: true
+      operationId: getDemand
+      x-operation-id-source: derived
   /demand/stream:
     get:
       tags:
       - Demand
-      summary: 'This endpoint is obsolete, and this location may be removed with no further notice. '
+      summary: This endpoint is obsolete, and this location may be removed with no further…
       description: This endpoint has been moved to demand/outturn/stream.
       parameters:
       - name: format
@@ -734,11 +883,13 @@ paths:
         '200':
           description: OK
       deprecated: true
+      operationId: getDemandStream
+      x-operation-id-source: derived
   /demand/rollingSystemDemand:
     get:
       tags:
       - Demand
-      summary: 'This endpoint is obsolete, and this location may be removed with no further notice. '
+      summary: This endpoint is obsolete, and this location may be removed with no further…
       description: This endpoint has been moved to generation/outturn.
       parameters:
       - name: format
@@ -754,11 +905,13 @@ paths:
         '200':
           description: OK
       deprecated: true
+      operationId: getDemandRollingSystemDemand
+      x-operation-id-source: derived
   /demand/summary:
     get:
       tags:
       - Demand
-      summary: 'This endpoint is obsolete, and this location may be removed with no further notice. '
+      summary: This endpoint is obsolete, and this location may be removed with no further…
       description: This endpoint has been moved to demand/outturn/summary.
       parameters:
       - name: format
@@ -774,11 +927,13 @@ paths:
         '200':
           description: OK
       deprecated: true
+      operationId: getDemandSummary
+      x-operation-id-source: derived
   /demand/total/actual:
     get:
       tags:
       - Demand
-      summary: 'This endpoint is obsolete, and this location may be removed with no further notice. '
+      summary: This endpoint is obsolete, and this location may be removed with no further…
       description: This endpoint has been moved to demand/actual/total.
       parameters:
       - name: format
@@ -794,12 +949,19 @@ paths:
         '200':
           description: OK
       deprecated: true
+      operationId: getDemandTotalActual
+      x-operation-id-source: derived
   /demand/actual/total:
     get:
       tags:
       - Demand
       summary: Actual total load (ATL/B0610)
-      description: "This endpoint provides actual total load data per bidding zone.\nIt can be filtered by settlement period dates.\n            \nThis API endpoint has a maximum range of 7 days."
+      description: 'This endpoint provides actual total load data per bidding zone.
+
+        It can be filtered by settlement period dates.
+
+
+        This API endpoint has a maximum range of 7 days.'
       parameters:
       - name: from
         in: query
@@ -868,57 +1030,33 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getDemandActualTotal
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type: string
-          nullable: true
-          example: RZDR
-        submissionDateTime:
-          type: string
-          format: date-time
-          example: '2025-01-01T07:01:07'
-        publishTime:
-          type: string
-          format: date-time
-          example: '2025-01-01T00:00:10'
-        region:
-          type: string
-          nullable: true
-          example: North Scotland
-        gspGroupId:
-          type: string
-          nullable: true
-          example: _A
-        restoredDemand:
-          type: integer
-          format: int32
-          example: 1234
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow
-    : type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturn:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak'
-          nullable: true
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturn'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak:
       type: object
@@ -940,139 +1078,62 @@ components:
           format: double
           example: 36256
         settlementRunType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: II
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.DemandOutturn:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          nullable: true
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        initialDemandOutturn:
-          type: integer
-          format: int64
-          nullable: true
-        initialTransmissionSystemDemandOutturn:
-          type: integer
-          format: int64
-          nullable: true
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          nullable: true
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        initialTransmissionSystemDemandOutturn:
-          type: integer
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
-      type: object
-      properties:
-        recordType:
-          type: string
-          nullable: true
-        startTime:
-          type: string
-          format: date-time
-          nullable: true
-        demand:
-          type: integer
-          format: int64
-          nullable: true
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndodRow:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndodRow'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.IndodRow:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-08-26T23:15:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-26'
-        demand:
-          type: integer
-          format: int64
-          nullable: true
-          example: 494802
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturn:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturn'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone
     : type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone'
-          nullable: true
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
+      type: object
+      properties:
+        recordType:
+          type:
+          - string
+          - 'null'
+        startTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -1099,4 +1160,126 @@ components:
           type: number
           format: double
           example: 1000
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndodRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndodRow'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.IndodRow:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-26T23:15:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-26'
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 494802
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
+      type: object
+      properties:
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        initialTransmissionSystemDemandOutturn:
+          type: integer
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.DemandOutturn:
+      type: object
+      properties:
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        initialDemandOutturn:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        initialTransmissionSystemDemandOutturn:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: RZDR
+        submissionDateTime:
+          type: string
+          format: date-time
+          example: '2025-01-01T07:01:07'
+        publishTime:
+          type: string
+          format: date-time
+          example: '2025-01-01T00:00:10'
+        region:
+          type:
+          - string
+          - 'null'
+          example: North Scotland
+        gspGroupId:
+          type:
+          - string
+          - 'null'
+          example: _A
+        restoredDemand:
+          type: integer
+          format: int32
+          example: 1234
       additionalProperties: false

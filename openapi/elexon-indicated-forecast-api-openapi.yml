@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Indicated Forecast API
+  title: Insights.Api Indicated Forecast API
   version: '1.0'
-  description: Dynamic data.
+  description: Day-and-day-ahead indicated forecast, categorized as Indicated Generation (INDGEN), Indicated Demand (INDDEM), Imbalance (IMBALNGC) and Margin (MELNGC).
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -52,6 +52,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+      operationId: getForecastIndicatedDayAhead
+      x-operation-id-source: derived
   /forecast/indicated/day-ahead/history:
     get:
       tags:
@@ -101,6 +103,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+      operationId: getForecastIndicatedDayAheadHistory
+      x-operation-id-source: derived
   /forecast/indicated/day-ahead/evolution:
     get:
       tags:
@@ -169,37 +173,18 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+      operationId: getForecastIndicatedDayAheadEvolution
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
       type: object
       properties:
         publishTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         startTime:
           type: string
           format: date-time
@@ -210,22 +195,51 @@ components:
           type: integer
           format: int32
         boundary:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         indicatedGeneration:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         indicatedDemand:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         indicatedMargin:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         indicatedImbalance:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false

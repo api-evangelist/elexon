@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Reference API
+  title: Insights.Api Reference API
   version: '1.0'
-  description: Dynamic data.
+  description: Reference data which can be used to filter other API requests.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -49,6 +49,8 @@ paths:
                 type: array
                 items:
                   type: string
+      operationId: getReferenceFueltypesAll
+      x-operation-id-source: derived
   /reference/remit/participants/all:
     get:
       tags:
@@ -89,6 +91,8 @@ paths:
                 type: array
                 items:
                   type: string
+      operationId: getReferenceRemitParticipantsAll
+      x-operation-id-source: derived
   /reference/remit/assets/all:
     get:
       tags:
@@ -129,6 +133,8 @@ paths:
                 type: array
                 items:
                   type: string
+      operationId: getReferenceRemitAssetsAll
+      x-operation-id-source: derived
   /reference/remit/fueltypes/all:
     get:
       tags:
@@ -169,6 +175,8 @@ paths:
                 type: array
                 items:
                   type: string
+      operationId: getReferenceRemitFueltypesAll
+      x-operation-id-source: derived
   /reference/bmunits/all:
     get:
       tags:
@@ -209,12 +217,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+      operationId: getReferenceBmunitsAll
+      x-operation-id-source: derived
   /reference/bmunits:
     get:
       tags:
       - Reference
       summary: BM Units (filtered)
-      description: "This endpoint provides a list of BM units filtered by lead party IDs.\n            \nThe PartyIds query parameter is required. Provide one or more lead party IDs to filter the results."
+      description: 'This endpoint provides a list of BM units filtered by lead party IDs.
+
+
+        The PartyIds query parameter is required. Provide one or more lead party IDs to filter the results.'
       parameters:
       - name: partyIds
         in: query
@@ -262,6 +275,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.BmUnitData'
+      operationId: getReferenceBmunits
+      x-operation-id-source: derived
   /reference/interconnectors/all:
     get:
       tags:
@@ -302,86 +317,111 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.InterconnectorData'
+      operationId: getReferenceInterconnectorsAll
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.Reference.InterconnectorData:
-      type: object
-      properties:
-        interconnectorId:
-          type: string
-          nullable: true
-        interconnectorName:
-          type: string
-          nullable: true
-        interconnectorBiddingZone:
-          type: string
-          nullable: true
-      additionalProperties: false
     Insights.Api.Models.Responses.Reference.BmUnitData:
       type: object
       properties:
         nationalGridBmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         elexonBmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         eic:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         fuelType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         leadPartyName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         bmUnitType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         fpnFlag:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         bmUnitName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         leadPartyId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         demandCapacity:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         generationCapacity:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         productionOrConsumptionFlag:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         transmissionLossFactor:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         workingDayCreditAssessmentImportCapability:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         nonWorkingDayCreditAssessmentImportCapability:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         workingDayCreditAssessmentExportCapability:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         nonWorkingDayCreditAssessmentExportCapability:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         creditQualifyingStatus:
           type: boolean
         demandInProductionFlag:
           type: boolean
         gspGroupId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         gspGroupName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         interconnectorId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Reference.InterconnectorData:
+      type: object
+      properties:
+        interconnectorId:
+          type:
+          - string
+          - 'null'
+        interconnectorName:
+          type:
+          - string
+          - 'null'
+        interconnectorBiddingZone:
+          type:
+          - string
+          - 'null'
       additionalProperties: false

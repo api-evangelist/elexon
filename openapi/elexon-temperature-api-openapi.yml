@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Temperature API
+  title: Insights.Api Temperature API
   version: '1.0'
-  description: Dynamic data.
+  description: Daily average & reference temperatures.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,14 @@ paths:
       tags:
       - Temperature
       summary: Temperature data (TEMP)
-      description: "This endpoint provides daily average GB temperature data (in Celsius) as well as reference temperatures (low, normal and high).\nThis average data is calculated by National Grid ESO from the data retrieved from 6 weather stations around Britain.\nNGESO use this data as part of the electricity demand forecasting process.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides daily average GB temperature data (in Celsius) as well as reference temperatures (low, normal and high).
+
+        This average data is calculated by National Grid ESO from the data retrieved from 6 weather stations around Britain.
+
+        NGESO use this data as part of the electricity demand forecasting process.
+
+
+        Date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: from
         in: query
@@ -63,30 +70,10 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.TemperatureData'
+      operationId: getTemperature
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.TemperatureData:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.TemperatureData'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-      additionalProperties: false
     Insights.Api.Models.Responses.Misc.TemperatureData:
       type: object
       properties:
@@ -94,23 +81,52 @@ components:
           type: string
           format: date
         publishTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         temperature:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         temperatureReferenceAverage:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         temperatureReferenceHigh:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         temperatureReferenceLow:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.TemperatureData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.TemperatureData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false

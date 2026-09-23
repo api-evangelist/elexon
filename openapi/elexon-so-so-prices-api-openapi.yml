@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic SO-SO Prices API
+  title: Insights.Api SO-SO Prices API
   version: '1.0'
-  description: Dynamic data.
+  description: SO-SO Prices (SOSO) data, filtered by start time.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,12 @@ paths:
       tags:
       - SO-SO Prices
       summary: SO-SO prices (SOSO)
-      description: "This endpoint provides system operator to system operator prices data.\nIt can be filtered by start time.\n            \nThis API endpoint has a maximum range of 24 hours."
+      description: 'This endpoint provides system operator to system operator prices data.
+
+        It can be filtered by start time.
+
+
+        This API endpoint has a maximum range of 24 hours.'
       parameters:
       - name: from
         in: query
@@ -67,16 +72,19 @@ paths:
           description: Too many requests
         '500':
           description: Server error - please try again later
+      operationId: getSosoPrices
+      x-operation-id-source: derived
 components:
   schemas:
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SoSoPrices:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SoSoPrices'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -84,10 +92,11 @@ components:
       type: object
       properties:
         datasets:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           example:
           - DATASET
       additionalProperties: false
@@ -95,12 +104,14 @@ components:
       type: object
       properties:
         contractIdentification:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: EG_20210928_1100_1
         tradeDirection:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: A02
         tradeQuantity:
           type: number
@@ -111,8 +122,9 @@ components:
           format: double
           example: 30.4
         traderUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: EWIC_EG
         startTime:
           type: string

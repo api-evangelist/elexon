@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic REMIT API
+  title: Insights.Api REMIT API
   version: '1.0'
-  description: Dynamic data.
+  description: REMIT messages, including previous revisions.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -60,6 +60,8 @@ paths:
           description: No data found for given query parameters
         '500':
           description: Server error - please try again later
+      operationId: getRemit
+      x-operation-id-source: derived
   /remit/{messageId}:
     get:
       tags:
@@ -99,6 +101,8 @@ paths:
           description: No data found for given id
         '500':
           description: Server error - please try again later
+      operationId: getRemitByMessageId
+      x-operation-id-source: derived
   /remit/search:
     get:
       tags:
@@ -146,6 +150,8 @@ paths:
           description: No data found for given query parameters
         '500':
           description: Server error - please try again later
+      operationId: getRemitSearch
+      x-operation-id-source: derived
   /remit/revisions:
     get:
       tags:
@@ -198,12 +204,24 @@ paths:
           description: No data found for given query parameters
         '500':
           description: Server error - please try again later
+      operationId: getRemitRevisions
+      x-operation-id-source: derived
   /remit/list/by-publish:
     get:
       tags:
       - REMIT
       summary: List messages by publish time
-      description: "This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile."
+      description: 'This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.
+
+
+        - Filtering by LatestRevisionOnly (default = true):
+
+        if true, include only the latest revision of each message.
+
+
+        - Filtering by ProfileOnly (default = false):
+
+        if true, include only messages with an outage profile.'
       parameters:
       - name: from
         in: query
@@ -305,12 +323,27 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getRemitListByPublish
+      x-operation-id-source: derived
   /remit/list/by-publish/stream:
     get:
       tags:
       - REMIT
       summary: List messages by publish time (stream)
-      description: "This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for this data."
+      description: 'This endpoint provides a list of REMIT message identifiers based on the publish time and other optional parameters.
+
+
+        - Filtering by LatestRevisionOnly (default = true):
+
+        if true, include only the latest revision of each message.
+
+
+        - Filtering by ProfileOnly (default = false):
+
+        if true, include only messages with an outage profile.
+
+
+        This endpoint has an optimised JSON payload and is aimed at frequent requests for this data.'
       parameters:
       - name: from
         in: query
@@ -413,12 +446,24 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getRemitListByPublishStream
+      x-operation-id-source: derived
   /remit/list/by-event:
     get:
       tags:
       - REMIT
       summary: List messages by event time
-      description: "This endpoint provides a list of REMIT message identifiers based on the event start time, end time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile."
+      description: 'This endpoint provides a list of REMIT message identifiers based on the event start time, end time and other optional parameters.
+
+
+        - Filtering by LatestRevisionOnly (default = true):
+
+        if true, include only the latest revision of each message.
+
+
+        - Filtering by ProfileOnly (default = false):
+
+        if true, include only messages with an outage profile.'
       parameters:
       - name: from
         in: query
@@ -520,12 +565,27 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getRemitListByEvent
+      x-operation-id-source: derived
   /remit/list/by-event/stream:
     get:
       tags:
       - REMIT
       summary: List messages by event time (stream)
-      description: "This endpoint provides a list of REMIT message identifiers based on the event start, end time and other optional parameters.\n            \n- Filtering by LatestRevisionOnly (default = true):\n   if true, include only the latest revision of each message.\n            \n- Filtering by ProfileOnly (default = false):\n    if true, include only messages with an outage profile.\n            \nThis endpoint has an optimised JSON payload and is aimed at frequent requests for this data."
+      description: 'This endpoint provides a list of REMIT message identifiers based on the event start, end time and other optional parameters.
+
+
+        - Filtering by LatestRevisionOnly (default = true):
+
+        if true, include only the latest revision of each message.
+
+
+        - Filtering by ProfileOnly (default = false):
+
+        if true, include only messages with an outage profile.
+
+
+        This endpoint has an optimised JSON payload and is aimed at frequent requests for this data.'
       parameters:
       - name: from
         in: query
@@ -628,169 +688,33 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getRemitListByEventStream
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
-        dataset:
-          type: string
-          nullable: true
-          example: REMIT
-        mrid:
-          type: string
-          nullable: true
-          example: 11XINNOGY------2-NGET-RMT-00084421
-        revisionNumber:
-          type: integer
-          format: int32
-          example: 25
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-01-31T17:39:15Z'
-        createdTime:
-          type: string
-          format: date-time
-          example: '2023-01-31T17:39:15Z'
-        messageType:
-          type: string
-          nullable: true
-          example: UnavailabilitiesOfElectricityFacilities
-        messageHeading:
-          type: string
-          nullable: true
-          example: Planned Unavailability of Generation Unit
-        eventType:
-          type: string
-          nullable: true
-          example: Production unavailability
-        unavailabilityType:
-          type: string
-          nullable: true
-          example: Planned
-        participantId:
-          type: string
-          nullable: true
-          example: 11XINNOGY------2
-        registrationCode:
-          type: string
-          nullable: true
-          example: 11XINNOGY------2
-        assetId:
-          type: string
-          nullable: true
-          example: T_DIDCB5
-        assetType:
-          type: string
-          nullable: true
-          example: Production
-        affectedUnit:
-          type: string
-          nullable: true
-          example: DIDCB5
-        affectedUnitEIC:
-          type: string
-          nullable: true
-          example: 48W000000DIDCB5C
-        affectedArea:
-          type: string
-          nullable: true
-          example: N
-        biddingZone:
-          type: string
-          nullable: true
-          example: 10YGB----------A
-        fuelType:
-          type: string
-          nullable: true
-          example: Fossil Gas
-        normalCapacity:
-          type: number
-          format: double
-          nullable: true
-          example: 780
-        availableCapacity:
-          type: number
-          format: double
-          nullable: true
-          example: 320
-        unavailableCapacity:
-          type: number
-          format: double
-          nullable: true
-          example: 361
-        eventStatus:
-          type: string
-          nullable: true
-          example: Inactive
-        eventStartTime:
-          type: string
-          format: date-time
-          example: '2022-08-23T06:59:00Z'
-        eventEndTime:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2022-08-25T05:20:30Z'
-        durationUncertainty:
-          type: string
-          nullable: true
-          example: +- 1 day
-        cause:
-          type: string
-          nullable: true
-          example: Other
-        relatedInformation:
-          type: string
-          nullable: true
-          example: Status changed to Completed
-        outageProfile:
-          type: array
+        datasets:
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData'
-          nullable: true
+            type: string
           example:
-          - startTime: '2023-02-03T21:06:31.000Z'
-            endTime: '2023-02-03T21:10:00.000Z'
-            capacity: 436
-        id:
-          type: integer
-          format: int32
-          example: 1
+          - DATASET
       additionalProperties: false
     ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl
     : type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData:
       type: object
@@ -805,6 +729,159 @@ components:
           type: number
           format: double
       additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: REMIT
+        mrid:
+          type:
+          - string
+          - 'null'
+          example: 11XINNOGY------2-NGET-RMT-00084421
+        revisionNumber:
+          type: integer
+          format: int32
+          example: 25
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-01-31T17:39:15Z'
+        createdTime:
+          type: string
+          format: date-time
+          example: '2023-01-31T17:39:15Z'
+        messageType:
+          type:
+          - string
+          - 'null'
+          example: UnavailabilitiesOfElectricityFacilities
+        messageHeading:
+          type:
+          - string
+          - 'null'
+          example: Planned Unavailability of Generation Unit
+        eventType:
+          type:
+          - string
+          - 'null'
+          example: Production unavailability
+        unavailabilityType:
+          type:
+          - string
+          - 'null'
+          example: Planned
+        participantId:
+          type:
+          - string
+          - 'null'
+          example: 11XINNOGY------2
+        registrationCode:
+          type:
+          - string
+          - 'null'
+          example: 11XINNOGY------2
+        assetId:
+          type:
+          - string
+          - 'null'
+          example: T_DIDCB5
+        assetType:
+          type:
+          - string
+          - 'null'
+          example: Production
+        affectedUnit:
+          type:
+          - string
+          - 'null'
+          example: DIDCB5
+        affectedUnitEIC:
+          type:
+          - string
+          - 'null'
+          example: 48W000000DIDCB5C
+        affectedArea:
+          type:
+          - string
+          - 'null'
+          example: N
+        biddingZone:
+          type:
+          - string
+          - 'null'
+          example: 10YGB----------A
+        fuelType:
+          type:
+          - string
+          - 'null'
+          example: Fossil Gas
+        normalCapacity:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 780
+        availableCapacity:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 320
+        unavailableCapacity:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 361
+        eventStatus:
+          type:
+          - string
+          - 'null'
+          example: Inactive
+        eventStartTime:
+          type: string
+          format: date-time
+          example: '2022-08-23T06:59:00Z'
+        eventEndTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2022-08-25T05:20:30Z'
+        durationUncertainty:
+          type:
+          - string
+          - 'null'
+          example: +- 1 day
+        cause:
+          type:
+          - string
+          - 'null'
+          example: Other
+        relatedInformation:
+          type:
+          - string
+          - 'null'
+          example: Status changed to Completed
+        outageProfile:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData'
+          example:
+          - startTime: '2023-02-03T21:06:31.000Z'
+            endTime: '2023-02-03T21:10:00.000Z'
+            capacity: 436
+        id:
+          type: integer
+          format: int32
+          example: 1
+      additionalProperties: false
     Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl:
       type: object
       properties:
@@ -813,8 +890,9 @@ components:
           format: int32
           example: 24
         mrid:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: 11XINNOGY------2-NGET-RMT-00084421
         revisionNumber:
           type: integer
@@ -829,7 +907,20 @@ components:
           format: date-time
           example: '2023-01-31T17:15:31Z'
         url:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: https://data.elexon.co.uk/bmrs/api/v1/remit/24
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false

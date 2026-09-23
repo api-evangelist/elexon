@@ -1,8 +1,7 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Rolling System Demand API
+  title: Insights.Api Rolling System Demand API
   version: '1.0'
-  description: Dynamic data.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -13,7 +12,12 @@ paths:
       tags:
       - Rolling System Demand
       summary: Total generation outturn (FUELINST)
-      description: "This endpoint provides the total generation outturn across all fuel types, derived by summing generation\nof all categories from the Generation by Fuel Type report.\n            \nThis data can be used as a proxy for rolling system demand."
+      description: 'This endpoint provides the total generation outturn across all fuel types, derived by summing generation
+
+        of all categories from the Generation by Fuel Type report.
+
+
+        This data can be used as a proxy for rolling system demand.'
       parameters:
       - name: from
         in: query
@@ -62,16 +66,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getGenerationOutturn
+      x-operation-id-source: derived
 components:
   schemas:
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -79,10 +86,11 @@ components:
       type: object
       properties:
         datasets:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           example:
           - DATASET
       additionalProperties: false
@@ -90,14 +98,17 @@ components:
       type: object
       properties:
         recordType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         startTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         demand:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
       additionalProperties: false

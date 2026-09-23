@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Generation Forecast API
+  title: Insights.Api Generation Forecast API
   version: '1.0'
-  description: Dynamic data.
+  description: Current or historic generation forecasts.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -84,6 +84,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+      operationId: getForecastAvailabilityDaily
+      x-operation-id-source: derived
   /forecast/availability/weekly:
     get:
       tags:
@@ -159,6 +161,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+      operationId: getForecastAvailabilityWeekly
+      x-operation-id-source: derived
   /forecast/availability/daily/history:
     get:
       tags:
@@ -243,6 +247,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+      operationId: getForecastAvailabilityDailyHistory
+      x-operation-id-source: derived
   /forecast/availability/weekly/history:
     get:
       tags:
@@ -327,12 +333,17 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+      operationId: getForecastAvailabilityWeeklyHistory
+      x-operation-id-source: derived
   /forecast/availability/daily/evolution:
     get:
       tags:
       - Generation Forecast
       summary: Evolution of the fourteen-day generation capacity forecast over time (FOU2T14D)
-      description: "This endpoint provides the evolution of all daily generation forecasts over time for a given Forecast Date.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides the evolution of all daily generation forecasts over time for a given Forecast Date.
+
+
+        Date parameter must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: forecastDate
         in: query
@@ -411,6 +422,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+      operationId: getForecastAvailabilityDailyEvolution
+      x-operation-id-source: derived
   /forecast/availability/weekly/evolution:
     get:
       tags:
@@ -504,12 +517,17 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+      operationId: getForecastAvailabilityWeeklyEvolution
+      x-operation-id-source: derived
   /forecast/generation/day-ahead:
     get:
       tags:
       - Generation Forecast
       summary: Day-ahead aggregated generation (DAG/B1430)
-      description: "This endpoint provides day-ahead aggregated generation data filtered by settlement date.\n            \nThis API endpoint has a maximum range of 7 days."
+      description: 'This endpoint provides day-ahead aggregated generation data filtered by settlement date.
+
+
+        This API endpoint has a maximum range of 7 days.'
       parameters:
       - name: from
         in: query
@@ -578,12 +596,17 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getForecastGenerationDayAhead
+      x-operation-id-source: derived
   /forecast/generation/wind-and-solar/day-ahead:
     get:
       tags:
       - Generation Forecast
       summary: Day-ahead generation forecast for wind and solar (DGWS/B1440)
-      description: "This endpoint provides day-ahead forecast generation data for wind and solar.\n            \nThis endpoint filters by startTime and provides a maximum data output range of 7 days."
+      description: 'This endpoint provides day-ahead forecast generation data for wind and solar.
+
+
+        This endpoint filters by startTime and provides a maximum data output range of 7 days.'
       parameters:
       - name: from
         in: query
@@ -656,6 +679,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+      operationId: getForecastGenerationWindAndSolarDayAhead
+      x-operation-id-source: derived
   /forecast/generation/wind:
     get:
       tags:
@@ -696,6 +721,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+      operationId: getForecastGenerationWind
+      x-operation-id-source: derived
   /forecast/generation/wind/history:
     get:
       tags:
@@ -744,6 +771,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+      operationId: getForecastGenerationWindHistory
+      x-operation-id-source: derived
   /forecast/generation/wind/evolution:
     get:
       tags:
@@ -794,6 +823,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+      operationId: getForecastGenerationWindEvolution
+      x-operation-id-source: derived
   /forecast/generation/wind/latest:
     get:
       tags:
@@ -850,6 +881,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+      operationId: getForecastGenerationWindLatest
+      x-operation-id-source: derived
   /forecast/generation/wind/latest/stream:
     get:
       tags:
@@ -896,6 +929,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+      operationId: getForecastGenerationWindLatestStream
+      x-operation-id-source: derived
   /forecast/generation/wind/earliest:
     get:
       tags:
@@ -952,6 +987,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+      operationId: getForecastGenerationWindEarliest
+      x-operation-id-source: derived
   /forecast/generation/wind/earliest/stream:
     get:
       tags:
@@ -998,12 +1035,23 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Insights.Api.Models.Service.WindGenerationForecastRow'
+      operationId: getForecastGenerationWindEarliestStream
+      x-operation-id-source: derived
   /forecast/generation/wind/peak:
     get:
       tags:
       - Generation Forecast
       summary: Peak wind generation forecast for each day (WINDFOR)
-      description: "This endpoint provides the peak wind generation forecast data.\nThis provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.\nUpdated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.\nResults are filtered by a range of DateTime parameters.\n            \nDate parameters must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides the peak wind generation forecast data.
+
+        This provides wind generation forecast for wind farms which are visible to the ESO and have operational metering.
+
+        Updated data is published by NGESO up to 8 times a day at 03:30, 05:30, 08:30, 10:30, 12:30, 16:30, 19:30 and 23:30.
+
+        Results are filtered by a range of DateTime parameters.
+
+
+        Date parameters must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: from
         in: query
@@ -1052,8 +1100,247 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+      operationId: getForecastGenerationWindPeak
+      x-operation-id-source: derived
 components:
   schemas:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-06-29T17:25:09Z'
+        processType:
+          type:
+          - string
+          - 'null'
+          example: Intraday process
+        businessType:
+          type:
+          - string
+          - 'null'
+          example: Wind generation
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Wind Offshore
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-06-29T15:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-06-29'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 40
+        quantity:
+          type: number
+          format: double
+          example: 1000
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.WindGenerationForecast:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        generation:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2024-06-07T15:00:00Z'
+        fuelType:
+          type:
+          - string
+          - 'null'
+          example: CCGT
+        ngcBmUnit:
+          type:
+          - string
+          - 'null'
+          example: CARR-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_CARR-1
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 418
+        year:
+          type: integer
+          format: int32
+          example: 2024
+        calendarWeekNumber:
+          type: integer
+          format: int32
+          example: 23
+      additionalProperties: false
+    Insights.Api.Models.Service.WindGenerationForecastRow:
+      type: object
+      properties:
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        generation:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.AvailabilityDaily:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2024-06-07T15:00:00Z'
+        fuelType:
+          type:
+          - string
+          - 'null'
+          example: CCGT
+        ngcBmUnit:
+          type:
+          - string
+          - 'null'
+          example: CARR-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_CARR-1
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 418
+        forecastDate:
+          type: string
+          format: date
+          example: '2024-06-07'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityDaily'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
     Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration:
       type: object
       properties:
@@ -1077,217 +1364,4 @@ components:
           type: integer
           format: int32
           example: 16
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.WindGenerationForecast:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        generation:
-          type: integer
-          format: int64
-          nullable: true
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration
-    : type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.AvailabilityDaily:
-      type: object
-      properties:
-        dataset:
-          type: string
-          nullable: true
-        publishTime:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2024-06-07T15:00:00Z'
-        fuelType:
-          type: string
-          nullable: true
-          example: CCGT
-        ngcBmUnit:
-          type: string
-          nullable: true
-          example: CARR-1
-        bmUnit:
-          type: string
-          nullable: true
-          example: T_CARR-1
-        outputUsable:
-          type: integer
-          format: int64
-          nullable: true
-          example: 418
-        forecastDate:
-          type: string
-          format: date
-          example: '2024-06-07'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar
-    : type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.WindGenerationForecast'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-06-29T17:25:09Z'
-        processType:
-          type: string
-          nullable: true
-          example: Intraday process
-        businessType:
-          type: string
-          nullable: true
-          example: Wind generation
-        psrType:
-          type: string
-          nullable: true
-          example: Wind Offshore
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-06-29T15:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-06-29'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 40
-        quantity:
-          type: number
-          format: double
-          example: 1000
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityDaily:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityDaily'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Service.WindGenerationForecastRow:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          nullable: true
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        generation:
-          type: integer
-          format: int64
-          nullable: true
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
-      type: object
-      properties:
-        dataset:
-          type: string
-          nullable: true
-        publishTime:
-          type: string
-          format: date-time
-          nullable: true
-          example: '2024-06-07T15:00:00Z'
-        fuelType:
-          type: string
-          nullable: true
-          example: CCGT
-        ngcBmUnit:
-          type: string
-          nullable: true
-          example: CARR-1
-        bmUnit:
-          type: string
-          nullable: true
-          example: T_CARR-1
-        outputUsable:
-          type: integer
-          format: int64
-          nullable: true
-          example: 418
-        year:
-          type: integer
-          format: int32
-          example: 2024
-        calendarWeekNumber:
-          type: integer
-          format: int32
-          example: 23
       additionalProperties: false

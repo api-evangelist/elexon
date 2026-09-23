@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Bid-Offer Acceptances API
+  title: Insights.Api Bid-Offer Acceptances API
   version: '1.0'
-  description: Dynamic data.
+  description: Bid-offer acceptance data (BOALF).
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -14,7 +14,50 @@ paths:
       tags:
       - Bid-Offer Acceptances
       summary: Bid-offer acceptances per BMU (BOALF)
-      description: "This endpoint provides the bid-offer acceptance data (BOALF) for a requested BMU.\n            \nBy default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or\nsettlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement\ndate, allowing for searching by a combination of start time and/or settlement date & settlement period.\nNote: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For\nexample, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.\n            \nAll Dates and DateTimes should be expressed as defined within\n<a href=\"https://datatracker.ietf.org/doc/html/rfc3339#section-5.6\" target=\"_blank\">RFC 3339</a>.\n            \nSome examples of date parameter combinations are shown below.\n            \nFiltering from start time to start time:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z\n            \nFiltering from start time to settlement date and period:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1\n            \nFiltering from settlement date and period to start time:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1\n            \nFiltering from settlement date and period to settlement date and period:\n            \n    /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1"
+      description: 'This endpoint provides the bid-offer acceptance data (BOALF) for a requested BMU.
+
+
+        By default, the from and to parameters filter the data by start time inclusively. If the settlementPeriodFrom or
+
+        settlementPeriodTo parameters are provided, the corresponding from or to parameter instead filters on settlement
+
+        date, allowing for searching by a combination of start time and/or settlement date & settlement period.
+
+        Note: When filtering via settlement date, from/to are treated as Dates only, with the time being ignored. For
+
+        example, 2022-06-01T00:00Z and 2022-06-01T11:11Z are both treated as the settlement date 2022-06-01.
+
+
+        All Dates and DateTimes should be expressed as defined within
+
+        RFC 3339.
+
+
+        Some examples of date parameter combinations are shown below.
+
+
+        Filtering from start time to start time:
+
+
+        /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z
+
+
+        Filtering from start time to settlement date and period:
+
+
+        /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodTo=1
+
+
+        Filtering from settlement date and period to start time:
+
+
+        /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1
+
+
+        Filtering from settlement date and period to settlement date and period:
+
+
+        /balancing/acceptances?from=2022-06-01T00:00Z&to=2022-07-01T00:00Z&settlementPeriodFrom=1&settlementPeriodTo=1'
       parameters:
       - name: bmUnit
         in: query
@@ -91,12 +134,19 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingAcceptances
+      x-operation-id-source: derived
   /balancing/acceptances/all:
     get:
       tags:
       - Bid-Offer Acceptances
       summary: Market-wide bid-offer acceptances (BOALF)
-      description: "This endpoint provides the bid-offer acceptance data (BOALF) for multiple requested BMUs or all BMUs.\nIt returns the data valid for a single settlement period.\n            \nThe settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides the bid-offer acceptance data (BOALF) for multiple requested BMUs or all BMUs.
+
+        It returns the data valid for a single settlement period.
+
+
+        The settlement period must be specified as a date and settlement period. The date parameter must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: settlementDate
         in: query
@@ -166,6 +216,8 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingAcceptancesAll
+      x-operation-id-source: derived
   /balancing/acceptances/all/latest:
     get:
       tags:
@@ -210,6 +262,8 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingAcceptancesAllLatest
+      x-operation-id-source: derived
   /balancing/acceptances/{acceptanceNumber}:
     get:
       tags:
@@ -265,30 +319,10 @@ paths:
           description: Error with query parameters - see response for details
         '500':
           description: Server error - please try again later
+      operationId: getBalancingAcceptancesByAcceptanceNumber
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse:
       type: object
       properties:
@@ -321,12 +355,14 @@ components:
           format: int32
           example: 46
         nationalGridBmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: ABRBO-1
         bmUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: T_ABRBO-1
         acceptanceNumber:
           type: integer
@@ -346,7 +382,32 @@ components:
           type: boolean
           example: true
         rrFlag:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
           example: false
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.BidOfferAcceptancesResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false

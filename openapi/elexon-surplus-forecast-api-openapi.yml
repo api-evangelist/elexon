@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Insights.Api Balancing Mechanism Dynamic Surplus Forecast API
+  title: Insights.Api Surplus Forecast API
   version: '1.0'
-  description: Dynamic data.
+  description: Generating Plant Operating Surplus forecast data, including historical views of data by publish time or forecast date.
 servers:
 - url: https://data.elexon.co.uk/bmrs/api/v1
 tags:
@@ -49,6 +49,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+      operationId: getForecastSurplusDaily
+      x-operation-id-source: derived
   /forecast/surplus/daily/history:
     get:
       tags:
@@ -95,12 +97,19 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+      operationId: getForecastSurplusDailyHistory
+      x-operation-id-source: derived
   /forecast/surplus/daily/evolution:
     get:
       tags:
       - Surplus Forecast
       summary: Evolution daily surplus forecast (OCNMFD)
-      description: "This endpoint provides the daily evolution Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.\nThe Daily API outputs the latest published data for daily surplus forecast for D+2 to D+14.\n            \nDate parameter must be provided in the exact format yyyy-MM-dd."
+      description: 'This endpoint provides the daily evolution Generating Plant Operating Surplus covering 2 days ahead to 14 days ahead in MW values.
+
+        The Daily API outputs the latest published data for daily surplus forecast for D+2 to D+14.
+
+
+        Date parameter must be provided in the exact format yyyy-MM-dd.'
       parameters:
       - name: forecastDate
         in: query
@@ -142,6 +151,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+      operationId: getForecastSurplusDailyEvolution
+      x-operation-id-source: derived
   /forecast/surplus/weekly:
     get:
       tags:
@@ -189,6 +200,8 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+      operationId: getForecastSurplusWeekly
+      x-operation-id-source: derived
   /forecast/surplus/weekly/history:
     get:
       tags:
@@ -244,12 +257,14 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+      operationId: getForecastSurplusWeeklyHistory
+      x-operation-id-source: derived
   /forecast/surplus/weekly/evolution:
     get:
       tags:
       - Surplus Forecast
       summary: Evolution weekly surplus forecast (OCNMFW, OCNMF3Y)
-      description: 'This endpoint provides the evolution Generating Plant Operating Surplus  covering 2 weeks ahead to 156 weeks ahead in MW values.
+      description: 'This endpoint provides the evolution Generating Plant Operating Surplus covering 2 weeks ahead to 156 weeks ahead in MW values.
 
         The weekly API outputs the latest published data for weekly surplus forecast for W+2 to W+156'
       parameters:
@@ -303,40 +318,33 @@ paths:
             text/csv:
               schema:
                 $ref: '#/components/schemas/Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
+      operationId: getForecastSurplusWeeklyEvolution
+      x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
-        data:
-          type: array
+        datasets:
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
-          nullable: true
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+            type: string
+          example:
+          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly:
       type: object
       properties:
         data:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly'
-          nullable: true
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type: array
-          items:
-            type: string
-          nullable: true
-          example:
-          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily:
       type: object
@@ -345,12 +353,25 @@ components:
           type: string
           format: date-time
         surplus:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         forecastDate:
           type: string
           format: date
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusDaily'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.ForecastSurplus.ForecastSurplusWeekly:
       type: object
@@ -359,9 +380,10 @@ components:
           type: string
           format: date-time
         surplus:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         week:
           type: integer
           format: int32
