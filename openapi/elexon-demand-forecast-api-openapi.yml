@@ -1055,42 +1055,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 05:00:00Z'
-        forecastDate:
-          type: string
-          format: date
-          example: '2023-07-24'
-        forecastWeek:
-          type: integer
-          format: int32
-          example: 30
-        minimumPossible:
-          type: number
-          format: double
-          example: 18034
-        maximumAvailable:
-          type: number
-          format: double
-          example: 35011
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
-      additionalProperties: false
     ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone
     : type: object
       properties:
@@ -1100,6 +1064,18 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -1127,6 +1103,29 @@ components:
           format: double
           example: 18648
       additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type:
+          - string
+          - 'null'
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+      additionalProperties: false
     Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
       type: object
       properties:
@@ -1152,18 +1151,6 @@ components:
         weekStartDate:
           type: string
           format: date
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone
     : type: object
@@ -1197,7 +1184,19 @@ components:
           type: string
           format: date
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
       type: object
       properties:
         data:
@@ -1205,44 +1204,9 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        boundary:
-          type:
-          - string
-          - 'null'
-        transmissionSystemDemand:
-          type: integer
-          format: int64
       additionalProperties: false
     Insights.Api.Models.Service.DayAheadDemandForecastRow:
       type: object
@@ -1271,6 +1235,30 @@ components:
           - integer
           - 'null'
           format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead:
       type: object
@@ -1302,15 +1290,27 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
+    Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone:
       type: object
       properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        forecastDate:
+          type: string
+          format: date
+          example: '2023-07-24'
+        forecastWeek:
+          type: integer
+          format: int32
+          example: 30
+        minimumPossible:
+          type: number
+          format: double
+          example: 18034
+        maximumAvailable:
+          type: number
+          format: double
+          example: 35011
       additionalProperties: false

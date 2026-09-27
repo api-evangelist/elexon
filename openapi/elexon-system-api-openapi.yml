@@ -229,6 +229,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
     Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
@@ -241,6 +253,16 @@ components:
           example:
           - DATASET
       additionalProperties: false
+    Insights.Api.Models.Responses.Misc.SystemFrequency:
+      type: object
+      properties:
+        measurementTime:
+          type: string
+          format: date-time
+        frequency:
+          type: number
+          format: double
+      additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData:
       type: object
       properties:
@@ -252,16 +274,6 @@ components:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemWarningsData'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Misc.SystemFrequency:
-      type: object
-      properties:
-        measurementTime:
-          type: string
-          format: date-time
-        frequency:
-          type: number
-          format: double
       additionalProperties: false
     Insights.Api.Models.Responses.Misc.SystemWarningsData:
       type: object
@@ -282,30 +294,6 @@ components:
           - string
           - 'null'
           example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
       type: object
@@ -370,4 +358,16 @@ components:
           - string
           - 'null'
           example: ORI
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
