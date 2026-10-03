@@ -13052,226 +13052,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualTotalLoadPerBiddingZoneDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualTotalLoadPerBiddingZoneDatasetRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.DatasetRows.IndodDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: INDOD
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-08-26T23:15:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-26'
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 494802
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.BalancingServicesVolumeData
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.BalancingServicesVolumeData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionWeekly:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        year:
-          type: integer
-          format: int32
-        week:
-          type: integer
-          format: int32
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedGeneration
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedGeneration'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: DGWS
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-DGWSINTRADAY-06043339
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 05:00:00Z'
-        processType:
-          type:
-          - string
-          - 'null'
-          example: Intraday process
-        businessType:
-          type:
-          - string
-          - 'null'
-          example: Wind generation
-        psrType:
-          type:
-          - string
-          - 'null'
-          example: Wind Offshore
-        quantity:
-          type: number
-          format: double
-          example: 1829
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 06:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-07-12'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 16
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferDatasetResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferDatasetResponse'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadAggregatedGenerationDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadAggregatedGenerationDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData:
-      type: object
-      properties:
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        capacity:
-          type: number
-          format: double
-      additionalProperties: false
-    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedMargin:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        margin:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        boundary:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandOutturn.DatasetRows.IndodDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DatasetRows.IndodDatasetRow'
-      additionalProperties: false
     Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationOutputPerGenerationUnitDatasetResponse:
       type: object
       properties:
@@ -13312,72 +13092,13 @@ components:
           format: double
           example: 116.109
       additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeDaily:
+    Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnTransmission:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-        fuelType:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        systemZone:
-          type:
-          - string
-          - 'null'
-        forecastDate:
-          type: string
-          format: date
-        forecastDateTimezone:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        outputUsable:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        biddingZone:
-          type:
-          - string
-          - 'null'
-        interconnectorName:
-          type:
-          - string
-          - 'null'
-        interconnector:
-          type: boolean
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedGeneration:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        generation:
-          type:
-          - integer
-          - 'null'
-          format: int64
         publishTime:
           type: string
           format: date-time
@@ -13390,66 +13111,32 @@ components:
         settlementPeriod:
           type: integer
           format: int32
-        boundary:
+        demand:
           type:
-          - string
+          - integer
           - 'null'
+          format: int64
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData:
+    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDaily:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: DISBSAD
-        settlementDate:
+        publishTime:
+          type: string
+          format: date-time
+        forecastDate:
           type: string
           format: date
-          example: '2022-06-25'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 29
-        id:
-          type: integer
-          format: int32
-          example: 1
-        cost:
+        demand:
           type:
-          - number
+          - integer
           - 'null'
-          format: double
-          example: 1850.9
-        volume:
-          type: number
-          format: double
-          example: 5
-        soFlag:
-          type: boolean
-        storFlag:
-          type: boolean
-        partyId:
-          type:
-          - string
-          - 'null'
-          example: ElectroRoute Energy Trading Limited
-        assetId:
-          type:
-          - string
-          - 'null'
-          example: ING-ELTR1
-        isTendered:
-          type:
-          - boolean
-          - 'null'
-        service:
-          type:
-          - string
-          - 'null'
-          example: Energy
+          format: int64
       additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.WeekAheadTotalLoadPerBiddingZoneDatasetRow
     : type: object
       properties:
         data:
@@ -13457,26 +13144,16 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.WeekAheadTotalLoadPerBiddingZoneDatasetRow'
       additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.DatasetRows.BalancingServicesVolumeData:
+    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMinData:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: QAS
+          example: MZT
         settlementDate:
           type: string
           format: date
@@ -13485,10 +13162,14 @@ components:
           type: integer
           format: int32
           example: 3
-        bmUnitApplicableBalancingServicesVolume:
-          type: number
-          format: double
-          example: 123.45
+        time:
+          type: string
+          format: date-time
+          example: '2022-07-25T09:34:00Z'
+        periodMin:
+          type: integer
+          format: int32
+          example: 360
         nationalGridBmUnit:
           type:
           - string
@@ -13500,51 +13181,17 @@ components:
           - 'null'
           example: T_ABRBO-1
       additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData:
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityWeekly:
       type: object
       properties:
-        dataset:
+        data:
           type:
-          - string
+          - array
           - 'null'
-          example: FUELINST
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2022-06-25T13:00:00Z'
-        startTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2022-06-25T13:00:00Z'
-        settlementDate:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-06-25'
-        settlementPeriod:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 3
-        fuelType:
-          type:
-          - string
-          - 'null'
-          example: BIOMASS
-        generation:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 0
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityWeekly'
       additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnTransmission
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData
     : type: object
       properties:
         data:
@@ -13552,32 +13199,57 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnTransmission'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData'
       additionalProperties: false
-    Insights.Api.Models.Responses.Misc.DatasetRows.SystemWarningsData:
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadTotalLoadPerBiddingZoneDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadTotalLoadPerBiddingZoneDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: SYSWARN
+          example: CCM
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-CCM-00688999
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
         publishTime:
-          type:
-          - string
-          - 'null'
+          type: string
           format: date-time
-          example: 2022-09-20T00:00Z
-        warningType:
+          example: '2023-07-12 05:00:00Z'
+        businessType:
           type:
           - string
           - 'null'
-          example: SO-SO TRADES
-        warningText:
+          example: Congestion costs
+        year:
+          type: integer
+          format: int32
+          example: 2023
+        month:
           type:
           - string
           - 'null'
-          example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
+          example: OCT
+        amount:
+          type: number
+          format: double
+          example: 1.08
       additionalProperties: false
     Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadForecastMarginDatasetRow:
       type: object
@@ -13614,17 +13286,52 @@ components:
           format: double
           example: 1.08
       additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData
-    : type: object
+    Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow:
+      type: object
       properties:
-        data:
+        dataset:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData'
+          example: FEIB
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-FEIB-00687316
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2021-09-21T10:04:24Z'
+        status:
+          type:
+          - string
+          - 'null'
+          example: Intermediate
+        year:
+          type: integer
+          format: int32
+          example: 2021
+        month:
+          type:
+          - string
+          - 'null'
+          example: JUL
+        amount:
+          type: number
+          format: double
+          example: 77112420
+        priceDirection:
+          type:
+          - string
+          - 'null'
+          example: Expenditure
       additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityWeekly:
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.NonBmStorData:
       type: object
       properties:
         data:
@@ -13632,7 +13339,233 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityWeekly'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.NonBmStorData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.DatasetRows.IndodDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: INDOD
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-26T23:15:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-26'
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 494802
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMinData
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMinData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: CDN
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: 2022-09-20T00:00Z
+        bscPartyId:
+          type:
+          - string
+          - 'null'
+          example: INVE
+        creditDefaultLevel:
+          type: integer
+          format: int32
+          example: 1
+        enteredDefaultSettlementDate:
+          type: string
+          format: date
+          example: '2022-06-25'
+        enteredDefaultSettlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        clearedDefaultSettlementDate:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-07-02'
+        clearedDefaultSettlementPeriod:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 29
+        clearedDefaultText:
+          type:
+          - string
+          - 'null'
+          example: Credit Cover Percentage greater than or equal to 90% of Credit Limit (Level 2 Default)
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedGeneration
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedGeneration'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityDaily:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        systemZone:
+          type:
+          - string
+          - 'null'
+        forecastDate:
+          type: string
+          format: date
+        forecastDateTimezone:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.AobeDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: AOBE
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-AOBE-00879999
+        timeSeriesId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-AOBE-36758603
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-10-24T13:09:07Z'
+        flowDirection:
+          type:
+          - string
+          - 'null'
+          example: Up
+        quantity:
+          type: number
+          format: double
+          example: 12412
+        secondaryQuantity:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 45.831
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-09-11T14:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-09-11'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 32
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitWeekly
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitWeekly'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.SystemWarningsData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.SystemWarningsData'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.WindGenerationForecast
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.WindGenerationForecast'
       additionalProperties: false
     ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.NetBalancingServicesAdjustmentData
     : type: object
@@ -13644,57 +13577,914 @@ components:
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.NetBalancingServicesAdjustmentData'
       additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow:
+    Insights.Api.Models.Responses.Balancing.DatasetRows.NetBalancingServicesAdjustmentData:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: IGCPU
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-CONF-00688811
-        publishTime:
-          type: string
-          format: date-time
-          example: '2022-04-21T13:25:52Z'
-        effectiveFrom:
+          example: NETBSAD
+        settlementDate:
           type: string
           format: date
-          example: '2023-08-07'
-        psrType:
+          example: '2022-06-25'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 29
+        netBuyPriceCostAdjustmentEnergy:
+          type: number
+          format: double
+          example: 0
+        netBuyPriceVolumeAdjustmentEnergy:
+          type: number
+          format: double
+          example: 0
+        netBuyPriceVolumeAdjustmentSystem:
+          type: number
+          format: double
+          example: 0
+        buyPricePriceAdjustment:
+          type: number
+          format: double
+          example: 0
+        netSellPriceCostAdjustmentEnergy:
+          type: number
+          format: double
+          example: 0
+        netSellPriceVolumeAdjustmentEnergy:
+          type: number
+          format: double
+          example: 0
+        netSellPriceVolumeAdjustmentSystem:
+          type: number
+          format: double
+          example: 0
+        sellPricePriceAdjustment:
+          type: number
+          format: double
+          example: 0
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.DeliveryLimitMaxData:
+      type: object
+      properties:
+        dataset:
           type:
           - string
           - 'null'
-          example: Other
-        registeredResourceEicCode:
+          example: MILS
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        timeFrom:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        timeTo:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        levelFrom:
+          type: integer
+          format: int32
+          example: 5
+        levelTo:
+          type: integer
+          format: int32
+          example: 46
+        notificationTime:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        notificationSequence:
+          type: integer
+          format: int32
+          example: 93210322
+        nationalGridBmUnit:
           type:
           - string
           - 'null'
-          example: 48WVPI-TRAD-BMUI
-        registeredResourceName:
-          type:
-          - string
-          - 'null'
-          example: DBAWO-1
+          example: ABRBO-1
         bmUnit:
           type:
           - string
           - 'null'
-          example: T_DBAWO-1
-        voltageLimit:
+          example: T_ABRBO-1
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.DatasetRows.BalancingServicesVolumeData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: QAS
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-25'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        bmUnitApplicableBalancingServicesVolume:
+          type: number
+          format: double
+          example: 123.45
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: ABRBO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_ABRBO-1
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.AobeDatasetRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.AobeDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedMargin
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedMargin'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: MATL
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-WATL-16209423
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-05-25 23:00:10Z'
+        forecastWeekCommencingDate:
+          type: string
+          format: date
+          example: '2023-05-29'
+        forecastYear:
+          type: integer
+          format: int32
+          example: 2023
+        forecastMonth:
+          type:
+          - string
+          - 'null'
+          example: JUN
+        minimumPossible:
+          type: number
+          format: double
+          example: 18034
+        maximumAvailable:
+          type: number
+          format: double
+          example: 35011
+      additionalProperties: false
+    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedDemand:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualAggregatedGenerationPerTypeDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualAggregatedGenerationPerTypeDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.DemandControlInstructionDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.DemandControlInstructionDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.DatasetRows.TemperatureData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        measurementDate:
+          type: string
+          format: date
+        publishTime:
+          type: string
+          format: date-time
+        temperature:
           type:
           - number
           - 'null'
           format: double
-          example: 2234.1
-        installedCapacity:
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalWeekly:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type: string
+          format: date-time
+        year:
+          type: integer
+          format: int32
+        week:
+          type: integer
+          format: int32
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.BebDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: BEB
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-BEB-00688983
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-22T07:43:04Z'
+        bidId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-BEB-TS-36758603
+        flowDirection:
+          type:
+          - string
+          - 'null'
+          example: Up
+        quantity:
           type: number
           format: double
-          example: 1928.2
+          example: 1140
+        energyPrice:
+          type: number
+          format: double
+          example: 150
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-08-22T07:43:04Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-23'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 1
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.SystemFrequency:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.SystemFrequency'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.NoticeData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: NTB
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        time:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        notice:
+          type: integer
+          format: int32
+          example: 13
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: ABRBO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_ABRBO-1
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: PPBR
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-PPBR-00688983
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-22T07:43:04Z'
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Generation
+        marketAgreementType:
+          type:
+          - string
+          - 'null'
+          example: Daily
+        flowDirection:
+          type:
+          - string
+          - 'null'
+          example: Up
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-23'
+        amount:
+          type: number
+          format: double
+          example: 1.2
+      additionalProperties: false
+    Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: RZDF
+        submissionDateTime:
+          type: string
+          format: date-time
+          example: '2025-01-01T07:01:07'
+        publishTime:
+          type: string
+          format: date-time
+          example: '2025-01-01T00:00:10'
+        settlementDate:
+          type: string
+          format: date
+          example: '2025-01-02'
+        region:
+          type:
+          - string
+          - 'null'
+          example: North Scotland
+        gspGroupId:
+          type:
+          - string
+          - 'null'
+          example: _A
+        forecastDemand60:
+          type: integer
+          format: int32
+          example: 1234
+        forecastDemand100:
+          type: integer
+          format: int32
+          example: 12345
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.NonBmStorData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: NONBM
+        publishTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:34:00Z'
+        startTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:00:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-06-25'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 29
+        generation:
+          type: integer
+          format: int64
+          example: 0
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: BOALF
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-25'
+        settlementPeriodFrom:
+          type: integer
+          format: int32
+          example: 29
+        settlementPeriodTo:
+          type: integer
+          format: int32
+          example: 32
+        timeFrom:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:34:00Z'
+        timeTo:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:37:00Z'
+        levelFrom:
+          type: integer
+          format: int32
+          example: 5
+        levelTo:
+          type: integer
+          format: int32
+          example: 46
+        acceptanceNumber:
+          type: integer
+          format: int32
+          example: 1234567
+        acceptanceTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:37:00Z'
+        deemedBoFlag:
+          type: boolean
+        soFlag:
+          type: boolean
+        amendmentFlag:
+          type:
+          - string
+          - 'null'
+          example: ORI
+        storFlag:
+          type: boolean
+        rrFlag:
+          type:
+          - boolean
+          - 'null'
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: ABRBO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_ABRBO-1
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandOutturn.DatasetRows.IndodDatasetRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DatasetRows.IndodDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.StablePortageLimitData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: SEL
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        time:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        level:
+          type: integer
+          format: int32
+          example: 5
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: ABRBO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_ABRBO-1
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData:
+      type: object
+      properties:
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        capacity:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadTotalLoadPerBiddingZoneDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: DATL
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-DATL-16244005
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-05 12:00:08Z'
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-08-06 23:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-07'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 2
+        quantity:
+          type: number
+          format: double
+          example: 18648
+      additionalProperties: false
+    Insights.Api.Models.Responses.Reference.DatasetMetadataLatestRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        lastUpdated:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnTransmission
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnTransmission'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: ABUC
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-ABUC-00688983
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-22T07:43:04Z'
+        businessType:
+          type:
+          - string
+          - 'null'
+          example: Replacement reserve
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Generation
+        marketAgreementType:
+          type:
+          - string
+          - 'null'
+          example: Daily
+        flowDirection:
+          type:
+          - string
+          - 'null'
+          example: Up
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-23'
+        quantity:
+          type: number
+          format: double
+          example: 1140
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryVolumeMaxData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: MDV
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        time:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        volumeMax:
+          type: integer
+          format: int64
+          example: 31
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: ABRBO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_ABRBO-1
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.DatasetRows.SystemFrequency:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        measurementTime:
+          type: string
+          format: date-time
+        frequency:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Reference.DatasetMetadataLatestRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.DatasetMetadataLatestRow'
       additionalProperties: false
     Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationWindSolarDatasetRow:
       type: object
@@ -13743,181 +14533,6 @@ components:
           type: integer
           format: int32
           example: 16
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadTotalLoadPerBiddingZoneDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadTotalLoadPerBiddingZoneDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: IGCA
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-IGCA-00687002
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2022-04-21T13:25:52Z'
-        businessType:
-          type:
-          - string
-          - 'null'
-          example: Installed generation
-        psrType:
-          type:
-          - string
-          - 'null'
-          example: Hydro Pumped Storage
-        year:
-          type: integer
-          format: int32
-          example: 2022
-        quantity:
-          type: number
-          format: double
-          example: 1928
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDaily
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDaily'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        fuelType:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        systemZone:
-          type:
-          - string
-          - 'null'
-        calendarWeekNumber:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        year:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        outputUsable:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        biddingZone:
-          type:
-          - string
-          - 'null'
-        interconnectorName:
-          type:
-          - string
-          - 'null'
-        interconnector:
-          type: boolean
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.TudmDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.TudmDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.RemitMessage:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.RemitMessage'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.SystemWarningsData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.SystemWarningsData'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.WindGenerationForecast:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        generation:
-          type:
-          - integer
-          - 'null'
-          format: int64
       additionalProperties: false
     Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferDatasetResponse:
       type: object
@@ -13974,90 +14589,82 @@ components:
           - 'null'
           example: T_ABRBO-1
       additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.ActualAggregatedGenerationPerTypeDatasetRow:
+    Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: AGPT
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-AGPT-06426954
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
+          example: SOSO
         publishTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          example: '2023-07-12 05:00:00Z'
-        businessType:
+          example: 2022-09-20T00:00Z
+        senderIdentification:
           type:
           - string
           - 'null'
-          example: Solar generation
-        psrType:
+          example: 10X1001A1001A515
+        receiverIdentification:
           type:
           - string
           - 'null'
-          example: Solar
-        quantity:
+          example: 10X1001A1001A59Q
+        contractIdentification:
+          type:
+          - string
+          - 'null'
+          example: EG_20210928_1100_1
+        resourceProvider:
+          type:
+          - string
+          - 'null'
+          example: EG_20210928_1100_1
+        tradeDirection:
+          type:
+          - string
+          - 'null'
+          example: A02
+        tradeQuantity:
           type: number
           format: double
-          example: 1829
+          example: 25
+        tradePrice:
+          type: number
+          format: double
+          example: 30.4
+        traderUnit:
+          type:
+          - string
+          - 'null'
+          example: EWIC_EG
         startTime:
           type: string
           format: date-time
-          example: '2023-07-12 06:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-07-12'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 16
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMinData:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: MZT
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-25'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        time:
+          example: 2023-09-25 18:30
+        endTime:
           type: string
           format: date-time
-          example: '2022-07-25T09:34:00Z'
-        periodMin:
-          type: integer
-          format: int32
-          example: 360
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: ABRBO-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_ABRBO-1
+          example: 2023-09-20 18:30
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-01-31'
       additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.BebDatasetRow:
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow:
       type: object
       properties:
         data:
@@ -14065,68 +14672,120 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.BebDatasetRow'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow'
       additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational:
+    Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
+          example: FUELINST
         publishTime:
           type:
           - string
           - 'null'
           format: date-time
+          example: '2022-06-25T13:00:00Z'
         startTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
+          example: '2022-06-25T13:00:00Z'
         settlementDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
+          example: '2022-06-25'
         settlementPeriod:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-        demand:
+          example: 3
+        fuelType:
+          type:
+          - string
+          - 'null'
+          example: BIOMASS
+        generation:
           type:
           - integer
           - 'null'
           format: int64
+          example: 0
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse:
+    Insights.Api.Models.Responses.Misc.DatasetRows.DemandControlInstructionDatasetRow:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: MID
-        startTime:
-          type: string
-          format: date-time
-          example: '2022-09-26T13:00:00Z'
-        dataProvider:
+          example: DCI
+        mRID:
           type:
           - string
           - 'null'
-          example: N2EXMIDP
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-09-26'
-        settlementPeriod:
+          example: DCI_202104300853_00000030
+        revisionNumber:
           type: integer
           format: int32
-          example: 3
-        price:
-          type: number
-          format: double
-          example: 678.12
+          example: 1
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-04-30T08:53:39Z'
+        publishingPeriodCommencingTime:
+          type: string
+          format: date-time
+          example: '2021-04-30T08:53:39Z'
+        affectedDso:
+          type:
+          - string
+          - 'null'
+          example: SP(D)
+        demandControlId:
+          type:
+          - string
+          - 'null'
+          example: '00135'
+        instructionSequence:
+          type: integer
+          format: int32
+          example: 1
+        demandControlEventFlag:
+          type: string
+          example: I
+        timeFrom:
+          type: string
+          format: date-time
+          example: '2021-04-30T12:45:00Z'
+        timeTo:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2021-04-30T13:09:00Z'
         volume:
           type: number
           format: double
-          example: 678.123
+          example: 68
+        systemManagementActionFlag:
+          type:
+          - string
+          - 'null'
+          example: T
+        amendmentFlag:
+          type:
+          - string
+          - 'null'
+          example: ORI
       additionalProperties: false
     ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDaily
     : type: object
@@ -14138,34 +14797,15 @@ components:
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDaily'
       additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData
-    : type: object
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow:
+      type: object
       properties:
         data:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDaily:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        forecastDate:
-          type: string
-          format: date
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow'
       additionalProperties: false
     Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.RemitMessage:
       type: object
@@ -14316,36 +14956,7 @@ components:
             endTime: '2023-02-03T21:10:00.000Z'
             capacity: 436
       additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        boundary:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadForecastMarginDatasetRow
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationOutputPerGenerationUnitDatasetResponse
     : type: object
       properties:
         data:
@@ -14353,184 +14964,7 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadForecastMarginDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDaily:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        forecastDate:
-          type: string
-          format: date
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadTotalLoadPerBiddingZoneDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: DATL
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-DATL-16244005
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-08-05 12:00:08Z'
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-08-06 23:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-07'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 2
-        quantity:
-          type: number
-          format: double
-          example: 18648
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.DeliveryLimitMaxData
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.DeliveryLimitMaxData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.NoticeData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.NoticeData'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse'
-      additionalProperties: false
-    Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandForecastDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: RZDF
-        submissionDateTime:
-          type: string
-          format: date-time
-          example: '2025-01-01T07:01:07'
-        publishTime:
-          type: string
-          format: date-time
-          example: '2025-01-01T00:00:10'
-        settlementDate:
-          type: string
-          format: date
-          example: '2025-01-02'
-        region:
-          type:
-          - string
-          - 'null'
-          example: North Scotland
-        gspGroupId:
-          type:
-          - string
-          - 'null'
-          example: _A
-        forecastDemand60:
-          type: integer
-          format: int32
-          example: 1234
-        forecastDemand100:
-          type: integer
-          format: int32
-          example: 12345
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.TemperatureData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.TemperatureData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: RZDR
-        submissionDateTime:
-          type: string
-          format: date-time
-          example: '2025-01-01T07:01:07'
-        publishTime:
-          type: string
-          format: date-time
-          example: '2025-01-01T00:00:10'
-        region:
-          type:
-          - string
-          - 'null'
-          example: North Scotland
-        gspGroupId:
-          type:
-          - string
-          - 'null'
-          example: _A
-        restoredDemand:
-          type: integer
-          format: int32
-          example: 1234
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.DemandControlInstructionDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.DemandControlInstructionDatasetRow'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationOutputPerGenerationUnitDatasetResponse'
       additionalProperties: false
     Insights.Api.Models.Responses.Transparency.DatasetRows.PbcDatasetRow:
       type: object
@@ -14589,137 +15023,71 @@ components:
           format: int32
           example: 1
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.DatasetRows.NetBalancingServicesAdjustmentData:
-      type: object
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalWeekly
+    : type: object
       properties:
-        dataset:
+        data:
           type:
-          - string
+          - array
           - 'null'
-          example: NETBSAD
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-06-25'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 29
-        netBuyPriceCostAdjustmentEnergy:
-          type: number
-          format: double
-          example: 0
-        netBuyPriceVolumeAdjustmentEnergy:
-          type: number
-          format: double
-          example: 0
-        netBuyPriceVolumeAdjustmentSystem:
-          type: number
-          format: double
-          example: 0
-        buyPricePriceAdjustment:
-          type: number
-          format: double
-          example: 0
-        netSellPriceCostAdjustmentEnergy:
-          type: number
-          format: double
-          example: 0
-        netSellPriceVolumeAdjustmentEnergy:
-          type: number
-          format: double
-          example: 0
-        netSellPriceVolumeAdjustmentSystem:
-          type: number
-          format: double
-          example: 0
-        sellPricePriceAdjustment:
-          type: number
-          format: double
-          example: 0
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalWeekly'
       additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow:
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.PbcDatasetRow:
       type: object
       properties:
-        dataset:
+        data:
           type:
-          - string
+          - array
           - 'null'
-          example: MATL
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-WATL-16209423
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-05-25 23:00:10Z'
-        forecastWeekCommencingDate:
-          type: string
-          format: date
-          example: '2023-05-29'
-        forecastYear:
-          type: integer
-          format: int32
-          example: 2023
-        forecastMonth:
-          type:
-          - string
-          - 'null'
-          example: JUN
-        minimumPossible:
-          type: number
-          format: double
-          example: 18034
-        maximumAvailable:
-          type: number
-          format: double
-          example: 35011
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.PbcDatasetRow'
       additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.ActualTotalLoadPerBiddingZoneDatasetRow:
+    Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: ATL
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-ATL-06424732
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-06-29 17:25:09Z'
+          example: MID
         startTime:
           type: string
           format: date-time
-          example: '2023-06-29 15:30:00Z'
+          example: '2022-09-26T13:00:00Z'
+        dataProvider:
+          type:
+          - string
+          - 'null'
+          example: N2EXMIDP
         settlementDate:
           type: string
           format: date
-          example: '2023-06-29'
+          example: '2022-09-26'
         settlementPeriod:
           type: integer
           format: int32
-          example: 40
-        quantity:
+          example: 3
+        price:
           type: number
           format: double
-          example: 1000
+          example: 678.12
+        volume:
+          type: number
+          format: double
+          example: 678.123
       additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityWeekly:
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.RateData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.WindGenerationForecast:
       type: object
       properties:
         dataset:
@@ -14727,25 +15095,12 @@ components:
           - string
           - 'null'
         publishTime:
-          type:
-          - string
-          - 'null'
+          type: string
           format: date-time
-        systemZone:
-          type:
-          - string
-          - 'null'
-        calendarWeekNumber:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        year:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        outputUsable:
+        startTime:
+          type: string
+          format: date-time
+        generation:
           type:
           - integer
           - 'null'
@@ -14761,156 +15116,89 @@ components:
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionWeekly'
       additionalProperties: false
-    Insights.Api.Models.Responses.Misc.DatasetRows.DemandControlInstructionDatasetRow:
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow:
       type: object
       properties:
-        dataset:
+        data:
           type:
-          - string
+          - array
           - 'null'
-          example: DCI
-        mRID:
-          type:
-          - string
-          - 'null'
-          example: DCI_202104300853_00000030
-        revisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2021-04-30T08:53:39Z'
-        publishingPeriodCommencingTime:
-          type: string
-          format: date-time
-          example: '2021-04-30T08:53:39Z'
-        affectedDso:
-          type:
-          - string
-          - 'null'
-          example: SP(D)
-        demandControlId:
-          type:
-          - string
-          - 'null'
-          example: '00135'
-        instructionSequence:
-          type: integer
-          format: int32
-          example: 1
-        demandControlEventFlag:
-          type: string
-          example: I
-        timeFrom:
-          type: string
-          format: date-time
-          example: '2021-04-30T12:45:00Z'
-        timeTo:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2021-04-30T13:09:00Z'
-        volume:
-          type: number
-          format: double
-          example: 68
-        systemManagementActionFlag:
-          type:
-          - string
-          - 'null'
-          example: T
-        amendmentFlag:
-          type:
-          - string
-          - 'null'
-          example: ORI
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow'
       additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitWeekly:
+    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionWeekly:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-        fuelType:
-          type:
-          - string
-          - 'null'
-          example: CCGT
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: CARR-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_CARR-1
         publishTime:
-          type:
-          - string
-          - 'null'
+          type: string
           format: date-time
-          example: '2022-08-10T15:00:00Z'
-        week:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 34
         year:
-          type:
-          - integer
-          - 'null'
+          type: integer
           format: int32
-          example: 2022
-        outputUsable:
+        week:
+          type: integer
+          format: int32
+        demand:
           type:
           - integer
           - 'null'
           format: int64
-          example: 442
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.StablePortageLimitData:
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusWeekly:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: SEL
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-01'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        time:
+        publishTime:
           type: string
           format: date-time
-          example: '2022-07-01T13:34:00Z'
-        level:
+        week:
           type: integer
           format: int32
-          example: 5
-        nationalGridBmUnit:
+        year:
+          type: integer
+          format: int32
+        surplus:
           type:
-          - string
+          - integer
           - 'null'
-          example: ABRBO-1
-        bmUnit:
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.TudmDatasetRow:
+      type: object
+      properties:
+        data:
           type:
-          - string
+          - array
           - 'null'
-          example: T_ABRBO-1
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.TudmDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadForecastMarginDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadForecastMarginDatasetRow'
       additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMaxData:
       type: object
@@ -14947,577 +15235,24 @@ components:
           - 'null'
           example: T_ABRBO-1
       additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow:
-      type: object
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDaily
+    : type: object
       properties:
         data:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDaily'
       additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Reference.DatasetMetadataLatestRow:
+    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedMargin:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-        lastUpdated:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginDaily:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        forecastDate:
-          type: string
-          format: date
         margin:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeDaily
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeDaily'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: CBS
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-CBS-00879999
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-10-24T13:09:07Z'
-        flowDirection:
-          type:
-          - string
-          - 'null'
-          example: Up
-        quantity:
-          type: number
-          format: double
-          example: 12412
-        timeFrom:
-          type: string
-          format: date-time
-          example: '2023-09-11T14:30:00Z'
-        timeTo:
-          type: string
-          format: date-time
-          example: '2023-09-11T14:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-09-11'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 32
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.WeekAheadTotalLoadPerBiddingZoneDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: WATL
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-WATL-16209423
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 05:00:00Z'
-        forecastDate:
-          type: string
-          format: date
-          example: '2023-07-24'
-        forecastWeek:
-          type: integer
-          format: int32
-          example: 30
-        minimumPossible:
-          type: number
-          format: double
-          example: 18034
-        maximumAvailable:
-          type: number
-          format: double
-          example: 35011
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.SystemFrequency:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.SystemFrequency'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: PN
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-01'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        timeFrom:
-          type: string
-          format: date-time
-          example: '2022-07-01T13:34:00Z'
-        timeTo:
-          type: string
-          format: date-time
-          example: '2022-07-01T13:34:00Z'
-        levelFrom:
-          type: integer
-          format: int32
-          example: 5
-        levelTo:
-          type: integer
-          format: int32
-          example: 46
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: ABRBO-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_ABRBO-1
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnTransmission:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.Misc.DatasetRows.LossOfLoadProbabilityDeratedMarginData:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: LOLPDRM
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-01-31 17:39:15Z'
-        publishingPeriodCommencingTime:
-          type: string
-          format: date-time
-          example: 2023-01-31 17:30Z
-        startTime:
-          type: string
-          format: date-time
-          example: 2023-01-31 18:30Z
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-01-31'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 38
-        lossOfLoadProbability:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 0
-        deratedMargin:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 12570.207
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityDaily:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        systemZone:
-          type:
-          - string
-          - 'null'
-        forecastDate:
-          type: string
-          format: date
-        forecastDateTimezone:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        outputUsable:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.DeliveryLimitMaxData:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: MILS
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-01'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        timeFrom:
-          type: string
-          format: date-time
-          example: '2022-07-01T13:34:00Z'
-        timeTo:
-          type: string
-          format: date-time
-          example: '2022-07-01T13:34:00Z'
-        levelFrom:
-          type: integer
-          format: int32
-          example: 5
-        levelTo:
-          type: integer
-          format: int32
-          example: 46
-        notificationTime:
-          type: string
-          format: date-time
-          example: '2022-07-01T13:34:00Z'
-        notificationSequence:
-          type: integer
-          format: int32
-          example: 93210322
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: ABRBO-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_ABRBO-1
-      additionalProperties: false
-    Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginWeekly:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        week:
-          type: integer
-          format: int32
-        year:
-          type: integer
-          format: int32
-        margin:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.PbcDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.PbcDatasetRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMinData
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMinData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.FeibDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: FEIB
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-FEIB-00687316
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2021-09-21T10:04:24Z'
-        status:
-          type:
-          - string
-          - 'null'
-          example: Intermediate
-        year:
-          type: integer
-          format: int32
-          example: 2021
-        month:
-          type:
-          - string
-          - 'null'
-          example: JUL
-        amount:
-          type: number
-          format: double
-          example: 77112420
-        priceDirection:
-          type:
-          - string
-          - 'null'
-          example: Expenditure
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.AbucDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: ABUC
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-ABUC-00688983
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-08-22T07:43:04Z'
-        businessType:
-          type:
-          - string
-          - 'null'
-          example: Replacement reserve
-        psrType:
-          type:
-          - string
-          - 'null'
-          example: Generation
-        marketAgreementType:
-          type:
-          - string
-          - 'null'
-          example: Daily
-        flowDirection:
-          type:
-          - string
-          - 'null'
-          example: Up
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-23'
-        quantity:
-          type: number
-          format: double
-          example: 1140
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedImbalance
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedImbalance'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: CDN
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: 2022-09-20T00:00Z
-        bscPartyId:
-          type:
-          - string
-          - 'null'
-          example: INVE
-        creditDefaultLevel:
-          type: integer
-          format: int32
-          example: 1
-        enteredDefaultSettlementDate:
-          type: string
-          format: date
-          example: '2022-06-25'
-        enteredDefaultSettlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        clearedDefaultSettlementDate:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-07-02'
-        clearedDefaultSettlementPeriod:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 29
-        clearedDefaultText:
-          type:
-          - string
-          - 'null'
-          example: Credit Cover Percentage greater than or equal to 90% of Credit Limit (Level 2 Default)
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedDemand:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        demand:
           type:
           - integer
           - 'null'
@@ -15539,241 +15274,14 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.NoticeData:
+    Insights.Api.Models.Responses.Balancing.DatasetRows.DisaggregatedBalancingServicesAdjustmentData:
       type: object
       properties:
         dataset:
           type:
           - string
           - 'null'
-          example: NTB
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-01'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        time:
-          type: string
-          format: date-time
-          example: '2022-07-01T13:34:00Z'
-        notice:
-          type: integer
-          format: int32
-          example: 13
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: ABRBO-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_ABRBO-1
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedDemand
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedDemand'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: SOSO
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: 2022-09-20T00:00Z
-        senderIdentification:
-          type:
-          - string
-          - 'null'
-          example: 10X1001A1001A515
-        receiverIdentification:
-          type:
-          - string
-          - 'null'
-          example: 10X1001A1001A59Q
-        contractIdentification:
-          type:
-          - string
-          - 'null'
-          example: EG_20210928_1100_1
-        resourceProvider:
-          type:
-          - string
-          - 'null'
-          example: EG_20210928_1100_1
-        tradeDirection:
-          type:
-          - string
-          - 'null'
-          example: A02
-        tradeQuantity:
-          type: number
-          format: double
-          example: 25
-        tradePrice:
-          type: number
-          format: double
-          example: 30.4
-        traderUnit:
-          type:
-          - string
-          - 'null'
-          example: EWIC_EG
-        startTime:
-          type: string
-          format: date-time
-          example: 2023-09-25 18:30
-        endTime:
-          type: string
-          format: date-time
-          example: 2023-09-20 18:30
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-01-31'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMaxData
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMaxData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalWeekly:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        year:
-          type: integer
-          format: int32
-        week:
-          type: integer
-          format: int32
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.StablePortageLimitData
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.StablePortageLimitData'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.PpbrDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: PPBR
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-PPBR-00688983
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-08-22T07:43:04Z'
-        psrType:
-          type:
-          - string
-          - 'null'
-          example: Generation
-        marketAgreementType:
-          type:
-          - string
-          - 'null'
-          example: Daily
-        flowDirection:
-          type:
-          - string
-          - 'null'
-          example: Up
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-23'
-        amount:
-          type: number
-          format: double
-          example: 1.2
-      additionalProperties: false
-    Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusWeekly:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        week:
-          type: integer
-          format: int32
-        year:
-          type: integer
-          format: int32
-        surplus:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.NonBmStorData:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: NONBM
-        publishTime:
-          type: string
-          format: date-time
-          example: '2022-06-25T13:34:00Z'
-        startTime:
-          type: string
-          format: date-time
-          example: '2022-06-25T13:00:00Z'
+          example: DISBSAD
         settlementDate:
           type: string
           format: date
@@ -15782,360 +15290,43 @@ components:
           type: integer
           format: int32
           example: 29
-        generation:
-          type: integer
-          format: int64
-          example: 0
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        fuelType:
-          type:
-          - string
-          - 'null'
-          example: WIND
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: WTMSO-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_WTMSO-1
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2022-08-15T11:00:00Z'
-        forecastDate:
-          type: string
-          format: date
-          example: '2022-08-17'
-        outputUsable:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 84
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: BOALF
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-25'
-        settlementPeriodFrom:
-          type: integer
-          format: int32
-          example: 29
-        settlementPeriodTo:
-          type: integer
-          format: int32
-          example: 32
-        timeFrom:
-          type: string
-          format: date-time
-          example: '2022-06-25T13:34:00Z'
-        timeTo:
-          type: string
-          format: date-time
-          example: '2022-06-25T13:37:00Z'
-        levelFrom:
-          type: integer
-          format: int32
-          example: 5
-        levelTo:
-          type: integer
-          format: int32
-          example: 46
-        acceptanceNumber:
-          type: integer
-          format: int32
-          example: 1234567
-        acceptanceTime:
-          type: string
-          format: date-time
-          example: '2022-06-25T13:37:00Z'
-        deemedBoFlag:
-          type: boolean
-        soFlag:
-          type: boolean
-        amendmentFlag:
-          type:
-          - string
-          - 'null'
-          example: ORI
-        storFlag:
-          type: boolean
-        rrFlag:
-          type:
-          - boolean
-          - 'null'
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: ABRBO-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_ABRBO-1
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.WeekAheadTotalLoadPerBiddingZoneDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.WeekAheadTotalLoadPerBiddingZoneDatasetRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusWeekly
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusWeekly'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.AobeDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: AOBE
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-AOBE-00879999
-        timeSeriesId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-AOBE-36758603
-        documentRevisionNumber:
+        id:
           type: integer
           format: int32
           example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-10-24T13:09:07Z'
-        flowDirection:
-          type:
-          - string
-          - 'null'
-          example: Up
-        quantity:
-          type: number
-          format: double
-          example: 12412
-        secondaryQuantity:
+        cost:
           type:
           - number
           - 'null'
           format: double
-          example: 45.831
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-09-11T14:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-09-11'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 32
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadTotalLoadPerBiddingZoneDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: YATL
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-WATL-16209423
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 05:00:00Z'
-        forecastYear:
-          type: integer
-          format: int32
-          example: 2023
-        forecastWeek:
-          type: integer
-          format: int32
-          example: 30
-        minimumPossible:
+          example: 1850.9
+        volume:
           type: number
           format: double
-          example: 18034
-        maximumAvailable:
-          type: number
-          format: double
-          example: 35011
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.AobeDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.AobeDatasetRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryVolumeMaxData:
-      type: object
-      properties:
-        dataset:
+          example: 5
+        soFlag:
+          type: boolean
+        storFlag:
+          type: boolean
+        partyId:
           type:
           - string
           - 'null'
-          example: MDV
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-01'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        time:
-          type: string
-          format: date-time
-          example: '2022-07-01T13:34:00Z'
-        volumeMax:
-          type: integer
-          format: int64
-          example: 31
-        nationalGridBmUnit:
+          example: ElectroRoute Energy Trading Limited
+        assetId:
           type:
           - string
           - 'null'
-          example: ABRBO-1
-        bmUnit:
+          example: ING-ELTR1
+        isTendered:
+          type:
+          - boolean
+          - 'null'
+        service:
           type:
           - string
           - 'null'
-          example: T_ABRBO-1
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusDaily
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusDaily'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityDaily:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityDaily'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Misc.DatasetRows.SystemFrequency:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        measurementTime:
-          type: string
-          format: date-time
-        frequency:
-          type: number
-          format: double
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DatasetRows.DemandOutturnNational'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationOutputPerGenerationUnitDatasetResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationOutputPerGenerationUnitDatasetResponse'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationWindSolarDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationWindSolarDatasetRow'
+          example: Energy
       additionalProperties: false
     Insights.Api.Models.Responses.Misc.DatasetRows.TudmDatasetRow:
       type: object
@@ -16199,197 +15390,7 @@ components:
           format: double
           example: -1162.434
       additionalProperties: false
-    Insights.Api.Models.Responses.Misc.DatasetRows.TemperatureData:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        measurementDate:
-          type: string
-          format: date
-        publishTime:
-          type: string
-          format: date-time
-        temperature:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedMargin
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedMargin'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginDaily
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginDaily'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.CostsOfCongestionManagementDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: CCM
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-CCM-00688999
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 05:00:00Z'
-        businessType:
-          type:
-          - string
-          - 'null'
-          example: Congestion costs
-        year:
-          type: integer
-          format: int32
-          example: 2023
-        month:
-          type:
-          - string
-          - 'null'
-          example: OCT
-        amount:
-          type: number
-          format: double
-          example: 1.08
-      additionalProperties: false
-    Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusDaily:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type: string
-          format: date-time
-        forecastDate:
-          type: string
-          format: date
-        surplus:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DatasetRows.BebDatasetRow:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-          example: BEB
-        documentId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-BEB-00688983
-        documentRevisionNumber:
-          type: integer
-          format: int32
-          example: 1
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-08-22T07:43:04Z'
-        bidId:
-          type:
-          - string
-          - 'null'
-          example: NGET-EMFIP-BEB-TS-36758603
-        flowDirection:
-          type:
-          - string
-          - 'null'
-          example: Up
-        quantity:
-          type: number
-          format: double
-          example: 1140
-        energyPrice:
-          type: number
-          format: double
-          example: 150
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-08-22T07:43:04Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-23'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 1
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalWeekly
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalWeekly'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow:
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.BebDatasetRow:
       type: object
       properties:
         data:
@@ -16397,116 +15398,7 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryVolumeMaxData
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryVolumeMaxData'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.WindGenerationForecast
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.WindGenerationForecast'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        boundary:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.NonBmStorData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.NonBmStorData'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualAggregatedGenerationPerTypeDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualAggregatedGenerationPerTypeDatasetRow'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Reference.DatasetMetadataLatestRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Reference.DatasetMetadataLatestRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitWeekly
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitWeekly'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadTotalLoadPerBiddingZoneDatasetRow
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadTotalLoadPerBiddingZoneDatasetRow'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.BebDatasetRow'
       additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Dynamic.RateData:
       type: object
@@ -16567,6 +15459,241 @@ components:
           - 'null'
           example: T_ABRBO-1
       additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDaily:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type: string
+          format: date-time
+        forecastDate:
+          type: string
+          format: date
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.DeliveryLimitMaxData
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.DeliveryLimitMaxData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityWeekly:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        systemZone:
+          type:
+          - string
+          - 'null'
+        calendarWeekNumber:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        year:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: RZDR
+        submissionDateTime:
+          type: string
+          format: date-time
+          example: '2025-01-01T07:01:07'
+        publishTime:
+          type: string
+          format: date-time
+          example: '2025-01-01T00:00:10'
+        region:
+          type:
+          - string
+          - 'null'
+          example: North Scotland
+        gspGroupId:
+          type:
+          - string
+          - 'null'
+          example: _A
+        restoredDemand:
+          type: integer
+          format: int32
+          example: 1234
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastTransmissionDayAhead:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusDaily
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusDaily'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryVolumeMaxData
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryVolumeMaxData'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedDemand
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedDemand'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.IgcaDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: IGCA
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-IGCA-00687002
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2022-04-21T13:25:52Z'
+        businessType:
+          type:
+          - string
+          - 'null'
+          example: Installed generation
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Hydro Pumped Storage
+        year:
+          type: integer
+          format: int32
+          example: 2022
+        quantity:
+          type: number
+          format: double
+          example: 1928
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeDaily:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        fuelType:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        systemZone:
+          type:
+          - string
+          - 'null'
+        forecastDate:
+          type: string
+          format: date
+        forecastDateTimezone:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        biddingZone:
+          type:
+          - string
+          - 'null'
+        interconnectorName:
+          type:
+          - string
+          - 'null'
+        interconnector:
+          type: boolean
+      additionalProperties: false
     ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.LossOfLoadProbabilityDeratedMarginData
     : type: object
       properties:
@@ -16576,6 +15703,918 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.LossOfLoadProbabilityDeratedMarginData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.NoticeData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.NoticeData'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginDaily
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginDaily'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DatasetRows.DemandForecastNationalDayAhead:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.TemperatureData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.TemperatureData'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferDatasetResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferDatasetResponse'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.DatasetRows.LossOfLoadProbabilityDeratedMarginData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: LOLPDRM
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-01-31 17:39:15Z'
+        publishingPeriodCommencingTime:
+          type: string
+          format: date-time
+          example: 2023-01-31 17:30Z
+        startTime:
+          type: string
+          format: date-time
+          example: 2023-01-31 18:30Z
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-01-31'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 38
+        lossOfLoadProbability:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 0
+        deratedMargin:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 12570.207
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityDaily:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityDaily'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationWindSolarDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualGenerationWindSolarDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.YearAheadTotalLoadPerBiddingZoneDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: YATL
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-WATL-16209423
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        forecastYear:
+          type: integer
+          format: int32
+          example: 2023
+        forecastWeek:
+          type: integer
+          format: int32
+          example: 30
+        minimumPossible:
+          type: number
+          format: double
+          example: 18034
+        maximumAvailable:
+          type: number
+          format: double
+          example: 35011
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeDaily
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeDaily'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMaxData
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.DeliveryPeriodMaxData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginDaily:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type: string
+          format: date-time
+        forecastDate:
+          type: string
+          format: date
+        margin:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginWeekly:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type: string
+          format: date-time
+        week:
+          type: integer
+          format: int32
+        year:
+          type: integer
+          format: int32
+        margin:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.RemitMessage:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.RemitMessage'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadAggregatedGenerationDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadAggregatedGenerationDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByFuelTypeWeekly:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        fuelType:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        systemZone:
+          type:
+          - string
+          - 'null'
+        calendarWeekNumber:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        year:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        biddingZone:
+          type:
+          - string
+          - 'null'
+        interconnectorName:
+          type:
+          - string
+          - 'null'
+        interconnector:
+          type: boolean
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.DatasetRows.SystemWarningsData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: SYSWARN
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: 2022-09-20T00:00Z
+        warningType:
+          type:
+          - string
+          - 'null'
+          example: SO-SO TRADES
+        warningText:
+          type:
+          - string
+          - 'null'
+          example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadGenerationForWindAndSolarDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: DGWS
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-DGWSINTRADAY-06043339
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        processType:
+          type:
+          - string
+          - 'null'
+          example: Intraday process
+        businessType:
+          type:
+          - string
+          - 'null'
+          example: Wind generation
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Wind Offshore
+        quantity:
+          type: number
+          format: double
+          example: 1829
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 06:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-07-12'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 16
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitDaily:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        fuelType:
+          type:
+          - string
+          - 'null'
+          example: WIND
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: WTMSO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_WTMSO-1
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2022-08-15T11:00:00Z'
+        forecastDate:
+          type: string
+          format: date
+          example: '2022-08-17'
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 84
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.DatasetRows.AvailabilityByBmUnitWeekly:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        fuelType:
+          type:
+          - string
+          - 'null'
+          example: CCGT
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: CARR-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_CARR-1
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2022-08-10T15:00:00Z'
+        week:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 34
+        year:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 2022
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 442
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusWeekly
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusWeekly'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ForecastSurplus.DatasetRows.ForecastSurplusDaily:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type: string
+          format: date-time
+        forecastDate:
+          type: string
+          format: date
+        surplus:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: CBS
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-CBS-00879999
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-10-24T13:09:07Z'
+        flowDirection:
+          type:
+          - string
+          - 'null'
+          example: Up
+        quantity:
+          type: number
+          format: double
+          example: 12412
+        timeFrom:
+          type: string
+          format: date-time
+          example: '2023-09-11T14:30:00Z'
+        timeTo:
+          type: string
+          format: date-time
+          example: '2023-09-11T14:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-09-11'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 32
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.IgcpuDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: IGCPU
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-CONF-00688811
+        publishTime:
+          type: string
+          format: date-time
+          example: '2022-04-21T13:25:52Z'
+        effectiveFrom:
+          type: string
+          format: date
+          example: '2023-08-07'
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Other
+        registeredResourceEicCode:
+          type:
+          - string
+          - 'null'
+          example: 48WVPI-TRAD-BMUI
+        registeredResourceName:
+          type:
+          - string
+          - 'null'
+          example: DBAWO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_DBAWO-1
+        voltageLimit:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 2234.1
+        installedCapacity:
+          type: number
+          format: double
+          example: 1928.2
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.ActualTotalLoadPerBiddingZoneDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.ActualTotalLoadPerBiddingZoneDatasetRow'
+      additionalProperties: false
+    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedImbalance:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        imbalance:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.BalancingServicesVolumeData
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.BalancingServicesVolumeData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.DatasetRows.AugmentedOutturnData'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.CbsDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadTotalLoadPerBiddingZoneDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadTotalLoadPerBiddingZoneDatasetRow'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.BidOfferAcceptanceLevelDatasetResponse'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.ActualAggregatedGenerationPerTypeDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: AGPT
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-AGPT-06426954
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        businessType:
+          type:
+          - string
+          - 'null'
+          example: Solar generation
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Solar
+        quantity:
+          type: number
+          format: double
+          example: 1829
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 06:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-07-12'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 16
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.ActualTotalLoadPerBiddingZoneDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: ATL
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-ATL-06424732
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-06-29 17:25:09Z'
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-06-29 15:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-06-29'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 40
+        quantity:
+          type: number
+          format: double
+          example: 1000
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginWeekly
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginWeekly'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.MarketIndexDatasetResponse'
+      additionalProperties: false
+    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedGeneration:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        generation:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DatasetRows.CreditDefaultNoticeDatasetResponse'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Physical.DatasetRows.PhysicalNotificationData:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: PN
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        timeFrom:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        timeTo:
+          type: string
+          format: date-time
+          example: '2022-07-01T13:34:00Z'
+        levelFrom:
+          type: integer
+          format: int32
+          example: 5
+        levelTo:
+          type: integer
+          format: int32
+          example: 46
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: ABRBO-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_ABRBO-1
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DatasetRows.WeekAheadTotalLoadPerBiddingZoneDatasetRow:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+          example: WATL
+        documentId:
+          type:
+          - string
+          - 'null'
+          example: NGET-EMFIP-WATL-16209423
+        documentRevisionNumber:
+          type: integer
+          format: int32
+          example: 1
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        forecastDate:
+          type: string
+          format: date
+          example: '2023-07-24'
+        forecastWeek:
+          type: integer
+          format: int32
+          example: 30
+        minimumPossible:
+          type: number
+          format: double
+          example: 18034
+        maximumAvailable:
+          type: number
+          format: double
+          example: 35011
       additionalProperties: false
     Insights.Api.Models.Responses.Transparency.DatasetRows.DayAheadAggregatedGenerationDatasetRow:
       type: object
@@ -16615,17 +16654,7 @@ components:
           format: int32
           example: 16
       additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DatasetRows.SoSoPricesDatasetRow'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginWeekly
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedImbalance
     : type: object
       properties:
         data:
@@ -16633,38 +16662,9 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.DatasetRows.ForecastMarginWeekly'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedImbalance'
       additionalProperties: false
-    Insights.Api.Models.Responses.IndicatedForecast.DatasetRows.IndicatedImbalance:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        imbalance:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        boundary:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow
+    ? Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.StablePortageLimitData
     : type: object
       properties:
         data:
@@ -16672,5 +16672,5 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DatasetRows.MonthAheadTotalLoadPerBiddingZoneDatasetRow'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Dynamic.DatasetRows.StablePortageLimitData'
       additionalProperties: false

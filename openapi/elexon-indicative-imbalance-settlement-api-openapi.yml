@@ -1114,301 +1114,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.MarketDepthResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.MarketDepthResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse:
-      type: object
-      properties:
-        createdDateTime:
-          type: string
-          format: date-time
-          example: '2023-02-28T15:31:12Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-03-01'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 2
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-03-01T00:30:00Z'
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_ABRBO-1
-        bmUnitType:
-          type: string
-          example: T
-        leadPartyName:
-          type:
-          - string
-          - 'null'
-          example: Aberdeen Offshore Wind Farm
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: ABRBO-1
-        acceptanceId:
-          type: integer
-          format: int64
-          example: 76110
-        acceptanceDuration:
-          type:
-          - string
-          - 'null'
-          example: L
-        totalVolumeAccepted:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: -75.725
-        pairVolumes:
-          $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.CreditDefaultNoticeResponse:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.CreditDefaultNoticeResponse'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs:
-      type: object
-      properties:
-        negative1:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        positive1:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 23062.377
-        negative2:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        positive2:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 5017.6255
-        negative3:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        positive3:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        negative4:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        positive4:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        negative5:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        positive5:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        negative6:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        positive6:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse:
-      type: object
-      properties:
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-09-18'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 2
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-09-18T00:30:00Z'
-        createdDateTime:
-          type: string
-          format: date-time
-          example: '2023-09-17T15:31:12Z'
-        systemSellPrice:
-          type: number
-          format: double
-          example: 215
-        systemBuyPrice:
-          type: number
-          format: double
-          example: 215
-        bsadDefaulted:
-          type: boolean
-          example: false
-        priceDerivationCode:
-          type:
-          - string
-          - 'null'
-          example: P
-        reserveScarcityPrice:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 0
-        netImbalanceVolume:
-          type: number
-          format: double
-          example: 291.9136
-        sellPriceAdjustment:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 0
-        buyPriceAdjustment:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 0
-        replacementPrice:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        replacementPriceReferenceVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        totalAcceptedOfferVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 790.6547
-        totalAcceptedBidVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: -738.74115
-        totalAdjustmentSellVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 0
-        totalAdjustmentBuyVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 240
-        totalSystemTaggedAcceptedOfferVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 789.6547
-        totalSystemTaggedAcceptedBidVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: -738.74115
-        totalSystemTaggedAdjustmentSellVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: null
-        totalSystemTaggedAdjustmentBuyVolume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 240
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Settlement.SettlementStackResponse:
       type: object
       properties:
@@ -1534,95 +1239,6 @@ components:
           format: double
           example: 0
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.CreditDefaultNoticeResponse:
-      type: object
-      properties:
-        participantId:
-          type:
-          - string
-          - 'null'
-          example: INVE
-        participantName:
-          type:
-          - string
-          - 'null'
-          example: AMPowerUK Ltd
-        creditDefaultLevel:
-          type: integer
-          format: int32
-          example: 2
-        enteredDefaultSettlementDate:
-          type: string
-          format: date
-          example: '2022-06-25'
-        enteredDefaultSettlementPeriod:
-          type: integer
-          format: int32
-          example: 3
-        clearedDefaultSettlementDate:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-07-02'
-        clearedDefaultSettlementPeriod:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 29
-        clearedDefaultText:
-          type:
-          - string
-          - 'null'
-          example: Credit Cover Percentage greater than or equal to 90% of Credit Limit (Level 2 Default)
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryPrice:
-      type: object
-      properties:
-        cost:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: -53.66
-        volume:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: -0.994
-        value:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 54
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.HistoricAcceptanceResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.HistoricAcceptanceResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.IndicativeVolumeResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.IndicativeVolumeResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Settlement.IndicativeVolumeResponse:
       type: object
       properties:
@@ -1674,17 +1290,48 @@ components:
         pairVolumes:
           $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs'
       additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.SettlementStackResponse
-    : type: object
+    Insights.Api.Models.Responses.Balancing.CreditDefaultNoticeResponse:
+      type: object
       properties:
-        data:
+        participantId:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SettlementStackResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+          example: INVE
+        participantName:
+          type:
+          - string
+          - 'null'
+          example: AMPowerUK Ltd
+        creditDefaultLevel:
+          type: integer
+          format: int32
+          example: 2
+        enteredDefaultSettlementDate:
+          type: string
+          format: date
+          example: '2022-06-25'
+        enteredDefaultSettlementPeriod:
+          type: integer
+          format: int32
+          example: 3
+        clearedDefaultSettlementDate:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-07-02'
+        clearedDefaultSettlementPeriod:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 29
+        clearedDefaultText:
+          type:
+          - string
+          - 'null'
+          example: Credit Cover Percentage greater than or equal to 90% of Credit Limit (Level 2 Default)
       additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryResponse:
       type: object
@@ -1735,82 +1382,6 @@ components:
         marketPrice:
           $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryPrice'
       additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse:
-      type: object
-      properties:
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-09-18'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 2
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-09-18T00:30:00Z'
-        messageReceivedDateTime:
-          type: string
-          format: date-time
-          example: '2023-09-17T15:31:12Z'
-        messageSeverity:
-          type:
-          - string
-          - 'null'
-          example: Error
-        messageTypeCode:
-          type:
-          - string
-          - 'null'
-          example: ERR-BM-001
-        messageType:
-          type:
-          - string
-          - 'null'
-          example: FPN
-        messageText:
-          type:
-          - string
-          - 'null'
-          example: No FPN files have been received.
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Settlement.HistoricAcceptanceResponse:
       type: object
       properties:
@@ -1856,6 +1427,339 @@ components:
           type: integer
           format: int32
           example: 1
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Settlement.SettlementSummaryPrice:
+      type: object
+      properties:
+        cost:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: -53.66
+        volume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: -0.994
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 54
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-03-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 1
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-03-01T00:00:00Z'
+        createdDateTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2023-09-17T09:03:18.74Z'
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: 2__AFLEX003
+        bmUnitType:
+          type: string
+          example: S
+        leadPartyName:
+          type:
+          - string
+          - 'null'
+          example: Flexitricity Limited
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: AG-AFLX03
+        bidOfferPairCashflows:
+          $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs'
+        totalCashflow:
+          type: number
+          format: double
+          example: 28080.002
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.HistoricAcceptanceResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.HistoricAcceptanceResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse:
+      type: object
+      properties:
+        createdDateTime:
+          type: string
+          format: date-time
+          example: '2023-02-28T15:31:12Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-03-01'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 2
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-03-01T00:30:00Z'
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_ABRBO-1
+        bmUnitType:
+          type: string
+          example: T
+        leadPartyName:
+          type:
+          - string
+          - 'null'
+          example: Aberdeen Offshore Wind Farm
+        nationalGridBmUnit:
+          type:
+          - string
+          - 'null'
+          example: ABRBO-1
+        acceptanceId:
+          type: integer
+          format: int64
+          example: 76110
+        acceptanceDuration:
+          type:
+          - string
+          - 'null'
+          example: L
+        totalVolumeAccepted:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: -75.725
+        pairVolumes:
+          $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-09-18'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 2
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-09-18T00:30:00Z'
+        messageReceivedDateTime:
+          type: string
+          format: date-time
+          example: '2023-09-17T15:31:12Z'
+        messageSeverity:
+          type:
+          - string
+          - 'null'
+          example: Error
+        messageTypeCode:
+          type:
+          - string
+          - 'null'
+          example: ERR-BM-001
+        messageType:
+          type:
+          - string
+          - 'null'
+          example: FPN
+        messageText:
+          type:
+          - string
+          - 'null'
+          example: No FPN files have been received.
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.DatasetResponse-1_Insights.Api.Models.Responses.Balancing.CreditDefaultNoticeResponse:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.CreditDefaultNoticeResponse'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs:
+      type: object
+      properties:
+        negative1:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        positive1:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 23062.377
+        negative2:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        positive2:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 5017.6255
+        negative3:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        positive3:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        negative4:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        positive4:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        negative5:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        positive5:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        negative6:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        positive6:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.AcceptanceVolumeResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.SettlementStackResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SettlementStackResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.MarketDepthResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.MarketDepthResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SettlementMessageResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.Balancing.Settlement.MarketDepthResponse:
       type: object
@@ -1911,49 +1815,145 @@ components:
           format: double
           example: -42.375
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.Settlement.IndicativeCashflowResponse:
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.IndicativeVolumeResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.IndicativeVolumeResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.Settlement.SystemPriceResponse:
       type: object
       properties:
         settlementDate:
           type: string
           format: date
-          example: '2023-03-01'
+          example: '2023-09-18'
         settlementPeriod:
           type: integer
           format: int32
-          example: 1
+          example: 2
         startTime:
           type: string
           format: date-time
-          example: '2023-03-01T00:00:00Z'
+          example: '2023-09-18T00:30:00Z'
         createdDateTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2023-09-17T09:03:18.74Z'
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: 2__AFLEX003
-        bmUnitType:
           type: string
-          example: S
-        leadPartyName:
-          type:
-          - string
-          - 'null'
-          example: Flexitricity Limited
-        nationalGridBmUnit:
-          type:
-          - string
-          - 'null'
-          example: AG-AFLX03
-        bidOfferPairCashflows:
-          $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.Settlement.DerivedDataBidOfferPairs'
-        totalCashflow:
+          format: date-time
+          example: '2023-09-17T15:31:12Z'
+        systemSellPrice:
           type: number
           format: double
-          example: 28080.002
+          example: 215
+        systemBuyPrice:
+          type: number
+          format: double
+          example: 215
+        bsadDefaulted:
+          type: boolean
+          example: false
+        priceDerivationCode:
+          type:
+          - string
+          - 'null'
+          example: P
+        reserveScarcityPrice:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 0
+        netImbalanceVolume:
+          type: number
+          format: double
+          example: 291.9136
+        sellPriceAdjustment:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 0
+        buyPriceAdjustment:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 0
+        replacementPrice:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        replacementPriceReferenceVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        totalAcceptedOfferVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 790.6547
+        totalAcceptedBidVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: -738.74115
+        totalAdjustmentSellVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 0
+        totalAdjustmentBuyVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 240
+        totalSystemTaggedAcceptedOfferVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 789.6547
+        totalSystemTaggedAcceptedBidVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: -738.74115
+        totalSystemTaggedAdjustmentSellVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: null
+        totalSystemTaggedAdjustmentBuyVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 240
       additionalProperties: false

@@ -520,13 +520,20 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar:
+    Insights.Api.Models.Responses.Generation.OutturnGenerationValue:
       type: object
       properties:
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 05:00:00Z'
+        fuelType:
+          type:
+          - string
+          - 'null'
+        generation:
+          type: integer
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.ActualGenerationValue:
+      type: object
+      properties:
         businessType:
           type:
           - string
@@ -541,38 +548,6 @@ components:
           type: number
           format: double
           example: 1829
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-07-12 06:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-07-12'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 16
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.OutturnGenerationBySettlementPeriod:
-      type: object
-      properties:
-        startTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        settlementPeriod:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.OutturnGenerationValue'
       additionalProperties: false
     Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn:
       type: object
@@ -615,6 +590,88 @@ components:
           - 'null'
           format: int64
       additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.OutturnGenerationBySettlementPeriod:
+      type: object
+      properties:
+        startTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        settlementPeriod:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.OutturnGenerationValue'
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.AgptSummaryData:
+      type: object
+      properties:
+        psrType:
+          type:
+          - string
+          - 'null'
+        halfHourUsage:
+          type: number
+          format: double
+        halfHourPercentage:
+          type: number
+          format: double
+        twentyFourHourUsage:
+          type: number
+          format: double
+        twentyFourHourPercentage:
+          type: number
+          format: double
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
+      type: object
+      properties:
+        recordType:
+          type:
+          - string
+          - 'null'
+        startTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
     Insights.Api.Models.Responses.Generation.GenerationByFuelType:
       type: object
       properties:
@@ -652,6 +709,76 @@ components:
           type: number
           format: double
       additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 05:00:00Z'
+        businessType:
+          type:
+          - string
+          - 'null'
+          example: Solar generation
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Solar
+        quantity:
+          type: number
+          format: double
+          example: 1829
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-07-12 06:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-07-12'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 16
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
     Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod:
       type: object
       properties:
@@ -669,131 +796,4 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationValue'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.HalfHourlyInterconnectorOutturn'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.OutturnGenerationValue:
-      type: object
-      properties:
-        fuelType:
-          type:
-          - string
-          - 'null'
-        generation:
-          type: integer
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
-      type: object
-      properties:
-        recordType:
-          type:
-          - string
-          - 'null'
-        startTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationWindSolar'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualGenerationBySettlementPeriod'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.AgptSummaryData:
-      type: object
-      properties:
-        psrType:
-          type:
-          - string
-          - 'null'
-        halfHourUsage:
-          type: number
-          format: double
-        halfHourPercentage:
-          type: number
-          format: double
-        twentyFourHourUsage:
-          type: number
-          format: double
-        twentyFourHourPercentage:
-          type: number
-          format: double
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.ActualGenerationValue:
-      type: object
-      properties:
-        businessType:
-          type:
-          - string
-          - 'null'
-          example: Solar generation
-        psrType:
-          type:
-          - string
-          - 'null'
-          example: Solar
-        quantity:
-          type: number
-          format: double
-          example: 1829
       additionalProperties: false
