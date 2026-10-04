@@ -224,18 +224,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.BidOfferResponse:
       type: object
       properties:
@@ -285,6 +273,18 @@ components:
           type: integer
           format: int32
           example: 1
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.BidOfferResponse:
       type: object

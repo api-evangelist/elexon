@@ -215,89 +215,6 @@ components:
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
-    Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse:
-      type: object
-      properties:
-        settlementDate:
-          type: string
-          format: date
-          example: '2022-06-25'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 29
-        startTime:
-          type: string
-          format: date-time
-          example: '2022-06-25T13:00:00Z'
-        id:
-          type: integer
-          format: int32
-          example: 1
-        cost:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 1850.9
-        volume:
-          type: number
-          format: double
-          example: 5
-        price:
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 370.18
-        soFlag:
-          type: boolean
-        storFlag:
-          type: boolean
-        partyId:
-          type:
-          - string
-          - 'null'
-          example: ElectroRoute Energy Trading Limited
-        assetId:
-          type:
-          - string
-          - 'null'
-          example: ING-ELTR1
-        isTendered:
-          type:
-          - boolean
-          - 'null'
-        service:
-          type:
-          - string
-          - 'null'
-          example: Energy
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse:
       type: object
       properties:
@@ -375,4 +292,87 @@ components:
           - 'null'
           format: double
           example: 36
+      additionalProperties: false
+    Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentDetailsResponse:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+          format: date
+          example: '2022-06-25'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 29
+        startTime:
+          type: string
+          format: date-time
+          example: '2022-06-25T13:00:00Z'
+        id:
+          type: integer
+          format: int32
+          example: 1
+        cost:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 1850.9
+        volume:
+          type: number
+          format: double
+          example: 5
+        price:
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 370.18
+        soFlag:
+          type: boolean
+        storFlag:
+          type: boolean
+        partyId:
+          type:
+          - string
+          - 'null'
+          example: ElectroRoute Energy Trading Limited
+        assetId:
+          type:
+          - string
+          - 'null'
+          example: ING-ELTR1
+        isTendered:
+          type:
+          - boolean
+          - 'null'
+        service:
+          type:
+          - string
+          - 'null'
+          example: Energy
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Balancing.DisaggregatedBalancingServicesAdjustmentSummaryResponse'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false

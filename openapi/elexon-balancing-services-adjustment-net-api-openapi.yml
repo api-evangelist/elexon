@@ -268,18 +268,6 @@ components:
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
-      additionalProperties: false
     Insights.Api.Models.Responses.Balancing.NetBalancingServicesAdjustmentResponse:
       type: object
       properties:
@@ -327,4 +315,16 @@ components:
           type: number
           format: double
           example: 0
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false

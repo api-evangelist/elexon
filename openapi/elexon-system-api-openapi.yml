@@ -229,62 +229,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemWarningsData'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Misc.SystemWarningsData:
-      type: object
-      properties:
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: 2022-09-20T00:00Z
-        warningType:
-          type:
-          - string
-          - 'null'
-          example: IT SYSTEMS OUTAGE
-        warningText:
-          type:
-          - string
-          - 'null'
-          example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
-      additionalProperties: false
     Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
       type: object
       properties:
@@ -349,6 +293,52 @@ components:
           - 'null'
           example: ORI
       additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.DemandControlInstructionData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.DemandControlInstructionData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemWarningsData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemWarningsData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.SystemFrequency:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.SystemFrequency'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Misc.SystemFrequency:
+      type: object
+      properties:
+        measurementTime:
+          type: string
+          format: date-time
+        frequency:
+          type: number
+          format: double
+      additionalProperties: false
     Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
@@ -361,13 +351,23 @@ components:
           example:
           - DATASET
       additionalProperties: false
-    Insights.Api.Models.Responses.Misc.SystemFrequency:
+    Insights.Api.Models.Responses.Misc.SystemWarningsData:
       type: object
       properties:
-        measurementTime:
-          type: string
+        publishTime:
+          type:
+          - string
+          - 'null'
           format: date-time
-        frequency:
-          type: number
-          format: double
+          example: 2022-09-20T00:00Z
+        warningType:
+          type:
+          - string
+          - 'null'
+          example: IT SYSTEMS OUTAGE
+        warningText:
+          type:
+          - string
+          - 'null'
+          example: NATIONAL GRID NOTIFICATION of excess energy prices used for settlement outside of BALIT for SO to SO Transactions
       additionalProperties: false

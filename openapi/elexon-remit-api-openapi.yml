@@ -692,6 +692,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
     Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl:
       type: object
       properties:
@@ -734,18 +746,6 @@ components:
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.Remit.RemitMessageIdentifierWithUrl'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Responses.Transparency.Remit.DatasetRows.OutageProfileData:
       type: object
       properties:
@@ -758,18 +758,6 @@ components:
         capacity:
           type: number
           format: double
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.Transparency.Remit.RemitMessageWithId:
       type: object
@@ -923,4 +911,16 @@ components:
           type: integer
           format: int32
           example: 1
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false

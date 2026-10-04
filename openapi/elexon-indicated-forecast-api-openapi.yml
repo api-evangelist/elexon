@@ -177,17 +177,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
       type: object
       properties:
-        datasets:
+        data:
           type:
           - array
           - 'null'
           items:
-            type: string
-          example:
-          - DATASET
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
       type: object
@@ -231,15 +231,15 @@ components:
           - 'null'
           format: int64
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
-        data:
+        datasets:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.IndicatedForecast.IndicatedForecast'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+            type: string
+          example:
+          - DATASET
       additionalProperties: false

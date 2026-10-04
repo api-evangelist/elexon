@@ -321,22 +321,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.Reference.InterconnectorData:
-      type: object
-      properties:
-        interconnectorId:
-          type:
-          - string
-          - 'null'
-        interconnectorName:
-          type:
-          - string
-          - 'null'
-        interconnectorBiddingZone:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     Insights.Api.Models.Responses.Reference.BmUnitData:
       type: object
       properties:
@@ -421,6 +405,22 @@ components:
           - string
           - 'null'
         interconnectorId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Reference.InterconnectorData:
+      type: object
+      properties:
+        interconnectorId:
+          type:
+          - string
+          - 'null'
+        interconnectorName:
+          type:
+          - string
+          - 'null'
+        interconnectorBiddingZone:
           type:
           - string
           - 'null'

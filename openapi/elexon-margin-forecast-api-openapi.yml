@@ -320,6 +320,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
     Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily:
       type: object
       properties:
@@ -335,7 +347,7 @@ components:
           type: string
           format: date
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily:
       type: object
       properties:
         data:
@@ -343,7 +355,7 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginWeekly'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -367,18 +379,6 @@ components:
         weekStartDate:
           type: string
           format: date
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.ForecastMargin.ForecastMarginDaily'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object

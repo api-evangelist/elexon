@@ -295,6 +295,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapePeriodData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
     Insights.Api.Models.Data.Entities.LoadShapePeriodData:
       type: object
       properties:
@@ -354,30 +378,6 @@ components:
           type:
           - string
           - 'null'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapePeriodData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapePeriodData'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Data.Entities.LoadShapeTotalsData:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Data.Entities.LoadShapeTotalsData'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Data.Entities.LoadShapeTotalsData:
       type: object

@@ -74,18 +74,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
-      additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Misc.TemperatureData:
       type: object
       properties:
@@ -97,6 +85,18 @@ components:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Misc.TemperatureData'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
+      type: object
+      properties:
+        datasets:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.Misc.TemperatureData:
       type: object
