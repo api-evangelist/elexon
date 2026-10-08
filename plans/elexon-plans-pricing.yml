@@ -71,3 +71,21 @@ plans:
         unit: 1
         price: '0'
         userMultiplied: false
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units:
+  - object
+  - request
+  plans:
+  - name: Public Free Access
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - object
+    - request
+    periods:
+    - unbounded
