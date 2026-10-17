@@ -1104,6 +1104,81 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.WindGenerationForecast'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-06-29T17:25:09Z'
+        processType:
+          type:
+          - string
+          - 'null'
+          example: Intraday process
+        businessType:
+          type:
+          - string
+          - 'null'
+          example: Wind generation
+        psrType:
+          type:
+          - string
+          - 'null'
+          example: Wind Offshore
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-06-29T15:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-06-29'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 40
+        quantity:
+          type: number
+          format: double
+          example: 1000
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
     Insights.Api.Models.Service.WindGenerationForecastRow:
       type: object
       properties:
@@ -1178,112 +1253,6 @@ components:
           format: date
           example: '2024-06-07'
       additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-06-29T17:25:09Z'
-        processType:
-          type:
-          - string
-          - 'null'
-          example: Intraday process
-        businessType:
-          type:
-          - string
-          - 'null'
-          example: Wind generation
-        psrType:
-          type:
-          - string
-          - 'null'
-          example: Wind Offshore
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-06-29T15:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-06-29'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 40
-        quantity:
-          type: number
-          format: double
-          example: 1000
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.AvailabilityWeekly'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
-      type: object
-      properties:
-        dataset:
-          type:
-          - string
-          - 'null'
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2024-06-07T15:00:00Z'
-        fuelType:
-          type:
-          - string
-          - 'null'
-          example: CCGT
-        ngcBmUnit:
-          type:
-          - string
-          - 'null'
-          example: CARR-1
-        bmUnit:
-          type:
-          - string
-          - 'null'
-          example: T_CARR-1
-        outputUsable:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 418
-        year:
-          type: integer
-          format: int32
-          example: 2024
-        calendarWeekNumber:
-          type: integer
-          format: int32
-          example: 23
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Generation.WindGenerationForecast:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Generation.WindGenerationForecast'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration
     : type: object
       properties:
@@ -1293,18 +1262,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadAggregatedGeneration'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadGenerationForWindAndSolar'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -1364,4 +1321,47 @@ components:
             type: string
           example:
           - DATASET
+      additionalProperties: false
+    Insights.Api.Models.Responses.Generation.AvailabilityWeekly:
+      type: object
+      properties:
+        dataset:
+          type:
+          - string
+          - 'null'
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2024-06-07T15:00:00Z'
+        fuelType:
+          type:
+          - string
+          - 'null'
+          example: CCGT
+        ngcBmUnit:
+          type:
+          - string
+          - 'null'
+          example: CARR-1
+        bmUnit:
+          type:
+          - string
+          - 'null'
+          example: T_CARR-1
+        outputUsable:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 418
+        year:
+          type: integer
+          format: int32
+          example: 2024
+        calendarWeekNumber:
+          type: integer
+          format: int32
+          example: 23
       additionalProperties: false

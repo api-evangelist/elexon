@@ -1055,67 +1055,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        boundary:
-          type:
-          - string
-          - 'null'
-        transmissionSystemDemand:
-          type: integer
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
-      type: object
-      properties:
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        transmissionSystemDemand:
-          type: integer
-          format: int64
-        nationalDemand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        forecastWeek:
-          type: integer
-          format: int32
-        forecastYear:
-          type: integer
-          format: int32
-        weekStartDate:
-          type: string
-          format: date
-      additionalProperties: false
     Insights.Api.Models.Responses.Transparency.WeekAheadTotalLoadPerBiddingZone:
       type: object
       properties:
@@ -1152,6 +1091,29 @@ components:
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        boundary:
+          type:
+          - string
+          - 'null'
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+      additionalProperties: false
     Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily:
       type: object
       properties:
@@ -1164,29 +1126,67 @@ components:
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone:
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
       type: object
       properties:
         publishTime:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          example: '2023-08-05 12:00:08Z'
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-08-06 23:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-07'
-        settlementPeriod:
+        transmissionSystemDemand:
+          type: integer
+          format: int64
+        nationalDemand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        forecastWeek:
           type: integer
           format: int32
-          example: 2
-        quantity:
-          type: number
-          format: double
-          example: 18648
+        forecastYear:
+          type: integer
+          format: int32
+        weekStartDate:
+          type: string
+          format: date
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
     Insights.Api.Models.Service.DayAheadDemandForecastRow:
       type: object
@@ -1216,29 +1216,17 @@ components:
           - 'null'
           format: int64
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly:
-      type: object
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone
+    : type: object
       properties:
         data:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastWeekly'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
-      type: object
-      properties:
-        datasets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - DATASET
       additionalProperties: false
     Insights.Api.Models.Responses.DemandForecast.DemandForecastDaily:
       type: object
@@ -1290,27 +1278,39 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead:
+    Insights.Api.Models.Metadata.ApiResponseSourceMetadata:
       type: object
       properties:
-        data:
+        datasets:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastDayAhead'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+            type: string
+          example:
+          - DATASET
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak:
+    Insights.Api.Models.Responses.Transparency.DayAheadTotalLoadPerBiddingZone:
       type: object
       properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandForecast.DemandForecastPeak'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-05 12:00:08Z'
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-08-06 23:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-07'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 2
+        quantity:
+          type: number
+          format: double
+          example: 18648
       additionalProperties: false

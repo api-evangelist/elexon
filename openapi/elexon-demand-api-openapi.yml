@@ -1034,81 +1034,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
-      type: object
-      properties:
-        publishTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        startTime:
-          type: string
-          format: date-time
-        settlementDate:
-          type: string
-          format: date
-        settlementPeriod:
-          type: integer
-          format: int32
-        initialTransmissionSystemDemandOutturn:
-          type: integer
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.IndodRow:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-08-26T23:15:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-08-26'
-        demand:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 494802
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndodRow:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndodRow'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
     Insights.Api.Models.Responses.DemandOutturn.DemandOutturn:
       type: object
       properties:
@@ -1132,60 +1057,6 @@ components:
           - 'null'
           format: int64
         initialTransmissionSystemDemandOutturn:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone:
-      type: object
-      properties:
-        publishTime:
-          type: string
-          format: date-time
-          example: '2023-06-29 17:25:09Z'
-        startTime:
-          type: string
-          format: date-time
-          example: '2023-06-29 15:30:00Z'
-        settlementDate:
-          type: string
-          format: date
-          example: '2023-06-29'
-        settlementPeriod:
-          type: integer
-          format: int32
-          example: 40
-        quantity:
-          type: number
-          format: double
-          example: 1000
-      additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone
-    : type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone'
-        metadata:
-          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
-      additionalProperties: false
-    Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
-      type: object
-      properties:
-        recordType:
-          type:
-          - string
-          - 'null'
-        startTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        demand:
           type:
           - integer
           - 'null'
@@ -1215,6 +1086,84 @@ components:
           - string
           - 'null'
           example: II
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndodRow:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndodRow'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturn:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturn'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
+      additionalProperties: false
+    Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-06-29 17:25:09Z'
+        startTime:
+          type: string
+          format: date-time
+          example: '2023-06-29 15:30:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-06-29'
+        settlementPeriod:
+          type: integer
+          format: int32
+          example: 40
+        quantity:
+          type: number
+          format: double
+          example: 1000
+      additionalProperties: false
+    Insights.Api.Models.Responses.DemandOutturn.IndodRow:
+      type: object
+      properties:
+        publishTime:
+          type: string
+          format: date-time
+          example: '2023-08-26T23:15:00Z'
+        settlementDate:
+          type: string
+          format: date
+          example: '2023-08-26'
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 494802
       additionalProperties: false
     Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow:
       type: object
@@ -1247,7 +1196,28 @@ components:
           format: int32
           example: 1234
       additionalProperties: false
-    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow
+    Insights.Api.Models.Responses.DemandOutturn.DemandOutturnPeak:
+      type: object
+      properties:
+        publishTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        settlementDate:
+          type: string
+          format: date
+        settlementPeriod:
+          type: integer
+          format: int32
+        initialTransmissionSystemDemandOutturn:
+          type: integer
+          format: int64
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone
     : type: object
       properties:
         data:
@@ -1255,11 +1225,29 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.Transparency.ActualTotalLoadPerBiddingZone'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
-    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.DemandOutturn:
+    Insights.Api.Models.Responses.DemandOutturn.RollingSystemDemand:
+      type: object
+      properties:
+        recordType:
+          type:
+          - string
+          - 'null'
+        startTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        demand:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak:
       type: object
       properties:
         data:
@@ -1267,7 +1255,7 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.DemandOutturn'
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.DemandOutturn.IndicativeDemandPeak'
         metadata:
           $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
@@ -1282,4 +1270,16 @@ components:
             type: string
           example:
           - DATASET
+      additionalProperties: false
+    ? Insights.Api.Models.Responses.ResponseWithMetadata-1_Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow
+    : type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Insights.Api.Models.Responses.RestorationZone.RestorationZoneDemandRestoredDatasetRow'
+        metadata:
+          $ref: '#/components/schemas/Insights.Api.Models.Metadata.ApiResponseSourceMetadata'
       additionalProperties: false
