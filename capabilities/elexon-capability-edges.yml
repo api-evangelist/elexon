@@ -11,18 +11,18 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 13
+edge_count: 15
 edges:
 - tag: Indicative Imbalance Settlement
   spec_file: elexon-indicative-imbalance-settlement-api-openapi.yml
   capability_id: BC-3830.50
   capability_id_l1: BC-3830
   capability_name: Imbalance Settlement Operations
-  confidence: 0.88
-  evidence: '"Settlement system prices by settlement date (DISEBSP)"; "Indicative volumes by settlement
-    period (DISPTAV)"; "Indicative period BMU cashflows by settlement date (EBOCF)"'
-  reason: Imbalance prices, imbalance/acceptance volumes and BMU cashflows published to balancing-responsible
-    parties are exactly imbalance settlement operations on the system-operator/code-administrator side.
+  confidence: 0.9
+  evidence: '''Settlement system prices by settlement date (DISEBSP)'', ''Indicative volumes by settlement
+    period (DISPTAV)'', ''Indicative period BMU cashflows by settlement date (EBOCF)'''
+  reason: These operations publish imbalance prices, imbalance/acceptance volumes and cashflows for balancing-mechanism
+    participants — precisely imbalance settlement operations administered by the BSC code body.
 - tag: Non-BM STOR
   spec_file: elexon-non-bm-stor-api-openapi.yml
   capability_id: BC-3830.40
@@ -73,14 +73,14 @@ edges:
     data for the system operator.
 - tag: System
   spec_file: elexon-system-api-openapi.yml
-  capability_id: BC-3830.20
+  capability_id: BC-3830.10
   capability_id_l1: BC-3830
-  capability_name: Frequency & Voltage Control
-  confidence: 0.75
-  evidence: GET /system/frequency "System frequency (FREQ)" and "Demand control instructions (DCI)"
-  reason: Transmission system frequency data, system warnings and demand control instructions are real-time
-    frequency control and system security data; frequency dominates the surface so Frequency & Voltage
-    Control is the closest fit.
+  capability_name: Real-Time System Operations
+  confidence: 0.78
+  evidence: '"System frequency (FREQ)", "System warnings (SYSWARN)", "Demand control instructions (DCI)"'
+  reason: Real-time frequency measurement, system warnings and demand-control instructions are the core
+    real-time supervision and control dataset of the transmission system operator; frequency data also
+    touches BC-3830.20.
 - tag: Bid-Offer Acceptances
   spec_file: elexon-bid-offer-acceptances-api-openapi.yml
   capability_id: BC-3830
@@ -112,6 +112,28 @@ edges:
   reason: LOLP / de-rated margin is a system-operator security-of-supply and operating-margin forecast
     for the transmission system, matching day-ahead/intraday operational planning under Grid Control &
     Balancing. Slight ambiguity because Elexon publishes rather than performs the planning.
+- tag: Demand
+  spec_file: elexon-demand-api-openapi.yml
+  capability_id: BC-3830.10
+  capability_id_l1: BC-3830
+  capability_name: Real-Time System Operations
+  confidence: 0.7
+  evidence: '''GB electricity demand, including historic.'' — ''Initial National Demand outturn (INDO)'',
+    ''Peak demand per day (ITSDO)'', ''Triad demand peaks'''
+  reason: National demand outturn and peak data are system-operator real-time/operational demand measures
+    for the bulk power system. L2 real-time system operations is the closest fit, though it is published
+    reference data rather than control action, so confidence is moderate.
+- tag: Demand Forecast
+  spec_file: elexon-demand-forecast-api-openapi.yml
+  capability_id: BC-3830.30
+  capability_id_l1: BC-3830
+  capability_name: Operational Planning
+  confidence: 0.7
+  evidence: '''Day-ahead demand forecast (NDF, TSDF)'', ''Fourteen day demand forecast (NDFD, TSDFD)'',
+    ''One-year demand forecast (NDFW, TSDFW)'''
+  reason: Day-ahead to one-year national demand forecasts are system-operator operational planning inputs
+    for security and margin assessment. Mapped to Operational Planning with moderate confidence as it
+    is forecast publication rather than the planning process itself.
 - tag: Non-BM Volumes
   spec_file: elexon-non-bm-volumes-api-openapi.yml
   capability_id: BC-3830.40
