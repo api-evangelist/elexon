@@ -1,0 +1,144 @@
+slug: elexon
+provider: Elexon
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Power & Water Utilities
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 13
+edges:
+- tag: Indicative Imbalance Settlement
+  spec_file: elexon-indicative-imbalance-settlement-api-openapi.yml
+  capability_id: BC-3830.50
+  capability_id_l1: BC-3830
+  capability_name: Imbalance Settlement Operations
+  confidence: 0.88
+  evidence: '"Settlement system prices by settlement date (DISEBSP)"; "Indicative volumes by settlement
+    period (DISPTAV)"; "Indicative period BMU cashflows by settlement date (EBOCF)"'
+  reason: Imbalance prices, imbalance/acceptance volumes and BMU cashflows published to balancing-responsible
+    parties are exactly imbalance settlement operations on the system-operator/code-administrator side.
+- tag: Non-BM STOR
+  spec_file: elexon-non-bm-stor-api-openapi.yml
+  capability_id: BC-3830.40
+  capability_id_l1: BC-3830
+  capability_name: Reserves & Ancillary Services
+  confidence: 0.85
+  evidence: '"Short Term Operating Reserves (STOR) data, provided as a time series or filtered to events"'
+  reason: Short Term Operating Reserve volumes and activation events are operating reserves / ancillary
+    services data within grid balancing.
+- tag: REMIT
+  spec_file: elexon-remit-api-openapi.yml
+  capability_id: BC-3850.70
+  capability_id_l1: BC-3850
+  capability_name: Trade Regulatory Reporting
+  confidence: 0.85
+  evidence: '"REMIT messages, including previous revisions" and schema "Remit.DatasetRows.OutageProfileData"'
+  reason: REMIT inside-information messages are the wholesale energy market regulatory reporting regime
+    explicitly covered by Trade Regulatory Reporting (REMIT).
+- tag: Loss of Load Probability and De-rated Margin
+  spec_file: elexon-loss-of-load-probability-and-de-rated-margin-api-openapi.yml
+  capability_id: BC-3830.30
+  capability_id_l1: BC-3830
+  capability_name: Operational Planning
+  confidence: 0.8
+  evidence: '"Loss of load probability and de-rated margin forecast data" — GET /lolpdrm/forecast/evolution'
+  reason: LOLP and de-rated margin are system-operator security-of-supply / operating-margin forecasts,
+    matching Grid Control & Balancing Management's Operational Planning (day-ahead/intraday security analysis
+    and operating-margin planning).
+- tag: Margin Forecast
+  spec_file: elexon-margin-forecast-api-openapi.yml
+  capability_id: BC-3830.30
+  capability_id_l1: BC-3830
+  capability_name: Operational Planning
+  confidence: 0.8
+  evidence: '"Generating Plant Operating Margin forecast data" — getForecastMarginDaily "Daily margin
+    forecast (OCNMFD2)"'
+  reason: Daily and weekly generating plant operating margin forecasts are operating-margin planning outputs
+    of the system-operator function.
+- tag: Surplus Forecast
+  spec_file: elexon-surplus-forecast-api-openapi.yml
+  capability_id: BC-3830.30
+  capability_id_l1: BC-3830
+  capability_name: Operational Planning
+  confidence: 0.8
+  evidence: '"Generating Plant Operating Surplus forecast data" — getForecastSurplusWeekly "Weekly surplus
+    forecast (OCNMFW, OCNMF3Y)"'
+  reason: Generating plant operating surplus forecasts are operating-margin / system security planning
+    data for the system operator.
+- tag: System
+  spec_file: elexon-system-api-openapi.yml
+  capability_id: BC-3830.20
+  capability_id_l1: BC-3830
+  capability_name: Frequency & Voltage Control
+  confidence: 0.75
+  evidence: GET /system/frequency "System frequency (FREQ)" and "Demand control instructions (DCI)"
+  reason: Transmission system frequency data, system warnings and demand control instructions are real-time
+    frequency control and system security data; frequency dominates the surface so Frequency & Voltage
+    Control is the closest fit.
+- tag: Bid-Offer Acceptances
+  spec_file: elexon-bid-offer-acceptances-api-openapi.yml
+  capability_id: BC-3830
+  capability_id_l1: BC-3830
+  capability_name: Grid Control & Balancing Management
+  confidence: 0.72
+  evidence: GET /balancing/acceptances/all — "Market-wide bid-offer acceptances (BOALF)"
+  reason: BOALF records are the system operator's acceptances of bids and offers in the GB Balancing Mechanism
+    — i.e. real-time balancing of generation and demand. Maps to the Grid Control & Balancing L1; the
+    data spans both real-time dispatch and downstream settlement so no single L2 is clearly named.
+- tag: Indicated Forecast
+  spec_file: elexon-indicated-forecast-api-openapi.yml
+  capability_id: BC-3830.30
+  capability_id_l1: BC-3830
+  capability_name: Operational Planning
+  confidence: 0.72
+  evidence: '"Indicated Generation (INDGEN), Indicated Demand (INDDEM), Imbalance (IMBALNGC) and Margin
+    (MELNGC)"; GET /forecast/indicated/day-ahead'
+  reason: Day-ahead indicated generation, demand, imbalance and margin are precisely the day-ahead security
+    and operating-margin planning outputs described by BC-3830.30 Operational Planning.
+- tag: System forecast
+  spec_file: elexon-system-forecast-api-openapi.yml
+  capability_id: BC-3830.30
+  capability_id_l1: BC-3830
+  capability_name: Operational Planning
+  confidence: 0.72
+  evidence: GET /forecast/system/loss-of-load — 'Loss of load probability and de-rated margin forecast
+    (LOLPDRM)'; description 'Transmission System forecasts'
+  reason: LOLP / de-rated margin is a system-operator security-of-supply and operating-margin forecast
+    for the transmission system, matching day-ahead/intraday operational planning under Grid Control &
+    Balancing. Slight ambiguity because Elexon publishes rather than performs the planning.
+- tag: Non-BM Volumes
+  spec_file: elexon-non-bm-volumes-api-openapi.yml
+  capability_id: BC-3830.40
+  capability_id_l1: BC-3830
+  capability_name: Reserves & Ancillary Services
+  confidence: 0.7
+  evidence: '"Balancing services volume data, filtered by BM Unit and time range" — getBalancingNonbmVolumes
+    "Balancing services volume (QAS)"'
+  reason: Non-BM balancing services volumes represent ancillary/reserve service activation outside the
+    Balancing Mechanism, part of reserves and ancillary services management.
+- tag: Rolling System Demand
+  spec_file: elexon-rolling-system-demand-api-openapi.yml
+  capability_id: BC-3830.10
+  capability_id_l1: BC-3830
+  capability_name: Real-Time System Operations
+  confidence: 0.7
+  evidence: schema "DemandOutturn.RollingSystemDemand" with GET /generation/outturn "Total generation
+    outturn (FUELINST)"
+  reason: Rolling system demand and total generation outturn are real-time system generation/demand supervision
+    data from the system operator; mapping to Real-Time System Operations, though the operation path/title
+    are inconsistent.
+- tag: SO-SO Prices
+  spec_file: elexon-so-so-prices-api-openapi.yml
+  capability_id: BC-3830.60
+  capability_id_l1: BC-3830
+  capability_name: Cross-Border Coordination
+  confidence: 0.7
+  evidence: '"SO-SO Prices (SOSO) data, filtered by start time"'
+  reason: System-Operator-to-System-Operator trade prices concern interconnector/cross-border coordination
+    between transmission system operators.
