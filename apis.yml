@@ -42,6 +42,18 @@ tags:
 - Meter Readings
 - Market Transparency
 - BMRS
+- Electric Grid
+- Power Generation
+- United Kingdom
+tags_raw:
+- Electricity
+- Energy
+- UK Energy Market
+- Balancing Mechanism
+- Settlement
+- Meter Readings
+- Market Transparency
+- BMRS
 - Electricity Grid
 - Power Generation
 - United Kingdom
@@ -582,6 +594,9 @@ apis:
   - type: GitHub
     url: https://github.com/elexon-data/insights-docs
 common:
+- type: CapabilityMap
+  url: capabilities/elexon-capability-edges.yml
+  name: Elexon Business Capability Map
 - url: https://www.elexon.co.uk/feed/
   type: BlogRSS
 - type: Website
